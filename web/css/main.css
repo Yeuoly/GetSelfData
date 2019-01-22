@@ -1,0 +1,70 @@
+body{    
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+
+#background{
+    z-index: -1;
+    position: fixed;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.app{
+    width: 100%;
+}
+
+.vertical-blank-block{
+    height: 30px;
+}
+
+.header{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border: 0px;
+    opacity: 0.5;
+    background-color: black;
+    background-attachment:fixed; 
+}
+
+.header-statue{
+    width: 50%;
+    font-size: 150%;
+    font-family: "微软雅黑";
+    color: white;
+    float: left;
+}
+
+.header-passport{
+    width: 10%;
+    font-family: "微软雅黑";
+    height: 100%;
+    vertical-align: middle;
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.header-passport #passport{
+    width: 80%;
+    height: 100%;
+    border: 0px;
+    color: white;
+    font-size: 130%;
+    background: transparent;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.header-passport #passport:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,213 @@
+/*
+    last update : 
+        date : 2018/12/22
+        new  : avatar urlblock and so on
+    author:
+        SRM_XY Yeuoly
+    group:
+        VSOV
+    website:
+        NotForget
+*/
+
+@charset "utf-8";
+
+div{
+    display: block;
+}
+
+.error-block{
+    width: 60%;
+    height: 80%;
+    margin: 0 auto;
+    font: large;
+    color: brown;
+    background-color: aliceblue;
+}
+
+.wrap{
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.post-card{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 70%;
+    overflow:auto;
+    background-color: rgba(238, 238, 238, 0.315);
+    margin: 0 auto;
+    border-radius:5px;
+}
+
+.post-card-head{
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.post-card-body{
+    width: 95%;
+    margin: 0 auto;
+    overflow: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.post-introduction{
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+    margin-left: -30px;
+    float: left;
+    width: 60%;
+    min-height: 50px;
+    text-align: justify;
+    background-color: rgba(255,255,255,0.135);
+    border-radius: 5px;
+    word-wrap: break-word;
+    word-break: break-all;
+    letter-spacing: 1px;
+    line-height: 22px;
+    border: 10px;
+}
+
+.post-title{
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.post-card-userblock{
+    padding-left: 25px;
+    width: 30%;
+    height: 50px;
+    float: left;
+}
+
+.post-card-userblock-id{
+    float: left;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.post-card-userblock-avatar{
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+#post-card-userblock-avatar-img{
+    object-fit: cover;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 25px;
+}
+
+.post-card-url-onclick{
+    color: black;
+    text-decoration: none;
+}
+
+.showinfo-table{
+    width: 90%;
+    margin: 0 auto;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.showinfo-table td{
+    display: table-cell;
+    text-align: center;
+    font-family: "微软雅黑 Narrow";
+    color:rgb(37, 37, 37);
+}
+
+.showinfo-table .showinfo-title{
+    width: 30%;
+}
+
+.showinfo-table .showinfo-num{
+    width: 5%;
+}
+
+.oprate-box{
+    height: 200px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.oprate-box input[type="text"]{
+    height: 50px;
+    background-color: transparent;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 2px;
+    border-color: white;
+    outline:none;
+}
+
+.oprate-box .oprate-box-infomana-showinfo input[type="text"]{
+    color: white;
+    font-family:  "微软雅黑";
+    font-size: 200%;
+    width: 80%;
+}
+
+.oprate-box .oprate-box-infomana-showinfo .oprate-box-button{
+    float: right;
+    padding-top: 20px;
+    padding-right: 7%;
+}
+
+.oprate-box .oprate-box-infomana-showinfo .oprate-box-button input[type="submit"]{
+    border: 0px;
+    outline: 0px;
+    background: white;
+    width: 150px;
+    height: 40px;
+    font-family: "微软雅黑";
+    font-size: 120%;
+    opacity: 0.7;
+}
+
+.showinfo-table td button{
+    border: 0px;
+    outline: 0px;
+    height: 100%;
+    width: 40%;
+    opacity: 0.7;
+}
+
+.showinfo-table td button:hover{
+    cursor: pointer;
+}
+
+.oprate-box .oprate-box-infomana-showinfo .oprate-box-label{
+    color: white;
+    font-family: "微软雅黑";
+    font-size: 200%;
+    padding-right: 5px;
+}
+
+.help-box{
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+    font-family: "微软雅黑";
+    font-size: 120%;
+    text-align: left;
+}
