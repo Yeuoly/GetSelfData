@@ -126,7 +126,7 @@ function regsiterMaster(account,password,verification)
         url : static_data.getUrlPath("reg.php",static_data.m_URL_DOMAIN_API_DIR),
         async : false,
         type : "post",
-        data : {act : account,pswd : password,verification : verification , tim : exr[0]/1000 , rnd : exr[1]},
+        data : {act : account,pswd : password,captcha : verification , tim : exr[0]/1000 , rnd : exr[1]},
         dataType : "json",
         contentType : "application/x-www-form-urlencoded",
 	    xhrFields: {

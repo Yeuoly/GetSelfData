@@ -41,7 +41,7 @@
     }
 
     //验证参数格式
-    if(!$formater->FromMethod($method) || !$formater->FromEmail($email) || !$formater->FromRnd($captcha))
+    if(!$formater->FromMethod($method) || !$formater->FromEmail($email) || !$formater->FromNormalNum($captcha))
     {
         $res->set('res',failed);
         $res->set('error',list_operate_wrongformat,true);
@@ -71,9 +71,11 @@
 
     //发送邮箱验证码
     $result = $captchater_email
+        ->__setEmail($email)
         ->CreateCaptcha()
         ->SaveCaptcha($method)
-        ->Send($email,$msg);
+        ->SaveEmail()
+        ->Send($msg);
     if($result != true)
     {
         $res->set('res',send_mail_failed);

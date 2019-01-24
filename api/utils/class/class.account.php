@@ -23,7 +23,7 @@
     define("mysql_key_jct","srm_jct");
     define("mysql_key_account","act");
     define("mysql_key_email","email");
-    define("mysql_key_register_time","reg_time");
+    define("mysql_key_register_time","register_time");
     define("mysql_key_uid","uid");
 
 
@@ -89,11 +89,15 @@
             return $DB->GetRowFromList(mysql_user_list,mysql_key_account,$account);
         }
 
+        /*
+         * 验证密码、账号、时间戳、随机数的格式
+         *
+         * */
         public function VerifyFormat()
         {
             $verifier = new FormatChecker();
             if(!$verifier->FromAccount($this->account) || !$verifier->FromPassword($this->password) ||
-                !$verifier->FromTime($this->time) || !$verifier->FromRnd($this->rnd))
+                !$verifier->FromTime($this->time) || !$verifier->FromNormalNum($this->rnd))
             {
                 return false;
             }
@@ -158,7 +162,7 @@
          * 注册账号（其实就是往数据库里加一个账号记录）
          *
          * */
-        final public function Register(&$user_data)
+        public function Register(&$user_data)
         {
             $DB = new DB_Controller(mysql_db_host,mysql_user,mysql_password,mysql_dbname);
             if(!$DB->Start())
@@ -191,20 +195,30 @@
             {
                 return constant('passport_register_repeat_account&email');
             }
+            $reg_time = time();
+            $srm_jct  = \NFG\getSrmJct(32);
             $db_result = $DB->InsertIntoList(
                 mysql_user_list,
                 array(
                     mysql_key_account       => $this->account,
                     mysql_key_email         => $this->email,
                     mysql_key_password      => \NFG\encryptPassword($this->password),
-                    mysql_key_register_time => time(),
-                    mysql_key_uid           => $uid
+                    mysql_key_register_time => $reg_time,
+                    mysql_key_uid           => $uid,
+                    mysql_key_jct           => $srm_jct
                 )
             );
             if(is_string($db_result))
             {
                 return $db_result;
             }
+            $user_data = array(
+                'account'  => $this->account,
+                'email'    => $this->email,
+                'uid'      => $uid,
+                'reg_time' => $reg_time,
+                'srm_jct'  => $srm_jct,
+            );
             return true;
         }
     }

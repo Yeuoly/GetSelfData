@@ -26,8 +26,7 @@
          * 成功返回this
          *
          * */
-        public function SaveCaptcha($method,$expiretime = 600)
-        {
+        public function SaveCaptcha($method,$expiretime = 600){
             $this->expiretime = $expiretime;
             $_SESSION[captcha_head.$method] = md5($this->captcha);
             $_SESSION[captcha_head.$method.captcha_timetail] = $expiretime+time();
@@ -40,8 +39,7 @@
          * 成功返回this
          *
          * */
-        public function Verfiy($method,$src)
-        {
+        public function Verfiy($method,$src){
             if(!isset($_SESSION[captcha_head.$method]))return passport_verification_nocaptcha;
             if(!is_string($src))return false;
             if($_SESSION[captcha_head.$method] != md5(intval($src)))return wrong_captcha;
@@ -63,8 +61,7 @@
          * 生成验证码
          *
          * */
-        public function CreateCaptcha()
-        {
+        public function CreateCaptcha(){
             $image = imagecreatetruecolor(100, 30);
 
             //2.为画布定义(背景)颜色
@@ -114,14 +111,12 @@
             return $this;
         }
 
-        public function Output()
-        {
+        public function Output(){
             imagepng($this->output_image);
             return $this;
         }
 
-        public function DestoryImage()
-        {
+        public function DestoryImage(){
             imagedestroy($this->output_image);
             return $this;
         }
@@ -129,32 +124,68 @@
 
     class VerfiyEmail extends Verify
     {
+        //邮件Session前缀
+        const Session_Email = "Captcha_Email";
+
+        //目标邮件地址
+        private $email = "";
+
+        final public function __setEmail($email){
+            $this->email = $email;
+            return $this;
+        }
         /*
         * 生成验证码
         *
         * */
-        public function CreateCaptcha($min = 10000,$max = 99999)
-        {
+        public function CreateCaptcha($min = 10000,$max = 99999){
             srand(time());
             $this->captcha = rand($min,$max);
             return $this;
         }
 
         /*
-         * 发送邮件
+         * 向Session中存入邮件地址
          *
          * */
-        public function Send($to,$welcome)
-        {
+        public function SaveEmail(){
+            $_SESSION[self::Session_Email] = $this->email;
+            return $this;
+        }
+
+        /*
+         * 从Session中获取邮件地址，要求已经保存了地址，如果没有就返回false
+         *
+         * */
+        public function GetEmail(){
+            if(!isset($_SESSION[self::Session_Email]))
+            {
+                return false;
+            }
+            return $_SESSION[self::Session_Email];
+        }
+
+        /*
+         * 发送邮件，并保存邮件地址Session
+         *
+         * */
+        public function Send($welcome){
             include_once (FilePath . "/utils/mailpack.php");
             $msg = $welcome."您的验证码为：".$this->captcha.
                 "，验证码有效时间为：".intval($this->expiretime/60).
                 "请尽快完成操作~";
-            $send_result = sendMail($to,"YeuolyBlog邮箱验证码",$msg);
+            $send_result = sendMail($this->email,"YeuolyBlog邮箱验证码",$msg);
             if($send_result == send_mail_success)return true;
             return $send_result;
         }
 
+        public function ReleaseEmail(){
+            if(isset($_SESSION[self::Session_Email]))
+            {
+                unset($_SESSION[self::Session_Email]);
+            }
+            return $this;
+        }
     }
 
 

@@ -66,7 +66,7 @@
             return true;
         }
 
-        public function FromRnd($rnd)
+        public function FromNormalNum($rnd)
         {
             if(!isset($rnd) || !intval($rnd))
             {

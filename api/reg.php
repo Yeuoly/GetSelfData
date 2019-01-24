@@ -11,6 +11,10 @@
     include_once (FilePath . "/utils/mailpack.php");
     include_once (FilePath . "/utils/functions.php");
     include_once (FilePath . "/utils/class/class.encryption.php");
+    include_once (FilePath . "/utils/class/class.verification.php");
+    include_once (FilePath . "/utils/class/class.response_ajax.php");
+    include_once (FilePath . "/utils/class/class.account.php");
+    include_once (FilePath . "/utils/class/class.format.php");
 
     //服务端回文头部
     \NFG\HeaderSetting::SetCharset();
@@ -26,7 +30,56 @@
     $rnd = @$_POST['rnd'];
     $captcha = @$_POST['captcha'];
 
-    
+    //服务端回文
+    $res = new ResponseAjax();
+
+    //验证验证码格式
+    $formater = new FormatChecker();
+    if(!$formater->FromNormalNum($captcha))
+    {
+        $res->set('res',failed);
+        $res->set('error',passport_wrong_format,true);
+    }
+
+    $Captchater = new VerfiyEmail();
+    $result = $Captchater->Verfiy('register',$captcha);     //验证邮箱验证码
+    if(is_string($result))
+    {
+        $res->set('res',failed);
+        $res->set('error',$result,true);
+    }
+    $email  = $Captchater->GetEmail();                              //获取邮箱地址
+    if(!$email)
+    {
+        return passport_server_error;
+    }
+    $AccountActor = new AccountAction();
+    $AccountActor->__init($account,$password,$tim,$rnd)->__setEmail($email);
+    //账号信息格式错误
+    $result = $AccountActor->VerifyFormat();
+    if(!$result)
+    {
+        $res->set('res',failed);
+        $res->set('error',passport_wrong_format,true);
+    }
+
+    $userdata = null;
+    $result = $AccountActor->Register($userdata);
+
+    var_dump($AccountActor);
+
+    //释放Seesion
+    $Captchater->ReleaseEmail();
+
+    //注册失败
+    if(is_string($result))
+    {
+        $res->set('res',failed);
+        $res->set('error',$result,true);
+    }
+
+    $res->set('res',success);
+    $res->set('data',$userdata,true);
 
 
     /**祖传代码**/

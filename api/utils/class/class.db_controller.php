@@ -150,10 +150,18 @@
             $vals = "";
             foreach ($datalist as $key => $val)
             {
-                $keys .= $key." ";
-                $vals .= $val." ";
+                if(is_string($val))
+                {
+                    $vals .= "'$val',";
+                }else {
+                    $vals .= $val.",";
+                }
+                $keys .= $key.",";
             }
+            $vals = substr($vals,0,strlen($vals)-1);
+            $keys = substr($keys,0,strlen($keys)-1);
             $sql = "INSERT INTO $list ($keys) VALUES ($vals)";
+            echo $sql;
             if(!mysqli_query($this->con,$sql))
             {
                 return passport_server_error;
