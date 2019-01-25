@@ -15,7 +15,7 @@
     class ResponseAjax
     {
         private $result = array(
-            'msg' => success,
+            'msg' => SUCCESS,
             'data' => array(
                 'res' => '',
                 'error' => '',

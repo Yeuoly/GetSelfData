@@ -1,10 +1,27 @@
 <?php
-    define("FilePath",dirname(__FILE__));       //文件目录
+    include_once (dirname(__FILE__) . "/config.php");
+    include_once (FILEPATH . "/utils/class/class.response_ajax.php");
+    \NFG\InitCommunicate();
 
-    include_once (FilePath . "/utils/functions.php");
-    include_once (FilePath . "/utils/class/class.db_controller.php");
-    include_once (FilePath . "config.php");
-    session_name("HTPP_S_V_NFG");
+    //回文头部设定
+    \NFG\HeaderSetting::SetTextJson();
+    \NFG\HeaderSetting::SetAllowCredentials();
+    \NFG\HeaderSetting::SetCharset();
+
+    //回文主体
+    $res = new ResponseAjax();
+    $result = AccountAction::CheckJct($_COOKIE[COOKIE_SRM_JCT]);
+    if(AccountAction::_is_failed($result))
+    {
+        $res->set('res',FAILED);
+        $res->set('error',$result,true);
+    }
+    $res->set('res',SUCCESS);
+    $res->set('error',$result);
+
+
+    /**粪山**/
+    /*session_name("HTPP_S_V_NFG");
     session_start();
 
     $res = array(
@@ -53,7 +70,7 @@
             $res['msg'] = constant('success');
             $res['data']['res'] = constant('passport_jct_offline');
         }*/
-
+        /*
         define('SERVER_ERROR',$res['data']['res'] = failed,
                               $res['data']['error'] = passport_server_error
         );
@@ -80,4 +97,4 @@
             $_SESSION['expiretime'] = time();
         }
     }
-    echo json_encode($res);
+    echo json_encode($res);*/

@@ -1,6 +1,6 @@
 <?php
     include_once (dirname(__FILE__) . "/../config.php");
-    include_once (FilePath . "/phpmailer/PHPMailerAutoload.php");
+    include_once (FILEPATH . "/phpmailer/PHPMailerAutoload.php");
 
     function sendMail($reciever,$title,$content){
         $mail = new PHPMailer;
@@ -13,9 +13,9 @@
         $mail->isSMTP();                                      
         //smtp需要鉴权 这个必须是true
         $mail->SMTPAuth = true;                               
-        $mail->Host = 'smtp.qq.com';
-        $mail->Username = passport_email_server_user_330;
-        $mail->Password = passport_email_server_token_330;
+        $mail->Host = EMAIL_SERVER_HOST;
+        $mail->Username = EMAIL_SERVER_USER;
+        $mail->Password = EMAIL_SERVER_PASSWORD;
         //设置使用ssl加密方式登录鉴权
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
@@ -23,7 +23,7 @@
         //设置发送的邮件的编码 也可选 GB2312
         $mail->CharSet = 'UTF-8';
 
-        $mail->setFrom(passport_email_server_user_330, 'YeuolyBlog');
+        $mail->setFrom(EMAIL_SERVER_USER, 'YeuolyBlog');
 
         $mail->addAddress($reciever);
         $mail->isHTML(true);

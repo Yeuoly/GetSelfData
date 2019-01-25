@@ -10,7 +10,7 @@
      */
 
     /**
-     * 登录操作类
+     * 用户操作类
      * */
 
     include_once (dirname(__FILE__)."/class.db_controller.php");
@@ -25,9 +25,10 @@
     define("mysql_key_email","email");
     define("mysql_key_register_time","register_time");
     define("mysql_key_uid","uid");
+    define("mysql_key_login_time","login_time");
 
 
-    class AccountAction
+    class AccountAction extends Base
     {
         private $account = "";
         private $password = "";
@@ -40,8 +41,7 @@
          * 错误返回原因
          * 成功返回true
          **/
-        public function __construct()
-        {
+        public function __construct(){
             /*if(!$this->VerifyFormat($account,$password,$time,$rnd))
             {
                 return passport_wrong_format;
@@ -54,8 +54,7 @@
             return $this;*/
         }
 
-        public function __init($account = "",$password = "",$time = 0,$rnd = 0)
-        {
+        public function __init($account = "",$password = "",$time = 0,$rnd = 0){
             $this->password = $password;
             $this->account = $account;
             $this->time = $time;
@@ -63,10 +62,26 @@
             return $this;
         }
 
-        public function __setEmail($email)
-        {
+        public function __setEmail($email){
             $this->email = $email;
             return $this;
+        }
+
+        /*
+         * 返回一个用户的所有信息
+         *
+         * */
+        public function FindUser($account){
+            $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+            //用户信息
+            $userinfo = null;
+
+            if($DB->_is_failed($DB->Start()))
+            {
+                return passport_server_error;
+            }
+
+            return $DB->GetRowFromList(MYSQL_USER_LIST,mysql_key_account,$account);
         }
 
         /*
@@ -74,27 +89,7 @@
          * 错误返回false
          * 成功返回this
          * */
-
-        public function FindUser($account)
-        {
-            $DB = new DB_Controller(mysql_db_host,mysql_user,mysql_password,mysql_dbname);
-            //用户信息
-            $userinfo = null;
-
-            if(!$DB->Start())
-            {
-                return passport_server_error;
-            }
-
-            return $DB->GetRowFromList(mysql_user_list,mysql_key_account,$account);
-        }
-
-        /*
-         * 验证密码、账号、时间戳、随机数的格式
-         *
-         * */
-        public function VerifyFormat()
-        {
+        public function VerifyFormat(){
             $verifier = new FormatChecker();
             if(!$verifier->FromAccount($this->account) || !$verifier->FromPassword($this->password) ||
                 !$verifier->FromTime($this->time) || !$verifier->FromNormalNum($this->rnd))
@@ -109,25 +104,20 @@
          * 错误返回原因
          * 成功返回true，并将jct存入user_data
          * */
-        final public function Login(&$user_data)
-        {
+        public function Login(&$user_data){
             //初始化数据库
 
-            $DB = new DB_Controller(mysql_db_host,mysql_user,mysql_password,mysql_dbname);
-            //用户信息
-
-            if(!$DB->Start())
+            $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+            if($DB->_is_failed($DB->Start()))
             {
                 return passport_server_error;
             }
 
+            //用户信息
             $userinfo = $DB->GetRowFromList(                    //从数据库中查找数据
-                mysql_user_list,
+                MYSQL_USER_LIST,
                 array(
-                    array(
-                        'key' => mysql_key_account,
-                        'val' => $this->account
-                    )
+                    mysql_key_account => $this->account
                 ),
                 'or'
             );
@@ -144,7 +134,9 @@
             }
 
             $id_sign = \NFG\getSrmJct(32);                //随机获取一个jct
-            if(!$DB->SetInList(mysql_user_list,mysql_key_jct,$id_sign,mysql_key_account,$userinfo['act']))
+            if($DB->_is_failed(
+                $DB->SetInList(MYSQL_USER_LIST,mysql_key_jct,$id_sign,mysql_key_account,$userinfo['act'])
+            ))
             {
                 return passport_server_error;
             }
@@ -162,29 +154,21 @@
          * 注册账号（其实就是往数据库里加一个账号记录）
          *
          * */
-        public function Register(&$user_data)
-        {
-            $DB = new DB_Controller(mysql_db_host,mysql_user,mysql_password,mysql_dbname);
-            if(!$DB->Start())
+        public function Register(&$user_data){
+            $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+            if($DB->_is_failed($DB->Start()))
             {
                 return passport_server_error;
             }
 
             $uid = 0;
             $db_result = $DB->GetRowFromList(
-                mysql_user_list,
+                MYSQL_USER_LIST,
                 array(
-                    array(
-                        'key' => mysql_key_account,
-                        'val' => $this->account,
-                    ),
-                    array(
-                        'key' => mysql_key_email,
-                        'val' => $this->email
-                    )
+                    mysql_key_account => $this->account,
+                    mysql_key_email => $this->email
                 ),
-                'or',
-                $uid
+                'or'
             );
             //如果返回为unexist，则表示未发现这个账号，可以注册
             if($db_result == $DB::server_error)
@@ -198,7 +182,7 @@
             $reg_time = time();
             $srm_jct  = \NFG\getSrmJct(32);
             $db_result = $DB->InsertIntoList(
-                mysql_user_list,
+                MYSQL_USER_LIST,
                 array(
                     mysql_key_account       => $this->account,
                     mysql_key_email         => $this->email,
@@ -208,7 +192,7 @@
                     mysql_key_jct           => $srm_jct
                 )
             );
-            if(is_string($db_result))
+            if($DB->_is_failed($db_result))
             {
                 return $db_result;
             }
@@ -219,6 +203,59 @@
                 'reg_time' => $reg_time,
                 'srm_jct'  => $srm_jct,
             );
+            return true;
+        }
+
+        //更新jct
+        static protected function UpdateJct($jct){
+            $_SESSION[SESSION_LOGIN_TIME] = time();
+            $_SESSION[SESSION_SRM_JCT] = $jct;
+            setcookie(COOKIE_SRM_JCT,$jct,time() + COOKIE_SAVING_TIME , "/");
+        }
+
+        /*
+         * 检测jct是否在线，如果在线就更新jct时间
+         *
+         * */
+        static public function CheckJct($jct){
+            //短期频繁登录用户直接用SESSION操作
+            if(isset($_SESSION[SESSION_SRM_JCT]) && isset($_COOKIE[COOKIE_SRM_JCT]) && isset($_SESSION[SESSION_LOGIN_TIME]))
+            {
+                if($_SESSION[SESSION_SRM_JCT] == $_COOKIE[COOKIE_SRM_JCT] && $_SESSION[SESSION_LOGIN_TIME] + JCT_MAX_TIME <= time())
+                {
+                    self::UpdateJct($jct);
+                    return true;
+                }else{
+                    return passport_jct_offline;
+                }
+            }
+
+            //长期没登录（十天之内），使用数据库登录
+            $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+            if($DB->_is_failed($DB->Start()))
+            {
+                return passport_server_error;
+            }
+
+            $db_result = $DB->GetRowFromList(
+                MYSQL_USER_LIST,
+                array(
+                     mysql_key_jct => $jct
+                ),
+                'or'
+            );
+            switch ($db_result)
+            {
+                case $DB::unexist_data: return passport_jct_offline;
+                case $DB::server_error: return passport_server_error;
+            }
+
+            if($db_result[mysql_key_jct] != $jct || $db_result[mysql_key_login_time] + JCT_MAX_TIME < time())
+            {
+                return passport_jct_offline;
+            }
+
+            self::UpdateJct($jct);
             return true;
         }
     }

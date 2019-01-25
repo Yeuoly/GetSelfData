@@ -170,7 +170,7 @@
          *
          * */
         public function Send($welcome){
-            include_once (FilePath . "/utils/mailpack.php");
+            include_once (FILEPATH . "/utils/mailpack.php");
             $msg = $welcome."您的验证码为：".$this->captcha.
                 "，验证码有效时间为：".intval($this->expiretime/60).
                 "请尽快完成操作~";

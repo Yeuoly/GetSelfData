@@ -5,11 +5,11 @@
      *
      * */
     include_once (dirname(__FILE__) . "/config.php");
-    include_once (FilePath . "/utils/functions.php");
-    include_once (FilePath . "/utils/class/class.verification.php");
-    include_once (FilePath . "/utils/class/class.response_ajax.php");
-    include_once (FilePath . "/utils/class/class.account.php");
-    include_once (FilePath . "/utils/class/class.format.php");
+    include_once (FILEPATH . "/utils/functions.php");
+    include_once (FILEPATH . "/utils/class/class.verification.php");
+    include_once (FILEPATH . "/utils/class/class.response_ajax.php");
+    include_once (FILEPATH . "/utils/class/class.account.php");
+    include_once (FILEPATH . "/utils/class/class.format.php");
 
     //设置头部
     \NFG\HeaderSetting::SetAllowCredentials();
@@ -43,7 +43,7 @@
     //验证参数格式
     if(!$formater->FromMethod($method) || !$formater->FromEmail($email) || !$formater->FromNormalNum($captcha))
     {
-        $res->set('res',failed);
+        $res->set('res',FAILED);
         $res->set('error',list_operate_wrongformat,true);
     }
 
@@ -51,7 +51,7 @@
     $result =  $captchater_math->Verfiy($method,$captcha);      //验证验证码
     if(is_string($result))
     {
-        $res->set('res',failed);
+        $res->set('res',FAILED);
         $res->set('error',$result,true);
     }
 

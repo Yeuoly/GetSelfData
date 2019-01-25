@@ -8,13 +8,13 @@
 
     //引入类文件
     include_once (dirname(__FILE__) . "/config.php");
-    include_once (FilePath . "/utils/mailpack.php");
-    include_once (FilePath . "/utils/functions.php");
-    include_once (FilePath . "/utils/class/class.encryption.php");
-    include_once (FilePath . "/utils/class/class.verification.php");
-    include_once (FilePath . "/utils/class/class.response_ajax.php");
-    include_once (FilePath . "/utils/class/class.account.php");
-    include_once (FilePath . "/utils/class/class.format.php");
+    include_once (FILEPATH . "/utils/mailpack.php");
+    include_once (FILEPATH . "/utils/functions.php");
+    include_once (FILEPATH . "/utils/class/class.encryption.php");
+    include_once (FILEPATH . "/utils/class/class.verification.php");
+    include_once (FILEPATH . "/utils/class/class.response_ajax.php");
+    include_once (FILEPATH . "/utils/class/class.account.php");
+    include_once (FILEPATH . "/utils/class/class.format.php");
 
     //服务端回文头部
     \NFG\HeaderSetting::SetCharset();
@@ -37,7 +37,7 @@
     $formater = new FormatChecker();
     if(!$formater->FromNormalNum($captcha))
     {
-        $res->set('res',failed);
+        $res->set('res',FAILED);
         $res->set('error',passport_wrong_format,true);
     }
 
@@ -45,7 +45,7 @@
     $result = $Captchater->Verfiy('register',$captcha);     //验证邮箱验证码
     if(is_string($result))
     {
-        $res->set('res',failed);
+        $res->set('res',FAILED);
         $res->set('error',$result,true);
     }
     $email  = $Captchater->GetEmail();                              //获取邮箱地址
@@ -59,14 +59,12 @@
     $result = $AccountActor->VerifyFormat();
     if(!$result)
     {
-        $res->set('res',failed);
+        $res->set('res',FAILED);
         $res->set('error',passport_wrong_format,true);
     }
 
     $userdata = null;
     $result = $AccountActor->Register($userdata);
-
-    var_dump($AccountActor);
 
     //释放Seesion
     $Captchater->ReleaseEmail();
@@ -74,11 +72,11 @@
     //注册失败
     if(is_string($result))
     {
-        $res->set('res',failed);
+        $res->set('res',FAILED);
         $res->set('error',$result,true);
     }
 
-    $res->set('res',success);
+    $res->set('res',SUCCESS);
     $res->set('data',$userdata,true);
 
 

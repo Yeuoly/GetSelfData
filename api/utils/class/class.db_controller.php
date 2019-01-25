@@ -5,7 +5,10 @@
      * Date: 2019/1/11
      * Time: 22:01
      */
-    class DB_Controller
+    include_once (dirname(__FILE__) . "/class.base.php");
+
+
+    class DB_Controller extends Base
     {
         const unexist_data = -2;        //不存在数据
         const server_error = false;     //服务器大姨妈了
@@ -92,9 +95,9 @@
                 case 'or':
                     do{
                         /* if($row[$key] == $val) return $row;                   //返回目标字段*/
-                        foreach ($datalist as $val)                              //开始对比查找
+                        foreach ($datalist as $key => $val)                      //开始对比查找
                         {
-                            if($row[$val['key']] == $val['val'])
+                            if($row[$key] == $val)
                             {
                                 return $row;
                             }
@@ -106,11 +109,11 @@
                     do{
                         /* if($row[$key] == $val) return $row;                          //返回目标字段*/
                         $found_times = 0;
-                        foreach ($datalist as $val)
+                        foreach ($datalist as $key => $val)                              //开始对比查找
                         {
-                            if($row[$val['key']] == $val['val'])
+                            if($row[$key] == $val)
                             {
-                                $found_times++;
+                                return $row;
                             }
                         }
                         if($found_times == $size_datalist)                              //如果匹配次数和datalist长度相同则返回字段
