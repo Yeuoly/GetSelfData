@@ -4,7 +4,7 @@
      * Version : 1.0.1-alpha
      *
      * */
-    include_once (dirname(__FILE__) . "/config.php");
+    include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/functions.php");
     include_once (FILEPATH . "/utils/class/class.verification.php");
     include_once (FILEPATH . "/utils/class/class.response_ajax.php");

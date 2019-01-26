@@ -39,8 +39,8 @@ function NotForgetData()
         }
         function PassJct()
         {
-            this.failed = "离线";
-            this.success = "验证通过";
+            this.failed = -250;
+            this.success = 666;
         }
         function RequestVerification()
         {

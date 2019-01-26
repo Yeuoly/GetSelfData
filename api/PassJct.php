@@ -1,6 +1,8 @@
 <?php
-    include_once (dirname(__FILE__) . "/config.php");
+    include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/class/class.response_ajax.php");
+    include_once (FILEPATH . "/utils/functions.php");
+    include_once (FILEPATH . "/utils/class/class.account.php");
     \NFG\InitCommunicate();
 
     //回文头部设定
@@ -10,15 +12,16 @@
 
     //回文主体
     $res = new ResponseAjax();
-    $result = AccountAction::CheckJct($_COOKIE[COOKIE_SRM_JCT]);
+    $user_data = null;
+    $result = AccountAction::CheckJct($_COOKIE[COOKIE_SRM_JCT],$user_data);
     if(AccountAction::_is_failed($result))
     {
         $res->set('res',FAILED);
         $res->set('error',$result,true);
     }
     $res->set('res',SUCCESS);
-    $res->set('error',$result);
-
+    $res->set('data',$user_data);
+    $res->set('error',$result,true);
 
     /**粪山**/
     /*session_name("HTPP_S_V_NFG");

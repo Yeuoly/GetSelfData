@@ -25,7 +25,7 @@
 
     function InitCommunicate()
     {
-        include_once(dirname(__FILE__) . "/../config.php");
+        include_once(dirname(__FILE__) . "/../Config.php");
         session_name(SESSIONID);
         session_start();
     }
@@ -33,7 +33,7 @@
         * 加密
         * */
     function encode($src,$offset){
-        include_once(dirname(__FILE__) . "/../config.php");
+        include_once(dirname(__FILE__) . "/../Config.php");
         include_once(FILEPATH . "/utils/class/class.encryption.php");
         return \SRMEncode::encode($src, $offset);
     }
@@ -42,7 +42,7 @@
     * 解密
     * */
     function decode($src,$offset){
-        include_once(dirname(__FILE__) . "/../config.php");
+        include_once(dirname(__FILE__) . "/../Config.php");
         return \SRMEncode::decode($src,$offset);
     }
     /*
@@ -68,7 +68,7 @@
      * */
     function encryptPassword($source)
     {
-        include_once(dirname(__FILE__) . "/../config.php");
+        include_once(dirname(__FILE__) . "/../Config.php");
         return md5(md5(md5(
             "^".$source."^".PASSWORD_HASH_SALT."^".PASSWORD_HASH_256."^".PASSWORD_HASH_CONFIRM
             )));

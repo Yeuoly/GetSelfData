@@ -79,7 +79,7 @@ function verifyToken(account,password)
     var exr = pisert();
     $.ajax({
         url : static_data.getUrlPath("login.php",static_data.m_URL_DOMAIN_API_DIR),
-        async : false,
+        async : true,
         type : "post",
         data : {act : account , pswd : password , tim : exr[0]/1000 , rnd : exr[1]},
         dataType : "json",
@@ -89,9 +89,9 @@ function verifyToken(account,password)
     	},
         success : function(data)
         {
-            if(data['msg'] == static_data.response.login.failed)
+            if(data['data']['res'] == static_data.response.login.failed)
                 $("#sec_master").html((data['data']['error']));
-            else if(data['msg'] == static_data.response.login.success)
+            else if(data['data']['res'] == static_data.response.login.success)
                 location.href = static_data.getUrlPath("",static_data.m_URL_DOMAIN_WEB_DIR);
         }
     });
@@ -101,7 +101,7 @@ function requestEmailVerification(email,captcha)
 {
     $.ajax({
         url : static_data.getUrlPath("verification.php",static_data.m_URL_DOMAIN_API_DIR),
-        async : false,
+        async : true,
         type : "post",
         data : {email : email , method : 'register' , captcha : captcha},
         dataType : "json",
@@ -124,7 +124,7 @@ function regsiterMaster(account,password,verification)
     var exr = pisert();
     $.ajax({
         url : static_data.getUrlPath("reg.php",static_data.m_URL_DOMAIN_API_DIR),
-        async : false,
+        async : true,
         type : "post",
         data : {act : account,pswd : password,captcha : verification , tim : exr[0]/1000 , rnd : exr[1]},
         dataType : "json",

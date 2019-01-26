@@ -9,7 +9,7 @@
      *
      */
 
-    include_once (dirname(__FILE__) . "/../../config.php");
+    include_once(dirname(__FILE__) . "/../../Config.php");
 
     //用于处理每个api的输出json
     class ResponseAjax

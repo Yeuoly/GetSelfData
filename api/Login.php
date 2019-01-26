@@ -1,6 +1,6 @@
 <?php
     //引入登录类文件
-    include_once (dirname(__FILE__) . "/config.php");
+    include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/class/class.response_ajax.php");
     include_once(FILEPATH . "/utils/class/class.account.php");
     include_once (FILEPATH . "/utils/functions.php");
@@ -39,6 +39,12 @@
     $res->set('res',SUCCESS);
     $res->set('data',$user_data);
     setcookie("srm_jct",$user_data['srm_jct'],time()+COOKIE_SAVING_TIME,"/");
-    $_SESSION[SESSION_SRM_JCT]    = $user_data['srm_jct'];
-    $_SESSION[SESSION_LOGIN_TIME] = time();
+    $login_data = array(
+        SESSION_SRM_JCT    => $user_data['srm_jct'],
+        SESSION_LOGIN_TIME => time(),
+        SESSION_USER_CLASS => 'none',
+        SESSION_USER_ID    => $user_data['account'],
+        SESSION_USER_EMAIL => $user_data['email']
+    );
+    $_SESSION[SESSION_USERDATA]    = $login_data;
     $res->output();

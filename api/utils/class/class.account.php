@@ -17,7 +17,7 @@
     include_once (dirname(__FILE__)."/class.format.php");
     include_once (dirname(__FILE__)."/class.encryption.php");
     include_once (dirname(__FILE__)."/../functions.php");
-    include_once (dirname(__FILE__)."/../../config.php");
+    include_once(dirname(__FILE__) . "/../../Config.php");
 
     define("mysql_key_password","pswd");
     define("mysql_key_jct","srm_jct");
@@ -71,7 +71,7 @@
          * 返回一个用户的所有信息
          *
          * */
-        public function FindUser($account){
+        static public function FindUser($account){
             $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
             //用户信息
             $userinfo = null;
@@ -140,6 +140,13 @@
             {
                 return passport_server_error;
             }
+            if($DB->_is_failed(
+                $DB->SetInList(MYSQL_USER_LIST,mysql_key_login_time,time(),
+                                mysql_key_account,$userinfo['act'])
+            ))
+            {
+                return passport_server_error;
+            }
             $user_data = array(
                 'account'  => $userinfo['act'],
                 'email'    => $userinfo['email'],
@@ -180,6 +187,7 @@
                 return constant('passport_register_repeat_account&email');
             }
             $reg_time = time();
+            $login_time = $reg_time;
             $srm_jct  = \NFG\getSrmJct(32);
             $db_result = $DB->InsertIntoList(
                 MYSQL_USER_LIST,
@@ -189,7 +197,8 @@
                     mysql_key_password      => \NFG\encryptPassword($this->password),
                     mysql_key_register_time => $reg_time,
                     mysql_key_uid           => $uid,
-                    mysql_key_jct           => $srm_jct
+                    mysql_key_jct           => $srm_jct,
+                    mysql_key_login_time    => $login_time
                 )
             );
             if($DB->_is_failed($db_result))
@@ -208,8 +217,8 @@
 
         //更新jct
         static protected function UpdateJct($jct){
-            $_SESSION[SESSION_LOGIN_TIME] = time();
-            $_SESSION[SESSION_SRM_JCT] = $jct;
+            $_SESSION[SESSION_USERDATA][SESSION_LOGIN_TIME] = time();
+            $_SESSION[SESSION_USERDATA][SESSION_SRM_JCT] = $jct;
             setcookie(COOKIE_SRM_JCT,$jct,time() + COOKIE_SAVING_TIME , "/");
         }
 
@@ -217,15 +226,20 @@
          * 检测jct是否在线，如果在线就更新jct时间
          *
          * */
-        static public function CheckJct($jct){
+        static public function CheckJct($jct,&$user_data = null){
             //短期频繁登录用户直接用SESSION操作
-            if(isset($_SESSION[SESSION_SRM_JCT]) && isset($_COOKIE[COOKIE_SRM_JCT]) && isset($_SESSION[SESSION_LOGIN_TIME]))
+            if(isset($_SESSION[SESSION_USERDATA][SESSION_SRM_JCT]) &&
+                isset($_COOKIE[COOKIE_SRM_JCT]) &&
+                isset($_SESSION[SESSION_USERDATA][SESSION_LOGIN_TIME]))
             {
-                if($_SESSION[SESSION_SRM_JCT] == $_COOKIE[COOKIE_SRM_JCT] && $_SESSION[SESSION_LOGIN_TIME] + JCT_MAX_TIME <= time())
+                if($_SESSION[SESSION_USERDATA][SESSION_SRM_JCT] == $_COOKIE[COOKIE_SRM_JCT] &&
+                    $_SESSION[SESSION_USERDATA][SESSION_LOGIN_TIME] + JCT_MAX_TIME >= time())
                 {
                     self::UpdateJct($jct);
+                    $user_data = $_SESSION[SESSION_USERDATA];
                     return true;
                 }else{
+
                     return passport_jct_offline;
                 }
             }
@@ -249,13 +263,22 @@
                 case $DB::unexist_data: return passport_jct_offline;
                 case $DB::server_error: return passport_server_error;
             }
-
             if($db_result[mysql_key_jct] != $jct || $db_result[mysql_key_login_time] + JCT_MAX_TIME < time())
             {
                 return passport_jct_offline;
             }
 
             self::UpdateJct($jct);
+            //将用户登录信息存入session并返回给user_data
+            $login_data = array(
+                SESSION_SRM_JCT    => $db_result['srm_jct'],
+                SESSION_LOGIN_TIME => time(),
+                SESSION_USER_CLASS => 'none',
+                SESSION_USER_ID    => $db_result['account'],
+                SESSION_USER_EMAIL => $db_result['email']
+            );
+            $_SESSION[SESSION_USERDATA] = $login_data;
+            $user_data = $login_data;
             return true;
         }
     }

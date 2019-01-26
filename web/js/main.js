@@ -64,14 +64,11 @@ function isPC()
 
 function checkStatue()
 {
-    var res;
-    var srm_jct = getDestinationCookie("srm_jct");
-    if(!srm_jct)return -2;
+    var res = false;
     $.ajax({
         url : static_data.getUrlPath("passjct.php",static_data.m_URL_DOMAIN_API_DIR),
         async : false,
         type : "post",
-        data : {"srm_jct" : srm_jct},
         dataType : "json",
         contentType : "application/x-www-form-urlencoded",
         xhrFields: {
@@ -80,8 +77,10 @@ function checkStatue()
         success : function(data)
         {
             if(data['data']['res'] == static_data.response.passjct.success)
-                setHeaderStatue(data['data']['act']);
+            {
+                setHeaderStatue(data['data']['data']['user_id']);
                 res = true;
+            }
         }
     })
     return res;

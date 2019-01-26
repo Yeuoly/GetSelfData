@@ -5,7 +5,7 @@
      *
      * */
     //引入类文件
-    include_once (dirname(__FILE__) . "/config.php");
+    include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/functions.php");
     include_once (FILEPATH . "/utils/class/class.format.php");
 
