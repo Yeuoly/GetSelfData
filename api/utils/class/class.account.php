@@ -26,7 +26,9 @@
     define("mysql_key_register_time","register_time");
     define("mysql_key_uid","uid");
     define("mysql_key_login_time","login_time");
-
+    define("mysql_key_class","class");
+    define("mysql_key_lv","lv");
+    define("mysql_key_exp","lv.exp");
 
     class AccountAction extends Base
     {
@@ -104,7 +106,7 @@
          * 错误返回原因
          * 成功返回true，并将jct存入user_data
          * */
-        public function Login(&$user_data){
+        public function Login(&$srm_jct){
             //初始化数据库
 
             $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
@@ -135,25 +137,19 @@
 
             $id_sign = \NFG\getSrmJct(32);                //随机获取一个jct
             if($DB->_is_failed(
-                $DB->SetInList(MYSQL_USER_LIST,mysql_key_jct,$id_sign,mysql_key_account,$userinfo['act'])
+                $DB->SetInList(MYSQL_USER_LIST,mysql_key_jct,$id_sign,mysql_key_account,$userinfo[mysql_key_account])
             ))
             {
                 return passport_server_error;
             }
             if($DB->_is_failed(
                 $DB->SetInList(MYSQL_USER_LIST,mysql_key_login_time,time(),
-                                mysql_key_account,$userinfo['act'])
+                                mysql_key_account,$userinfo[mysql_key_account])
             ))
             {
                 return passport_server_error;
             }
-            $user_data = array(
-                'account'  => $userinfo['act'],
-                'email'    => $userinfo['email'],
-                'uid'      => $userinfo['uid'],
-                'reg_time' => $userinfo['register_time'],
-                'srm_jct'  => $id_sign
-            );
+            $srm_jct = $id_sign;
             return true;
         }
 
@@ -198,7 +194,10 @@
                     mysql_key_register_time => $reg_time,
                     mysql_key_uid           => $uid,
                     mysql_key_jct           => $srm_jct,
-                    mysql_key_login_time    => $login_time
+                    mysql_key_login_time    => $login_time,
+                    mysql_key_class         => USER_POWER_NORMAL,
+                    mysql_key_lv            => 1,
+                    mysql_key_exp           => 0
                 )
             );
             if($DB->_is_failed($db_result))
@@ -271,11 +270,13 @@
             self::UpdateJct($jct);
             //将用户登录信息存入session并返回给user_data
             $login_data = array(
-                SESSION_SRM_JCT    => $db_result['srm_jct'],
+                SESSION_SRM_JCT    => $db_result[mysql_key_jct],
                 SESSION_LOGIN_TIME => time(),
-                SESSION_USER_CLASS => 'none',
-                SESSION_USER_ID    => $db_result['account'],
-                SESSION_USER_EMAIL => $db_result['email']
+                SESSION_USER_CLASS => $db_result[mysql_key_class],
+                SESSION_USER_ID    => $db_result[mysql_key_account],
+                SESSION_USER_EMAIL => $db_result[mysql_key_email],
+                SESSION_USER_LV    => $db_result[mysql_key_lv],
+                SESSION_USER_EXP   => $db_result[mysql_key_exp]
             );
             $_SESSION[SESSION_USERDATA] = $login_data;
             $user_data = $login_data;

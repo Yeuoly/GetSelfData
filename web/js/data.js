@@ -67,6 +67,10 @@ function NotForgetData()
         }
     }
     
-    this.getWebTitle = function(){return this.baseinfo.m_WEB_TITLE;}
-    this.getWelcomeSaying = function(){return this.baseinfo.m_WLECOME_SAYING;}
+    this.getWebTitle = function(){
+        return this.baseinfo.m_WEB_TITLE;
+    }
+    this.getWelcomeSaying = function(){
+        return this.baseinfo.m_WLECOME_SAYING;
+    }
 }

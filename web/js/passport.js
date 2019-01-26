@@ -123,7 +123,7 @@ function regsiterMaster(account,password,verification)
 {
     var exr = pisert();
     $.ajax({
-        url : static_data.getUrlPath("reg.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("register.php",static_data.m_URL_DOMAIN_API_DIR),
         async : true,
         type : "post",
         data : {act : account,pswd : password,captcha : verification , tim : exr[0]/1000 , rnd : exr[1]},

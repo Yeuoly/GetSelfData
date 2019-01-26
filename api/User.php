@@ -13,6 +13,15 @@
     //回文主体
     $res = new ResponseAjax();
     $user_data = null;
+
+    //如果用户的cookie里没有jct，则为离线
+    if(!isset($_COOKIE[COOKIE_SRM_JCT]))
+    {
+        $res->set('res',FAILED);
+        $res->set('error',passport_jct_offline,true);
+    }
+
+    //检测用户的jct是否有效
     $result = AccountAction::CheckJct($_COOKIE[COOKIE_SRM_JCT],$user_data);
     if(AccountAction::_is_failed($result))
     {

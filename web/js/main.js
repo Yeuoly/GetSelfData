@@ -66,7 +66,7 @@ function checkStatue()
 {
     var res = false;
     $.ajax({
-        url : static_data.getUrlPath("passjct.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("User.php",static_data.m_URL_DOMAIN_API_DIR),
         async : false,
         type : "post",
         dataType : "json",

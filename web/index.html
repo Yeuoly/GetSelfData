@@ -3,7 +3,7 @@
     © 2018 DREAM IN THE VAST SEA OF STARS
     Powered By VSOV JQuery
     Build: 2018.12.16 - 19:21:00
-    Verison: 1.0.0 - beta-1.0
+    Version: 1.0.2 - alpha-1.0
     
     "There's a reason why we came to this world."
 -->
@@ -14,9 +14,51 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
+
     <script type="text/javascript" src="./js/jq.js"></script>
     <script type="text/javascript" src="./js/data.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/vue.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
+
+</head>
+<body>
+    <img alt="" src="/" id="background" />
+    <div class="app" id="map">
+        <div class="vertical-blank-block"></div>
+        <div class="about" id="about">
+            <h2 id="about-title">
+                {{about.title}}
+            </h2>
+            <div class="vertical-blank-block"></div>
+            <div id="about-content">
+                <div id="head">
+                    {{about.content}}
+                </div>
+                <div id="techList">
+                    <ul>
+                        <li v-for="T in about.techList" id="tech-list-li">
+                            <div class="techAbout">
+                                <span class="techName">
+                                    {{T.name}}
+                                </span>
+                                    <span class="techContent">
+                                    {{T.content}}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="vertical-blank-block"></div>
+
+        </div>
+        <div class="vertical-blank-block"></div>
+        <div id="includes">
+
+        </div>
+    </div>
+</body>
+
 </html>

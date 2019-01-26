@@ -1,0 +1,55 @@
+#about {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 70%;
+    overflow: auto;
+    background-color: rgba(238, 238, 238, 0.315);
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+#about-title{
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(62, 62, 62);
+}
+
+#includes{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 70%;
+    overflow: auto;
+    background-color: rgba(238, 238, 238, 0.315);
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+#about-content{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.techAbout{
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.techName{
+    float: left;
+    width: 15%;
+}
+
+.techContent{
+    float: right;
+    width: 85%;
+}
+
+#tech-list-li{
+    line-height: 25px;
+    list-style: none;
+}

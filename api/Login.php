@@ -26,9 +26,9 @@
         $res->output(true);
     }
     //验证密码，初始化用户信息
-    $user_data  = null;
+    $srm_jct  = null;
     //验证密码
-    $result_login = $LoginActor->Login($user_data);
+    $result_login = $LoginActor->Login($srm_jct);
 
     if($result_login != true || is_string($result_login))
     {
@@ -37,14 +37,5 @@
         $res->output(true);
     }
     $res->set('res',SUCCESS);
-    $res->set('data',$user_data);
-    setcookie("srm_jct",$user_data['srm_jct'],time()+COOKIE_SAVING_TIME,"/");
-    $login_data = array(
-        SESSION_SRM_JCT    => $user_data['srm_jct'],
-        SESSION_LOGIN_TIME => time(),
-        SESSION_USER_CLASS => 'none',
-        SESSION_USER_ID    => $user_data['account'],
-        SESSION_USER_EMAIL => $user_data['email']
-    );
-    $_SESSION[SESSION_USERDATA]    = $login_data;
+    setcookie("srm_jct",$srm_jct,time()+COOKIE_SAVING_TIME,"/");
     $res->output();

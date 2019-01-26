@@ -94,9 +94,20 @@
 
     define("SESSION_USER_EMAIL","user_email");        //用户邮箱
 
+    define("SESSION_USER_LV","user_lv");              //用户等级
+
+    define("SESSION_USER_EXP","user_exp");            //用户经验
+
 //--------------------------------------------------------------------------//
     /*
      * 乱七八糟的中文回复
      *
      * */
     include_once (FILEPATH . "/utils/static/static.response.php");
+
+//--------------------------------------------------------------------------//
+    /*
+     * 用户配置
+     *
+     * */
+    include_once (FILEPATH . "/utils/static/static.user.config.php");
