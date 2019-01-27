@@ -26,37 +26,50 @@
     <img alt="" src="/" id="background" />
     <div class="app" id="map">
         <div class="vertical-blank-block"></div>
-        <div class="about" id="about">
-            <h2 id="about-title">
-                {{about.title}}
+        <div class="card" id="about">
+            <h2 id="about-title" class="card-title">
+                {{title}}
             </h2>
             <div class="vertical-blank-block"></div>
-            <div id="about-content">
+            <div id="about-content" class="card-content">
                 <div id="head">
-                    {{about.content}}
+                    {{content}}
                 </div>
                 <div id="techList">
                     <ul>
-                        <li v-for="T in about.techList" id="tech-list-li">
+                        <li v-for="T in techList" id="tech-list-li">
                             <div class="techAbout">
                                 <span class="techName">
-                                    {{T.name}}
+                                    ● {{T.name}}
                                 </span>
-                                    <span class="techContent">
+                                <span class="techContent">
                                     {{T.content}}
                                 </span>
                             </div>
                         </li>
                     </ul>
                 </div>
-
             </div>
-            <div class="vertical-blank-block"></div>
-
         </div>
         <div class="vertical-blank-block"></div>
-        <div id="includes">
-
+        <div id="updates-log" class="card">
+            <h2 id="log-title" class="card-title">
+                {{title}}
+            </h2>
+            <div class="vertical-blank-block"></div>
+            <div id="updates-log-list">
+                <ul>
+                    <li v-for="log in updateLog">
+                        <div class="updateLog">
+                            <span class="updateLog-avatar"></span>
+                            <span class="updateLog-title">{{log.date}} : {{log.title}}</span>
+                            <span class="updateLog-blank-block"></span>
+                            <span class="updateLog-content">{{log.content}}</span>
+                        </div>
+                        <div class="vertical-blank-block"></div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>

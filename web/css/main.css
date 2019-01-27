@@ -9,6 +9,11 @@ body{
     margin: 0px;
 }
 
+.app{
+    width: 100%;
+    background-color: rgb(255, 196, 196);
+}
+
 #background{
     z-index: -1;
     position: fixed;
@@ -17,41 +22,42 @@ body{
     height: 100%;
 }
 
-.app{
-    width: 100%;
-}
-
 .vertical-blank-block{
     height: 30px;
 }
 
 .header{
+    box-shadow: 3px 3px 2px #a99f9f;
+    opacity: 0.7;
     width: 100%;
-    height: 40px;
+    height: 45px;
     padding-left: 10px;
-    border: 0px;
-    opacity: 0.5;
-    background-color: black;
-    background-attachment:fixed; 
+    border: 0;
+    background-color: #fb8d8d;
+    background-attachment:fixed;
+    margin-left: -5px;
 }
 
 .header-statue{
+    height: 100%;
     width: 50%;
     font-size: 150%;
     font-family: "微软雅黑";
     color: white;
     float: left;
+    vertical-align: middle;
 }
 
 .header-passport{
-    width: 10%;
+    width: 20%;
     font-family: "微软雅黑";
     height: 100%;
     vertical-align: middle;
     float: right;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: right;
 }
 
 .header-passport #passport{
@@ -67,4 +73,50 @@ body{
 
 .header-passport #passport:hover{
     cursor: pointer;
+}
+
+#user-menu{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    background-color: #ffb8b8;;
+    z-index: 2;
+}
+
+#user-block-open{
+    border-radius: 50%;
+    padding: 5px;
+    margin: 0 auto;
+    float: left;
+    height: 35px;
+    width: 35px;
+}
+
+#user-block-open-click{
+    border-radius: 50%;
+    background-color: #fb8d8d;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    letter-spacing: -3px;
+
+}
+
+.black-cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    opacity: 0;
+    background-color: black;
+    z-index: -1;
 }

@@ -11,6 +11,14 @@ function NotForgetData()
     this.response               = new Response();
     this.url                    = new Url();
     this.baseinfo               = new BaseInfo();
+    this.userblock              = new UserBlock();
+
+    function UserBlock()
+    {
+        this.m_MAX_MENU_LEFT           = 0;
+        this.m_MENU_WIDTH              = 300;
+        this.m_MAX_BLACK_COVER_OPACITY = 0.5;
+    }
 
     function BaseInfo()
     {

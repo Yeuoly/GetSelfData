@@ -1,26 +1,61 @@
-function placeHeader()
+function placeUserBlock()
 {
+    function $c(div){
+        return document.createElement(div);
+    }
+
+    function $g(id){
+        return document.getElementById(id);
+    }
+
     document.title = static_data.getWebTitle();
     var map = document.getElementById("map");
-    var header = document.createElement("div");
-    var header_statue = document.createElement("div");
-    var header_passport = document.createElement("div");
-    var header_passport_btn = document.createElement("button");
-    header.className = "header";
-    header_statue.className = "header-statue";
-    header_statue.id        = "header-userid";
-    header_statue.innerHTML = "离线";
-    header_passport.className = "header-passport";
-    header_passport_btn.innerHTML = "登录界面"
-    header_passport_btn.id = "passport";
-    map.parentNode.insertBefore(header,map);
-    header.appendChild(header_statue);
-    header.appendChild(header_passport);
-    header_passport.appendChild(header_passport_btn);
-    document.getElementById("passport").onclick = function()
-    {
-        location.href = static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
+    var header = $c("div");
+    var black_cover = $c("div");
+    var menu = $c("div");
+    var user_block_open = $c("div");
+    var user_block_open_click = $c("div");
+    user_block_open_click.id = "user-block-open-click";
+    user_block_open_click.className = "user-block-open-click";
+    user_block_open_click.innerHTML = "≡≡";
+    user_block_open.className = "user-block-open";
+    user_block_open_click.onclick = function() {
+        var menu = $("#user-menu");
+        var black_cover = $("#black-cover");
+        var timer = setInterval(function () {
+            var left = menu.offset().left;
+            menu.css("left",left + 10);
+            if(left >= -10)
+            {
+                clearInterval(timer);
+                black_cover.css("z-index",1);
+                timer = setInterval(function () {
+                    var opacity = black_cover.css("opacity");
+                    black_cover.css("opacity",parseFloat(opacity) + 0.02);
+                    if(opacity >= static_data.userblock.m_MAX_BLACK_COVER_OPACITY - 0.02)
+                    {
+                        clearInterval(timer);
+                    }
+                },5)
+            }
+        },5);
+    };
+    user_block_open_click.onmouseover = function(){
+        $("#user-block-open-click").css("background-color","rgb(255, 126, 126)");
+    };
+    user_block_open_click.onmouseleave = function(){
+        $("#user-block-open-click").css("background-color","#fb8d8d");
     }
+    user_block_open.id = "user-block-open";
+    black_cover.className = "black-cover";
+    black_cover.id = "black-cover";
+    menu.id = "user-menu";
+    header.className = "header";
+    map.parentNode.insertBefore(header,map);
+    map.parentNode.insertBefore(black_cover,map);
+    map.parentNode.insertBefore(menu,map);
+    header.appendChild(user_block_open);
+    user_block_open.appendChild(user_block_open_click);
 }
 
 function selectBackground()
@@ -29,9 +64,9 @@ function selectBackground()
     else $("#background").attr("src",static_data.getUrlPath("bg/bg.jpg",static_data.m_URL_DOMAIN_IMG_DIR));
 }
 
-function setHeaderStatue(userid)
+function updateUserInfo(user_info)
 {
-    $("#header-userid").text(static_data.getWelcomeSaying()+userid+"~");
+
 }
 
 function getDestinationCookie(cookieName) 
@@ -78,7 +113,7 @@ function checkStatue()
         {
             if(data['data']['res'] == static_data.response.passjct.success)
             {
-                setHeaderStatue(data['data']['data']['user_id']);
+
                 res = true;
             }
         }

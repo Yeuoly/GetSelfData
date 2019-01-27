@@ -24,7 +24,7 @@ window.onload = function()
     this.document.body.appendChild(app);
     app.appendChild(wrap);
     selectBackground();
-    placeHeader();
+    placeUserBlock();
 }
 
 function addBlock(type,post_title,post_user,post_user_id,data,introduction)   //类型、标题、用户信息、数据、简介
@@ -121,15 +121,4 @@ function createURL(url)
     on_click.innerHTML = "网页链接";
     on_click.href = url;
     return on_click;
-}
-
-function tounicode(data)
-{
-    if(data == '') return '请输入汉字';
-    var str =''; 
-    for(var i=0;i<data.length;i++)
-    {
-        str+="\\u"+parseInt(data[i].charCodeAt(0),10).toString(16);
-    }
-    return str;
 }
