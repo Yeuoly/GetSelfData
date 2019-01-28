@@ -1,4 +1,4 @@
-function placeUserBlock()
+function initWeb()
 {
     function $c(div){
         return document.createElement(div);
@@ -15,6 +15,10 @@ function placeUserBlock()
     var menu = $c("div");
     var user_block_open = $c("div");
     var user_block_open_click = $c("div");
+    var footer = $c("div");
+    footer.id = "footer";
+    footer.className = "footer";
+    footer.innerHTML = "©2019 Yeuoly VSOV";
     user_block_open_click.id = "user-block-open-click";
     user_block_open_click.className = "user-block-open-click";
     user_block_open_click.innerHTML = "≡≡";
@@ -25,7 +29,7 @@ function placeUserBlock()
         var timer = setInterval(function () {
             var left = menu.offset().left;
             menu.css("left",left + 10);
-            if(left >= -10)
+            if(left >= static_data.userblock.m_MAX_MENU_LEFT - 10)
             {
                 clearInterval(timer);
                 black_cover.css("z-index",1);
@@ -41,27 +45,43 @@ function placeUserBlock()
         },5);
     };
     user_block_open_click.onmouseover = function(){
-        $("#user-block-open-click").css("background-color","rgb(255, 126, 126)");
+        $("#user-block-open-click").css("background-color","#FF7E7E");
     };
     user_block_open_click.onmouseleave = function(){
-        $("#user-block-open-click").css("background-color","#fb8d8d");
-    }
+        $("#user-block-open-click").css("background-color","#FB8D8D");
+    };
     user_block_open.id = "user-block-open";
     black_cover.className = "black-cover";
     black_cover.id = "black-cover";
+    black_cover.onclick = function() {
+        var menu = $("#user-menu");
+        var black_cover = $("#black-cover");
+        var timer_menu = setInterval(function () {
+            var left = menu.offset().left;
+            menu.css("left",left - 10);
+            if(left <= static_data.userblock.m_MIN_MENU_LEFT + 10)
+            {
+                clearInterval(timer_menu);
+            }
+        });
+        var timer_cover = setInterval(function () {
+            var opacity = parseFloat(black_cover.css("opacity"));
+            black_cover.css("opacity",(opacity - 0.02));
+            if(opacity <= static_data.userblock.m_MIN_BLACK_COVER_OPACITY + 0.02)
+            {
+                black_cover.css("z-index",-1);
+                clearInterval(timer_cover);
+            }
+        });
+    };
     menu.id = "user-menu";
     header.className = "header";
     map.parentNode.insertBefore(header,map);
     map.parentNode.insertBefore(black_cover,map);
     map.parentNode.insertBefore(menu,map);
+    document.body.appendChild(footer);
     header.appendChild(user_block_open);
     user_block_open.appendChild(user_block_open_click);
-}
-
-function selectBackground()
-{
-    if(!isPC())$("#background").attr("src",static_data.getUrlPath("bg/bg2.jpg",static_data.m_URL_DOMAIN_IMG_DIR));
-    else $("#background").attr("src",static_data.getUrlPath("bg/bg.jpg",static_data.m_URL_DOMAIN_IMG_DIR));
 }
 
 function updateUserInfo(user_info)

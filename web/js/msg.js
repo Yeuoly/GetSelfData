@@ -24,7 +24,7 @@ window.onload = function()
     this.document.body.appendChild(app);
     app.appendChild(wrap);
     selectBackground();
-    placeUserBlock();
+    initWeb();
 }
 
 function addBlock(type,post_title,post_user,post_user_id,data,introduction)   //类型、标题、用户信息、数据、简介

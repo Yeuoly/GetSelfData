@@ -12,7 +12,7 @@
 
 window.onload = function()
 {
-    placeUserBlock();
+    initWeb();
     checkStatue();
 
     var updateLog = new Vue({
