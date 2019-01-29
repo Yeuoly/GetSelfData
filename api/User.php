@@ -29,8 +29,7 @@
         $res->set('error',$result,true);
     }
     $res->set('res',SUCCESS);
-    $res->set('data',$user_data);
-    $res->set('error',$result,true);
+    $res->set('data',$user_data,true);
 
     /**粪山**/
     /*session_name("HTPP_S_V_NFG");

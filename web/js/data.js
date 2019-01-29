@@ -24,7 +24,7 @@ function NotForgetData()
 
     function BaseInfo()
     {
-        this.m_WEB_TITLE            = "NotForget";
+        this.m_WEB_TITLE            = "YeuolyBlog";
         this.m_WLECOME_SAYING       = "欢迎回来!";
         this.m_VERIFICATION_SUCCESS = "验证码已发送（可能在您邮箱的垃圾箱里orz)";
     }

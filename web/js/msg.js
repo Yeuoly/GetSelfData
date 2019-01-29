@@ -23,7 +23,6 @@ window.onload = function()
     this.document.body.appendChild(bcgd);
     this.document.body.appendChild(app);
     app.appendChild(wrap);
-    selectBackground();
     initWeb();
 }
 

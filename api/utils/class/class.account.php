@@ -238,7 +238,6 @@
                     $user_data = $_SESSION[SESSION_USERDATA];
                     return true;
                 }else{
-
                     return passport_jct_offline;
                 }
             }
@@ -276,7 +275,8 @@
                 SESSION_USER_ID    => $db_result[mysql_key_account],
                 SESSION_USER_EMAIL => $db_result[mysql_key_email],
                 SESSION_USER_LV    => $db_result[mysql_key_lv],
-                SESSION_USER_EXP   => $db_result[mysql_key_exp]
+                SESSION_USER_EXP   => $db_result[mysql_key_exp],
+                SESSION_USER_UID   => $db_result[mysql_key_uid]
             );
             $_SESSION[SESSION_USERDATA] = $login_data;
             $user_data = $login_data;
