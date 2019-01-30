@@ -24,7 +24,7 @@ window.onload = function()
     this.document.body.appendChild(app);
     app.appendChild(wrap);
     initWeb();
-}
+};
 
 function addBlock(type,post_title,post_user,post_user_id,data,introduction)   //类型、标题、用户信息、数据、简介
 {
@@ -83,16 +83,28 @@ function addBlock(type,post_title,post_user,post_user_id,data,introduction)   //
 }
 
 //使用给出的json数据建立一个html表格，并返回
-function createTable(data , tableClass = "" ,tableName = "" , 
-                     serialize = false , trID = "",tdID = "")
+function createTable(data , tableClass ,tableName , serialize , trID ,tdID )
 {
+    function initData(v,DefaultSetting){
+        return v ? v : DefaultSetting;
+    }
+
+    tableClass = initData(tableClass,"");
+    tableName = initData(tableName,"");
+    serialize = initData(serialize,false);
+    trID = initData(trID,"");
+    tdID = initData(tdID,"");
+
     var table = document.createElement("table");
         table.className = tableClass;
         table.name = tableName;
     var s_info_body = JSON.parse(data);
 
-    function MakeWord(main,flag = false , head_addition = "" , tail_addition = "")
+    function MakeWord(main, flag, head_addition, tail_addition)
     {
+        flag = initData(flag,false);
+        head_addition = initData(head_addition,"");
+        tail_addition = initData(tail_addition,"");
         if(flag)main = head_addition + "_" + main + "_" + tail_addition;
         return main;
     }

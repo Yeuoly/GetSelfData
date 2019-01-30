@@ -124,3 +124,70 @@ body{
     color: white;
     background-color: rgb(255, 196, 196);
 }
+
+#menu-user-block{
+    padding-left: 5%;
+    padding-top: 5%;
+    width: 90%;
+    margin: 0 auto;
+    height: 9%;
+}
+
+#menu-user-block-avatar{
+    float: left;
+    width: 15%;
+    min-width: 45px;
+    padding-right: 20px;
+}
+
+#menu-user-block-avatar-img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+#menu-user-block-id{
+    margin: 0 auto;
+    float: right;
+    width: 75%;
+    height: 20%;
+}
+
+#menu-user-block-uid{
+    margin: 0 auto;
+    float: right;
+    width: 75%;
+    height: 20%;
+    padding-bottom: 20px;
+}
+
+#menu-user-block-id-txt{
+    text-align: left;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #ffffffeb;
+    cursor : pointer;
+}
+
+#menu-user-block-uid-txt{
+    text-align: left;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #ffffffeb;
+}
+
+.menu-user-block-div-line{
+    color: white;
+    display: block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0px;
+    max-width: 100%;
+    height: 0;
+    max-height: 0;
+    border: solid;
+    border-width: thin 0 0 0;
+    -webkit-transition: inherit;
+    transition: inherit;
+}
