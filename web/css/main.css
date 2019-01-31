@@ -100,7 +100,10 @@ body{
     vertical-align: middle;
     color: white;
     letter-spacing: -3px;
+}
 
+#user-block-open-click:hover{
+    background-color: #FF7E7E;
 }
 
 .black-cover{
@@ -190,4 +193,85 @@ body{
     border-width: thin 0 0 0;
     -webkit-transition: inherit;
     transition: inherit;
+}
+
+.menu-func-ul{
+    margin: 0;
+    padding: 0;
+}
+
+.menu-func-ul li{
+    list-style: none;
+}
+
+.menu-func-li-btn-block{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.menu-func-li-btn-block:hover{
+    background-color: #ffa0a047;
+}
+
+.menu-func-li-btn-block-txt{
+    font-size: 18px;
+    margin: 0 auto;
+    width: 90%;
+    color: #ffffffeb;
+}
+
+.menu-func-li-btn-block-about{
+    font-size: 14px;
+    margin: 0 auto;
+    width: 90%;
+    color: #ffffffeb;
+}
+
+#alertMsg {
+    opacity: 1;
+    display: none;
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #fdadad;
+    padding: 10px;
+    font-size: 18px;
+    position: absolute;
+    text-align: center;
+    background: #fff;
+    z-index: 100000;
+}
+
+#alertMsg_info {
+    color: rgba(255, 125, 125, 0.74);
+    padding: 2px 15px;
+    line-height: 1.6em;
+    text-align: left;
+}
+
+#alertMsg_btn1, #alertMsg_btn2 {
+    display: inline-block;
+    /* background-color: grey; */
+    padding-left: 3px;
+    color: #000000;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#alertMsg_btn1 cite, #alertMsg_btn2 cite {
+    font-size: 15px;
+    color: white;
+    width: 80px;
+    line-height: 36px;
+    display: inline-block;
+    /* padding: 0 0px 0 10px; */
+    background: #ffdada;
+    font-style: normal;
+    border-radius: 10px;
 }

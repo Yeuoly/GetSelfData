@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LogOff.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/js/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/js/data.js" afterDir="false" />
@@ -255,16 +257,15 @@
       <workItem from="1548472543875" duration="13775000" />
       <workItem from="1548560301146" duration="2725000" />
       <workItem from="1548751213860" duration="2214000" />
-      <workItem from="1548836680659" duration="5669000" />
+      <workItem from="1548836680659" duration="6266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122598000" />
+    <option name="totallyTimeSpent" value="123195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1553" height="916" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16275954" />
