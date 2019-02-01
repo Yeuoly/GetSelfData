@@ -46,6 +46,12 @@ window.onload = function()
                     title   : '整体大更新，项目改名YeuolyBlog Version: 1.0.2-alpha',
                     content : '整体重构，后端改为面向对象编程，开始向github更新，去除页面壁纸，改为白色背景简约布局',
                     date    : '2019/1/28'
+                },
+                {
+                    title   : '前端index完工 Version: 1.0.21-alpha',
+                    content : '前端index.html index.css index.js基本完成，侧边顶部固定栏完成，整体框架' +
+                        '升级为Vue.js，完善了代码结构，更容易看懂我在写什么辣鸡代码了',
+                    date    : '2019/2/1'
                 }
             ],
             class : 'normal',

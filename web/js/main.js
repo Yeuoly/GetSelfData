@@ -62,7 +62,7 @@ function InitWeb()
                     return;
                 }
                 menu.css("left", left - 10);
-            } , 5);
+            } , 3);
         },
         //到自己的主页去
         goToMyIndex : function () {
@@ -258,6 +258,17 @@ function InitWeb()
                     }
                 } , 2);
             }
+        },
+        //创建dom的方法
+        cDom : function(type,className,id,innerHtml){
+            var v = $("<" + type + ">");
+            if(className != null)
+                v.attr('class',className);
+            if(id != null)
+                v.attr('id',id);
+            if(innerHtml != null)
+                v.html(innerHtml);
+            return v;
         }
     };
 
@@ -294,7 +305,6 @@ function InitWeb()
 
         //右侧功能侧栏(用户信息、登录等)
         this.menu_func = new Vue({
-            parentHandle : app_self,
             el : '#menu-func',
             data : {
                 func : [
@@ -327,7 +337,6 @@ function InitWeb()
 
         //侧边栏用户菜单
         this.menu_user_block = new Vue({
-            parentHandle : app_self,
             el : '#menu-user-block',
             data : {
                 user : {
@@ -353,136 +362,125 @@ function InitWeb()
 
     //创建侧边栏和顶层的dom对象，并赋予类名和id以及innerHtml
     function createDom() {
-        //创建dom的方法
-        this.cDom = function(type,className,id,innerHtml){
-            var v = $("<" + type + ">");
-            if(className != null)
-                v.attr('class',className);
-            if(id != null)
-                v.attr('id',id);
-            if(innerHtml != null)
-                v.html(innerHtml);
-            return v;
-        };
         //获取app
         var map = $("#app");
         //顶部菜单栏
-        var header = this.cDom(
+        var header = functionGroup.cDom(
             'div',
             'header',
             'header'
         );
         //侧边栏弹出来的时候用于把主界面亮度调低的黑色幕布
-        var black_cover = this.cDom(
+        var black_cover = functionGroup.cDom(
             'div',
             'black-cover',
             'black-cover'
         );
         //侧边栏
-        var menu = this.cDom(
+        var menu = functionGroup.cDom(
             'div',
             'user-menu',
             'user-menu'
         );
         //在顶部打开侧边栏的按钮
-        var user_block_open = this.cDom(
+        var user_block_open = functionGroup.cDom(
             'div',
             'user-block-open',
             'user-block-open'
         );
         //在顶部打开侧边栏的按钮的主体
-        var user_block_open_click = this.cDom(
+        var user_block_open_click = functionGroup.cDom(
             'div',
             'user-block-open-click',
             'user-block-open-click',
             '≡≡'
         );
         //底部
-        var footer = this.cDom(
+        var footer = functionGroup.cDom(
             'div',
             'footer',
             'footer',
             static_data.baseinfo.m_COPYRIGHT
         );
         //侧边栏的用户区域
-        var menu_user_block = this.cDom(
+        var menu_user_block = functionGroup.cDom(
             'div',
             'menu-user-block',
             'menu-user-block'
         );
         //侧边栏的上下分割线
-        var menu_user_block_div_line = this.cDom(
+        var menu_user_block_div_line = functionGroup.cDom(
             'hr',
             'menu-user-block-div-line'
         );
         //侧边栏用户区域的头像区域
-        var menu_user_block_avatar = this.cDom(
+        var menu_user_block_avatar = functionGroup.cDom(
             'div',
             'menu-user-block-avatar',
             'menu-user-block-avatar'
         );
         //侧边栏用户区域的头像区域头像的img标签
-        var menu_user_block_avatar_img = this.cDom(
+        var menu_user_block_avatar_img = functionGroup.cDom(
             'img',
             'menu-user-block-avatar-img',
             'menu-user-block-avatar-img'
         );
         //侧边栏用户区域的id
-        var menu_user_block_id = this.cDom(
+        var menu_user_block_id = functionGroup.cDom(
             'div',
             'menu-user-block-id',
             'menu-user-block-id'
         );
         //侧边栏用户区域的uid
-        var menu_user_block_uid = this.cDom(
+        var menu_user_block_uid = functionGroup.cDom(
             'div',
             'menu-user-block-uid',
             'menu-user-block-uid'
         );
         //侧边栏用户区域的id文本主体
-        var menu_user_block_id_txt = this.cDom(
+        var menu_user_block_id_txt = functionGroup.cDom(
             'div',
             'menu-user-block-id-txt',
             'menu-user-block-id-txt',
             '|{{user.user_id}}'
         );
         //侧边栏用户区域的uid文本主体
-        var menu_user_block_uid_txt = this.cDom(
+        var menu_user_block_uid_txt = functionGroup.cDom(
             'div',
             'menu-user-block-uid-txt',
             'menu-user-block-uid-txt',
             '|uid:{{user.user_uid}}'
         );
         //侧边栏的功能区域（一个菜单，包含了侧边栏的所有按钮
-        var menu_func = this.cDom(
+        var menu_func = functionGroup.cDom(
             'div',
             'menu-func',
             'menu-func'
         );
         //侧边栏功能区域的列表ul标签
-        var menu_func_ul = this.cDom(
+        var menu_func_ul = functionGroup.cDom(
             'ul',
             'menu-func-ul',
             'menu-func-ul'
         );
         //侧边栏功能区域的列表li标签
-        var menu_func_li = this.cDom(
+        var menu_func_li = functionGroup.cDom(
             'li'
         );
         //侧边栏每个功能的区域
-        var menu_func_li_btn_block = this.cDom(
+        var menu_func_li_btn_block = functionGroup.cDom(
             'div',
             'menu-func-li-btn-block',
             ''
         );
         //侧边栏每个功能的文本主体
-        var menu_func_li_btn_block_txt = this.cDom(
+        var menu_func_li_btn_block_txt = functionGroup.cDom(
             'div',
             'menu-func-li-btn-block-txt',
             '',
             '{{el.name}}'
         );
-        var menu_func_li_btn_block_about = this.cDom(
+        var menu_func_li_btn_block_about = functionGroup.cDom(
             'div',
             'menu-func-li-btn-block-about',
             '',
@@ -574,7 +572,7 @@ function getDestinationCookie(cookieName)
     for(var i = 0; i < arrCookie.length; i++)
     {
         var arr = arrCookie[i].split("=");
-        if(cookieName == arr[0])return arr[1];
+        if(cookieName === arr[0])return arr[1];
     }
     return false;
 }
