@@ -13,7 +13,7 @@
 window.onload = function()
 {
     //初始化界面
-    initWeb = new InitWeb();
+    SettingHandle = new InitWeb();
 
     var updateLog = new Vue({
         el : '#updates-log',
@@ -101,4 +101,4 @@ window.onload = function()
 };
 
 //提供一个给全局访问的变量
-var initWeb = null;
+var SettingHandle = null;

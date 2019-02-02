@@ -8,60 +8,71 @@ function InitWeb()
     var functionGroup = {
         //打开黑幕，关闭黑屋需要手动调用closeBlackCover，或者给黑幕绑定上点击黑幕就关闭的事件
         openBlackCover : function () {
-            var black_cover = $("#black-cover");
-            black_cover.css('z-index',1);
+            //首先把黑色幕布的z-index值调大，盖住整个屏幕
+            var black_cover = document.getElementById('black-cover');
+            black_cover.style.setProperty('z-index','1');
+            //使用一个计时器逐渐调大opacity
             var timer = setInterval(function () {
-                var opacity = parseFloat(black_cover.css('opacity'));
-                black_cover.css('opacity',opacity + 0.02);
-                if(opacity >= static_data.userblock.m_MAX_BLACK_COVER_OPACITY - 0.02)
+                var opacity = functionGroup.getBlackCoverOpacity();
+                functionGroup.setBlackCoverOpacity(opacity + 0.06);
+                if(opacity >= static_data.userblock.m_MAX_BLACK_COVER_OPACITY - 0.06)
                 {
                     clearInterval(timer);
                 }
-            },3);
+            },10);
         },
         //关掉黑幕，并移除黑幕的所有绑定事件
         closeBlackCover : function () {
-            var black_cover = $("#black-cover");
+            //获取黑色幕布的dom
+            var black_cover = document.getElementById('black-cover');
+            //使用一个计时器逐渐调小opacity
             var timer_cover = setInterval(function () {
-                var opacity = parseFloat(black_cover.css("opacity"));
-                black_cover.css("opacity",(opacity - 0.02));
-                if(opacity <= static_data.userblock.m_MIN_BLACK_COVER_OPACITY + 0.02)
+                var opacity = functionGroup.getBlackCoverOpacity();
+                functionGroup.setBlackCoverOpacity(opacity - 0.06);
+                if(opacity <= static_data.userblock.m_MIN_BLACK_COVER_OPACITY + 0.06)
                 {
-                    black_cover.css("z-index",-1);
+                    //把黑色幕布的z-index调低，弄到屏幕下面去
+                    black_cover.style.setProperty('z-index','-1');
                     clearInterval(timer_cover);
                 }
-            } , 3);
-            black_cover.unbind('click');
+            } , 10);
+            //移除所有绑定在click上的事件
+            $('#black-cover').unbind('click');
         },
         //打开侧边栏
         openSideMenu : function () {
-            var menu = $("#user-menu");
+            //获取右侧边栏dom
+            var menu = document.getElementById('user-menu');
+            //使用一个计时器逐渐移动侧边栏
             var timer = setInterval(function () {
-                var left = menu.offset().left;
-                menu.css("left",left + 10);
+                //获取左边界坐标
+                var left = functionGroup.getMenuLeft();
+                //设置左边界坐标
+                functionGroup.setMenuLeft(left + 10);
+                //向左移动到的最大值
                 var left_max = static_data.userblock.m_MAX_MENU_LEFT - 20;
                 if(left >= left_max)
                 {
                     clearInterval(timer);
-                    menu.css("box-shadow","2px 0px 1px rgb(173, 150, 150)");
-                    menu.css('left',0);
+                    functionGroup.setMenuLeft(0);
+                    menu.style.setProperty('box-shadow','2px 0px 1px rgb(173, 150, 150)');
                 }
             },3);
         },
         //关掉侧边栏
         closeSideMenu : function () {
-            var menu = $("#user-menu");
-            menu.css("box-shadow","0px 0px 0px rgb(173, 150, 150)");
-            var menu_width = menu.width();
+            var menu = document.getElementById('user-menu');
+            menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
+            var menu_width = functionGroup.getMenuWidth();
             var timer_menu = setInterval(function () {
-                var left = menu.offset().left;
+                var left = functionGroup.getMenuLeft();
                 var right = left + menu_width;
                 if(right <= 0)
                 {
                     clearInterval(timer_menu);
                     return;
                 }
-                menu.css("left", left - 10);
+                functionGroup.setMenuLeft(left - 10);
             } , 3);
         },
         //到自己的主页去
@@ -78,7 +89,7 @@ function InitWeb()
         },
         //注销
         logOff : function () {
-            if(app_self.menu_user_block._data.user.online)
+            if(app_self.constDom.menu.user.online)
             {
                 $.ajax({
                     url : static_data.getUrlPath("LogOff.php",static_data.m_URL_DOMAIN_API_DIR),
@@ -101,12 +112,12 @@ function InitWeb()
         },
         //设置用户信息，键值与值相对应
         setUserInfo : function (key, val) {
-            app_self.app.menu_user_block._data.user[key] = val;
+            app_self.constDom.menu.user[key] = val;
         },
         //设置用户信息，传入值为一个数组，键值与值相对应
         setUserInfoArray : function (ary) {
             for(var key in ary){
-                app_self.app.setUserInfo(key,ary[key]);
+                app_self.functionGroup.setUserInfo(key,ary[key]);
             }
         },
         //登录检测
@@ -269,28 +280,97 @@ function InitWeb()
             if(innerHtml != null)
                 v.html(innerHtml);
             return v;
+        },
+        //修改css样式
+        //设置左侧菜单栏左边界坐标
+        setMenuLeft : function (value) {
+            app_self.constDom.menu.css.left = value;
+        },
+        //设置黑色幕布透明度
+        setBlackCoverOpacity : function (value) {
+            app_self.constDom.black_cover.css.opacity = value;
+        },
+        //获取左侧菜单栏左边界坐标
+        getMenuLeft : function () {
+            return app_self.constDom.menu.css.left;
+        },
+        //设置黑色幕布透明度
+        getBlackCoverOpacity : function () {
+            return app_self.constDom.black_cover.css.opacity;
+        },
+        //获取左侧菜单栏宽度
+        getMenuWidth : function () {
+            return app_self.constDom.menu.css.width;
         }
     };
 
     //给外部访问函数集合的接口
     this.functionGroup = functionGroup;
 
-    //创建dom
-    createDom();
+    //创建dom和Vue对象
+    this.constDom = new createVue();
 
     //设置标题
     setTitle();
 
-    //创建Vue对象进行数据绑定
-    this.app = new BarContent();
-
     //检测用户登录情况
     functionGroup.passJct();
 
-    //Vue对象集合
-    function BarContent(){
-        this.user_block_btn = new Vue({
-            el : '#user-block-open',
+    //创建侧边栏和顶层的dom对象，并赋予类名和id以及innerHtml
+    //这是一个构造器
+    function createVue() {
+        //创建挂载节点
+        var _header = document.createElement('div');
+        _header.id = '_header';
+        var _menu   = document.createElement('div');
+        _menu.id = '_menu';
+        var _black_cover = document.createElement('div');
+        _black_cover.id = '_black_cover';
+        var _footer = document.createElement('div');
+        _footer.id = '_footer';
+
+        //向html中添加挂载节点
+        var app = document.getElementById('app');
+
+        app.parentNode.insertBefore(_black_cover,app);
+        app.parentNode.insertBefore(_menu,app);
+        app.parentNode.insertBefore(_header,app);
+        document.body.appendChild(_footer);
+
+        //初始化css参数
+        var menuWidth , menuLeft , menuUserBlockHeight , menuUserBlockTxtSize ,
+            menuUserBlockAvatarSize;
+
+        //修整PC与PE的侧边栏宽度
+        if(!functionGroup.isPC())
+        {
+            menuWidth = innerWidth * 0.7;
+            menuLeft = -menuWidth;
+            menuUserBlockHeight = innerWidth * 0.12;
+            menuUserBlockTxtSize = innerWidth * 0.03;
+            menuUserBlockAvatarSize = innerWidth * 0.7 * 0.15;
+        }else{
+            menuUserBlockAvatarSize = 45;
+            menuUserBlockHeight = innerWidth * 0.045;
+            menuLeft = -300;
+            menuWidth = 300;
+            menuUserBlockTxtSize = 18;
+        }
+
+        //创建Vue构造器
+        //头部固定栏
+        var header = Vue.extend({
+            template : '<div class="header" id="header">' +
+                '           <div class="user-block-open" id="user-block-open">' +
+                '               <div ' +
+                '                   class="user-block-open-click" ' +
+                '                   id="user-block-open-click"' +
+                '                   @click="mouseClick"' +
+                '               >' +
+                '                   ≡≡' +
+                '               </div>' +
+                '           </div>' +
+                '       </div>',
             methods : {
                 mouseClick : function() {
                     functionGroup.openSideMenu();
@@ -302,54 +382,99 @@ function InitWeb()
                 }
             }
         });
-
-        //右侧功能侧栏(用户信息、登录等)
-        this.menu_func = new Vue({
-            el : '#menu-func',
-            data : {
-                func : [
-                    {
-                        name : '我的主页',
-                        about : '字面意思呀，巴拉拉能量让你回到自己的主页！',
-                        func : function (){
-                            functionGroup.goToMyIndex();
+        //侧边固定栏
+        var menu = Vue.extend({
+            template : '<div ' +
+                '           class="user-menu" ' +
+                '           id="user-menu"' +
+                '           :style="{left: css.left + \'px\' , width: css.width + \'px\' }"' +
+                '       >' +
+                '           <div ' +
+                '               class="menu-user-block" ' +
+                '               id="menu-user-block"' +
+                '               style="height:'+menuUserBlockHeight+'px;"' +
+                '           >' +
+                '               <div ' +
+                '                   class="menu-user-block-avatar" ' +
+                '                   id="menu-user-block-avatar"' +
+                '                   style="width:'+menuUserBlockAvatarSize+'px;height:'+menuUserBlockAvatarSize+'px;"' +
+                '               >' +
+                '                   <img ' +
+                '                       id="menu-user-block-avatar-img" ' +
+                '                       class="menu-user-block-avatar-img" ' +
+                '                       :src="user.avatar"' +
+                '                       style="width: '+menuUserBlockAvatarSize+'px; height:'+menuUserBlockAvatarSize+'px;"' +
+                '                   >' +
+                '               </div>' +
+                '               <div class="menu-user-block-uid" id="menu-user-block-uid">' +
+                '                   <div class="menu-user-block-uid-txt" id="menu-user-block-uid-txt">' +
+                '                       |uid : {{user.user_uid}}' +
+                '                   </div>' +
+                '               </div>' +
+                '               <div class="menu-user-block-id" id="menu-user-block-id">' +
+                '                   <div class="menu-user-block-id-txt" id="menu-user-block-id-txt" v-on="{click: !user.online && goToLogin}">' +
+                '                       |id : {{user.user_id}}' +
+                '                   </div>' +
+                '               </div>' +
+                '           </div>' +
+                '           <hr class="menu-user-block-div-line">' +
+                '           <div class="menu-func" id="menu-func">' +
+                '               <ul class="menu-func-ul" id="menu-func-ul">' +
+                '                   <li v-for="dep in func">' +
+                '                       <div class="menu-func-li-btn-block" @click="dep.func">' +
+                '                           <div class="menu-func-li-btn-block-txt">{{dep.name}}</div>' +
+                '                           <div class="menu-func-li-btn-block-about">{{dep.about}}</div>' +
+                '                       </div>' +
+                '                   </li>' +
+                '               </ul>' +
+                '           </div>' +
+                '       </div>',
+            data : function() {
+                return {
+                    //侧边功能栏
+                    func: [
+                        {
+                            name: '我的主页',
+                            about: '字面意思呀，巴拉拉能量让你回到自己的主页！',
+                            func: function () {
+                                functionGroup.goToMyIndex();
+                            }
+                        },
+                        {
+                            name: '更新日志',
+                            about: '估计你对这个没啥兴趣',
+                            func: function () {
+                                functionGroup.closeSideMenu();
+                                functionGroup.closeBlackCover();
+                                functionGroup.goToUpdateLog();
+                            }
+                        },
+                        {
+                            name: '注销',
+                            about: '嘤嘤嘤咱要溜了',
+                            func: function () {
+                                functionGroup.logOff();
+                            }
                         }
+                    ],
+                    //用户数据
+                    user: {
+                        user_id: '未登录，点击登录',
+                        user_uid: '-1',
+                        user_email: 'example@google.com',
+                        user_lv: '0',
+                        user_exp: '0',
+                        user_class: '',
+                        avatar: 'http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658',
+                        srm_jct: '',
+                        login_time: '0',
+                        online: false
                     },
-                    {
-                        name : '更新日志',
-                        about : '估计你对这个没啥兴趣',
-                        func : function () {
-                            functionGroup.closeSideMenu();
-                            functionGroup.closeBlackCover();
-                            functionGroup.goToUpdateLog();
-                        }
-                    },
-                    {
-                        name : '注销',
-                        about : '嘤嘤嘤咱要溜了',
-                        func : function () {
-                            functionGroup.logOff();
-                        }
+                    //侧边菜单栏的css参数
+                    css : {
+                        left : menuLeft,
+                        width : menuWidth
                     }
-                ]
-            }
-        });
-
-        //侧边栏用户菜单
-        this.menu_user_block = new Vue({
-            el : '#menu-user-block',
-            data : {
-                user : {
-                    user_id     : '未登录，点击登录',
-                    user_uid    : '-1',
-                    user_email  : 'example@google.com',
-                    user_lv     : '0',
-                    user_exp    : '0',
-                    user_class  : '',
-                    avatar      : 'http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658',
-                    srm_jct     : '',
-                    login_time  : '0',
-                    online      : false
                 }
             },
             methods : {
@@ -358,200 +483,47 @@ function InitWeb()
                 }
             }
         });
-    }
+        //黑色幕布固定栏
+        //很蛋疼的是z-index中间的-号会被vue解析掉，所以绑定不了z-index元素
+        var black_cover = Vue.extend({
+            template : '<div ' +
+                '           class="black-cover" ' +
+                '           id="black-cover"' +
+                '           :style="{opacity: css.opacity}"' +
+                '       >' +
+                '       </div>',
+            data : function () {
+                return {
+                    css:{
+                        opacity : 0
+                    }
+                }
+            }
+        });
+        //底部固定栏
+        var footer = Vue.extend({
+            template : '<div class="footer" id="footer">'+static_data.baseinfo.m_COPYRIGHT+'</div>',
+            data : function(){
+                return {
 
-    //创建侧边栏和顶层的dom对象，并赋予类名和id以及innerHtml
-    function createDom() {
-        //获取app
-        var map = $("#app");
-        //顶部菜单栏
-        var header = functionGroup.cDom(
-            'div',
-            'header',
-            'header'
-        );
-        //侧边栏弹出来的时候用于把主界面亮度调低的黑色幕布
-        var black_cover = functionGroup.cDom(
-            'div',
-            'black-cover',
-            'black-cover'
-        );
-        //侧边栏
-        var menu = functionGroup.cDom(
-            'div',
-            'user-menu',
-            'user-menu'
-        );
-        //在顶部打开侧边栏的按钮
-        var user_block_open = functionGroup.cDom(
-            'div',
-            'user-block-open',
-            'user-block-open'
-        );
-        //在顶部打开侧边栏的按钮的主体
-        var user_block_open_click = functionGroup.cDom(
-            'div',
-            'user-block-open-click',
-            'user-block-open-click',
-            '≡≡'
-        );
-        //底部
-        var footer = functionGroup.cDom(
-            'div',
-            'footer',
-            'footer',
-            static_data.baseinfo.m_COPYRIGHT
-        );
-        //侧边栏的用户区域
-        var menu_user_block = functionGroup.cDom(
-            'div',
-            'menu-user-block',
-            'menu-user-block'
-        );
-        //侧边栏的上下分割线
-        var menu_user_block_div_line = functionGroup.cDom(
-            'hr',
-            'menu-user-block-div-line'
-        );
-        //侧边栏用户区域的头像区域
-        var menu_user_block_avatar = functionGroup.cDom(
-            'div',
-            'menu-user-block-avatar',
-            'menu-user-block-avatar'
-        );
-        //侧边栏用户区域的头像区域头像的img标签
-        var menu_user_block_avatar_img = functionGroup.cDom(
-            'img',
-            'menu-user-block-avatar-img',
-            'menu-user-block-avatar-img'
-        );
-        //侧边栏用户区域的id
-        var menu_user_block_id = functionGroup.cDom(
-            'div',
-            'menu-user-block-id',
-            'menu-user-block-id'
-        );
-        //侧边栏用户区域的uid
-        var menu_user_block_uid = functionGroup.cDom(
-            'div',
-            'menu-user-block-uid',
-            'menu-user-block-uid'
-        );
-        //侧边栏用户区域的id文本主体
-        var menu_user_block_id_txt = functionGroup.cDom(
-            'div',
-            'menu-user-block-id-txt',
-            'menu-user-block-id-txt',
-            '|{{user.user_id}}'
-        );
-        //侧边栏用户区域的uid文本主体
-        var menu_user_block_uid_txt = functionGroup.cDom(
-            'div',
-            'menu-user-block-uid-txt',
-            'menu-user-block-uid-txt',
-            '|uid:{{user.user_uid}}'
-        );
-        //侧边栏的功能区域（一个菜单，包含了侧边栏的所有按钮
-        var menu_func = functionGroup.cDom(
-            'div',
-            'menu-func',
-            'menu-func'
-        );
-        //侧边栏功能区域的列表ul标签
-        var menu_func_ul = functionGroup.cDom(
-            'ul',
-            'menu-func-ul',
-            'menu-func-ul'
-        );
-        //侧边栏功能区域的列表li标签
-        var menu_func_li = functionGroup.cDom(
-            'li'
-        );
-        //侧边栏每个功能的区域
-        var menu_func_li_btn_block = functionGroup.cDom(
-            'div',
-            'menu-func-li-btn-block',
-            ''
-        );
-        //侧边栏每个功能的文本主体
-        var menu_func_li_btn_block_txt = functionGroup.cDom(
-            'div',
-            'menu-func-li-btn-block-txt',
-            '',
-            '{{el.name}}'
-        );
-        var menu_func_li_btn_block_about = functionGroup.cDom(
-            'div',
-            'menu-func-li-btn-block-about',
-            '',
-            '{{el.about}}'
-        );
+                }
+            },
+            methods : {
 
-        //Vue绑定事件与变量
-        menu_user_block_avatar_img.attr(':src','user.avatar');
-        user_block_open_click.attr('v-on:click','mouseClick');
-        black_cover.attr('v-on:click','mouseClick');
-        //不知道为什么可以这么写（迷），也不知道为什么把v-on换成v-on:click之后这个就不起作用了，
-        //还不知道为什么这样子!user.online为false的时候会报错
-        menu_user_block_id_txt.attr('v-on','{click: !user.online && goToLogin}');
-        menu_func_li.attr('v-for','el in func');
-        //不知道为什么当把v-on:click换成@click之后就会报错
-        menu_func_li_btn_block.attr('v-on:click','el.func');
+            }
+        });
 
-        //修整PC与PE的侧边栏宽度
-        if(!functionGroup.isPC())
-        {
-            menu.width('70%');
-            menu.css('left','-70%');
-            menu_user_block.height(innerWidth * 0.12);
-            menu_user_block_id_txt.css('font-size',innerWidth * 0.03 + "px");
-            menu_user_block_uid_txt.css('font-size',innerWidth * 0.03 + "px");
-            menu_user_block_avatar.width(innerWidth * 0.7 * 0.15);
-        }else{
-            menu_user_block_avatar.width(45);
-            menu_user_block.height(innerWidth * 0.045);
-        }
-        menu_user_block_avatar_img.width(menu_user_block_avatar.width());
-        menu_user_block_avatar_img.height(menu_user_block_avatar_img.width());
-        menu_user_block_avatar.height(menu_user_block_avatar.width());
+        //实例化Vue对象
+        this.header = new header();
+        this.menu = new menu();
+        this.black_cover = new black_cover();
+        this.footer = new footer();
 
-        //向html中添加dom
-        //结构：
-        //<menu>                                1
-        //  <user-block>                        2
-        //      <avatar>                        3
-        //      <uid>                           4
-        //      <id>                            5
-        //  </user-block>                       6
-        //  <div line>                          7
-        //  <func>                              8
-        //      <ul>                            9
-        //          <li>                        10
-        //              <each func>             11
-        //          </li>                       12
-        //      </ul>                           13
-        //  </func>                             14
-        //</menu>                               15
-        menu.append(menu_user_block);                                   //2
-        menu.append(menu_user_block_div_line);                          //7
-        menu.append(menu_func);                                         //8
-        menu_func.append(menu_func_ul);                                 //9
-        menu_func_ul.append(menu_func_li);                              //10
-        menu_func_li.append(menu_func_li_btn_block);                    //11
-        menu_func_li_btn_block.append(menu_func_li_btn_block_txt);      //11-功能的文本主体
-        menu_func_li_btn_block.append(menu_func_li_btn_block_about);    //11-功能介绍
-        menu_user_block.append(menu_user_block_avatar);                 //3
-        menu_user_block.append(menu_user_block_uid);                    //4
-        menu_user_block.append(menu_user_block_id);                     //5
-        menu_user_block_id.append(menu_user_block_id_txt);              //5-用户的id的文本主体
-        menu_user_block_uid.append(menu_user_block_uid_txt);            //6-用户的uid的文本主体
-        menu_user_block_avatar.append(menu_user_block_avatar_img);      //3-用户的头像的图片主体
-        map.prepend(header);
-        map.prepend(black_cover);
-        map.prepend(menu);
-        map.append(footer);
-        header.append(user_block_open);
-        user_block_open.append(user_block_open_click);
+        //挂载Vue对象
+        this.header.$mount('#_header');
+        this.menu.$mount('#_menu');
+        this.black_cover.$mount('#_black_cover');
+        this.footer.$mount('#_footer');
     }
 
     //设置标题
@@ -579,5 +551,8 @@ function getDestinationCookie(cookieName)
 
 function pisert()
 {
-    return [ Date.parse(new Date()) , Math.floor(Math.random()*Math.pow(10,5))];
+    return [
+        Date.parse(new Date()) ,
+        Math.floor(Math.random()*Math.pow(10,5))
+    ];
 }
