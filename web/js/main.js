@@ -6,6 +6,10 @@ function InitWeb()
     //函数集合，为了方便调用就把它们封装在一个去全局对象内了
     //所有函数完全独立，已避免互相调用
     var functionGroup = {
+        //获取用户的登录状态
+        isOnline :function () {
+            return app_self.constDom.menu.user.online;
+        },
         //打开黑幕，关闭黑屋需要手动调用closeBlackCover，或者给黑幕绑定上点击黑幕就关闭的事件
         openBlackCover : function () {
             //首先把黑色幕布的z-index值调大，盖住整个屏幕
@@ -301,6 +305,17 @@ function InitWeb()
         //获取左侧菜单栏宽度
         getMenuWidth : function () {
             return app_self.constDom.menu.css.width;
+        },
+        //获取指定cookie
+        getDestinationCookie : function (cookieName) {
+            var strCookie = document.cookie;
+            var arrCookie = strCookie.split("; ");
+            for(var i = 0; i < arrCookie.length; i++)
+            {
+                var arr = arrCookie[i].split("=");
+                if(cookieName === arr[0])return arr[1];
+            }
+            return false;
         }
     };
 
@@ -530,23 +545,6 @@ function InitWeb()
     function setTitle(){
         document.title = static_data.getWebTitle();
     }
-}
-
-function updateUserInfo(user_info)
-{
-
-}
-
-function getDestinationCookie(cookieName) 
-{
-    var strCookie = document.cookie;
-    var arrCookie = strCookie.split("; ");
-    for(var i = 0; i < arrCookie.length; i++)
-    {
-        var arr = arrCookie[i].split("=");
-        if(cookieName === arr[0])return arr[1];
-    }
-    return false;
 }
 
 function pisert()

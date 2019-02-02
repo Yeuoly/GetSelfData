@@ -28,8 +28,16 @@
         $res->set('res',FAILED);
         $res->set('error',$result,true);
     }
-    $res->set('res',SUCCESS);
-    $res->set('data',$user_data,true);
+    if(php_self() == 'User.php')
+    {
+        $res->set('res',SUCCESS);
+        $res->set('data',$user_data,true);
+    }
+
+    function php_self(){
+        $php_self=substr($_SERVER['PHP_SELF'],strrpos($_SERVER['PHP_SELF'],'/')+1);
+        return $php_self;
+    }
 
     /**粪山**/
     /*session_name("HTPP_S_V_NFG");

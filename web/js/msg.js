@@ -11,7 +11,8 @@
 */
 
 window.onload = function () {
-    var appHandle = new InitWeb();
+    //初始化界面
+    this.constDom = new InitWeb();
     mainHandle = this;
 
     //post wrap的Vue实例，body内如果isList为真则创建一个带有v-for的<li></li>dom对象，其中数据对应li，

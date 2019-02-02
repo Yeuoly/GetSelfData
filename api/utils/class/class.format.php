@@ -76,4 +76,10 @@
             return true;
         }
 
+        public function FromNormalStr($str){
+            if(!isset($str) || !is_string($str)){
+                return false;
+            }
+            return true;
+        }
     }

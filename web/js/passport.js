@@ -12,7 +12,10 @@
 
 window.onload = function()
 {
-    if(checkStatue() != true)
+    this.constDom = new InitWeb();
+    this.constDom.functionGroup.passJct();
+
+    if(this.constDom.functionGroup.isOnline() !== true)
     {
         $("#sec_master").html("赶快登陆呐");
         $("#thr_master_1").css({"display":""});
@@ -23,10 +26,6 @@ window.onload = function()
         $("#thr_master_2").css({"display":""});
     }
 
-    var bcgd = this.document.createElement("img");
-    bcgd.id = "background";
-    this.document.body.parentNode.insertBefore(bcgd,this.document.body);
-    selectBackground();
     $("#login_btn").click(function(){
         var account = $("#l-userid").val();
         var pswd    = $("#l-pswd").val();
