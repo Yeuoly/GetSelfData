@@ -148,7 +148,7 @@
          *
          * */
         public function InsertIntoList($list,$datalist){
-
+            if(!$this->con_sign)return false;                                   //需要先连接数据库再查询
             $keys = "";
             $vals = "";
             foreach ($datalist as $key => $val)
@@ -177,6 +177,38 @@
          *
          * */
         public function Query($sql){
+            if(!$this->con_sign)return false;                                   //需要先连接数据库再查询
             return mysqli_query($this->con, $sql);
+        }
+
+        /*
+         * 输出全表的字典
+         *
+         * */
+        public function GetWholeList($list){
+            if(!$this->con_sign)return false;                                   //需要先连接数据库再查询
+            //保存DBCon的返回数据
+            $result = null;
+            //表格的临时缓存
+            $ary_buf = null;
+            $result = mysqli_query($this->con,"SELECT * FROM $list");
+            if(!$result)
+            {
+                return failed_query;
+            }
+            $first_dist = array();
+            while ($row = mysqli_fetch_array($result))
+            {
+                $second_dist = array();
+                foreach ($row as $key => $val)
+                {
+                    if(!is_int($key))
+                    {
+                        $second_dist = array_merge($second_dist , array($key => $val));
+                    }
+                }
+                array_push($first_dist , $second_dist);
+            }
+            return $first_dist;
         }
     }

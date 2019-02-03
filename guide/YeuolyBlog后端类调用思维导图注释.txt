@@ -1,0 +1,139 @@
+//以后换markdown
+
+数据库操控类DB_Controller
+{
+__construct()
+构造函数
+必要参数为：
+1.数据库host
+2.数据库用户名
+3.数据库密码
+4.数据库名
+
+返回值为一个DB_Controller对象
+
+Init()
+初始化对象
+参数与__construct()相同
+
+Start()
+开始连接
+必要步骤，功能为连接上数据库
+失败返回false
+功能返回this
+
+End()
+停止连接，大概不一定要调用
+
+GetRowFromList()
+从一个表中获取需要的行
+返回一行数据，满足条件的第一条
+参数：
+1.list 表名
+2.datalist 需要的数据满足的条件，为一个字典，不太好解释，给个例子
+数据库中：
+①name : 'Leon'  age : 18
+②name : 'Lina'  age : 20
+
+这个时候如果datalist为
+{name : 'Lina' , age : 20}，那么②号数据就是满足条件的
+
+3.sign 一个标识，默认为'or'，标识只要datalist中有一条满足的条件就行了，如果改为'and'就表示要同时满足datalist里的所有条件
+
+4.&rows 这个表一共有多少行数据
+
+SetInList()
+修改一个表的数据
+参数:
+1.list 表名
+2.key  要修改目标的键值
+3.val  要改成的数据
+4.original_key 要修改的行的一个键值
+5.original_val 要修改的行的一个键值对应的值
+成功返回true
+失败返回失败原因的字符串
+
+InsertIntoList()
+向表里插入多（一）条数据
+参数：
+1.表名
+2.datalist，要插入的数据，是一个字典，键值应与数据库里的相对应
+成功返回true
+失败返回失败原因的字符串
+
+Query()
+提供的一个手动query的接口
+参数
+1.sql，就是一个普通的mysql查询请求
+返回mysql请求结果
+
+GetWholeList()
+获取整个表的数据
+参数：
+1.表名
+返回整个表的字典对象（这个字典本身位于一个数组内，这个数组只有一个元素）
+}
+
+用户操作类AccountAction{
+__construct()
+构造函数
+目前毛都没有
+
+__init()
+初始化对象
+参数：
+1.account  账号
+2.password 密码
+3.time     创建这个对象的时间，用于检测网页发来的post的时间是否满足要求
+4.rnd     没啥用的随机数
+
+返回this
+
+__setEmail()
+设置邮箱
+参数：
+1.email
+返回this
+
+FindUser()
+查询一个用户的信息
+参数：
+1.account  账号
+
+找到了就返回用户的数据字典
+没找到返回-2
+服务器gg了返回gg的字符串
+
+VerifyFormat()
+检测用户信息的格式是否正确
+正确返回this
+失败返回false
+
+Login()
+登录
+参数:
+1.&srm_jct   用户登录标识
+如果成功了就把jct存入数据库，并存入srm_jct，返回true
+失败返回原因
+
+Register()
+注册
+参数：
+1.&user_data   返回给调用它的那里
+成功将account email uid reg_time srm_jct以字典的形式返回给user_data返回true
+失败返回原因
+
+UpdateJct()
+更新用户登录信息
+参数：
+1.jct   用户登录标识
+
+CheckJct()
+检查用户的登录状态
+参数：
+1.jct   用户登录标识
+2.&user_data  储存用户信息
+
+如果用户在线就返回true
+不在线返回offline的字符串
+}
