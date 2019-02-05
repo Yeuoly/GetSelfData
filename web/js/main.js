@@ -316,7 +316,12 @@ function InitWeb()
                 if(cookieName === arr[0])return arr[1];
             }
             return false;
-        }
+        },
+        //向black_cover中添加点击事件，传入值需要是一个函数，将会被绑定到black_cover的onlick事件中
+        //需要注意的是，当触发了onclick事件之后所有的绑定都会被清理
+        blackCoverBindClick : function(p) {
+            app_self.constDom.black_cover.methods.bind(p);
+        },
     };
 
     //给外部访问函数集合的接口
@@ -386,14 +391,42 @@ function InitWeb()
                 '               </div>' +
                 '           </div>' +
                 '       </div>',
+            data : function(){
+                return {
+                    //是否绑定标识
+                    isBinded : false,
+                }
+            },
             methods : {
                 mouseClick : function() {
                     functionGroup.openSideMenu();
                     functionGroup.openBlackCover();
                     $('#black-cover').bind('click',function() {
-                        app_self.functionGroup.closeSideMenu();
-                        app_self.functionGroup.closeBlackCover();
+                        functionGroup.closeSideMenu();
+                        functionGroup.closeBlackCover();
                     });
+                },
+                //函数绑定缓存，储存多组json格式的数据，对应法则为
+                //{ func: 目标函数 , isConst: 是否在执行完一次函数之后清除本元素} 
+                bindCache : [
+                    {
+                        func: function(){
+                            console.log('Event : click #black_cover');
+                        },
+                        isConst : true
+                    }
+                ],
+                //清理函数缓存
+                unbind : function() {
+                    for(var log in bindCache){
+                        if(!log.isConst){
+                            //remove this
+                        }
+                    }
+                },
+                //添加函数缓存
+                bind : function(func) {
+                    bindCache.push(func);
                 }
             }
         });
@@ -451,25 +484,17 @@ function InitWeb()
                         {
                             name: '我的主页',
                             about: '字面意思呀，巴拉拉能量让你回到自己的主页！',
-                            func: function () {
-                                functionGroup.goToMyIndex();
-                            }
+                            func: 'myIndex'
                         },
                         {
                             name: '更新日志',
                             about: '估计你对这个没啥兴趣',
-                            func: function () {
-                                functionGroup.closeSideMenu();
-                                functionGroup.closeBlackCover();
-                                functionGroup.goToUpdateLog();
-                            }
+                            func: 'updateLog'
                         },
                         {
                             name: '注销',
                             about: '嘤嘤嘤咱要溜了',
-                            func: function () {
-                                functionGroup.logOff();
-                            }
+                            func: 'logOff'
                         }
                     ],
                     //用户数据
@@ -495,6 +520,23 @@ function InitWeb()
             methods : {
                 goToLogin : function () {
                     functionGroup.goToLogin();
+                },
+                FunctionSwitch : function(key)
+                {
+                    switch(key)
+                    {
+                        case 'myIndex':
+                            functionGroup.goToMyIndex();
+                            break;
+                        case 'updateLog':
+                            functionGroup.closeBlackCover();
+                            functionGroup.closeSideMenu();
+                            functionGroup.goToUpdateLog();
+                            break;
+                        case 'logOff':
+                            functionGroup.logOff();
+                            break;
+                    }
                 }
             }
         });
