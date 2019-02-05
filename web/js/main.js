@@ -10,7 +10,7 @@ function InitWeb()
         isOnline :function () {
             return app_self.constDom.menu.user.online;
         },
-        //打开黑幕，关闭黑屋需要手动调用closeBlackCover，或者给黑幕绑定上点击黑幕就关闭的事件
+        //打开黑幕，关闭黑幕需要手动调用closeBlackCover，或者给黑幕绑定上点击黑幕就关闭的事件
         openBlackCover : function () {
             //首先把黑色幕布的z-index值调大，盖住整个屏幕
             var black_cover = document.getElementById('black-cover');
@@ -317,9 +317,9 @@ function InitWeb()
             }
             return false;
         },
-        //向black_cover中添加点击事件，传入值需要是一个函数，将会被绑定到black_cover的onlick事件中
+        //向black_cover中添加点击事件，传入值需要是一个字典，其中的func成员将会被绑定到black_cover的onlick事件中
         //需要注意的是，当触发了onclick事件之后所有的绑定都会被清理
-        blackCoverBindClick : function(p) {
+        blackCoverBindClick : function(src) {
             app_self.constDom.black_cover.methods.bind(p);
         },
     };
@@ -393,40 +393,18 @@ function InitWeb()
                 '       </div>',
             data : function(){
                 return {
-                    //是否绑定标识
-                    isBinded : false,
+
                 }
             },
             methods : {
                 mouseClick : function() {
                     functionGroup.openSideMenu();
                     functionGroup.openBlackCover();
-                    $('#black-cover').bind('click',function() {
+                    //绑定black_cover的点击事件
+                    functionGroup.blackCoverBindClick( function() {
                         functionGroup.closeSideMenu();
                         functionGroup.closeBlackCover();
                     });
-                },
-                //函数绑定缓存，储存多组json格式的数据，对应法则为
-                //{ func: 目标函数 , isConst: 是否在执行完一次函数之后清除本元素} 
-                bindCache : [
-                    {
-                        func: function(){
-                            console.log('Event : click #black_cover');
-                        },
-                        isConst : true
-                    }
-                ],
-                //清理函数缓存
-                unbind : function() {
-                    for(var log in bindCache){
-                        if(!log.isConst){
-                            //remove this
-                        }
-                    }
-                },
-                //添加函数缓存
-                bind : function(func) {
-                    bindCache.push(func);
                 }
             }
         });
@@ -469,7 +447,7 @@ function InitWeb()
                 '           <div class="menu-func" id="menu-func">' +
                 '               <ul class="menu-func-ul" id="menu-func-ul">' +
                 '                   <li v-for="dep in func">' +
-                '                       <div class="menu-func-li-btn-block" @click="dep.func">' +
+                '                       <div class="menu-func-li-btn-block" @click="functionSwitch(dep.func)">' +
                 '                           <div class="menu-func-li-btn-block-txt">{{dep.name}}</div>' +
                 '                           <div class="menu-func-li-btn-block-about">{{dep.about}}</div>' +
                 '                       </div>' +
@@ -521,7 +499,8 @@ function InitWeb()
                 goToLogin : function () {
                     functionGroup.goToLogin();
                 },
-                FunctionSwitch : function(key)
+                //点击这个dom的时候的函数处理事件，使用一个function和多个key来判断不同情况下执行什么任务
+                functionSwitch : function(key)
                 {
                     switch(key)
                     {
@@ -547,12 +526,71 @@ function InitWeb()
                 '           class="black-cover" ' +
                 '           id="black-cover"' +
                 '           :style="{opacity: css.opacity}"' +
+                '           @click=mouseClick' +
                 '       >' +
                 '       </div>',
             data : function () {
                 return {
                     css:{
                         opacity : 0
+                    }
+                }
+            },
+            methods : {
+                //点击黑幕时处理掉绑定在黑幕的onlick事件（依此调用加清空不必要的函数缓存）
+                mouseClick : function () {
+                    for(var dep in bindCache){
+                        bindCache[dep].func();
+                    }
+                    this.unbind();
+                },
+                //函数绑定缓存，储存多组json格式的数据，对应法则为
+                //{ func: 目标函数 , isConst: 是否在执行完一次函数之后清除本元素}
+                //func定义为事件，最终储存在bindCache中的事件集合定义为事件列表
+                //isConst定义为固定事件标识符，如果这个事件是一个在运行完之后不从事件列表中删去的事件，则其为固定事件 
+                bindCache : [
+                    {
+                        //默认事件，点击事件产生时发出一个提示
+                        func: function(){
+                            console.log('Event : click #black_cover');
+                        },
+                        //这个事件是默认的固定事件
+                        isConst : true
+                    }
+                ],
+                //清理函数缓存，留下固定事件，删去非固定事件
+                unbind : function() {
+                    var bindCache_buf = [];
+                    for(var dep in bindCache){
+                        if(dep.isConst){
+                            bindCache_buf.push(bindCache[dep]);
+                        }
+                    }
+                    bindCache = bindCache_buf;
+                },
+                //添加函数缓存
+                //参数为一个字典，或者为一个函数，固定事件表示默认为false
+                bind : function(src) {
+                    var type = typeof src;
+                    //如果传进来的是一个对象（字典）
+                    if(type === 'object'){
+                        //判断其类型是否为我们所需要的类型
+                        if(typeof src.func === 'function' && (typeof src.isConst === 'undefined' || typeof src.isConst ==='boolean')){
+                            //利用三段运算符给isConst一个默认值（Js不支持直接的默认值真的很蛋疼）
+                            src.isConst = src.isConst ? src.isConst : false;
+                            bindCache.push(src);                         
+                        }else{
+                            console.error('Wrong type in function-bind');
+                        }
+                    //如果川籍那里的是一个函数
+                    }else if(type === 'function'){
+                        //手动构建一个对象push进cache
+                        bindCache.push({
+                            func : src,
+                            isConst : false
+                        });
+                    }else{
+                        console.error('Wrong type in function-bind');
                     }
                 }
             }
