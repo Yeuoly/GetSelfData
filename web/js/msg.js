@@ -41,7 +41,7 @@ window.onload = function () {
                                 '</div>' +
                             '</div>' +
                             '<div class="post-card-body" v-for="bodyDep in ev.body">' +
-                                //这里处理多个不同板块的html
+                                '<div v-html="bodyDep.html"></div>' +
                             '</div>' +
                         '</div>' +
                     '</li>' +
@@ -87,6 +87,7 @@ window.onload = function () {
             //        src : data for this class
             //    }
             //]
+            //最终储存在Vue data里的应该为{html:'',src:''} html中的v-html的参数为html，v-html生成的dom中的vue参数为src
             var post_card = {
                 title : post_title,
                 user : post_user,
@@ -96,43 +97,66 @@ window.onload = function () {
                     //{
                     //    //html需要根据data里的src和class生成，最终丢到dom里的就是这个东西了，是一个字符串
                     //    html : ''
+                    //    src : ''
                     //},
                 ]
             };
+            for(var i in post_data){
+                post_card.body.push(
+                    createNode(post_data[i].class,post_data[i].src),
+                );
+            }
+
         },
-        //创建post的节点
-        createNode : function(className,type){
+        //创建post的节点(各板块的节点)，bodyDep为body数组的各个单元
+        createNode : function(className,src){
             var group = {
-                createTableNode : function(src){
-                    var str = 
-                            '<table class="showinfo-table">' +
-                                '<tr v-for="dep in bodyDep.list">' +
+                createTableNode : function(){
+                    return
+                            '<table class="post-card-body-table">' +
+                                '<tr v-for="dep in bodyDep.src">' +
                                     '<td v-for="(value,key) in dep" :tdKey="key">' +
                                         '{{value}}' +
                                     '</td>' +
                                 '</tr>' +
                             '</table>';
                 },
-                createBlogNode : function(src){
-                    var str = 
-                            '<div class="post-card-body-blog" v-html="bodyDep.html"></div>';
+                createBlogNode : function(){
+                    return '<div class="post-card-body-blog">{{bodyDep.src}}</div>';
                 },
-                createPictrueNode : function(src){
-                    
+                createPictrueNode : function(){
+                    return '<img :src="bodyDep.src" class="post-card-body-image">';
                 },
-                createUrlNode : function(src){
-                    
+                createUrlNode : function(){
+                    return '<a :href="bodyDep.src" class="post-card-body-url">';
                 }
+            }
+            //html模板
+            var templateObject = {
+                html : ''
+            }
+            //data
+            var data = {
+                src : src
             }
             switch(className){
                 case 'table':
+                    templateObject.html = createTableNode();
                     break;
                 case 'blog':
+                    templateObject.html = createBlogNode();
                     break;
                 case 'pictrue':
+                    templateObject.html = createPictrueNode();
                     break;
                 case 'url':
+                    templateObject.html = createUrlNode();
                     break;
+            }
+            //返回bodyDep内的参数
+            return {
+                html : templateObject.html,
+                src : data.src
             }
         }
         

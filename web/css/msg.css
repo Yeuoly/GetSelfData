@@ -128,25 +128,25 @@ li{
     text-decoration: none;
 }
 
-.showinfo-table{
+.post-card-body-table{
     width: 90%;
     margin: 0 auto;
     word-wrap: break-word;
     word-break: break-all;
 }
 
-.showinfo-table td{
+.post-card-body-table td{
     display: table-cell;
     text-align: center;
     font-family: "微软雅黑 Narrow";
     color:rgb(37, 37, 37);
 }
 
-.showinfo-table .showinfo-title{
+.post-card-body-table .showinfo-title{
     width: 30%;
 }
 
-.showinfo-table .showinfo-num{
+.post-card-body-table .showinfo-num{
     width: 5%;
 }
 
@@ -191,7 +191,7 @@ li{
     opacity: 0.7;
 }
 
-.showinfo-table td button{
+.post-card-body-table td button{
     border: 0px;
     outline: 0px;
     height: 100%;
@@ -199,7 +199,7 @@ li{
     opacity: 0.7;
 }
 
-.showinfo-table td button:hover{
+.post-card-body-table td button:hover{
     cursor: pointer;
 }
 
