@@ -66,8 +66,7 @@ window.onload = function()
             content : '闲着没事造轮子，YeuolyBlog将会作为DataConnection网站的前身,' +
                 '目前就是一个博客，自认为具有很强的扩展性，很容易可以将此扩展为DataConnection,' +
                 '网站会在您的计算机上储存cookies，如果您不希望被储存此类数据，请尽管嫌弃本站并砸死我然后扬长而去。' +
-                '联系我请发送邮件到admin@srmxy.cn。以下是本站使用到的工具。' +
-                '还有件巨重要的事情，麻烦用Chrome访问，IE太屎了，css写得真的蛋疼，除非你愿意帮我写，别提bootstrap',
+                '联系我请发送邮件到admin@srmxy.cn。以下是本站使用到的工具。',
             techList : [
                 {
                     name : 'JavaScript',

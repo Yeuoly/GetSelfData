@@ -16,6 +16,8 @@
             if(is_string($src) || !$src)
             {
                 return true;
+            }elseif(is_int($src) && $src == -2){
+                return true;
             }
             return false;
         }

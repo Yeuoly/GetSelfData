@@ -84,7 +84,7 @@
             $row = mysqli_fetch_array($full_list);                              //判断键值是否存在，不存在返回false
             foreach ($datalist as $key => $val)
             {
-                if(!isset($row[$key]))
+                if(!isset($row[$key]) && $row != null)
                 {
                     return self::server_error;
                 }
@@ -210,5 +210,21 @@
                 array_push($first_dist , $second_dist);
             }
             return $first_dist;
+        }
+
+        /*
+         * 获取表的后面几行内容
+         * 具体行数由参数limit决定，起始点由参数start决定
+         *
+         * */
+        public function GetLastFewData($list,$start,$limit){
+            if(!$this->con_sign)return false;                                   //需要先连接数据库再查询
+            $sql = "SELECT * FROM $list ORDER BY `post_order` DESC LIMIT $start,$limit";
+            $res = mysqli_query($this->con,$sql);
+            if(!$res)
+            {
+                return failed_query;
+            }
+            return $res;
         }
     }

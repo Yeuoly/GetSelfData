@@ -1,3 +1,13 @@
+/**
+ *
+ * GetSelfData main.js
+ * author : SRM_XY Yeuoly
+ * Copyright : VSOV-2018-2019
+ * Editor by IDEA and VSCODE
+ * Thanks to Vue.js
+ *
+ * */
+
 function InitWeb()
 {
     //提供一个给子级对象访问父级的handle
@@ -138,7 +148,7 @@ function InitWeb()
                 },
                 success : function(data)
                 {
-                    if(data['data']['res'] == static_data.response.passjct.success)
+                    if(data['data']['res'] === static_data.response.passjct.success)
                     {
                         self.setUserInfoArray(data['data']['data']);
                         self.setUserInfo('online',true);
@@ -318,10 +328,11 @@ function InitWeb()
             return false;
         },
         //向black_cover中添加点击事件，传入值需要是一个字典，其中的func成员将会被绑定到black_cover的onlick事件中
+        //传入值还可以是个function
         //需要注意的是，当触发了onclick事件之后所有的绑定都会被清理
         blackCoverBindClick : function(src) {
-            app_self.constDom.black_cover.methods.bind(p);
-        },
+            app_self.constDom.black_cover.bind(src);
+        }
     };
 
     //给外部访问函数集合的接口
@@ -533,40 +544,40 @@ function InitWeb()
                 return {
                     css:{
                         opacity : 0
-                    }
+                    },
+                    //函数绑定缓存，储存多组json格式的数据，对应法则为
+                    //{ func: 目标函数 , isConst: 是否在执行完一次函数之后清除本元素}
+                    //func定义为事件，最终储存在bindCache中的事件集合定义为事件列表
+                    //isConst定义为固定事件标识符，如果这个事件是一个在运行完之后不从事件列表中删去的事件，则其为固定事件
+                    bindCache : [
+                        {
+                            //默认事件，点击事件产生时发出一个提示
+                            func: function(){
+                                console.log('Event : click #black_cover');
+                            },
+                            //这个事件是默认的固定事件
+                            isConst : true
+                        }
+                    ]
                 }
             },
             methods : {
                 //点击黑幕时处理掉绑定在黑幕的onlick事件（依此调用加清空不必要的函数缓存）
                 mouseClick : function () {
-                    for(var dep in bindCache){
-                        bindCache[dep].func();
+                    for(var dep in this.bindCache){
+                        this.bindCache[dep].func();
                     }
                     this.unbind();
                 },
-                //函数绑定缓存，储存多组json格式的数据，对应法则为
-                //{ func: 目标函数 , isConst: 是否在执行完一次函数之后清除本元素}
-                //func定义为事件，最终储存在bindCache中的事件集合定义为事件列表
-                //isConst定义为固定事件标识符，如果这个事件是一个在运行完之后不从事件列表中删去的事件，则其为固定事件 
-                bindCache : [
-                    {
-                        //默认事件，点击事件产生时发出一个提示
-                        func: function(){
-                            console.log('Event : click #black_cover');
-                        },
-                        //这个事件是默认的固定事件
-                        isConst : true
-                    }
-                ],
                 //清理函数缓存，留下固定事件，删去非固定事件
                 unbind : function() {
                     var bindCache_buf = [];
-                    for(var dep in bindCache){
+                    for(var dep in this.bindCache){
                         if(dep.isConst){
-                            bindCache_buf.push(bindCache[dep]);
+                            bindCache_buf.push(this.bindCache[dep]);
                         }
                     }
-                    bindCache = bindCache_buf;
+                    this.bindCache = bindCache_buf;
                 },
                 //添加函数缓存
                 //参数为一个字典，或者为一个函数，固定事件表示默认为false
@@ -578,14 +589,14 @@ function InitWeb()
                         if(typeof src.func === 'function' && (typeof src.isConst === 'undefined' || typeof src.isConst ==='boolean')){
                             //利用三段运算符给isConst一个默认值（Js不支持直接的默认值真的很蛋疼）
                             src.isConst = src.isConst ? src.isConst : false;
-                            bindCache.push(src);                         
+                            this.bindCache.push(src);
                         }else{
                             console.error('Wrong type in function-bind');
                         }
-                    //如果川籍那里的是一个函数
+                    //如果传入的是一个函数
                     }else if(type === 'function'){
                         //手动构建一个对象push进cache
-                        bindCache.push({
+                        this.bindCache.push({
                             func : src,
                             isConst : false
                         });

@@ -63,3 +63,5 @@
     define("list_operate_success",666);
 
     define("list_operate_wrongformat","参数错误");
+
+    define("data_action_unexist_data","您查找的数据不存在");

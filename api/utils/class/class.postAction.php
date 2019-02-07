@@ -17,7 +17,7 @@ include_once (FILEPATH . "/utils/class/class.base.php");
 class publicPostAction extends Base
 {
     //hash表前缀
-    const hashListHead = "hash_data_";
+    protected $hashListHead = "hash_data_";
     //连接数据库
     //返回一个DBcontroller对象
     protected function GetBDCon(){
@@ -33,7 +33,7 @@ class publicPostAction extends Base
     //返回值是一个字典，键值为
     //type(这则post的类型) , title(这则post的标题) , about(关于这则post) , userID(谁发的) ,
     //userUID(发的人的UID) , postID(每则post都有自己专属的编号) , data(数据本体了)
-    public function getDataByHashID($hashID , $DBCon = null){
+    public function getDataByHashID($hashID , $lastDataDist = '', $DBCon = null ){
         //三段运算符获取DBCon对象
         $DB = $DBCon ? $DBCon : $this->GetBDCon();
         if(!$DB)
@@ -41,32 +41,44 @@ class publicPostAction extends Base
             return failed_query;
         }
         //获取hash表名
-        $list_name = self::hashListHead.$hashID[0];
+        $list_name = $this->hashListHead.$hashID[0];
         //通过hashID获取data数据
-        $result = $DB->GetRowFromList($list_name,array('hashID' => $hashID),'or');
+        $result = $DB->GetRowFromList($list_name,array('postID' => $hashID),'or');
         if($DB->_is_failed($result))
         {
-            return failed_query;
+            switch ($result){
+                case -2:
+                    return data_action_unexist_data;
+                default:
+                    return failed_query;
+            }
         }
         //用于缓存post数据
-        $dataDist = array(
-            'type'  => $result['type'],
+        $dataDist = $lastDataDist ? $lastDataDist : array(
             'title' => $result['title'],
             'about' => $result['about'],
             'userID' => $result['userID'],
             'userUID' => $result['userUID'],
-            'postID' => $result['hashID'],
-            'data' => null
+            'postID' => $result['postID'],
+            'data' => '',
+            'isOver' => $result['isOver']
         );
-        switch ($result['type'])
+
+        //更新字典数据
+        //$dataDist['data'] .= $this->fromListToJson($result['data']);
+        $dataDist['data'] .= $result['data'];
+
+        if($result['isOver'] == 'true')
         {
-            case 'list':
-                $dataDist['data'] = $this->fromListToJson($result['data']);
-                break;
-            default:
-                $dataDist['data'];
+            return array(
+                'post_title' => $dataDist['title'],
+                'post_about' => $dataDist['about'],
+                'post_userID' => $dataDist['userID'],
+                'post_userUID' => $dataDist['userUID'],
+                'post_data' => $dataDist['data']
+            );
         }
-        return $dataDist;
+        return $this->getDataByHashID($dataDist['isOver'],$dataDist,$DB);
     }
 
     //将一个表的数据转换成json
