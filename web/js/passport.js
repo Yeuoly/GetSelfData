@@ -69,7 +69,7 @@ window.onload = function()
             $("#sec_master").html("验证码错误");
             return;
         }
-        regsiterMaster(account,password,verification);
+        registerMaster(account,password,verification);
     });
 }
 
@@ -88,9 +88,9 @@ function verifyToken(account,password)
     	},
         success : function(data)
         {
-            if(data['data']['res'] == static_data.response.login.failed)
+            if(data['data']['res'] === static_data.response.login.failed)
                 $("#sec_master").html((data['data']['error']));
-            else if(data['data']['res'] == static_data.response.login.success)
+            else if(data['data']['res'] === static_data.response.login.success)
                 location.href = static_data.getUrlPath("",static_data.m_URL_DOMAIN_WEB_DIR);
         }
     });
@@ -110,7 +110,7 @@ function requestEmailVerification(email,captcha)
     	},
         success : function(data)
         {
-            if(data['data']['res'] == static_data.response.requestVerification.success)
+            if(data['data']['res'] === static_data.response.requestVerification.success)
                 $("#sec_master").html(static_data.baseinfo.m_VERIFICATION_SUCCESS);
             else
                 $("#sec_master").html(data['data']['error']);
@@ -118,7 +118,7 @@ function requestEmailVerification(email,captcha)
     });
 }
 
-function regsiterMaster(account,password,verification)
+function registerMaster(account, password, verification)
 {
     var exr = pisert();
     $.ajax({
@@ -133,10 +133,11 @@ function regsiterMaster(account,password,verification)
     	},
         success : function(data)
         {
-            if(data['data']['res'] == static_data.response.register.failed)
+            if(data['data']['res'] === static_data.response.register.failed)
                 $("#sec_master").html(data['data']['error']);
             else
-                location.href = static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
+                location.href = static_data.getUrlPath('logOff.php',static_data.m_URL_DOMAIN_API_DIR)+
+                    "?next="+static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
         }
     });
 }

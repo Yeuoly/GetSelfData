@@ -36,7 +36,7 @@ class publicPostAction extends Base
     public function getDataByHashID($hashID , $lastDataDist = '', $DBCon = null ){
         //三段运算符获取DBCon对象
         $DB = $DBCon ? $DBCon : $this->GetBDCon();
-        if(!$DB)
+        if($this->_is_failed($DB))
         {
             return failed_query;
         }
@@ -109,10 +109,41 @@ class privatePostAction extends publicPostAction{
     //数组的每个元素中会有一个post_type参数，若此参数为list，则根据该元素中的data去查询对应的表，然后使用表中的数据替换掉data
     //若此参数为pictrue，则data是它的网页地址，就交给前端处理了
     //详情看主目录里的/guide/YeuolyBlog数据库查询思维导图.jpg
-    //这里约定一个数据结构：
-    //index : type , hashID
     public function getRecent($page){
-
+        $DB = $this->GetBDCon();
+        if($this->_is_failed($DB))
+        {
+            return failed_query;
+        }
+        //小学数学计算查询表的起点和总查询长度
+        $sql_fetch_start = ($page-1)*5;
+        $sql_fetch_lenght = 5;
+        //去用户的数据表里把我们要的数据的postID查出来
+        $postIDList = $DB->GetLastFewData('user_self_hash_list_'.$this->userUID,$sql_fetch_start,$sql_fetch_lenght);
+        if($DB->_is_failed($postIDList))
+        {
+            return failed_query;
+        }
+        //缓存用户post数据
+        $postList = array();
+        //定义一个undefined的字符串
+        define('none','undefined');
+        foreach($postIDList as $postID)
+        {
+            $postData = $this->getDataByHashID($postID['postID'],'',$DB);
+            if(is_string($postData))
+            {
+                $postData = array(
+                    'post_title' => none,
+                    'post_about' => none,
+                    'post_userID' => none,
+                    'post_userUID' => none,
+                    'post_data' => $postData
+                );
+            }
+            array_push($postList,$postData);
+        }
+        return $postList;
     }
 }
 

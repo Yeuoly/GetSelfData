@@ -28,6 +28,18 @@ function NotForgetData()
         this.m_WEB_TITLE            = "YeuolyBlog";
         this.m_WLECOME_SAYING       = "欢迎回来!";
         this.m_VERIFICATION_SUCCESS = "验证码已发送（可能在您邮箱的垃圾箱里orz)";
+        this.m_DEFAULT_USER_INFO    = {
+            user_id: '未登录，点击登录',
+            user_uid: '-1',
+            user_email: 'example@google.com',
+            user_lv: '0',
+            user_exp: '0',
+            user_class: '',
+            avatar: 'http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658',
+            srm_jct: '',
+            login_time: '0',
+            online: false
+        }
     }
     
     function Url()

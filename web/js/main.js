@@ -108,7 +108,7 @@ function InitWeb()
                 $.ajax({
                     url : static_data.getUrlPath("LogOff.php",static_data.m_URL_DOMAIN_API_DIR),
                     async : true,
-                    type : "post",
+                    type : "get",
                     dataType : "json",
                     contentType : "application/x-www-form-urlencoded",
                     xhrFields: {
@@ -116,9 +116,9 @@ function InitWeb()
                     },
                     success : function(data)
                     {
-                        if(data['data']['res'] == true)
+                        if(data['data']['res'] === static_data.response.passjct.success)
                         {
-                            location.href = static_data.getUrlPath("",static_data.m_URL_DOMAIN_WEB_DIR);
+                            functionGroup.clearUserInfo();
                         }
                     }
                 });
@@ -132,6 +132,22 @@ function InitWeb()
         setUserInfoArray : function (ary) {
             for(var key in ary){
                 app_self.functionGroup.setUserInfo(key,ary[key]);
+            }
+        },
+        //清除用户信息
+        //这里肯定要优化的，只是现阶段被这个js的引用型变量搞得很烦。。
+        clearUserInfo : function () {
+            app_self.constDom.menu.user = {
+                user_id: '未登录，点击登录',
+                user_uid: '-1',
+                user_email: 'example@google.com',
+                user_lv: '0',
+                user_exp: '0',
+                user_class: '',
+                avatar: 'http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658',
+                srm_jct: '',
+                login_time: '0',
+                online: false
             }
         },
         //登录检测
@@ -160,7 +176,7 @@ function InitWeb()
         },
         //获取用户信息
         getUserInfo : function () {
-            return app_self.app.menu_user_block._data.user;
+            return app_self.constDom.menu.user;
         },
         //
         isPC : function() {
@@ -487,18 +503,7 @@ function InitWeb()
                         }
                     ],
                     //用户数据
-                    user: {
-                        user_id: '未登录，点击登录',
-                        user_uid: '-1',
-                        user_email: 'example@google.com',
-                        user_lv: '0',
-                        user_exp: '0',
-                        user_class: '',
-                        avatar: 'http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658',
-                        srm_jct: '',
-                        login_time: '0',
-                        online: false
-                    },
+                    user: static_data.baseinfo.m_DEFAULT_USER_INFO,
                     //侧边菜单栏的css参数
                     css : {
                         left : menuLeft,

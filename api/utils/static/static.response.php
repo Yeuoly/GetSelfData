@@ -65,3 +65,5 @@
     define("list_operate_wrongformat","参数错误");
 
     define("data_action_unexist_data","您查找的数据不存在");
+
+    define("data_action_failedCreateUserList","用户数据表创建失败，请联系管理员手动修复");

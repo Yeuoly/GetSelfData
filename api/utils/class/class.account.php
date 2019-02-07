@@ -29,6 +29,8 @@
     define("mysql_key_class","class");
     define("mysql_key_lv","lv");
     define("mysql_key_exp","lv.exp");
+    define("mysql_key_postID","postID");
+    define("mysql_key_postOrder","post_order");
 
     class AccountAction extends Base
     {
@@ -171,7 +173,8 @@
                     mysql_key_account => $this->account,
                     mysql_key_email => $this->email
                 ),
-                'or'
+                'or',
+                $uid
             );
             //如果返回为unexist，则表示未发现这个账号，可以注册
             if($db_result == $DB::server_error)
@@ -211,6 +214,16 @@
                 'reg_time' => $reg_time,
                 'srm_jct'  => $srm_jct,
             );
+            //创建用户的专属数据表
+            $sql = "CREATE TABLE `user_self_hash_list_$uid`  (
+                      `postID` varchar(32) NULL,
+                      `post_order` int UNSIGNED NOT NULL AUTO_INCREMENT,
+                      PRIMARY KEY (`post_order`)
+                    );";
+            if(!$DB->Query($sql))
+            {
+                return data_action_failedCreateUserList;
+            }
             return true;
         }
 

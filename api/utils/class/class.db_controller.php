@@ -159,12 +159,11 @@
                 }else {
                     $vals .= $val.",";
                 }
-                $keys .= $key.",";
+                $keys .= "`".$key."`,";
             }
             $vals = substr($vals,0,strlen($vals)-1);
             $keys = substr($keys,0,strlen($keys)-1);
             $sql = "INSERT INTO $list ($keys) VALUES ($vals)";
-            echo $sql;
             if(!mysqli_query($this->con,$sql))
             {
                 return passport_server_error;
@@ -225,6 +224,12 @@
             {
                 return failed_query;
             }
-            return $res;
+            $ary_buf = array();
+            while ($row = mysqli_fetch_array($res))
+            {
+                array_push($ary_buf,$row);
+            }
+            return $ary_buf;
         }
+
     }
