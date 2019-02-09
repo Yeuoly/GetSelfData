@@ -2,34 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
-
-    <style>
-        #footer{
-            height: 1000px;
-        }
-
-        #app{
-            height: 1000px;
-        }
-
-    </style>
-
+    <title>Test</title>
 </head>
-<body>
+    <script>
+        window.onload = function () {
+            test02('hello world',test01);
+        };
 
-    <div id="app">
-        <div id="wrap">
-            <span>您的名字是{{name}}</span>
+        function test01(data){
+            alert(data);
+        }
 
-        </div>
-    </div>
-
-    <div id="footer">
-        a
-    </div>
-</body>
-    <script src="js/vue.js"></script>
-    <script src="js/test.js"></script>
-
+        function test02(data,src){
+            src(data);
+        }
+    </script>
 </html>

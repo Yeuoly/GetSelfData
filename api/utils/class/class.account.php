@@ -13,7 +13,7 @@
      * 用户操作类
      * */
 
-    include_once (dirname(__FILE__)."/class.db_controller.php");
+    include_once(dirname(__FILE__) . "/class.dbController.php");
     include_once (dirname(__FILE__)."/class.format.php");
     include_once (dirname(__FILE__)."/class.encryption.php");
     include_once (dirname(__FILE__)."/../functions.php");

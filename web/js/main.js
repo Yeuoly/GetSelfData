@@ -168,11 +168,32 @@ function InitWeb()
                     {
                         self.setUserInfoArray(data['data']['data']);
                         self.setUserInfo('online',true);
+                        self.setUserInfo(
+                            'avatar' ,
+                            static_data.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR)
+                        );
                         var handle_user_id_txt = $("#menu-user-block-id-txt");
                         handle_user_id_txt.css('cursor','default');
+                        //执行用户数据更新完之后的跟随事件
+                        for(var i in dataGroup.userOnloadNextTick)
+                        {
+                            dataGroup.userOnloadNextTick[i]();
+                        }
                     }
                 }
             });
+        },
+        //添加用户信息加载完之后的跟随事件
+        bindUserOnloadNextTick : function(src){
+            if(typeof src === 'function')
+                dataGroup.userOnloadNextTick.push(src);
+            else
+                console.error('userOnloadNextTick : wrong type');
+        },
+        //解绑所有绑定事件，这里不分什么固定事件不固定事件啥的
+        unbindUserOnloadNextTick : function(){
+            //直接覆盖就完事了，剩下的任务留给浏览器
+            dataGroup.userOnloadNextTick = [];
         },
         //获取用户信息
         getUserInfo : function () {
@@ -343,7 +364,7 @@ function InitWeb()
             }
             return false;
         },
-        //向black_cover中添加点击事件，传入值需要是一个字典，其中的func成员将会被绑定到black_cover的onlick事件中
+        //向black_cover中添加点击事件，传入值需要是一个字典，其中的func成员将会被绑定到black_cover的onclick事件中
         //传入值还可以是个function
         //需要注意的是，当触发了onclick事件之后所有的绑定都会被清理
         blackCoverBindClick : function(src) {
@@ -351,8 +372,20 @@ function InitWeb()
         }
     };
 
-    //给外部访问函数集合的接口
+    //同上面一样，封装在一起的一堆数据
+    var dataGroup = {
+        //用于缓存用户数据加载完之后的跟随事件
+        userOnloadNextTick : [
+            //example
+          /*function(){
+                //do something
+            }*/
+        ]
+    };
+
+    //给外部访问集合的接口
     this.functionGroup = functionGroup;
+    this.dataGroup = dataGroup;
 
     //创建dom和Vue对象
     this.constDom = new createVue();
@@ -397,7 +430,7 @@ function InitWeb()
             menuUserBlockTxtSize = innerWidth * 0.03;
             menuUserBlockAvatarSize = innerWidth * 0.7 * 0.15;
         }else{
-            menuUserBlockAvatarSize = 45;
+            menuUserBlockAvatarSize = 60;
             menuUserBlockHeight = innerWidth * 0.045;
             menuLeft = -300;
             menuWidth = 300;
@@ -456,7 +489,7 @@ function InitWeb()
                 '                       id="menu-user-block-avatar-img" ' +
                 '                       class="menu-user-block-avatar-img" ' +
                 '                       :src="user.avatar"' +
-                '                       style="width: '+menuUserBlockAvatarSize+'px; height:'+menuUserBlockAvatarSize+'px;"' +
+                '                       style="width: '+menuUserBlockAvatarSize+'px;"' +
                 '                   >' +
                 '               </div>' +
                 '               <div class="menu-user-block-uid" id="menu-user-block-uid">' +

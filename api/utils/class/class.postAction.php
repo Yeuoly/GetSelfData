@@ -10,7 +10,7 @@
  */
 
 include_once (dirname(__FILE__) . "/../../Config.php");
-include_once (FILEPATH . "/utils/class/class.db_controller.php");
+include_once(FILEPATH . "/utils/class/class.dbController.php");
 include_once (FILEPATH . "/utils/class/class.base.php");
 
 //公共查询用的类
@@ -131,13 +131,14 @@ class privatePostAction extends publicPostAction{
         foreach($postIDList as $postID)
         {
             $postData = $this->getDataByHashID($postID['postID'],'',$DB);
+            //如果失败了的话，就直接把postData换成失败原因
             if(is_string($postData))
             {
                 $postData = array(
-                    'post_title' => none,
-                    'post_about' => none,
-                    'post_userID' => none,
-                    'post_userUID' => none,
+                    'post_title' => 'failed to get Data',
+                    'post_about' => 'there is an error happened in sql server',
+                    'post_userID' => '-404',
+                    'post_userUID' => '-404',
                     'post_data' => $postData
                 );
             }

@@ -51,6 +51,8 @@ function NotForgetData()
 
     function Response()
     {
+        this.requestSuccess = 666;
+        this.requestFail = -250;
         this.login = new Login();
         this.passjct = new PassJct();
         this.register = new Register();
@@ -71,6 +73,11 @@ function NotForgetData()
             this.failed = -250;
         }
         function Register()
+        {
+            this.success = 666;
+            this.failed = -250;
+        }
+        function getData()
         {
             this.success = 666;
             this.failed = -250;

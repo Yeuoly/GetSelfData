@@ -13,6 +13,10 @@
 window.onload = function () {
     //初始化界面
     this.constDom = new InitWeb();
+    //设置
+    this.constDom.functionGroup.bindUserOnloadNextTick(function () {
+        functionGroup.getRecentPost(1,functionGroup.reloadMsg);
+    });
     mainHandle = this;
 
     //创建Vue对象构造器
@@ -30,7 +34,9 @@ window.onload = function () {
                                     '{{ev.title}}' +
                                 '</h3>' +
                                 '<div class="post-card-userblock">' +
-                                    '<div class="post-card-userblock-avatar">' +
+                                    '<div class="post-card-userblock-avatar"' +
+                                        ' :style="{backgroundImage : \'url(  \' + ev.avatarUrl + \'  ) \'}"' +
+                                    '>' +
                                     '</div>' +
                                     '<div class="post-card-userblock-id">' +
                                         '{{ev.user}}' +
@@ -73,22 +79,7 @@ window.onload = function () {
         data : function() {
             return {
                 postDepartment : [
-                    {
-                        title : 'Test',
-                        user : 'Yeuoly',
-                        userId : 1,
-                        introduction : 'test',
-                        body : [
-                            {
-                                src : 'test',
-                                html : 'picture'
-                            },
-                            {
-                                src : 'test',
-                                html : 'blog'
-                            }
-                        ]
-                    }
+
                 ]
             }
         }
@@ -103,7 +94,7 @@ window.onload = function () {
     //创建函数集合
     var functionGroup = {
         //类型、标题、用户信息、数据、简介
-        addBlock : function(post_title,post_user,post_user_id,post_data,post_introduction){
+        addPostCard : function(post_title, post_user, post_user_id , post_data, post_introduction){
             //新建Vue的data对象
             //原本body内是单一的类型，后来想了想，一个post内应该有很多种不同类型的内容，所以将body改为了一个数组
             //body内学习wordpress的风格，用板块划分，一个板块内只允许一种类型的内容
@@ -116,26 +107,62 @@ window.onload = function () {
             //    }
             //]
             //最终储存在Vue data里的应该为{html:'',src:''} html为给v-if判断类型的变量
-            var post_card = {
+            includes.postDepartment.push({
                 title : post_title,
                 user : post_user,
                 userId : post_user_id,
+                avatarUrl : static_data.getUrlPath('avatar/'+post_user_id+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR),
                 introduction : post_introduction,
-                body : [
-                    //{
-                    //    //html需要根据data里的src和class生成，最终丢到dom里的就是这个东西了，是一个字符串
-                    //    html : ''
-                    //    src : ''
-                    //},
-                ]
-            };
-            for(var i in post_data){
-                post_card.body.push({
-                    html : post_data[i].class,
-                    src : post_data[i].src
-                });
-            }
+                body : post_data
+            });
+        },
+        //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用
+        getRecentPost :function (page , afterSuccess) {
+            $.ajax({
+                url : static_data.getUrlPath('dataAction/private/getMyRecent.php',static_data.m_URL_DOMAIN_API_DIR),
+                async : true,
+                type : 'post',
+                data : {
+                    page : page
+                },
+                //dataType : 'json',
+                contentType : "application/x-www-form-urlencoded",
+                xhrFiled : {
+                    withCredentials : true
+                },
+                success : function (data) {
+                    console.log('getRecent post succeed');
+                    if(parseInt(data['data']['res']) === static_data.response.requestSuccess)
+                    {
+                        afterSuccess(data['data']['data']);
+                    }
+                }
+            });
+        },
+        //重载msg数据
+        reloadMsg : function (data) {
+            includes.postDepartment = [];
+            for(var i in data){
+                var post_data;
+                try{
+                    post_data = JSON.parse(data[i].post_data);
+                }catch (e) {
+                    post_data = [
+                        {
+                            html : 'blog',
+                            src : data[i].post_data
+                        }
+                    ]
+                }
 
+                functionGroup.addPostCard(
+                    data[i].post_title,
+                    data[i].post_userID,
+                    data[i].post_userUID,
+                    post_data,
+                    data[i].post_about
+                );
+            }
         }
     };
 
