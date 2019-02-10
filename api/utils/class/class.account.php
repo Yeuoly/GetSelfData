@@ -13,11 +13,11 @@
      * 用户操作类
      * */
 
-    include_once(dirname(__FILE__) . "/class.dbController.php");
-    include_once (dirname(__FILE__)."/class.format.php");
-    include_once (dirname(__FILE__)."/class.encryption.php");
-    include_once (dirname(__FILE__)."/../functions.php");
     include_once(dirname(__FILE__) . "/../../Config.php");
+    include_once(FILEPATH . "/utils/class/class.dbController.php");
+    include_once (FILEPATH . "/utils/class/class.format.php");
+    include_once (FILEPATH . "/utils/class/class.encryption.php");
+    include_once (FILEPATH . "/utils/functions.php");
 
     define("mysql_key_password","pswd");
     define("mysql_key_jct","srm_jct");

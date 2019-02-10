@@ -154,7 +154,6 @@ window.onload = function () {
                         }
                     ]
                 }
-
                 functionGroup.addPostCard(
                     data[i].post_title,
                     data[i].post_userID,

@@ -17,7 +17,7 @@
         private $result = array(
             'msg' => SUCCESS,
             'data' => array(
-                'res' => '',
+                'res' => SUCCESS,
                 'error' => '',
                 'data' => null
             )

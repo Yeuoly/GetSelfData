@@ -50,8 +50,6 @@ function InitWeb()
                     clearInterval(timer_cover);
                 }
             } , 10);
-            //移除所有绑定在click上的事件
-            $('#black-cover').unbind('click');
         },
         //打开侧边栏
         openSideMenu : function () {
@@ -88,6 +86,10 @@ function InitWeb()
                 }
                 functionGroup.setMenuLeft(left - 10);
             } , 3);
+        },
+        //到网站主页去
+        goToIndex : function () {
+            location.href = static_data.getUrlPath('',static_data.m_URL_DOMAIN_WEB_DIR);
         },
         //到自己的主页去
         goToMyIndex : function () {
@@ -520,6 +522,11 @@ function InitWeb()
                     //侧边功能栏
                     func: [
                         {
+                            name : '回到网站主页',
+                            about : '回到那个梦想开始的地方~',
+                            func : 'index'
+                        },
+                        {
                             name: '我的主页',
                             about: '字面意思呀，巴拉拉能量让你回到自己的主页！',
                             func: 'myIndex'
@@ -553,6 +560,9 @@ function InitWeb()
                 {
                     switch(key)
                     {
+                        case 'index':
+                            functionGroup.goToIndex();
+                            break;
                         case 'myIndex':
                             functionGroup.goToMyIndex();
                             break;

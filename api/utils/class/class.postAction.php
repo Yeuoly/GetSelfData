@@ -146,5 +146,49 @@ class privatePostAction extends publicPostAction{
         }
         return $postList;
     }
-}
 
+    public function newPost($post_title , $post_date , $post_data , $post_about){
+        //生成post的hashID
+        $DB = $this->GetBDCon();
+        if($this->_is_failed($DB)){
+            return failed_query;
+        }
+        $data_lenght = strlen($post_data);
+        $times = 0;
+        $postID = md5($post_title.$this->userID.time().$this->userUID.$post_date);
+        $first_postID = $postID;
+        srand(time());
+        while ($data_lenght > 0)
+        {
+            $post_isOver = null;
+            $post_data_department = substr($post_data,$times * 1024 , 1024);
+            $list_name = $this->hashListHead.$postID[0];
+            $post_isOver = $data_lenght <= 1024 ? 'true' : md5($post_title.$this->userID.time().rand(0,999999).rand(0,999999));
+            $res = $DB->InsertIntoList(
+                $list_name,
+                array(
+                    'title' => $post_title,
+                    'about' => $post_about,
+                    'userID' => $this->userID,
+                    'userUID' => $this->userUID,
+                    'postID' => $postID,
+                    'data' => $post_data_department,
+                    'isOver' => $post_isOver
+                ));
+            if($DB->_is_failed($res))
+                return failed_query;
+            $data_lenght -= 1024;
+            $times++;
+            $postID = $post_isOver;
+        }
+        $res = $DB->InsertIntoList(
+            'user_self_hash_list_'.$this->userUID,
+            array(
+                'postID' => $first_postID
+            )
+        );
+        if($DB->_is_failed($res))
+            return failed_query;
+        return true;
+    }
+}

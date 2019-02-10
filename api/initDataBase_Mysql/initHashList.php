@@ -45,4 +45,14 @@ for($i=97; $i<=122; $i++)
     }
 }
 
+for($i=0; $i<=9; $i++)
+{
+    $list_sign = $i;
+
+    if(!mysqli_query($con,$sql_head.$list_sign.$sql_tail))
+    {
+        echo('failed to create user list');
+    }
+}
+
 echo 'Success';

@@ -18,7 +18,7 @@
 
     //获取页面
     $formater = new FormatChecker();
-    $post_par_page = $_POST['page'];
+    $post_par_page = @$_POST['page'];
     if(!$formater->FromNormalNum(intval($post_par_page))){
         $res->set('res',FAILED);
         $res->set('error',passport_wrong_format,true);

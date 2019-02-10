@@ -127,7 +127,7 @@ li{
     border-radius: 25px;
 }
 
-.post-card-url-onclick{
+.post-card-body-url{
     color: black;
     text-decoration: none;
 }
@@ -135,6 +135,11 @@ li{
 .post-card-body-table{
     width: 90%;
     margin: 0 auto;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.post-card-body-blog{
     word-wrap: break-word;
     word-break: break-all;
 }
