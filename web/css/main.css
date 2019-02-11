@@ -1,3 +1,10 @@
+div, ul, li{
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 body{
     background-size: cover;
     background-attachment: fixed;
@@ -274,4 +281,128 @@ body{
     background: #ffdada;
     font-style: normal;
     border-radius: 10px;
+}
+
+.post-card{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 70%;
+    overflow:auto;
+    background-color: rgba(238, 238, 238, 0.315);
+    margin: 0 auto;
+    border-radius:5px;
+}
+
+.post-card-head{
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.post-card-body{
+    width: 95%;
+    margin: 0 auto;
+    overflow: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.post-introduction{
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+    /* margin-left: -30px; */
+    float: left;
+    width: 68%;
+    min-height: 50px;
+    text-align: justify;
+    background-color: rgba(255,255,255,0.135);
+    border-radius: 5px;
+    word-wrap: break-word;
+    word-break: break-all;
+    letter-spacing: 1px;
+    line-height: 22px;
+    border: 10px;
+}
+
+.post-title{
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.post-card-userblock{
+    padding-left: 25px;
+    width: 17%;
+    height: 50px;
+    float: left;
+}
+
+.post-card-userblock-id{
+    /* float: left; */
+    width: 50%;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 15px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-card-userblock-avatar{
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+#post-card-userblock-avatar-img{
+    object-fit: cover;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 25px;
+}
+
+.post-card-body-url{
+    color: black;
+    text-decoration: none;
+}
+
+.post-card-body-table{
+    width: 90%;
+    margin: 0 auto;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.post-card-body-blog{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.post-card-body-table td{
+    display: table-cell;
+    text-align: center;
+    font-family: "微软雅黑 Narrow";
+    color:rgb(37, 37, 37);
+}
+
+.post-card-body-table .showinfo-title{
+    width: 30%;
+}
+
+.post-card-body-table .showinfo-num{
+    width: 5%;
+}
+
+.post-card-body-img{
+    width: 100%;
 }

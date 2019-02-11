@@ -198,8 +198,12 @@ function InitWeb()
             dataGroup.userOnloadNextTick = [];
         },
         //获取用户信息
-        getUserInfo : function () {
-            return app_self.constDom.menu.user;
+        getUserInfo : function (index) {
+            if(typeof index === 'undefined')
+                return app_self.constDom.menu.user;
+            if(typeof app_self.constDom.menu.user[index] !== 'undefined')
+                return app_self.constDom.menu.user[index];
+            console.error('illegal index in getUserInfo(index)');
         },
         //
         isPC : function() {

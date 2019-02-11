@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dataAction/private/newPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataListDisplay/displayHashList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataAction/private/getMyRecent.php" beforeDir="false" afterPath="$PROJECT_DIR$/dataAction/private/getMyRecent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initDataBase_Mysql/initHashList.php" beforeDir="false" afterPath="$PROJECT_DIR$/initDataBase_Mysql/initHashList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.account.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.format.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.format.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.postAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.postAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.response_ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.response_ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/js/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/js/msg.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataAction/private/newPost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="44" column="51" lean-forward="true" selection-start-line="44" selection-start-column="51" selection-end-line="44" selection-end-column="51" />
+            <state relative-caret-position="462">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -134,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataListDisplay/displayHashList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            <state relative-caret-position="162">
+              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -332,16 +321,15 @@
       <workItem from="1549706369054" duration="4154000" />
       <workItem from="1549774517114" duration="6241000" />
       <workItem from="1549790832082" duration="3047000" />
-      <workItem from="1549799585046" duration="6832000" />
+      <workItem from="1549799585046" duration="8031000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193424000" />
+    <option name="totallyTimeSpent" value="194623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16666667" />
@@ -542,13 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/newPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="44" column="51" lean-forward="true" selection-start-line="44" selection-start-column="51" selection-end-line="44" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/class/class.response_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
@@ -578,8 +559,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataListDisplay/displayHashList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="162">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/newPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>

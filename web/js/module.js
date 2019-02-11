@@ -39,7 +39,8 @@ function NotForgetData()
             srm_jct: '',
             login_time: '0',
             online: false
-        }
+        };
+        this.img_404 = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549907902647&di=2a7c027baeaa4e7519e50f6a780acf1a&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01565959e6bcfda80121bea5beef4c.jpg%401280w_1l_2o_100sh.jpg';
     }
     
     function Url()
