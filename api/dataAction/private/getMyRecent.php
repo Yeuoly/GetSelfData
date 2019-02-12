@@ -39,5 +39,8 @@
         $res->set('res',FAILED);
         $res->set('error',failed_query,true);
     }
+    if(count($recentPost) != 5){
+        $res->set('isOver',true);
+    }
     $res->set('res',SUCCESS);
     $res->set('data',$recentPost,true);

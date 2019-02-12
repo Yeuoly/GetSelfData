@@ -11,7 +11,7 @@ window.onload = function () {
                 '<div class="post-card">' +
                 '   <div class="post-card-head">' +
                 '       <h3 class="post-title">' +
-                '           <input v-model="post.title">' +
+                '           <input type="text" v-model="post.title">' +
                 '       </h3>' +
                 '   <div class="post-card-userblock">' +
                 '       <div class="post-card-userblock-avatar"' +
@@ -31,7 +31,7 @@ window.onload = function () {
                 '           <li :id="bodyDep.liID" class="post-card-body-li" v-for="bodyDep in post.body">' +
                 '               <div v-if="bodyDep.html === \'blog\'">' +
                 '                   <div class="post-card-body-blog">' +
-                '                       <textarea v-model="bodyDep.src"></textarea>' +
+                '                       <input type="text" v-model="bodyDep.src"></input>' +
                 '                   </div>' +
                 '               </div>' +
                 '               <table v-else-if="bodyDep.html === \'table\'" class="post-card-body-table">' +
@@ -43,15 +43,15 @@ window.onload = function () {
                 '               </table>' +
                 '               <div v-else-if="bodyDep.html === \'picture\'" class="post-card-body-picture">' +
                 '                   <img class="post-card-body-img" :src="bodyDep.src" :alt="postDefaultImg">' +
-                '                   <input type="text" v-model.lazy="bodyDep.src">' +
+                '                   <input type="text" placeholder="填写图片链接地址" v-model.lazy="bodyDep.src">' +
                 '               </div>' +
                 '               <div v-else-if="bodyDep.html === \'url\'" class="post-card-body-url">' +
-                '                   <a :href="bodyDep.src.url">' +
-                '                       {{bodyDep.src.about}}' +
-                '                   </a>' +
+                '                   <input type="text" placeholder="填写链接地址" v-model="bodyDep.src">' +
+                '                   <input type="text" placeholder="填写链接文字" v-model="bodyDep.about">' +
                 '               </div>' +
-                '               <label>类别</label>' +
-                '               <select :name="bodyDep.liID" v-model="bodyDep.html">' +
+                '               <div style="height: 10px;"></div>' +
+                '               <label style="float: left;height: 25px;vertical-align: middle">类别：</label>' +
+                '               <select style="float: left;height: 25px; outline: none" :name="bodyDep.liID" v-model="bodyDep.html">' +
                 '                   <option value="blog">blog</option>' +
                 '                   <option value="picture">picture</option>' +
                 '                   <option value="url">url</option>' +
@@ -62,13 +62,13 @@ window.onload = function () {
                 '           </li>' +
                 '       </ul>' +
                 '   </div>' +
-                '   <div class="post-sender">' +
-                '       <input type="button" @click="request" value="发送">' +
+                '   <div style="width: 100% ; overflow: auto" class="post-sender">' +
+                '       <input style="float: right ; margin-right: 10px" type="button" @click="send" value="发送">' +
                 '   </div>' +
                 '</div>' ,
             data : function () {
                 return {
-                    postDefaultImg : '吔屎啦，根本没这图',
+                    postDefaultImg : '您这图我tm加载不出来啊',
                     post : {
                         user_id : mainHandle.constDom.functionGroup.getUserInfo('user_id'),
                         user_uid : mainHandle.constDom.functionGroup.getUserInfo('user_uid'),
@@ -82,6 +82,10 @@ window.onload = function () {
                                 liID : Date.parse(new Date()).toString() + parseInt(Math.random() * 10000)
                             }
                         ]
+                    },
+                    status : {
+                        mode : 'new',
+                        postID : ''
                     }
                 }
             },
@@ -104,10 +108,14 @@ window.onload = function () {
                     }
                     console.log('failed to find index in deleteBlock()');
                 },
-                request : function () {
-                    //记得优化这里
+                send : function () {
+                    var api;
+                    if(this.status.mode === 'new')
+                        api = 'newPost.php';
+                    else if(this.status.mode === 're')
+                        api = 'rePost.php';
                     $.ajax({
-                        url : static_data.getUrlPath('/dataAction/private/newPost.php',static_data.m_URL_DOMAIN_API_DIR),
+                        url : static_data.getUrlPath('/dataAction/private/'+api,static_data.m_URL_DOMAIN_API_DIR),
                         async : true,
                         type : "post",
                         dataType : "json",
@@ -118,7 +126,8 @@ window.onload = function () {
                         data : {
                             title : this.post.title,
                             about : this.post.about,
-                            data : JSON.stringify(this.post.body)
+                            data : JSON.stringify(this.post.body),
+                            postID : this.status.postID
                         },
                         success : function(data)
                         {

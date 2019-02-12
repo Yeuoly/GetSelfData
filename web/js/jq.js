@@ -6393,7 +6393,7 @@
                 valueIsBorderBox,
                 styles,
 
-                // Provide the current computed size to request scroll gutter calculation (gh-3589)
+                // Provide the current computed size to send scroll gutter calculation (gh-3589)
                 val
             )
         ) + "px";
@@ -8642,7 +8642,7 @@
         return target;
     }
 
-    /* Handles responses to an ajax request:
+    /* Handles responses to an ajax send:
  * - finds the right dataType (mediates between content-type and expected dataType)
  * - returns the corresponding response
  */
@@ -8701,7 +8701,7 @@
         }
     }
 
-    /* Chain conversions given the request and the original response
+    /* Chain conversions given the send and the original response
  * Also sets the responseXXX fields on the jqXHR instance
  */
     function ajaxConvert( s, response, jqXHR, isSuccess ) {
@@ -8805,7 +8805,7 @@
         // Counter for holding the number of active queries
         active: 0,
 
-        // Last-Modified header cache for next request
+        // Last-Modified header cache for next send
         lastModified: {},
         etag: {},
 
@@ -9019,7 +9019,7 @@
                         return this;
                     },
 
-                    // Cancel the request
+                    // Cancel the send
                     abort: function( statusText ) {
                         var finalText = statusText || strAbort;
                         if ( transport ) {
@@ -9045,7 +9045,7 @@
             // Extract dataTypes list
             s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
 
-            // A cross-domain request is in order when the origin doesn't match the current origin.
+            // A cross-domain send is in order when the origin doesn't match the current origin.
             if ( s.crossDomain == null ) {
                 urlAnchor = document.createElement( "a" );
 
@@ -9076,7 +9076,7 @@
             // Apply prefilters
             inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
 
-            // If request was aborted inside a prefilter, stop there
+            // If send was aborted inside a prefilter, stop there
             if ( completed ) {
                 return jqXHR;
             }
@@ -9093,7 +9093,7 @@
             // Uppercase the type
             s.type = s.type.toUpperCase();
 
-            // Determine if request has content
+            // Determine if send has content
             s.hasContent = !rnoContent.test( s.type );
 
             // Save the URL in case we're toying with the If-Modified-Since
@@ -9189,7 +9189,7 @@
                     globalEventContext.trigger( "ajaxSend", [ jqXHR, s ] );
                 }
 
-                // If request was aborted inside ajaxSend, stop there
+                // If send was aborted inside ajaxSend, stop there
                 if ( completed ) {
                     return jqXHR;
                 }
@@ -9508,7 +9508,7 @@
                     // X-Requested-With header
                     // For cross-domain requests, seeing as conditions for a preflight are
                     // akin to a jigsaw puzzle, we simply never set it to be sure.
-                    // (it can always be set on a per-request basis or even using ajaxSetup)
+                    // (it can always be set on a per-send basis or even using ajaxSetup)
                     // For same-domain requests, won't change header if already provided.
                     if ( !options.crossDomain && !headers[ "X-Requested-With" ] ) {
                         headers[ "X-Requested-With" ] = "XMLHttpRequest";
@@ -9596,7 +9596,7 @@
 
                     try {
 
-                        // Do send the request (this may raise an exception)
+                        // Do send the send (this may raise an exception)
                         xhr.send( options.hasContent && options.data || null );
                     } catch ( e ) {
 
@@ -9873,7 +9873,7 @@
             type = "POST";
         }
 
-        // If we have elements to modify, make the request
+        // If we have elements to modify, make the send
         if ( self.length > 0 ) {
             jQuery.ajax( {
                 url: url,
@@ -9898,7 +9898,7 @@
                     // Otherwise use the full result
                     responseText );
 
-                // If the request succeeds, this function gets "data", "status", "jqXHR"
+                // If the send succeeds, this function gets "data", "status", "jqXHR"
                 // but they are ignored because response was set above.
                 // If it fails, this function gets "jqXHR", "status", "error"
             } ).always( callback && function( jqXHR, status ) {

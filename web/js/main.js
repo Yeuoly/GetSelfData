@@ -103,6 +103,10 @@ function InitWeb()
         goToLogin : function () {
             location.href = static_data.getUrlPath('passport.html',static_data.m_URL_DOMAIN_WEB_DIR);
         },
+        //硬核翻译，发博客去
+        goToSendPost : function () {
+            location.href = static_data.getUrlPath('operate/editor-post.html',static_data.m_URL_DOMAIN_WEB_DIR);
+        },
         //注销
         logOff : function () {
             if(app_self.constDom.menu.user.online)
@@ -375,6 +379,40 @@ function InitWeb()
         //需要注意的是，当触发了onclick事件之后所有的绑定都会被清理
         blackCoverBindClick : function(src) {
             app_self.constDom.black_cover.bind(src);
+        },
+        //获取滚动条高度
+        getScrollHeight : function () {
+            var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+            if (document.body) {
+                bodyScrollHeight = document.body.scrollHeight;
+            }
+            if (document.documentElement) {
+                documentScrollHeight = document.documentElement.scrollHeight;
+            }
+            scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+            return scrollHeight;
+        },
+        //获取可视窗口高度
+        getWindowHeight : function () {
+            var windowHeight = 0;
+            if (document.compatMode === "CSS1Compat") {
+                windowHeight = document.documentElement.clientHeight;
+            } else {
+                windowHeight = document.body.clientHeight;
+            }
+            return windowHeight;
+        },
+        //获取文档高度
+        getDocumentTop : function () {
+            var scrollTop =  0, bodyScrollTop = 0, documentScrollTop = 0;
+            if (document.body) {
+                bodyScrollTop = document.body.scrollTop;
+            }
+            if (document.documentElement) {
+                documentScrollTop = document.documentElement.scrollTop;
+            }
+            scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+            return scrollTop;
         }
     };
 
@@ -536,6 +574,11 @@ function InitWeb()
                             func: 'myIndex'
                         },
                         {
+                            name : '发post去',
+                            about : '皮皮站，咱们去发博客！',
+                            func : 'send'
+                        },
+                        {
                             name: '更新日志',
                             about: '估计你对这个没啥兴趣',
                             func: 'updateLog'
@@ -577,6 +620,9 @@ function InitWeb()
                             break;
                         case 'logOff':
                             functionGroup.logOff();
+                            break;
+                        case 'send':
+                            functionGroup.goToSendPost();
                             break;
                     }
                 }

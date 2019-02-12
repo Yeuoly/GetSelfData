@@ -17,6 +17,10 @@ body{
     margin: 0;
 }
 
+input::-webkit-input-placeholder{
+    color: white;
+}
+
 .app{
     padding-right: 0;
     overflow: auto;
@@ -293,6 +297,45 @@ body{
     border-radius:5px;
 }
 
+.post-card input[type="text"] , .post-introduction textarea{
+    min-height: 30px;
+    background-color: transparent;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-color: white;
+    outline:none;
+    resize: none;
+    color: white;
+}
+
+.post-card-body-blog input[type="text"], .post-card-body-picture input[type="text"] , .post-card-body-url input[type="text"]{
+    width: 100%;
+    font-size: 18px;
+}
+
+.post-card input[type="button"]{
+    overflow: paged-x;
+    float: left;
+    border: 0px;
+    border-right: 10px;
+    outline: 0px;
+    background: rgba(255,255,255,0.4);
+    width: 190px;
+    margin-left: 10px;
+    height: 25px;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.post-card-body-li{
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
 .post-card-head{
     width: 100%;
     overflow: auto;
@@ -326,9 +369,23 @@ body{
     border: 10px;
 }
 
+.post-introduction textarea{
+    width: 100%;
+    color: white;
+    font-size: 15px;
+}
+
 .post-title{
     margin: 0 auto;
     padding-bottom: 10px;
+}
+
+.post-title input[type="text"]{
+    color: white;
+    font-family:  "微软雅黑";
+    font-size: 150%;
+    width: 80%;
+    text-align: center;
 }
 
 .post-card-userblock{

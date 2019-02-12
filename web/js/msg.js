@@ -62,7 +62,7 @@ window.onload = function () {
                                             '</tr>' +
                                         '</table>' +
                                         '<div v-else-if="bodyDep.html === \'picture\'" class="post-card-body-picture">' +
-                                            '<img :src="bodyDep.src" alt="/">' +
+                                            '<img class="post-card-body-img" :src="bodyDep.src" alt="/">' +
                                         '</div>' +
                                         '<div v-else-if="bodyDep.html === \'url\'" class="post-card-body-url">' +
                                             '<a :href="bodyDep.src.url">' +
@@ -90,7 +90,11 @@ window.onload = function () {
 
     //挂载Vue对象
     this.includes.$mount('#mountNode');
-
+    //创建数据集合
+    var dataGroup = {
+        page : 1
+    };
+    this.dataGroup = dataGroup;
     //创建函数集合
     var functionGroup = {
         //类型、标题、用户信息、数据、简介
@@ -116,8 +120,8 @@ window.onload = function () {
                 body : post_data
             });
         },
-        //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用
-        getRecentPost :function (page , afterSuccess) {
+        //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用，afterFail是在所有事情做完之后被调用
+        getRecentPost :function (page , afterSuccess , afterFail) {
             $.ajax({
                 url : static_data.getUrlPath('dataAction/private/getMyRecent.php',static_data.m_URL_DOMAIN_API_DIR),
                 async : true,
@@ -133,15 +137,24 @@ window.onload = function () {
                 success : function (data) {
                     console.log('getRecent post succeed');
                     if(parseInt(data['data']['res']) === static_data.response.requestSuccess)
-                    {
-                        afterSuccess(data['data']['data']);
-                    }
+                        afterSuccess(data);
+                    else
+                        constDom.functionGroup.alertBox('获取博客失败');
+                },
+                error : function () {
+                    if(typeof afterFail === 'function')
+                        afterFail();
                 }
             });
         },
         //重载msg数据
         reloadMsg : function (data) {
             includes.postDepartment = [];
+            functionGroup.loadNewMsg(data);
+        },
+        //装载新消息
+        loadNewMsg : function (wholeData) {
+            var data = wholeData['data']['data'];
             for(var i in data){
                 var post_data;
                 try{
@@ -167,6 +180,50 @@ window.onload = function () {
 
     //给外部一个访问函数集合的接口
     this.functionGroup = functionGroup;
+};
+
+var flag = true;
+var isLoading = false;
+var isEnd = false;
+
+window.onscroll = function () {
+    function myTry() {
+        var documentTop = mainHandle.constDom.functionGroup.getDocumentTop();
+        var scrollHeight = mainHandle.constDom.functionGroup.getScrollHeight();
+        var windowHeight = mainHandle.constDom.functionGroup.getWindowHeight();
+        if(scrollHeight === windowHeight + documentTop)
+        {
+            //进入加载状态
+            isLoading = true;
+            mainHandle.functionGroup.getRecentPost(mainHandle.dataGroup.page + 1 ,function (data) {
+                mainHandle.functionGroup.loadNewMsg(data);
+                //翻面
+                mainHandle.dataGroup.page++;
+                //加载完成
+                isLoading = false;
+
+                //所有消息都加载完了
+                if(typeof data['data']['isOver'] !== 'undefined')
+                {
+                    isEnd = true;
+                }
+            },function () {
+                //加载完成
+                isLoading = false;
+            });
+        }
+    }
+    //防止频繁调用 ， 当第一次调用完之后将flag改为true，为了避免在第一次调用的执行期间有新的事件
+    //触发而没有调用，则在第一次调用的最后再手动调用一次
+    if(flag && !isLoading && !isEnd)
+    {
+        flag = false;
+        myTry();
+        setTimeout(function () {
+            flag = true;
+            myTry();
+        } , 1000);
+    }
 };
 
 var mainHandle;

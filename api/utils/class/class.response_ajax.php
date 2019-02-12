@@ -37,7 +37,10 @@
                     $this->result['msg'] = $val;
                     break;
                 default:
-                    $this->result['data'][$index] = $val;
+                    if(array_key_exists($index,$this->result['data']))
+                        $this->result['data'][$index] = $val;
+                    else
+                        $this->result['data'] = array_merge($this->result['data'],array($index => $val));
             }
             if($shutdown)$this->output(true);
         }
