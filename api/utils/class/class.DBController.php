@@ -5,7 +5,7 @@
      * Date: 2019/1/11
      * Time: 22:01
      */
-    include_once (dirname(__FILE__) . "/class.base.php");
+    include_once(dirname(__FILE__) . "/class.Base.php");
 
 
     class DB_Controller extends Base
@@ -193,7 +193,7 @@
             $result = mysqli_query($this->con,"SELECT * FROM $list");
             if(!$result)
             {
-                return failed_query;
+                return server_error;
             }
             $first_dist = array();
             while ($row = mysqli_fetch_array($result))
@@ -222,7 +222,7 @@
             $res = mysqli_query($this->con,$sql);
             if(!$res)
             {
-                return failed_query;
+                return server_error;
             }
             $ary_buf = array();
             while ($row = mysqli_fetch_array($res))
@@ -232,4 +232,19 @@
             return $ary_buf;
         }
 
+        /*
+         * 删除表内的一行
+         *
+         * */
+        public function DeleteRowFromList($list,$key,$val){
+            if(!$this->con_sign)return false;                                   //需要先连接数据库再查询
+            $sql = "DELETE FROM $list WHERE $key = ";
+            if(is_string($val))
+                $sql .= "'$val'";
+            else
+                $sql .= $val;
+            $res = mysqli_query($this->con,$sql);
+            if(!$res)return server_error;
+            return true;
+        }
     }

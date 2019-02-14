@@ -14,9 +14,9 @@
      * */
 
     include_once(dirname(__FILE__) . "/../../Config.php");
-    include_once(FILEPATH . "/utils/class/class.dbController.php");
-    include_once (FILEPATH . "/utils/class/class.format.php");
-    include_once (FILEPATH . "/utils/class/class.encryption.php");
+    include_once(FILEPATH . "/utils/class/class.DBController.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
+    include_once(FILEPATH . "/utils/class/class.Encrypt.php");
     include_once (FILEPATH . "/utils/functions.php");
 
     define("mysql_key_password","pswd");
@@ -120,9 +120,9 @@
             //用户信息
             $userinfo = $DB->GetRowFromList(                    //从数据库中查找数据
                 MYSQL_USER_LIST,
-                array(
+                [
                     mysql_key_account => $this->account
-                ),
+                ],
                 'or'
             );
 
@@ -169,10 +169,10 @@
             $uid = 0;
             $db_result = $DB->GetRowFromList(
                 MYSQL_USER_LIST,
-                array(
+                [
                     mysql_key_account => $this->account,
                     mysql_key_email => $this->email
-                ),
+                ],
                 'or',
                 $uid
             );
@@ -190,7 +190,7 @@
             $srm_jct  = \NFG\getSrmJct(32);
             $db_result = $DB->InsertIntoList(
                 MYSQL_USER_LIST,
-                array(
+                [
                     mysql_key_account       => $this->account,
                     mysql_key_email         => $this->email,
                     mysql_key_password      => \NFG\encryptPassword($this->password),
@@ -201,19 +201,19 @@
                     mysql_key_class         => USER_POWER_NORMAL,
                     mysql_key_lv            => 1,
                     mysql_key_exp           => 0
-                )
+                ]
             );
             if($DB->_is_failed($db_result))
             {
                 return $db_result;
             }
-            $user_data = array(
+            $user_data = [
                 'account'  => $this->account,
                 'email'    => $this->email,
                 'uid'      => $uid,
                 'reg_time' => $reg_time,
                 'srm_jct'  => $srm_jct,
-            );
+            ];
             //创建用户的专属数据表
             $sql = "CREATE TABLE `user_self_hash_list_$uid`  (
                       `postID` varchar(32) NULL,
@@ -264,9 +264,9 @@
 
             $db_result = $DB->GetRowFromList(
                 MYSQL_USER_LIST,
-                array(
+                [
                      mysql_key_jct => $jct
-                ),
+                ],
                 'or'
             );
             switch ($db_result)
@@ -281,7 +281,7 @@
 
             self::UpdateJct($jct);
             //将用户登录信息存入session并返回给user_data
-            $login_data = array(
+            $login_data = [
                 SESSION_SRM_JCT    => $db_result[mysql_key_jct],
                 SESSION_LOGIN_TIME => time(),
                 SESSION_USER_CLASS => $db_result[mysql_key_class],
@@ -290,7 +290,7 @@
                 SESSION_USER_LV    => $db_result[mysql_key_lv],
                 SESSION_USER_EXP   => $db_result[mysql_key_exp],
                 SESSION_USER_UID   => $db_result[mysql_key_uid]
-            );
+            ];
             $_SESSION[SESSION_USERDATA] = $login_data;
             $user_data = $login_data;
             return true;

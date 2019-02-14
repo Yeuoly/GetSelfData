@@ -14,14 +14,14 @@
     //用于处理每个api的输出json
     class ResponseAjax
     {
-        private $result = array(
+        private $result = [
             'msg' => SUCCESS,
-            'data' => array(
+            'data' => [
                 'res' => SUCCESS,
                 'error' => '',
                 'data' => null
-            )
-        );
+            ]
+        ];
 
         public function output($shutdown = false)
         {
@@ -40,7 +40,7 @@
                     if(array_key_exists($index,$this->result['data']))
                         $this->result['data'][$index] = $val;
                     else
-                        $this->result['data'] = array_merge($this->result['data'],array($index => $val));
+                        $this->result['data'] = array_merge($this->result['data'],[$index => $val]);
             }
             if($shutdown)$this->output(true);
         }

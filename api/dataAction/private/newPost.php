@@ -39,7 +39,7 @@
      * 这里的$res是在User.php里就创建好了的
      *
      * */
-    include_once (FILEPATH . "/utils/class/class.format.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
 
     $formater = new FormatChecker();
     if(!$formater->FromNormalStr($post_data)||!$formater->FromNormalStr($post_title)||!$formater->FromNormalStr($post_about))
@@ -53,7 +53,7 @@
      * 引入postAction类
      *
      * */
-    include_once (FILEPATH . "/utils/class/class.postAction.php");
+    include_once(FILEPATH . "/utils/class/class.PostAction.php");
 
     $poster = new privatePostAction($post_user , $post_user_uid);
     $result = $poster->newPost($post_title , $post_date , $post_data , $post_about);

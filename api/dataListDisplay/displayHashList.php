@@ -7,7 +7,7 @@
      */
 
     include_once (dirname(__FILE__) . "/../Config.php");
-    include_once (FILEPATH . "/utils/class/class.dbController.php");
+    include_once(FILEPATH . "/utils/class/class.DBController.php");
     $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
     $DB->Start();
 

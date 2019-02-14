@@ -34,7 +34,7 @@
         * */
     function encode($src,$offset){
         include_once(dirname(__FILE__) . "/../Config.php");
-        include_once(FILEPATH . "/utils/class/class.encryption.php");
+        include_once(FILEPATH . "/utils/class/class.Encrypt.php");
         return \SRMEncode::encode($src, $offset);
     }
 

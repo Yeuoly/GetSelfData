@@ -6,10 +6,10 @@
      * */
     include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/functions.php");
-    include_once (FILEPATH . "/utils/class/class.verification.php");
-    include_once (FILEPATH . "/utils/class/class.response_ajax.php");
-    include_once (FILEPATH . "/utils/class/class.account.php");
-    include_once (FILEPATH . "/utils/class/class.format.php");
+    include_once(FILEPATH . "/utils/class/class.Verification.php");
+    include_once(FILEPATH . "/utils/class/class.ResponseAjax.php");
+    include_once(FILEPATH . "/utils/class/class.Account.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
 
     //设置头部
     \NFG\HeaderSetting::SetAllowCredentials();

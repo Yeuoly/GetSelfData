@@ -7,7 +7,7 @@
     //引入类文件
     include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/functions.php");
-    include_once (FILEPATH . "/utils/class/class.format.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
 
     //初始化
     \NFG\HeaderSetting::SetAllowCredentials();
@@ -19,7 +19,7 @@
     //如果method格式错误就直接终止运行
     if(!$formater->FromMethod($method))exit;
     //引入验证类
-    include_once (FILEPATH . "/utils/class/class.verification.php");
+    include_once(FILEPATH . "/utils/class/class.Verification.php");
     //生成输出验证码图片并保存验证码本体
     (new VerfiyMathCatpcha())
         ->CreateCaptcha()

@@ -1,8 +1,8 @@
 <?php
     include_once (dirname(__FILE__) . "/Config.php");
-    include_once (FILEPATH . "/utils/class/class.response_ajax.php");
+    include_once(FILEPATH . "/utils/class/class.ResponseAjax.php");
     include_once (FILEPATH . "/utils/functions.php");
-    include_once (FILEPATH . "/utils/class/class.account.php");
+    include_once(FILEPATH . "/utils/class/class.Account.php");
     \NFG\InitCommunicate();
 
     //回文头部设定

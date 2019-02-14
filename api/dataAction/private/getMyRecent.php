@@ -14,7 +14,7 @@
     //先引入User.php验证身份，如果没通过检测都不会进入这个文件的主线程
     //已经默认开启了session
     include_once (dirname(__FILE__) . "/../../User.php");
-    include_once (FILEPATH . "/utils/class/class.format.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
 
     //获取页面
     $formater = new FormatChecker();
@@ -32,12 +32,12 @@
     $post_par_user_uid = $user_data[SESSION_USER_UID];
 
     //创建post对象
-    include_once (FILEPATH . "/utils/class/class.postAction.php");
+    include_once(FILEPATH . "/utils/class/class.PostAction.php");
     $postActor = new privatePostAction($post_par_user_id,$post_par_user_uid);
     $recentPost = $postActor->getRecent($post_par_page);
     if($postActor->_is_failed($recentPost)){
         $res->set('res',FAILED);
-        $res->set('error',failed_query,true);
+        $res->set('error',server_error,true);
     }
     if(count($recentPost) != 5){
         $res->set('isOver',true);

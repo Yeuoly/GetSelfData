@@ -10,8 +10,8 @@
  */
 
 include_once (dirname(__FILE__) . "/../../Config.php");
-include_once(FILEPATH . "/utils/class/class.dbController.php");
-include_once (FILEPATH . "/utils/class/class.base.php");
+include_once(FILEPATH . "/utils/class/class.DBController.php");
+include_once(FILEPATH . "/utils/class/class.Base.php");
 
 //公共查询用的类
 class publicPostAction extends Base
@@ -38,23 +38,23 @@ class publicPostAction extends Base
         $DB = $DBCon ? $DBCon : $this->GetBDCon();
         if($this->_is_failed($DB))
         {
-            return failed_query;
+            return server_error;
         }
         //获取hash表名
         $list_name = $this->hashListHead.$hashID[0];
         //通过hashID获取data数据
-        $result = $DB->GetRowFromList($list_name,array('postID' => $hashID),'or');
+        $result = $DB->GetRowFromList($list_name,['postID' => $hashID],'or');
         if($DB->_is_failed($result))
         {
             switch ($result){
                 case -2:
                     return data_action_unexist_data;
                 default:
-                    return failed_query;
+                    return server_error;
             }
         }
         //用于缓存post数据
-        $dataDist = $lastDataDist ? $lastDataDist : array(
+        $dataDist = $lastDataDist ? $lastDataDist : [
             'title' => $result['title'],
             'about' => $result['about'],
             'userID' => $result['userID'],
@@ -62,7 +62,7 @@ class publicPostAction extends Base
             'postID' => $result['postID'],
             'data' => '',
             'isOver' => $result['isOver']
-        );
+        ];
 
         //更新字典数据
         //$dataDist['data'] .= $this->fromListToJson($result['data']);
@@ -70,14 +70,14 @@ class publicPostAction extends Base
 
         if($result['isOver'] == 'true')
         {
-            return array(
+            return [
                 'post_title' => $dataDist['title'],
                 'post_about' => $dataDist['about'],
                 'post_userID' => $dataDist['userID'],
                 'post_userUID' => $dataDist['userUID'],
                 'post_data' => $dataDist['data'],
                 'post_ID' => $dataDist['postID']
-            );
+            ];
         }
         return $this->getDataByHashID($dataDist['isOver'],$dataDist,$DB);
     }
@@ -88,7 +88,7 @@ class publicPostAction extends Base
         $DB = $DBCon ? $DBCon : $this->GetBDCon();
         if(!$DB)
         {
-            return failed_query;
+            return server_error;
         }
         $list = $DB->GetWholeList($listID);
         return $list;
@@ -98,19 +98,85 @@ class publicPostAction extends Base
      * 删除一个post，直接用ID删
      *
      * */
-    public function deletePost($postID)
+    public function deletePost($postID , $DB)
     {
+        $DB = $DB ? $DB : $this->GetBDCon();
+        if($this->_is_failed($DB))
+        {
+            return server_error;
+        }
 
     }
 
+    /*
+     * 为了避免递归函数一些判断造成的传参数炸裂，就给外面套层壳
+     *
+     * */
+    public function modifyPost($postID,$post_title,$post_about,$post_data,$DB = null)
+    {
+
+    }
 
     /*
      * 修改一个post，除了ID和日期以外其他的基本都要覆盖掉
      *
      * */
-    public function modifyPost($postID,$post_title,$post_about,$post_data)
+    protected function _modifyPost($postID,$post_title,$post_about,$post_data,$DB = null,$pos = 1)
     {
+        //这句话说实话很烦，不能不加
+        $DB = $DB ? $DB : $this->GetBDCon();
+        $original_post = $DB->GetRowFromList($this->hashListHead.$postID[0],[
+            'postID' => $postID
+        ]);
+        if($DB->_is_failed($original_post))
+        {
+            return server_error;
+        }
 
+        //验证用户身份,如果是私人修改请求，要求请求者的UID和POST内的USER_UID相对应的
+        //如果是公共请求则需验证用户的权限，避免频繁判断，加了一个pos，只有第一次的时候才会判断
+        if($pos == 1)
+        {
+            if((__CLASS__ == 'privatePostAction' && $original_post['userUID'] != $_SESSION[SESSION_USERDATA][SESSION_USER_UID])||
+                (__CLASS__ == 'publicPostAction' && $_SESSION[SESSION_USERDATA][SESSION_USER_CLASS] != 2))
+            {
+                return data_action_less_power;
+            }
+        }
+
+        $isOver = $original_post['isOver'];
+        if($post_data == '')
+        {
+            $DB->DeleteRowFromList($this->hashListHead.$postID[0] , 'postID',$postID);
+        }else{
+            $post_data_now = substr($post_data,0,1024);
+            //这是给下面修改信息用的对应表
+            $array_ready_modify = [
+                'title' => $post_title ,
+                'about' => $post_about ,
+                'data' => $post_data_now
+            ];
+            foreach ($array_ready_modify as $key => $val)
+            {
+                $res = $DB->SetInList($this->hashListHead.$postID[0],$key,$val,'postID',$postID);
+                if($DB->_is_failed($res))
+                {
+                    return server_error;
+                }
+            }
+        }
+
+        if($isOver != 'true')
+        {
+            $post_data_next = null;
+            $post_data_len = strlen($post_data);
+            if($post_data_len > 1024)
+                $post_data_next = substr($post_data,1024,$post_data_len - 1024);
+            else
+                $post_data_next = '';
+            return $this->_modifyPost($isOver, $post_title , $post_about , $post_data_next , $DB , $pos+1);
+        }
+        return true;
     }
 }
 
@@ -133,7 +199,7 @@ class privatePostAction extends publicPostAction{
         $DB = $this->GetBDCon();
         if($this->_is_failed($DB))
         {
-            return failed_query;
+            return server_error;
         }
         //小学数学计算查询表的起点和总查询长度
         $sql_fetch_start = ($page-1)*5;
@@ -142,10 +208,10 @@ class privatePostAction extends publicPostAction{
         $postIDList = $DB->GetLastFewData('user_self_hash_list_'.$this->userUID,$sql_fetch_start,$sql_fetch_lenght);
         if($DB->_is_failed($postIDList))
         {
-            return failed_query;
+            return server_error;
         }
         //缓存用户post数据
-        $postList = array();
+        $postList = [];
         //定义一个undefined的字符串
         define('none','undefined');
         foreach($postIDList as $postID)
@@ -154,14 +220,14 @@ class privatePostAction extends publicPostAction{
             //如果失败了的话，就直接把postData换成失败原因
             if(is_string($postData))
             {
-                $postData = array(
+                $postData = [
                     'postID' => $postID['postID'],
                     'post_title' => 'failed to get Data',
                     'post_about' => 'there is an error happened in sql server',
                     'post_userID' => '-404',
                     'post_userUID' => '-404',
                     'post_data' => $postData
-                );
+                ];
             }
             array_push($postList,$postData);
         }
@@ -172,7 +238,7 @@ class privatePostAction extends publicPostAction{
         //生成post的hashID
         $DB = $this->GetBDCon();
         if($this->_is_failed($DB)){
-            return failed_query;
+            return server_error;
         }
         $data_lenght = strlen($post_data);
         $times = 0;
@@ -187,7 +253,7 @@ class privatePostAction extends publicPostAction{
             $post_isOver = $data_lenght <= 1024 ? 'true' : md5($post_title.$this->userID.time().rand(0,999999).rand(0,999999));
             $res = $DB->InsertIntoList(
                 $list_name,
-                array(
+                [
                     'title' => $post_title,
                     'about' => $post_about,
                     'userID' => $this->userID,
@@ -195,29 +261,29 @@ class privatePostAction extends publicPostAction{
                     'postID' => $postID,
                     'data' => $post_data_department,
                     'isOver' => $post_isOver
-                ));
+                ]);
             if($DB->_is_failed($res))
-                return failed_query;
+                return server_error;
             $data_lenght -= 1024;
             $times++;
             $postID = $post_isOver;
         }
         $res = $DB->InsertIntoList(
             'user_self_hash_list_'.$this->userUID,
-            array(
+            [
                 'postID' => $first_postID
-            )
+            ]
         );
         if($DB->_is_failed($res))
-            return failed_query;
+            return server_error;
         return true;
     }
 
     /*
      * 删除一个post，只是里要多删一下用户数据库里的postID
      * */
-    public function deletePost($postID)
+    public function deletePost($postID , $DB)
     {
-        parent::deletePost($postID); // TODO: Change the autogenerated stub
+        parent::deletePost($postID , $DB); // TODO: Change the autogenerated stub
     }
 }

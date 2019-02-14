@@ -6,7 +6,7 @@
  * Time: 22:18
  */
 
-    define("failed_query","服务器好像出了一丢丢小问题");
+    define("server_error","服务器好像出了一丢丢小问题");
 
     define("wrong_query","指令错了哦");
 
@@ -67,3 +67,5 @@
     define("data_action_unexist_data","您查找的数据不存在");
 
     define("data_action_failedCreateUserList","用户数据表创建失败，请联系管理员手动修复");
+
+    define("data_action_less_power","您无权执行这个操作");

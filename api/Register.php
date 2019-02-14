@@ -10,11 +10,11 @@
     include_once(dirname(__FILE__) . "/Config.php");
     include_once (FILEPATH . "/utils/mailpack.php");
     include_once (FILEPATH . "/utils/functions.php");
-    include_once (FILEPATH . "/utils/class/class.encryption.php");
-    include_once (FILEPATH . "/utils/class/class.verification.php");
-    include_once (FILEPATH . "/utils/class/class.response_ajax.php");
-    include_once (FILEPATH . "/utils/class/class.account.php");
-    include_once (FILEPATH . "/utils/class/class.format.php");
+    include_once(FILEPATH . "/utils/class/class.Encrypt.php");
+    include_once(FILEPATH . "/utils/class/class.Verification.php");
+    include_once(FILEPATH . "/utils/class/class.ResponseAjax.php");
+    include_once(FILEPATH . "/utils/class/class.Account.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
 
     //服务端回文头部
     \NFG\HeaderSetting::SetCharset();
