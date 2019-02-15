@@ -18,7 +18,7 @@ body{
 }
 
 input::-webkit-input-placeholder{
-    color: white;
+    color: black;
 }
 
 .app{
@@ -307,7 +307,7 @@ input::-webkit-input-placeholder{
     border-color: white;
     outline:none;
     resize: none;
-    color: white;
+    color: black;
 }
 
 .post-card-body-blog input[type="text"], .post-card-body-picture input[type="text"] , .post-card-body-url input[type="text"]{
@@ -327,12 +327,12 @@ input::-webkit-input-placeholder{
     height: 25px;
     font-family: "微软雅黑";
     font-size: 18px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
 .post-card-body-li{
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     overflow: auto;
 }
 
@@ -371,7 +371,6 @@ input::-webkit-input-placeholder{
 
 .post-introduction textarea{
     width: 100%;
-    color: white;
     font-size: 15px;
 }
 

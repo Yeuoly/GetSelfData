@@ -28,6 +28,7 @@
         include_once(dirname(__FILE__) . "/../Config.php");
         session_name(SESSIONID);
         session_start();
+        srand(time());
     }
     /*
         * 加密

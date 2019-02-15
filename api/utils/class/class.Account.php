@@ -13,11 +13,12 @@
      * 用户操作类
      * */
 
-    include_once(dirname(__FILE__) . "/../../Config.php");
-    include_once(FILEPATH . "/utils/class/class.DBController.php");
-    include_once(FILEPATH . "/utils/class/class.Format.php");
-    include_once(FILEPATH . "/utils/class/class.Encrypt.php");
+    include_once (dirname(__FILE__) . "/../../Config.php");
+    include_once (FILEPATH . "/utils/class/class.DBController.php");
+    include_once (FILEPATH . "/utils/class/class.Format.php");
+    include_once (FILEPATH . "/utils/class/class.Encrypt.php");
     include_once (FILEPATH . "/utils/functions.php");
+    include_once (FILEPATH . "/utils/class/class.HookFunc.php");
 
     define("mysql_key_password","pswd");
     define("mysql_key_jct","srm_jct");
@@ -57,6 +58,7 @@
             $this->rnd = $rnd;
             return $this;*/
         }
+
 
         public function __init($account = "",$password = "",$time = 0,$rnd = 0){
             $this->password = $password;

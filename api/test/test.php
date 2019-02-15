@@ -1,17 +1,15 @@
 <?php
 /*
 class HookFunc{
-    public function __construct($object)
+    public function __construct()
     {
-        $this->object = $object;
+
     }
 
     //缓存钩子
     protected $hookList = [
 
     ];
-
-    protected $object = null;
 
     //注册添加钩子
     public function add($func , $params){
@@ -25,36 +23,42 @@ class HookFunc{
     public function run(){
         foreach ($this->hookList as $k => $v)
         {
-            call_user_func([$this->object ,$this->hookList[$k]['func']] , $this->hookList[$k]['params']);
+            call_user_func($this->hookList[$k]['func'] , $this->hookList[$k]['params']);
         }
     }
 }
 
-class A{
+
+class B{
     private $Hook;
 
     public function __construct()
     {
-        $this->Hook = new HookFunc($this);
+        $this->Hook = new HookFunc();
     }
 
-    public function sayHello($name){
-        echo "[ $name ]: hello";
+    public function addHook($func,$parmas)
+    {
+        $this->Hook->add($func,$parmas);
     }
 
-    public function hookSayHello($name){
-        $this->Hook->add("sayHello","$name");
-    }
-
-    public function runHook(){
+    public function mainInstance()
+    {
         $this->Hook->run();
     }
 }
 
-$P = new A();
-$P->hookSayHello("LiZiMing");
-$P->runHook();
+function sayHello($p)
+{
+    echo "[$p] hello wolrd";
+}
 
-$N = new A();
-$N->hookSayHello("WangXiaoHong");
-$N->runHook();*/
+$C = new B();
+$C->addHook('sayHello','I');
+$C->mainInstance();
+
+$D = new B();
+$D->addHook('sayHello','You');
+$D->mainInstance();
+
+$C->mainInstance();*/
