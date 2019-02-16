@@ -1,4 +1,15 @@
 window.onload = function () {
+    var theUA = window.navigator.userAgent.toLowerCase();
+    if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+        document.body.style.cssText = "MARGIN: 0; PADDING: 0;"
+        var browerNav = document.createElement('div');
+        browerNav.setAttribute('id', 'brower-nav');
+        browerNav.innerHTML = '不好意思吼，这个网站比较辣鸡，不支持IE浏览器';
+        browerNav.style.cssText = "FONT-SIZE: 12px; BACKGROUND: #00a1d6; COLOR: #fff; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px;";
+        document.body.appendChild(browerNav);
+        return;
+    }
+
     this.constDom = new InitWeb();
     mainHandle = this;
 
@@ -7,11 +18,16 @@ window.onload = function () {
     function initEditor(){
         var utils = {
             getLiID : function () {
-                var p1 = (new Date()).getTime();
-                var p2 = parseInt(Math.random() * 1000);
-                var p3 = p1 | p2;
-                var p4 = p1 & p2;
-                return p3 << 2 + p4 << 4;
+                var p5 = -1;
+                while (p5 <= 0)
+                {
+                    var p1 = (new Date()).getTime();
+                    var p2 = parseInt(Math.random() * 1000);
+                    var p3 = p1 | p2;
+                    var p4 = p1 & p2;
+                    p5 = p3 << 2 + p4 << 4;
+                }
+                return p5;
             }
         };
 
@@ -21,7 +37,7 @@ window.onload = function () {
                 '<div class="post-card">' +
                 '   <div class="post-card-head">' +
                 '       <h3 class="post-title">' +
-                '           <input type="text" placeholder="填写标题" v-model="post.title">' +
+                '           <input type="text" placeholder="填写标题" v-model="post.title" id="post-title-input">' +
                 '       </h3>' +
                 '   <div class="post-card-userblock">' +
                 '       <div class="post-card-userblock-avatar"' +
@@ -100,7 +116,7 @@ window.onload = function () {
                     },
                     status : {
                         mode : 'new',
-                        postID : ''
+                        postID : '0'
                     }
                 }
             },
@@ -112,9 +128,9 @@ window.onload = function () {
                         if(this.post.body[i].liID === liID)
                         {
                             if(typeof addition !== 'undefined')
-                                this.post.body.splice(i + 1,deletionCount,addition);
+                                this.post.body.splice(parseInt(i) + 1,deletionCount,addition);
                             else
-                                this.post.body.splice(i,deletionCount);
+                                this.post.body.splice(parseInt(i) , deletionCount);
                             return;
                         }
                     }
@@ -122,11 +138,14 @@ window.onload = function () {
                 },
                 addNewBlock : function (liID) {
                     var newLiID = utils.getLiID();
-                    this.___searchBlock(liID,0,{
-                        src : '',
-                        html : 'blog',
-                        liID : newLiID
-                    });
+                    this.___searchBlock(
+                        liID,
+                        0,
+                        {
+                            src : '',
+                            html : 'blog',
+                            liID : newLiID
+                        });
                     editor.newLiID = newLiID;
                 },
                 onInputEnter : function(liID){
@@ -136,13 +155,13 @@ window.onload = function () {
                     this.___searchBlock(liID,1);
                 },
                 send : function () {
-                    var api;
+                    var method;
                     if(this.status.mode === 'new')
-                        api = 'newPost.php';
+                        method = 'newPost';
                     else if(this.status.mode === 're')
-                        api = 'rePost.php';
+                        method = 'modify';
                     $.ajax({
-                        url : static_data.getUrlPath('/dataAction/private/'+api,static_data.m_URL_DOMAIN_API_DIR),
+                        url : static_data.getUrlPath('/dataAction/private/operate.php',static_data.m_URL_DOMAIN_API_DIR),
                         async : true,
                         type : "post",
                         dataType : "json",
@@ -154,7 +173,8 @@ window.onload = function () {
                             title : this.post.title,
                             about : this.post.about,
                             data : JSON.stringify(this.post.body),
-                            postID : this.status.postID
+                            postID : this.status.postID,
+                            method : method
                         },
                         success : function(data)
                         {
@@ -169,13 +189,61 @@ window.onload = function () {
             watch : {
                 //添加一个监控，检测到有数据更新时自动对准焦点
                 'post.body' : {
-                    handler: function (newVal) {
-                        Vue.nextTick(function () {
-                            document.getElementById('focus-id-' + editor.newLiID).focus();
-                        })
+                    handler: function () {
+                        if(editor.newLiID !== 0)
+                            Vue.nextTick(function () {
+                                document.getElementById('focus-id-' + editor.newLiID).focus();
+                                editor.newLiID = 0;
+                                Vue.nextTick(null);
+                            });
                     },
                     immediate : false,
                     deep : true
+                }
+            },
+            mounted : function () {
+                //开始时对准焦点,并加载数据
+                document.getElementById('post-title-input').focus();
+
+                //初始化post数据
+                try {
+                    var postID = mainHandle.constDom.functionGroup.getParamsArray()['postID'];
+                    editor.status.postID = postID;
+                    //获取post参数
+                    $.ajax({
+                        url : static_data.getUrlPath('dataAction/private/getPost.php',static_data.m_URL_DOMAIN_API_DIR),
+                        async : true,
+                        type : "post",
+                        dataType : "json",
+                        contentType : "application/x-www-form-urlencoded",
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        data : { postID : postID },
+                        success : function(data)
+                        {
+                            if(data['data']['res'] === static_data.response.requestSuccess)
+                            {
+                                editor.newLiID = 0;
+                                editor.post = {
+                                    user_id : data['data']['data']['post_userID'],
+                                    user_uid : data['data']['data']['post_userUID'],
+                                    avatar : static_data.getUrlPath('avatar/'+data['data']['data']['post_userUID']+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR),
+                                    title : data['data']['data']['post_title'],
+                                    about : data['data']['data']['post_about'],
+                                    body : JSON.parse(data['data']['data']['post_data'])
+                                };
+                                editor.status.mode = 're';
+                            }
+                            else
+                                mainHandle.constDom.functionGroup.alertBox(data['data']['error']);
+                        },
+                        error : function (textStatus) {
+                            mainHandle.constDom.functionGroup.alertBox('获取post失败-'+postID+'-code:'+textStatus.status);
+                        }
+                    });
+                }catch (e) {
+
                 }
             }
         });

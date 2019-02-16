@@ -11,6 +11,17 @@
 */
 
 window.onload = function () {
+    var theUA = window.navigator.userAgent.toLowerCase();
+    if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+        document.body.style.cssText = "MARGIN: 0; PADDING: 0;"
+        var browerNav = document.createElement('div');
+        browerNav.setAttribute('id', 'brower-nav');
+        browerNav.innerHTML = '不好意思吼，这个网站比较辣鸡，不支持IE浏览器';
+        browerNav.style.cssText = "FONT-SIZE: 12px; BACKGROUND: #00a1d6; COLOR: #fff; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px;";
+        document.body.appendChild(browerNav);
+        return;
+    }
+
     //初始化界面
     this.constDom = new InitWeb();
     //设置
@@ -32,6 +43,8 @@ window.onload = function () {
                             '<div class="post-card-head">' +
                                 '<h3 class="post-title">' +
                                     '{{ev.title}}' +
+                                    '<div class="post-card-deletion" @click="deletePost(ev.postID)">删除</div>' +
+                                    '<div class="post-card-edition " @click="editPost(ev.postID)">编辑</div>' +
                                 '</h3>' +
                                 '<div class="post-card-userblock">' +
                                     '<div class="post-card-userblock-avatar"' +
@@ -65,8 +78,8 @@ window.onload = function () {
                                             '<img class="post-card-body-img" :src="bodyDep.src" alt="/">' +
                                         '</div>' +
                                         '<div v-else-if="bodyDep.html === \'url\'" class="post-card-body-url">' +
-                                            '<a :href="bodyDep.src.url">' +
-                                                '{{bodyDep.src.about}}' +
+                                            '<a :href="bodyDep.src">' +
+                                                '链接：{{bodyDep.about}}' +
                                             '</a>' +
                                         '</div>' +
                                     '</li>' +
@@ -81,6 +94,45 @@ window.onload = function () {
                 postDepartment : [
 
                 ]
+            }
+        },
+        methods : {
+            deletePost : function (postID) {
+                $.ajax({
+                    url : static_data.getUrlPath('dataAction/private/operate.php',static_data.m_URL_DOMAIN_API_DIR),
+                    async : true,
+                    type : 'post',
+                    data : {
+                        postID : postID,
+                        method : 'delete'
+                    },
+                    //dataType : 'json',
+                    contentType : "application/x-www-form-urlencoded",
+                    xhrFiled : {
+                        withCredentials : true
+                    },
+                    success : function (data) {
+                        if(data['data']['res'] === static_data.response.requestSuccess)
+                        {
+                            constDom.functionGroup.alertBox('删除成功');
+                            for(var i in includes.postDepartment)
+                            {
+                                if(includes.postDepartment[i].postID === postID)
+                                {
+                                    includes.postDepartment.splice(i,1);
+                                }
+                            }
+                        }
+                        else
+                            constDom.functionGroup.alertBox(data['data']['error']);
+                    },
+                    error : function (textStatus) {
+                        constDom.functionGroup.alertBox('errorCode:'+textStatus.status);
+                    }
+                });
+            },
+            editPost : function (postID) {
+                location.href = static_data.getUrlPath('operate/editor-post.html?postID='+postID,static_data.m_URL_DOMAIN_WEB_DIR);
             }
         }
     });
@@ -98,7 +150,7 @@ window.onload = function () {
     //创建函数集合
     var functionGroup = {
         //类型、标题、用户信息、数据、简介
-        addPostCard : function(post_title, post_user, post_user_id , post_data, post_introduction){
+        addPostCard : function(post_title, post_user, post_user_id , post_data, post_introduction ,postID){
             //新建Vue的data对象
             //原本body内是单一的类型，后来想了想，一个post内应该有很多种不同类型的内容，所以将body改为了一个数组
             //body内学习wordpress的风格，用板块划分，一个板块内只允许一种类型的内容
@@ -117,6 +169,7 @@ window.onload = function () {
                 userId : post_user_id,
                 avatarUrl : static_data.getUrlPath('avatar/'+post_user_id+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR),
                 introduction : post_introduction,
+                postID : postID,
                 body : post_data
             });
         },
@@ -154,6 +207,11 @@ window.onload = function () {
         },
         //装载新消息
         loadNewMsg : function (wholeData) {
+            if(typeof wholeData['data']['isOver'] !== 'undefined')
+            {
+                //消息到底了
+                isEnd = true;
+            }
             var data = wholeData['data']['data'];
             for(var i in data){
                 var post_data;
@@ -172,7 +230,8 @@ window.onload = function () {
                     data[i].post_userID,
                     data[i].post_userUID,
                     post_data,
-                    data[i].post_about
+                    data[i].post_about,
+                    data[i].post_ID
                 );
             }
         }
@@ -202,11 +261,6 @@ window.onscroll = function () {
                 //加载完成
                 isLoading = false;
 
-                //所有消息都加载完了
-                if(typeof data['data']['isOver'] !== 'undefined')
-                {
-                    isEnd = true;
-                }
             },function () {
                 //加载完成
                 isLoading = false;

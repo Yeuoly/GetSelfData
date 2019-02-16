@@ -224,6 +224,21 @@ function InitWeb()
             }
             return flag;
         },
+        //获取当前cookies的字典
+        getParamsArray : function () {
+            var url = document.location.toString();
+            var urlParamsStr = url.split('?')[1];
+            if(typeof urlParamsStr === 'undefined')return;
+            var urlParamsAry = urlParamsStr.split('&');
+            var _urlParamsAry = [];
+            for(var i in urlParamsAry)
+            {
+                var buf = urlParamsAry[i].split('=');
+                _urlParamsAry[buf[0]] = buf[1];
+                _urlParamsAry.length++;
+            }
+            return _urlParamsAry;
+        },
         //mode为空，即只有一个确认按钮，mode为1时有确认和取消两个按钮
         //网上抄的消息框，自己修改了一下样式和弹出动画，删除了原本的遮罩层
         //原地址https://blog.csdn.net/java_goodstudy/article/details/51482324

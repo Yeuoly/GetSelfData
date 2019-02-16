@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dataAction/private/getPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.HookFunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.HookFunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAction/private/getMyRecent.php" beforeDir="false" afterPath="$PROJECT_DIR$/dataAction/private/getMyRecent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAction/private/newPost.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAction/private/rePost.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/class/class.PostAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.PostAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/static/static.response.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/static/static.response.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/js/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/js/msg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/operate/js/editor-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/operate/js/editor-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web/test.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,38 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/class/class.PostAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataAction/private/rePost.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/initDataBase_Mysql/initHashList.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+            <state relative-caret-position="271">
+              <caret line="131" column="41" selection-start-line="131" selection-start-column="34" selection-end-line="131" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -75,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/static/static.response.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="306">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -94,40 +75,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/class/class.HookFunc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-              <folding>
-                <element signature="e#6#94#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/static/static.user.config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-468">
+            <state relative-caret-position="18">
               <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataAction/private/getPost.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataAction/private/getMyRecent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+              <folding>
+                <element signature="e#10#118#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -186,13 +167,17 @@
         <option value="$PROJECT_DIR$/utils/class/class.response_ajax.php" />
         <option value="$PROJECT_DIR$/utils/class/class.account.php" />
         <option value="$PROJECT_DIR$/utils/class/class.postAction.php" />
-        <option value="$PROJECT_DIR$/utils/static/static.response.php" />
         <option value="$PROJECT_DIR$/utils/functions.php" />
         <option value="$PROJECT_DIR$/test/test.php" />
         <option value="$PROJECT_DIR$/utils/class/class.HookFunc.php" />
         <option value="$PROJECT_DIR$/utils/class/class.Account.php" />
         <option value="$PROJECT_DIR$/dataAction/private/rePost.php" />
+        <option value="$PROJECT_DIR$/utils/class/class.DBController.php" />
+        <option value="$PROJECT_DIR$/dataAction/private/getPost.php" />
         <option value="$PROJECT_DIR$/utils/class/class.PostAction.php" />
+        <option value="$PROJECT_DIR$/utils/static/static.response.php" />
+        <option value="$PROJECT_DIR$/dataAction/private/delete.php" />
+        <option value="$PROJECT_DIR$/dataAction/private/operate.php" />
       </list>
     </option>
   </component>
@@ -334,19 +319,20 @@
       <workItem from="1549964921792" duration="4082000" />
       <workItem from="1550032628978" duration="1834000" />
       <workItem from="1550138343184" duration="21801000" />
-      <workItem from="1550223051643" duration="10200000" />
+      <workItem from="1550223051643" duration="10363000" />
+      <workItem from="1550307589157" duration="6839000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232540000" />
+    <option name="totallyTimeSpent" value="239542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16599733" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16800536" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -454,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/getMyRecent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/class/class.Format.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
@@ -480,37 +459,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/class/class.DBController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="248" column="9" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
-          <folding>
-            <element signature="n#__construct#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#Init#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#Start#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#End#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#SetInList#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#Query#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#GetWholeList#0;n#DB_Controller#0;n#!!top" />
-            <element signature="n#GetLastFewData#0;n#DB_Controller#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataListDisplay/displayHashList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/newPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-          <folding>
-            <element signature="e#10#118#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -531,6 +483,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/class/class.HookFunc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="e#6#94#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/static/static.user.config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -538,20 +507,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test.php">
+    <entry file="file://$PROJECT_DIR$/utils/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        <state relative-caret-position="324">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/class/class.HookFunc.php">
+    <entry file="file://$PROJECT_DIR$/test/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="e#6#94#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="18">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -565,38 +531,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/getMyRecent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/class/class.DBController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="75" lean-forward="true" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+          <folding>
+            <element signature="n#__construct#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#Init#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#Start#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#End#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#SetInList#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#Query#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#GetWholeList#0;n#DB_Controller#0;n#!!top" />
+            <element signature="n#GetLastFewData#0;n#DB_Controller#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/static/static.response.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="306">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/functions.php">
+    <entry file="file://$PROJECT_DIR$/dataAction/private/newPost.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        <state relative-caret-position="156">
+          <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="47" />
+          <folding>
+            <element signature="e#10#118#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataAction/private/rePost.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        <state relative-caret-position="162">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/getPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/class/class.PostAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+        <state relative-caret-position="271">
+          <caret line="131" column="41" selection-start-line="131" selection-start-column="34" selection-end-line="131" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding>
+            <element signature="e#10#118#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -21,7 +21,7 @@
     $post_par_page = @$_POST['page'];
     if(!$formater->FromNormalNum(intval($post_par_page))){
         $res->set('res',FAILED);
-        $res->set('error',passport_wrong_format,true);
+        $res->set('error',wrong_params,true);
     }
     if(!isset($_SESSION[SESSION_USERDATA])){
         $res->set('res',FAILED);

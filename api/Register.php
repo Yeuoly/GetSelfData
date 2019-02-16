@@ -38,7 +38,7 @@
     if(!$formater->FromNormalNum($captcha))
     {
         $res->set('res',FAILED);
-        $res->set('error',passport_wrong_format,true);
+        $res->set('error',wrong_params,true);
     }
 
     $Captchater = new VerfiyEmail();
@@ -60,7 +60,7 @@
     if(!$result)
     {
         $res->set('res',FAILED);
-        $res->set('error',passport_wrong_format,true);
+        $res->set('error',wrong_params,true);
     }
 
     $userdata = null;

@@ -12,8 +12,18 @@
 
 window.onload = function()
 {
-    //初始化界面
-    SettingHandle = new InitWeb();
+    var theUA = window.navigator.userAgent.toLowerCase();
+    if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+        document.body.style.cssText = "MARGIN: 0; PADDING: 0;"
+        var browerNav = document.createElement('div');
+        browerNav.setAttribute('id', 'brower-nav');
+        browerNav.innerHTML = '不好意思吼，这个网站比较辣鸡，不支持IE浏览器';
+        browerNav.style.cssText = "FONT-SIZE: 12px; BACKGROUND: #00a1d6; COLOR: #fff; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px;";
+        document.body.appendChild(browerNav);
+        return;
+    }else{
+        SettingHandle = new InitWeb();
+    }
 
     var updateLog = new Vue({
         el : '#updates-log',
@@ -27,7 +37,7 @@ window.onload = function()
                     date    : '2018/10/01'
                 },
                 {
-                    title   : '项目UserInfo初步完成 Version: 1.0.0-alpha',
+                    title   : '项目UserInfo初步完成 Version: 1.0.0-release',
                     content : '完成部分预期功能，初步上线测试，一共四个内测用户，预期功能正常运作',
                     date    : '2018/10/07'
                 },
@@ -52,6 +62,11 @@ window.onload = function()
                     content : '前端index.html index.css index.js基本完成，侧边顶部固定栏完成，整体框架' +
                         '升级为Vue.js，完善了代码结构，更容易看懂我在写什么辣鸡代码了',
                     date    : '2019/2/1'
+                },
+                {
+                    title   : '基本功能完工 Version: 1.1-release',
+                    content : '基本的功能已完成，并对之前的功能进行了一定的优化，可以第一次上线测试',
+                    date    : '2019/2/16'
                 }
             ],
             class : 'normal',

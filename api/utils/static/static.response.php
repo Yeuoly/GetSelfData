@@ -22,7 +22,7 @@
 
     define("passport_wronginfoformat","密码或账号不符合规范");
 
-    define("passport_wrong_format","参数错误");
+    define("wrong_params","参数错误");
 
     define("passport_server_error","服务器错误");
 

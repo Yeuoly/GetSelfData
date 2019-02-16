@@ -1,6 +1,6 @@
 <?php
     include_once(dirname(__FILE__) . "/../Config.php");
-    include_once (FILEPATH . "/phpmailer/PHPMailerAutoload.php");
+    include_once(FILEPATH . "/utils/phpmailer/PHPMailerAutoload.php");
 
     function sendMail($reciever,$title,$content){
         $mail = new PHPMailer;

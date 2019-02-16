@@ -22,7 +22,7 @@
     if(!$LoginActor)
     {
         $res->set('res',FAILED);
-        $res->set('error',passport_wrong_format);
+        $res->set('error',wrong_params);
         $res->output(true);
     }
     //验证密码，初始化用户信息
