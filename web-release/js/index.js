@@ -12,11 +12,39 @@
 
 window.onload = function()
 {
-    //初始化界面
-    SettingHandle = new InitWeb();
+    var theUA = window.navigator.userAgent.toLowerCase();
+    if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+        document.body.style.cssText = "MARGIN: 0; PADDING: 0;"
+        var browerNav = document.createElement('div');
+        browerNav.setAttribute('id', 'brower-nav');
+        browerNav.innerHTML = '不好意思吼，这个网站比较辣鸡，不支持IE浏览器';
+        browerNav.style.cssText = "FONT-SIZE: 12px; BACKGROUND: #00a1d6; COLOR: #fff; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px;";
+        document.body.appendChild(browerNav);
+        return;
+    }else{
+        SettingHandle = new InitWeb();
+    }
 
     var updateLog = new Vue({
-        el : '#updates-log',
+        template : '<div id="updates-log" class="card">' +
+            '            <h2 id="log-title" class="card-title">' +
+            '                {{title}}' +
+            '            </h2>' +
+            '            <div class="vertical-blank-block"></div>' +
+            '            <div id="updates-log-list">' +
+            '                <ul>' +
+            '                    <li v-for="log in updateLog">' +
+            '                        <div class="updateLog">' +
+            '                            <span class="updateLog-avatar"></span>' +
+            '                            <span class="updateLog-title">{{log.date}} : {{log.title}}</span>' +
+            '                            <span class="updateLog-blank-block"></span>' +
+            '                            <span class="updateLog-content">{{log.content}}</span>' +
+            '                        </div>' +
+            '                        <div class="vertical-blank-block"></div>' +
+            '                    </li>' +
+            '                </ul>' +
+            '            </div>' +
+            '        </div>',
         data : {
             title : '网站更新日志',
             updateLog : [
@@ -27,7 +55,7 @@ window.onload = function()
                     date    : '2018/10/01'
                 },
                 {
-                    title   : '项目UserInfo初步完成 Version: 1.0.0-alpha',
+                    title   : '项目UserInfo初步完成 Version: 1.0.0-release',
                     content : '完成部分预期功能，初步上线测试，一共四个内测用户，预期功能正常运作',
                     date    : '2018/10/07'
                 },
@@ -52,6 +80,11 @@ window.onload = function()
                     content : '前端index.html index.css index.js基本完成，侧边顶部固定栏完成，整体框架' +
                         '升级为Vue.js，完善了代码结构，更容易看懂我在写什么辣鸡代码了',
                     date    : '2019/2/1'
+                },
+                {
+                    title   : '基本功能完工 Version: 1.1-release',
+                    content : '基本的功能已完成，并对之前的功能进行了一定的优化，可以第一次上线测试',
+                    date    : '2019/2/16'
                 }
             ],
             class : 'normal',
@@ -60,13 +93,38 @@ window.onload = function()
     });
 
     var about = new Vue({
-        el : '#about',
+        template : '<div class="card" id="about">' +
+            '            <h2 id="about-title" class="card-title">' +
+            '                {{title}}' +
+            '            </h2>' +
+            '            <div class="vertical-blank-block"></div>' +
+            '            <div id="about-content" class="card-content">' +
+            '                <div id="head">' +
+            '                    {{content}}' +
+            '                </div>' +
+            '                <div id="techList">' +
+            '                    <ul>' +
+            '                        <li v-for="T in techList" class="tech-list-li">' +
+            '                            <div class="techAbout">' +
+            '                                <span class="techName">' +
+            '                                    ● {{T.name}}' +
+            '                                </span>' +
+            '                                <span class="techContent">' +
+            '                                    {{T.content}}' +
+            '                                </span>' +
+            '                            </div>' +
+            '                        </li>' +
+            '                    </ul>' +
+            '                </div>' +
+            '            </div>' +
+            '        </div>',
         data : {
             title : '关于本站',
             content : '闲着没事造轮子，YeuolyBlog将会作为DataConnection网站的前身,' +
-                '目前就是一个博客，自认为具有很强的扩展性，很容易可以将此扩展为DataConnection,' +
-                '网站会在您的计算机上储存cookies，如果您不希望被储存此类数据，请尽管嫌弃本站并砸死我然后扬长而去。' +
-                '联系我请发送邮件到admin@srmxy.cn。以下是本站使用到的工具。',
+                '目前就是一个博客，之后会对这个进行各种魔改,' +
+                '网站会在您的计算机上储存cookies，如果您不希望被储存此类数据，关掉就完事了。' +
+                '联系我请发送邮件到admin@srmxy.cn。以下是本站使用到的工具。' +
+                '还有件巨重要的事情，麻烦用Chrome访问，IE太屎了，css写得真的蛋疼，本职是高中生。',
             techList : [
                 {
                     name : 'JavaScript',
@@ -91,13 +149,19 @@ window.onload = function()
                         '所以各个方面的优化可能还不尽人意，理解万岁~'
                 },
                 {
+                    name : 'phpMailer',
+                    content : 'https://github.com/PHPMailer/PHPMailer'
+                },
+                {
                     name : 'mysql',
-                    content : '数据库使用了mysql，据说MongoDB非常占内存和硬盘，虽然读取速度快一些，但考虑' +
-                        '到我的辣鸡服务器内存和硬盘实在是堪忧，所以还是使用了mysql'
+                    content : '数据库使用了mysql，小网站，就没用MongoDB了'
                 }
             ]
         }
     });
+
+    updateLog.$mount('#updateLogNode');
+    about.$mount('#aboutNode');
 };
 
 //提供一个给全局访问的变量

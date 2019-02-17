@@ -13,18 +13,12 @@
 window.onload = function()
 {
     this.constDom = new InitWeb();
-    this.constDom.functionGroup.passJct();
-
-    if(this.constDom.functionGroup.isOnline() !== true)
-    {
-        $("#sec_master").html("赶快登陆呐");
-        $("#thr_master_1").css({"display":""});
-    }
-    else
-    {
+    this.constDom.bindUserOnloadNextTick(function () {
         $("#sec_master").html("您已经登录了哦~注册新账号咩~");
         $("#thr_master_2").css({"display":""});
-    }
+    });
+
+    var constDom = this.constDom;
 
     $("#login_btn").click(function(){
         var account = $("#l-userid").val();
@@ -36,6 +30,7 @@ window.onload = function()
         }
         verifyToken(account,pswd);
     });
+
     $("#go_register").click(function(){
         $("#sec_master").html("开启新世界的大门叭！");
         $("#thr_master_1").css({"display":"none"});
@@ -99,7 +94,7 @@ function verifyToken(account,password)
 function requestEmailVerification(email,captcha)
 {
     $.ajax({
-        url : static_data.getUrlPath("verification.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("Verification.php",static_data.m_URL_DOMAIN_API_DIR),
         async : true,
         type : "post",
         data : {email : email , method : 'register' , captcha : captcha},
@@ -122,7 +117,7 @@ function registerMaster(account, password, verification)
 {
     var exr = pisert();
     $.ajax({
-        url : static_data.getUrlPath("register.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("Register.php",static_data.m_URL_DOMAIN_API_DIR),
         async : true,
         type : "post",
         data : {act : account,pswd : password,captcha : verification , tim : exr[0]/1000 , rnd : exr[1]},
@@ -136,7 +131,7 @@ function registerMaster(account, password, verification)
             if(data['data']['res'] === static_data.response.register.failed)
                 $("#sec_master").html(data['data']['error']);
             else
-                location.href = static_data.getUrlPath('logOff.php',static_data.m_URL_DOMAIN_API_DIR)+
+                location.href = static_data.getUrlPath('LogOff.php',static_data.m_URL_DOMAIN_API_DIR)+
                     "?next="+static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
         }
     });
@@ -145,6 +140,6 @@ function registerMaster(account, password, verification)
 function getCaptcha()
 {
     $("#register_captcha").attr("src",static_data.getUrlPath(
-        "captcha.php?method=register",static_data.m_URL_DOMAIN_API_DIR)
+        "Captcha.php?method=register",static_data.m_URL_DOMAIN_API_DIR)
     );
 }

@@ -1,1 +1,760 @@
-﻿function NotForgetData(){function a(){this.m_MAX_MENU_LEFT=0,this.m_MIN_MENU_LEFT=-300,this.m_MENU_WIDTH=300,this.m_MAX_BLACK_COVER_OPACITY=.5,this.m_MIN_BLACK_COVER_OPACITY=0}function b(){this.m_COPYRIGHT="© 2019 - Yeuoly",this.m_WEB_TITLE="YeuolyBlog",this.m_WLECOME_SAYING="欢迎回来!",this.m_VERIFICATION_SUCCESS="验证码已发送（可能在您邮箱的垃圾箱里orz)"}function c(){this.m_URL_DOMAIN_API="http://localhost:100/website/pif_mana/api/",this.m_URL_DOMAIN_WEB="http://localhost:100/website/pif_mana/web/",this.m_URL_DOMAIN_IMG="http://localhost:100/website/pif_mana/img/"}function d(){function a(){this.success=666,this.failed=-250}function b(){this.failed=-250,this.success=666}function c(){this.success=666,this.failed=-250}function d(){this.success=666,this.failed=-250}this.login=new a,this.passjct=new b,this.register=new d,this.requestVerification=new c}this.m_URL_DOMAIN_API_DIR=0,this.m_URL_DOMAIN_WEB_DIR=1,this.m_URL_DOMAIN_IMG_DIR=2,this.m_ADD_BLOCK_TYPE_TABLE=1,this.m_ADD_BLOCK_TYPE_URL=2,this.m_ADD_BLOCK_TYPE_PIC=3,this.response=new d,this.url=new c,this.baseinfo=new b,this.userblock=new a,this.getUrlPath=function(a,b){switch(b){case this.m_URL_DOMAIN_API_DIR:return this.url.m_URL_DOMAIN_API+a;case this.m_URL_DOMAIN_WEB_DIR:return this.url.m_URL_DOMAIN_WEB+a;case this.m_URL_DOMAIN_IMG_DIR:return this.url.m_URL_DOMAIN_IMG+a}},this.getWebTitle=function(){return this.baseinfo.m_WEB_TITLE},this.getWelcomeSaying=function(){return this.baseinfo.m_WLECOME_SAYING}}function InitWeb(){function c(){var c,d,e,f,g,h,i,j,k,l,m,n,o,a=document.createElement("div");a.id="_header",c=document.createElement("div"),c.id="_menu",d=document.createElement("div"),d.id="_black_cover",e=document.createElement("div"),e.id="_footer",f=document.getElementById("app"),f.parentNode.insertBefore(d,f),f.parentNode.insertBefore(c,f),f.parentNode.insertBefore(a,f),document.body.appendChild(e),b.isPC()?(k=45,i=.045*innerWidth,h=-300,g=300,j=18):(g=.7*innerWidth,h=-g,i=.12*innerWidth,j=.03*innerWidth,k=.15*.7*innerWidth),l=Vue.extend({template:'<div class="header" id="header">           <div class="user-block-open" id="user-block-open">               <div                    class="user-block-open-click"                    id="user-block-open-click"                   @click="mouseClick"               >                   ≡≡               </div>           </div>       </div>',data:function(){return{}},methods:{mouseClick:function(){b.openSideMenu(),b.openBlackCover(),b.blackCoverBindClick(function(){b.closeSideMenu(),b.closeBlackCover()})}}}),m=Vue.extend({template:'<div            class="user-menu"            id="user-menu"           :style="{left: css.left + \'px\' , width: css.width + \'px\' }"       >           <div                class="menu-user-block"                id="menu-user-block"               style="height:'+i+'px;"'+"           >"+"               <div "+'                   class="menu-user-block-avatar" '+'                   id="menu-user-block-avatar"'+'                   style="width:'+k+"px;height:"+k+'px;"'+"               >"+"                   <img "+'                       id="menu-user-block-avatar-img" '+'                       class="menu-user-block-avatar-img" '+'                       :src="user.avatar"'+'                       style="width: '+k+"px; height:"+k+'px;"'+"                   >"+"               </div>"+'               <div class="menu-user-block-uid" id="menu-user-block-uid">'+'                   <div class="menu-user-block-uid-txt" id="menu-user-block-uid-txt">'+"                       |uid : {{user.user_uid}}"+"                   </div>"+"               </div>"+'               <div class="menu-user-block-id" id="menu-user-block-id">'+'                   <div class="menu-user-block-id-txt" id="menu-user-block-id-txt" v-on="{click: !user.online && goToLogin}">'+"                       |id : {{user.user_id}}"+"                   </div>"+"               </div>"+"           </div>"+'           <hr class="menu-user-block-div-line">'+'           <div class="menu-func" id="menu-func">'+'               <ul class="menu-func-ul" id="menu-func-ul">'+'                   <li v-for="dep in func">'+'                       <div class="menu-func-li-btn-block" @click="functionSwitch(dep.func)">'+'                           <div class="menu-func-li-btn-block-txt">{{dep.name}}</div>'+'                           <div class="menu-func-li-btn-block-about">{{dep.about}}</div>'+"                       </div>"+"                   </li>"+"               </ul>"+"           </div>"+"       </div>",data:function(){return{func:[{name:"我的主页",about:"字面意思呀，巴拉拉能量让你回到自己的主页！",func:"myIndex"},{name:"更新日志",about:"估计你对这个没啥兴趣",func:"updateLog"},{name:"注销",about:"嘤嘤嘤咱要溜了",func:"logOff"}],user:{user_id:"未登录，点击登录",user_uid:"-1",user_email:"example@google.com",user_lv:"0",user_exp:"0",user_class:"",avatar:"http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658",srm_jct:"",login_time:"0",online:!1},css:{left:h,width:g}}},methods:{goToLogin:function(){b.goToLogin()},functionSwitch:function(a){switch(a){case"myIndex":b.goToMyIndex();break;case"updateLog":b.closeBlackCover(),b.closeSideMenu(),b.goToUpdateLog();break;case"logOff":b.logOff()}}}}),n=Vue.extend({template:'<div            class="black-cover"            id="black-cover"           :style="{opacity: css.opacity}"           @click=mouseClick       >       </div>',data:function(){return{css:{opacity:0},bindCache:[{func:function(){console.log("Event : click #black_cover")},isConst:!0}]}},methods:{mouseClick:function(){for(var a in this.bindCache)this.bindCache[a].func();this.unbind()},unbind:function(){var b,a=[];for(b in this.bindCache)b.isConst&&a.push(this.bindCache[b]);this.bindCache=a},bind:function(a){var b=typeof a;"object"===b?"function"!=typeof a.func||void 0!==a.isConst&&"boolean"!=typeof a.isConst?console.error("Wrong type in function-bind"):(a.isConst=a.isConst?a.isConst:!1,this.bindCache.push(a)):"function"===b?this.bindCache.push({func:a,isConst:!1}):console.error("Wrong type in function-bind")}}}),o=Vue.extend({template:'<div class="footer" id="footer">'+static_data.baseinfo.m_COPYRIGHT+"</div>",data:function(){return{}},methods:{}}),this.header=new l,this.menu=new m,this.black_cover=new n,this.footer=new o,this.header.$mount("#_header"),this.menu.$mount("#_menu"),this.black_cover.$mount("#_black_cover"),this.footer.$mount("#_footer")}function d(){document.title=static_data.getWebTitle()}var a=this,b={isOnline:function(){return a.constDom.menu.user.online},openBlackCover:function(){var c,a=document.getElementById("black-cover");a.style.setProperty("z-index","1"),c=setInterval(function(){var a=b.getBlackCoverOpacity();b.setBlackCoverOpacity(a+.06),a>=static_data.userblock.m_MAX_BLACK_COVER_OPACITY-.06&&clearInterval(c)},10)},closeBlackCover:function(){var a=document.getElementById("black-cover"),c=setInterval(function(){var d=b.getBlackCoverOpacity();b.setBlackCoverOpacity(d-.06),d<=static_data.userblock.m_MIN_BLACK_COVER_OPACITY+.06&&(a.style.setProperty("z-index","-1"),clearInterval(c))},10);$("#black-cover").unbind("click")},openSideMenu:function(){var a=document.getElementById("user-menu"),c=setInterval(function(){var e,d=b.getMenuLeft();b.setMenuLeft(d+10),e=static_data.userblock.m_MAX_MENU_LEFT-20,d>=e&&(clearInterval(c),b.setMenuLeft(0),a.style.setProperty("box-shadow","2px 0px 1px rgb(173, 150, 150)"))},3)},closeSideMenu:function(){var c,d,a=document.getElementById("user-menu");a.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)"),c=b.getMenuWidth(),d=setInterval(function(){var a=b.getMenuLeft(),e=a+c;return 0>=e?(clearInterval(d),void 0):(b.setMenuLeft(a-10),void 0)},3)},goToMyIndex:function(){location.href=static_data.getUrlPath("msg.html",static_data.m_URL_DOMAIN_WEB_DIR)},goToUpdateLog:function(){location.href=static_data.getUrlPath("#updates-log-list",static_data.m_URL_DOMAIN_WEB_DIR)},goToLogin:function(){location.href=static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR)},logOff:function(){a.constDom.menu.user.online&&$.ajax({url:static_data.getUrlPath("LogOff.php",static_data.m_URL_DOMAIN_API_DIR),async:!0,type:"post",dataType:"json",contentType:"application/x-www-form-urlencoded",xhrFields:{withCredentials:!0},success:function(a){1==a.data.res&&(location.href=static_data.getUrlPath("",static_data.m_URL_DOMAIN_WEB_DIR))}})},setUserInfo:function(b,c){a.constDom.menu.user[b]=c},setUserInfoArray:function(b){for(var c in b)a.functionGroup.setUserInfo(c,b[c])},passJct:function(){var a=this;$.ajax({url:static_data.getUrlPath("User.php",static_data.m_URL_DOMAIN_API_DIR),async:!0,type:"post",dataType:"json",contentType:"application/x-www-form-urlencoded",xhrFields:{withCredentials:!0},success:function(b){if(b.data.res===static_data.response.passjct.success){a.setUserInfoArray(b.data.data),a.setUserInfo("online",!0);var c=$("#menu-user-block-id-txt");c.css("cursor","default")}}})},getUserInfo:function(){return a.app.menu_user_block._data.user},isPC:function(){var d,a=navigator.userAgent,b=["Android","iPhone","SymbianOS","Windows Phone","iPad","iPod"],c=!0;for(d=0;d<b.length;d++)if(a.indexOf(b[d])>0){c=!1;break}return c},alertBox:function(b,c){function o(){k.style.opacity=1;var b=setInterval(function(){var c=k.style.opacity;k.style.opacity=c-.02,1>=c+.02&&(document.body.removeChild(k),clearInterval(b),a.functionGroup.closeBlackCover(),a.functionGroup.closeSideMenu())},2)}var d,e,i,j,k,l,m,n;b=b||"",c=c||0,d=document.body.scrollTop||document.documentElement.scrollTop,e=document.all?!0:!1,e&&!window.XMLHttpRequest,document.documentElement.scrollTop||document.body.scrollTop,document.documentElement.scrollLeft||document.body.scrollLeft,i=function(){var a,b,c,d,e,f;return window.innerHeight&&window.scrollMaxY?(a=document.body.scrollWidth,b=window.innerHeight+window.scrollMaxY):document.body.scrollHeight>document.body.offsetHeight?(a=document.body.scrollWidth,b=document.body.scrollHeight):(a=document.body.offsetWidth,b=document.body.offsetHeight),self.innerHeight?(c=self.innerWidth,d=self.innerHeight):document.documentElement&&document.documentElement.clientHeight?(c=document.documentElement.clientWidth,d=document.documentElement.clientHeight):document.body&&(c=document.body.clientWidth,d=document.body.clientHeight),f=d>b?d:b,e=c>a?c:a,{pageWidth:e,pageHeight:f,windowWidth:c,windowHeight:d}}(),j="display:block;position:fixed;_position:absolute;left:"+(i.windowWidth/2-200)+"px;top:"+(i.windowHeight/2-150)+"px;_top:"+(i.windowHeight/2+d-150)+"px;",k=document.createElement("div"),k.id="alertMsg",k.style.cssText=j,l=document.createElement("P"),l.id="alertMsg_info",l.innerHTML=b,k.appendChild(l),m=document.createElement("a"),m.id="alertMsg_btn1",m.href="javascript:void(0)",m.innerHTML="<cite>确定</cite>",m.onclick=function(){return o(),!0},k.appendChild(m),1===c&&(n=document.createElement("a"),n.id="alertMsg_btn2",n.href="javascript:void(0)",n.innerHTML="<cite>取消</cite>",n.onclick=function(){return o(),!1},k.appendChild(n)),document.body.appendChild(k),a.functionGroup.openBlackCover()},cDom:function(a,b,c,d){var e=$("<"+a+">");return null!=b&&e.attr("class",b),null!=c&&e.attr("id",c),null!=d&&e.html(d),e},setMenuLeft:function(b){a.constDom.menu.css.left=b},setBlackCoverOpacity:function(b){a.constDom.black_cover.css.opacity=b},getMenuLeft:function(){return a.constDom.menu.css.left},getBlackCoverOpacity:function(){return a.constDom.black_cover.css.opacity},getMenuWidth:function(){return a.constDom.menu.css.width},getDestinationCookie:function(a){var d,e,b=document.cookie,c=b.split("; ");for(d=0;d<c.length;d++)if(e=c[d].split("="),a===e[0])return e[1];return!1},blackCoverBindClick:function(b){a.constDom.black_cover.bind(b)}};this.functionGroup=b,this.constDom=new c,d(),b.passJct()}function pisert(){return[Date.parse(new Date),Math.floor(Math.random()*Math.pow(10,5))]}const static_data=new NotForgetData;
+/**
+ *
+ * GetSelfData main.js
+ * author : SRM_XY Yeuoly
+ * Copyright : VSOV-2018-2019
+ * Editor by IDEA and VSCODE
+ * Thanks to Vue.js
+ *
+ * */
+
+function InitWeb()
+{
+    //提供一个给子级对象访问父级的handle
+    var app_self = this;
+
+    //函数集合，为了方便调用就把它们封装在一个去全局对象内了
+    //所有函数完全独立，已避免互相调用
+    var functionGroup = {
+        //获取用户的登录状态
+        isOnline :function () {
+            return app_self.constDom.menu.user.online;
+        },
+        //打开黑幕，关闭黑幕需要手动调用closeBlackCover，或者给黑幕绑定上点击黑幕就关闭的事件
+        openBlackCover : function () {
+            //首先把黑色幕布的z-index值调大，盖住整个屏幕
+            var black_cover = document.getElementById('black-cover');
+            black_cover.style.setProperty('z-index','1');
+            //使用一个计时器逐渐调大opacity
+            var timer = setInterval(function () {
+                var opacity = functionGroup.getBlackCoverOpacity();
+                functionGroup.setBlackCoverOpacity(opacity + 0.06);
+                if(opacity >= static_data.userblock.m_MAX_BLACK_COVER_OPACITY - 0.06)
+                {
+                    clearInterval(timer);
+                }
+            },10);
+        },
+        //关掉黑幕，并移除黑幕的所有绑定事件
+        closeBlackCover : function () {
+            //获取黑色幕布的dom
+            var black_cover = document.getElementById('black-cover');
+            //使用一个计时器逐渐调小opacity
+            var timer_cover = setInterval(function () {
+                var opacity = functionGroup.getBlackCoverOpacity();
+                functionGroup.setBlackCoverOpacity(opacity - 0.06);
+                if(opacity <= static_data.userblock.m_MIN_BLACK_COVER_OPACITY + 0.06)
+                {
+                    //把黑色幕布的z-index调低，弄到屏幕下面去
+                    black_cover.style.setProperty('z-index','-1');
+                    clearInterval(timer_cover);
+                }
+            } , 10);
+        },
+        //打开侧边栏
+        openSideMenu : function () {
+            //获取右侧边栏dom
+            var menu = document.getElementById('user-menu');
+            //使用一个计时器逐渐移动侧边栏
+            var timer = setInterval(function () {
+                //获取左边界坐标
+                var left = functionGroup.getMenuLeft();
+                //设置左边界坐标
+                functionGroup.setMenuLeft(left + 10);
+                //向左移动到的最大值
+                var left_max = static_data.userblock.m_MAX_MENU_LEFT - 20;
+                if(left >= left_max)
+                {
+                    clearInterval(timer);
+                    functionGroup.setMenuLeft(0);
+                    menu.style.setProperty('box-shadow','2px 0px 1px rgb(173, 150, 150)');
+                }
+            },3);
+        },
+        //关掉侧边栏
+        closeSideMenu : function () {
+            var menu = document.getElementById('user-menu');
+            menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
+            var menu_width = functionGroup.getMenuWidth();
+            var timer_menu = setInterval(function () {
+                var left = functionGroup.getMenuLeft();
+                var right = left + menu_width;
+                if(right <= 0)
+                {
+                    clearInterval(timer_menu);
+                    return;
+                }
+                functionGroup.setMenuLeft(left - 10);
+            } , 3);
+        },
+        //到网站主页去
+        goToIndex : function () {
+            location.href = static_data.getUrlPath('',static_data.m_URL_DOMAIN_WEB_DIR);
+        },
+        //到自己的主页去
+        goToMyIndex : function () {
+            location.href = static_data.getUrlPath("msg.html",static_data.m_URL_DOMAIN_WEB_DIR);
+        },
+        //移动到更新日志
+        goToUpdateLog : function () {
+            location.href = static_data.getUrlPath('#updates-log-list',static_data.m_URL_DOMAIN_WEB_DIR);
+        },
+        //跳转页面到登录界面
+        goToLogin : function () {
+            location.href = static_data.getUrlPath('passport.html',static_data.m_URL_DOMAIN_WEB_DIR);
+        },
+        //硬核翻译，发博客去
+        goToSendPost : function () {
+            location.href = static_data.getUrlPath('operate/editor-post.html',static_data.m_URL_DOMAIN_WEB_DIR);
+        },
+        //注销
+        logOff : function () {
+            if(app_self.constDom.menu.user.online)
+            {
+                $.ajax({
+                    url : static_data.getUrlPath("LogOff.php",static_data.m_URL_DOMAIN_API_DIR),
+                    async : true,
+                    type : "get",
+                    dataType : "json",
+                    contentType : "application/x-www-form-urlencoded",
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    success : function(data)
+                    {
+                        if(data['data']['res'] === static_data.response.passjct.success)
+                        {
+                            functionGroup.clearUserInfo();
+                        }
+                    }
+                });
+            }
+        },
+        //设置用户信息，键值与值相对应
+        setUserInfo : function (key, val) {
+            app_self.constDom.menu.user[key] = val;
+        },
+        //设置用户信息，传入值为一个数组，键值与值相对应
+        setUserInfoArray : function (ary) {
+            for(var key in ary){
+                app_self.functionGroup.setUserInfo(key,ary[key]);
+            }
+        },
+        //清除用户信息
+        //这里肯定要优化的，只是现阶段被这个js的引用型变量搞得很烦。。
+        clearUserInfo : function () {
+            app_self.constDom.menu.user = {
+                user_id: '未登录，点击登录',
+                user_uid: '-1',
+                user_email: 'example@google.com',
+                user_lv: '0',
+                user_exp: '0',
+                user_class: '',
+                avatar: 'https://img.srmxy.cn/ylday/avatar/default.webp',
+                srm_jct: '',
+                login_time: '0',
+                online: false
+            }
+        },
+        //登录检测
+        passJct : function() {
+            var self = this;
+            $.ajax({
+                url : static_data.getUrlPath("User.php",static_data.m_URL_DOMAIN_API_DIR),
+                async : true,
+                type : "post",
+                dataType : "json",
+                contentType : "application/x-www-form-urlencoded",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success : function(data)
+                {
+                    if(data['data']['res'] === static_data.response.passjct.success)
+                    {
+                        self.setUserInfoArray(data['data']['data']);
+                        self.setUserInfo('online',true);
+                        self.setUserInfo(
+                            'avatar' ,
+                            static_data.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR)
+                        );
+                        var handle_user_id_txt = $("#menu-user-block-id-txt");
+                        handle_user_id_txt.css('cursor','default');
+                        //执行用户数据更新完之后的跟随事件
+                        for(var i in dataGroup.userOnloadNextTick)
+                        {
+                            dataGroup.userOnloadNextTick[i]();
+                        }
+                    }
+                }
+            });
+        },
+        //添加用户信息加载完之后的跟随事件
+        bindUserOnloadNextTick : function(src){
+            if(typeof src === 'function')
+                dataGroup.userOnloadNextTick.push(src);
+            else
+                console.error('userOnloadNextTick : wrong type');
+        },
+        //解绑所有绑定事件，这里不分什么固定事件不固定事件啥的
+        unbindUserOnloadNextTick : function(){
+            //直接覆盖就完事了，剩下的任务留给浏览器
+            dataGroup.userOnloadNextTick = [];
+        },
+        //获取用户信息
+        getUserInfo : function (index) {
+            if(typeof index === 'undefined')
+                return app_self.constDom.menu.user;
+            if(typeof app_self.constDom.menu.user[index] !== 'undefined')
+                return app_self.constDom.menu.user[index];
+            console.error('illegal index in getUserInfo(index)');
+        },
+        //
+        isPC : function() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++)
+            {
+                if (userAgentInfo.indexOf(Agents[v]) > 0)
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        },
+        //获取当前cookies的字典
+        getParamsArray : function () {
+            var url = document.location.toString();
+            var urlParamsStr = url.split('?')[1];
+            if(typeof urlParamsStr === 'undefined')return;
+            var urlParamsAry = urlParamsStr.split('&');
+            var _urlParamsAry = [];
+            for(var i in urlParamsAry)
+            {
+                var buf = urlParamsAry[i].split('=');
+                _urlParamsAry[buf[0]] = buf[1];
+                _urlParamsAry.length++;
+            }
+            return _urlParamsAry;
+        },
+        //mode为空，即只有一个确认按钮，mode为1时有确认和取消两个按钮
+        //网上抄的消息框，自己修改了一下样式和弹出动画，删除了原本的遮罩层
+        //原地址https://blog.csdn.net/java_goodstudy/article/details/51482324
+        alertBox : function (msg, mode) {
+            msg = msg || '';
+            mode = mode || 0;
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            var isIe = (document.all) ? true : false;
+            var isIE6 = isIe && !window.XMLHttpRequest;
+            var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var sLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var winSize = function(){
+                var xScroll, yScroll, windowWidth, windowHeight, pageWidth, pageHeight;
+                // innerHeight获取的是可视窗口的高度，IE不支持此属性
+                if (window.innerHeight && window.scrollMaxY) {
+                    xScroll = document.body.scrollWidth;
+                    yScroll = window.innerHeight + window.scrollMaxY;
+                } else if (document.body.scrollHeight > document.body.offsetHeight) { // all but Explorer Mac
+                    xScroll = document.body.scrollWidth;
+                    yScroll = document.body.scrollHeight;
+                } else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
+                    xScroll = document.body.offsetWidth;
+                    yScroll = document.body.offsetHeight;
+                }
+
+                if (self.innerHeight) {    // all except Explorer
+                    windowWidth = self.innerWidth;
+                    windowHeight = self.innerHeight;
+                } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
+                    windowWidth = document.documentElement.clientWidth;
+                    windowHeight = document.documentElement.clientHeight;
+                } else if (document.body) { // other Explorers
+                    windowWidth = document.body.clientWidth;
+                    windowHeight = document.body.clientHeight;
+                }
+
+                // for small pages with total height less then height of the viewport
+                if (yScroll < windowHeight) {
+                    pageHeight = windowHeight;
+                } else {
+                    pageHeight = yScroll;
+                }
+
+                // for small pages with total width less then width of the viewport
+                if (xScroll < windowWidth) {
+                    pageWidth = windowWidth;
+                } else {
+                    pageWidth = xScroll;
+                }
+
+                return{
+                    'pageWidth':pageWidth,
+                    'pageHeight':pageHeight,
+                    'windowWidth':windowWidth,
+                    'windowHeight':windowHeight
+                }
+            }();
+            //弹出框
+            var styleStr1 = 'display:block;position:fixed;_position:absolute;left:' + (winSize.windowWidth / 2 - 200) + 'px;top:' + (winSize.windowHeight / 2 - 150) + 'px;_top:' + (winSize.windowHeight / 2 + top - 150)+ 'px;'; //弹出框的位置
+            var alertBox = document.createElement('div');
+            alertBox.id = 'alertMsg';
+            alertBox.style.cssText = styleStr1;
+            //创建弹出框里面的内容P标签
+            var alertMsg_info = document.createElement('P');
+            alertMsg_info.id = 'alertMsg_info';
+            alertMsg_info.innerHTML = msg;
+            alertBox.appendChild(alertMsg_info);
+            //创建按钮
+            var btn1 = document.createElement('a');
+            btn1.id = 'alertMsg_btn1';
+            btn1.href = 'javascript:void(0)';
+            btn1.innerHTML = '<cite>确定</cite>';
+            btn1.onclick = function () {
+                closeAlertBox();
+                return true;
+            };
+            alertBox.appendChild(btn1);
+            if (mode === 1) {
+                var btn2 = document.createElement('a');
+                btn2.id = 'alertMsg_btn2';
+                btn2.href = 'javascript:void(0)';
+                btn2.innerHTML = '<cite>取消</cite>';
+                btn2.onclick = function () {
+                    closeAlertBox();
+                    return false;
+                };
+                alertBox.appendChild(btn2);
+            }
+            document.body.appendChild(alertBox);
+            app_self.functionGroup.openBlackCover();
+
+            //逐渐消失的动画
+            function closeAlertBox(){
+                alertBox.style.opacity = 1;
+                var timer = setInterval(function () {
+                    var opacity = alertBox.style.opacity;
+                    alertBox.style.opacity = opacity - 0.02;
+                    if(opacity + 0.02 <= 1)
+                    {
+                        document.body.removeChild(alertBox);
+                        clearInterval(timer);
+                        app_self.functionGroup.closeBlackCover();
+                        app_self.functionGroup.closeSideMenu();
+                    }
+                } , 2);
+            }
+        },
+        //创建dom的方法
+        cDom : function(type,className,id,innerHtml){
+            var v = $("<" + type + ">");
+            if(className != null)
+                v.attr('class',className);
+            if(id != null)
+                v.attr('id',id);
+            if(innerHtml != null)
+                v.html(innerHtml);
+            return v;
+        },
+        //修改css样式
+        //设置左侧菜单栏左边界坐标
+        setMenuLeft : function (value) {
+            app_self.constDom.menu.css.left = value;
+        },
+        //设置黑色幕布透明度
+        setBlackCoverOpacity : function (value) {
+            app_self.constDom.black_cover.css.opacity = value;
+        },
+        //获取左侧菜单栏左边界坐标
+        getMenuLeft : function () {
+            return app_self.constDom.menu.css.left;
+        },
+        //设置黑色幕布透明度
+        getBlackCoverOpacity : function () {
+            return app_self.constDom.black_cover.css.opacity;
+        },
+        //获取左侧菜单栏宽度
+        getMenuWidth : function () {
+            return app_self.constDom.menu.css.width;
+        },
+        //获取指定cookie
+        getDestinationCookie : function (cookieName) {
+            var strCookie = document.cookie;
+            var arrCookie = strCookie.split("; ");
+            for(var i = 0; i < arrCookie.length; i++)
+            {
+                var arr = arrCookie[i].split("=");
+                if(cookieName === arr[0])return arr[1];
+            }
+            return false;
+        },
+        //向black_cover中添加点击事件，传入值需要是一个字典，其中的func成员将会被绑定到black_cover的onclick事件中
+        //传入值还可以是个function
+        //需要注意的是，当触发了onclick事件之后所有的绑定都会被清理
+        blackCoverBindClick : function(src) {
+            app_self.constDom.black_cover.bind(src);
+        },
+        //获取滚动条高度
+        getScrollHeight : function () {
+            var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+            if (document.body) {
+                bodyScrollHeight = document.body.scrollHeight;
+            }
+            if (document.documentElement) {
+                documentScrollHeight = document.documentElement.scrollHeight;
+            }
+            scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+            return scrollHeight;
+        },
+        //获取可视窗口高度
+        getWindowHeight : function () {
+            var windowHeight = 0;
+            if (document.compatMode === "CSS1Compat") {
+                windowHeight = document.documentElement.clientHeight;
+            } else {
+                windowHeight = document.body.clientHeight;
+            }
+            return windowHeight;
+        },
+        //获取文档高度
+        getDocumentTop : function () {
+            var scrollTop =  0, bodyScrollTop = 0, documentScrollTop = 0;
+            if (document.body) {
+                bodyScrollTop = document.body.scrollTop;
+            }
+            if (document.documentElement) {
+                documentScrollTop = document.documentElement.scrollTop;
+            }
+            scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+            return scrollTop;
+        }
+    };
+
+    //同上面一样，封装在一起的一堆数据
+    var dataGroup = {
+        //用于缓存用户数据加载完之后的跟随事件
+        userOnloadNextTick : [
+            //example
+          /*function(){
+                //do something
+            }*/
+        ]
+    };
+
+    //给外部访问集合的接口
+    this.functionGroup = functionGroup;
+    this.dataGroup = dataGroup;
+
+    //创建dom和Vue对象
+    this.constDom = new createVue();
+
+    //设置标题
+    setTitle();
+
+    //检测用户登录情况
+    functionGroup.passJct();
+
+    //创建侧边栏和顶层的dom对象，并赋予类名和id以及innerHtml
+    //这是一个构造器
+    function createVue() {
+        //创建挂载节点
+        var _header = document.createElement('div');
+        _header.id = '_header';
+        var _menu   = document.createElement('div');
+        _menu.id = '_menu';
+        var _black_cover = document.createElement('div');
+        _black_cover.id = '_black_cover';
+        var _footer = document.createElement('div');
+        _footer.id = '_footer';
+
+        //向html中添加挂载节点
+        var app = document.getElementById('app');
+
+        app.parentNode.insertBefore(_black_cover,app);
+        app.parentNode.insertBefore(_menu,app);
+        app.parentNode.insertBefore(_header,app);
+        document.body.appendChild(_footer);
+
+        //初始化css参数
+        var menuWidth , menuLeft , menuUserBlockHeight , menuUserBlockTxtSize ,
+            menuUserBlockAvatarSize;
+
+        //修整PC与PE的侧边栏宽度
+        if(!functionGroup.isPC())
+        {
+            menuWidth = innerWidth * 0.7;
+            menuLeft = -menuWidth;
+            menuUserBlockHeight = innerWidth * 0.12;
+            menuUserBlockTxtSize = innerWidth * 0.03;
+            menuUserBlockAvatarSize = innerWidth * 0.7 * 0.15;
+        }else{
+            menuUserBlockAvatarSize = 60;
+            menuUserBlockHeight = innerWidth * 0.045;
+            menuLeft = -300;
+            menuWidth = 300;
+            menuUserBlockTxtSize = 18;
+        }
+
+        //创建Vue构造器
+        //头部固定栏
+        var header = Vue.extend({
+            template : '<div class="header" id="header">' +
+                '           <div class="user-block-open" id="user-block-open">' +
+                '               <div ' +
+                '                   class="user-block-open-click" ' +
+                '                   id="user-block-open-click"' +
+                '                   @click="mouseClick"' +
+                '               >' +
+                '                   ≡≡' +
+                '               </div>' +
+                '           </div>' +
+                '       </div>',
+            data : function(){
+                return {
+
+                }
+            },
+            methods : {
+                mouseClick : function() {
+                    functionGroup.openSideMenu();
+                    functionGroup.openBlackCover();
+                    //绑定black_cover的点击事件
+                    functionGroup.blackCoverBindClick( function() {
+                        functionGroup.closeSideMenu();
+                        functionGroup.closeBlackCover();
+                    });
+                }
+            }
+        });
+        //侧边固定栏
+        var menu = Vue.extend({
+            template : '<div ' +
+                '           class="user-menu" ' +
+                '           id="user-menu"' +
+                '           :style="{left: css.left + \'px\' , width: css.width + \'px\' }"' +
+                '       >' +
+                '           <div ' +
+                '               class="menu-user-block" ' +
+                '               id="menu-user-block"' +
+                '               style="height:'+menuUserBlockHeight+'px;"' +
+                '           >' +
+                '               <div ' +
+                '                   class="menu-user-block-avatar" ' +
+                '                   id="menu-user-block-avatar"' +
+                '                   style="width:'+menuUserBlockAvatarSize+'px;height:'+menuUserBlockAvatarSize+'px;"' +
+                '               >' +
+                '                   <img ' +
+                '                       id="menu-user-block-avatar-img" ' +
+                '                       class="menu-user-block-avatar-img" ' +
+                '                       :src="user.avatar"' +
+                '                       style="width: '+menuUserBlockAvatarSize+'px;"' +
+                '                   >' +
+                '               </div>' +
+                '               <div class="menu-user-block-uid" id="menu-user-block-uid">' +
+                '                   <div class="menu-user-block-uid-txt" id="menu-user-block-uid-txt">' +
+                '                       |uid : {{user.user_uid}}' +
+                '                   </div>' +
+                '               </div>' +
+                '               <div class="menu-user-block-id" id="menu-user-block-id">' +
+                '                   <div class="menu-user-block-id-txt" id="menu-user-block-id-txt" v-on="{click: !user.online && goToLogin}">' +
+                '                       |id : {{user.user_id}}' +
+                '                   </div>' +
+                '               </div>' +
+                '           </div>' +
+                '           <hr class="menu-user-block-div-line">' +
+                '           <div class="menu-func" id="menu-func">' +
+                '               <ul class="menu-func-ul" id="menu-func-ul">' +
+                '                   <li v-for="dep in func">' +
+                '                       <div class="menu-func-li-btn-block" @click="functionSwitch(dep.func)">' +
+                '                           <div class="menu-func-li-btn-block-txt">{{dep.name}}</div>' +
+                '                           <div class="menu-func-li-btn-block-about">{{dep.about}}</div>' +
+                '                       </div>' +
+                '                   </li>' +
+                '               </ul>' +
+                '           </div>' +
+                '       </div>',
+            data : function() {
+                return {
+                    //侧边功能栏
+                    func: [
+                        {
+                            name : '回到网站主页',
+                            about : '回到那个梦想开始的地方~',
+                            func : 'index'
+                        },
+                        {
+                            name: '我的主页',
+                            about: '字面意思呀，巴拉拉能量让你回到自己的主页！',
+                            func: 'myIndex'
+                        },
+                        {
+                            name : '发post去',
+                            about : '皮皮站，咱们去发博客！',
+                            func : 'send'
+                        },
+                        {
+                            name: '更新日志',
+                            about: '估计你对这个没啥兴趣',
+                            func: 'updateLog'
+                        },
+                        {
+                            name: '注销',
+                            about: '嘤嘤嘤咱要溜了',
+                            func: 'logOff'
+                        }
+                    ],
+                    //用户数据
+                    user: static_data.baseinfo.m_DEFAULT_USER_INFO,
+                    //侧边菜单栏的css参数
+                    css : {
+                        left : menuLeft,
+                        width : menuWidth
+                    }
+                }
+            },
+            methods : {
+                goToLogin : function () {
+                    functionGroup.goToLogin();
+                },
+                //点击这个dom的时候的函数处理事件，使用一个function和多个key来判断不同情况下执行什么任务
+                functionSwitch : function(key)
+                {
+                    switch(key)
+                    {
+                        case 'index':
+                            functionGroup.goToIndex();
+                            break;
+                        case 'myIndex':
+                            functionGroup.goToMyIndex();
+                            break;
+                        case 'updateLog':
+                            functionGroup.closeBlackCover();
+                            functionGroup.closeSideMenu();
+                            functionGroup.goToUpdateLog();
+                            break;
+                        case 'logOff':
+                            functionGroup.logOff();
+                            break;
+                        case 'send':
+                            functionGroup.goToSendPost();
+                            break;
+                    }
+                }
+            }
+        });
+        //黑色幕布固定栏
+        //很蛋疼的是z-index中间的-号会被vue解析掉，所以绑定不了z-index元素
+        var black_cover = Vue.extend({
+            template : '<div ' +
+                '           class="black-cover" ' +
+                '           id="black-cover"' +
+                '           :style="{opacity: css.opacity}"' +
+                '           @click=mouseClick' +
+                '       >' +
+                '       </div>',
+            data : function () {
+                return {
+                    css:{
+                        opacity : 0
+                    },
+                    //函数绑定缓存，储存多组json格式的数据，对应法则为
+                    //{ func: 目标函数 , isConst: 是否在执行完一次函数之后清除本元素}
+                    //func定义为事件，最终储存在bindCache中的事件集合定义为事件列表
+                    //isConst定义为固定事件标识符，如果这个事件是一个在运行完之后不从事件列表中删去的事件，则其为固定事件
+                    bindCache : [
+                        {
+                            //默认事件，点击事件产生时发出一个提示
+                            func: function(){
+                                console.log('Event : click #black_cover');
+                            },
+                            //这个事件是默认的固定事件
+                            isConst : true
+                        }
+                    ]
+                }
+            },
+            methods : {
+                //点击黑幕时处理掉绑定在黑幕的onlick事件（依此调用加清空不必要的函数缓存）
+                mouseClick : function () {
+                    for(var dep in this.bindCache){
+                        this.bindCache[dep].func();
+                    }
+                    this.unbind();
+                },
+                //清理函数缓存，留下固定事件，删去非固定事件
+                unbind : function() {
+                    var bindCache_buf = [];
+                    for(var dep in this.bindCache){
+                        if(dep.isConst){
+                            bindCache_buf.push(this.bindCache[dep]);
+                        }
+                    }
+                    this.bindCache = bindCache_buf;
+                },
+                //添加函数缓存
+                //参数为一个字典，或者为一个函数，固定事件表示默认为false
+                bind : function(src) {
+                    var type = typeof src;
+                    //如果传进来的是一个对象（字典）
+                    if(type === 'object'){
+                        //判断其类型是否为我们所需要的类型
+                        if(typeof src.func === 'function' && (typeof src.isConst === 'undefined' || typeof src.isConst ==='boolean')){
+                            //利用三段运算符给isConst一个默认值（Js不支持直接的默认值真的很蛋疼）
+                            src.isConst = src.isConst ? src.isConst : false;
+                            this.bindCache.push(src);
+                        }else{
+                            console.error('Wrong type in function-bind');
+                        }
+                    //如果传入的是一个函数
+                    }else if(type === 'function'){
+                        //手动构建一个对象push进cache
+                        this.bindCache.push({
+                            func : src,
+                            isConst : false
+                        });
+                    }else{
+                        console.error('Wrong type in function-bind');
+                    }
+                }
+            }
+        });
+        //底部固定栏
+        var footer = Vue.extend({
+            template : '<div class="footer" id="footer">'+static_data.baseinfo.m_COPYRIGHT+'</div>',
+            data : function(){
+                return {
+
+                }
+            },
+            methods : {
+
+            }
+        });
+
+        //实例化Vue对象
+        this.header = new header();
+        this.menu = new menu();
+        this.black_cover = new black_cover();
+        this.footer = new footer();
+
+        //挂载Vue对象
+        this.header.$mount('#_header');
+        this.menu.$mount('#_menu');
+        this.black_cover.$mount('#_black_cover');
+        this.footer.$mount('#_footer');
+    }
+
+    //设置标题
+    function setTitle(){
+        document.title = static_data.getWebTitle();
+    }
+}
+
+function pisert()
+{
+    return [
+        Date.parse(new Date()) ,
+        Math.floor(Math.random()*Math.pow(10,5))
+    ];
+}

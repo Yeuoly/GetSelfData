@@ -1,4 +1,4 @@
-const static_data = new NotForgetData();
+var static_data = new NotForgetData();
 
 function NotForgetData()
 {
@@ -35,7 +35,7 @@ function NotForgetData()
             user_lv: '0',
             user_exp: '0',
             user_class: '',
-            avatar: 'http://hbimg.b0.upaiyun.com/a12f24e688c1cda3ff4cc453f3486a88adaf08cc2cdb-tQvJqX_fw658',
+            avatar: '',
             srm_jct: '',
             login_time: '0',
             online: false

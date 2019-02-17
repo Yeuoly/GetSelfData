@@ -11,6 +11,7 @@
 
     //初始化
     \NFG\HeaderSetting::SetAllowCredentials();
+    \NFG\HeaderSetting::SetAllowOrigin();
     \NFG\HeaderSetting::SetImagePng();
     \NFG\InitCommunicate();
     //此验证码所对应的验证目标（比如说“注册”，“登录”）

@@ -173,7 +173,7 @@
             include_once (FILEPATH . "/utils/mailpack.php");
             $msg = $welcome."您的验证码为：".$this->captcha.
                 "，验证码有效时间为：".intval($this->expiretime/60).
-                "请尽快完成操作~";
+                "分钟，请尽快完成操作~";
             $send_result = sendMail($this->email,"YeuolyBlog邮箱验证码",$msg);
             if($send_result == send_mail_success)return true;
             return $send_result;

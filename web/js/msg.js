@@ -108,8 +108,8 @@ window.onload = function () {
                     },
                     //dataType : 'json',
                     contentType : "application/x-www-form-urlencoded",
-                    xhrFiled : {
-                        withCredentials : true
+                    xhrFields: {
+                        withCredentials: true
                     },
                     success : function (data) {
                         if(data['data']['res'] === static_data.response.requestSuccess)
@@ -182,10 +182,10 @@ window.onload = function () {
                 data : {
                     page : page
                 },
-                //dataType : 'json',
+                dataType : 'json',
                 contentType : "application/x-www-form-urlencoded",
-                xhrFiled : {
-                    withCredentials : true
+                xhrFields: {
+                    withCredentials: true
                 },
                 success : function (data) {
                     console.log('getRecent post succeed');

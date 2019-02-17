@@ -13,6 +13,11 @@
     $next = @$_GET['next'];
     \NFG\InitCommunicate();
 
+    \NFG\HeaderSetting::SetAllowOrigin();
+    \NFG\HeaderSetting::SetCharset();
+    \NFG\HeaderSetting::SetAllowCredentials();
+    \NFG\HeaderSetting::SetTextJson();
+
     if(isset($_SESSION[SESSION_USERDATA]))
         unset($_SESSION[SESSION_USERDATA]);
     if(isset($_COOKIE[COOKIE_SRM_JCT]))

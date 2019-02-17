@@ -216,11 +216,11 @@
          * 具体行数由参数limit决定，起始点由参数start决定
          *
          * */
-        public function GetLastFewData($list,$start,$limit){
+        public function GetLastFewData($list,$start,$limit,$order){
             if(!$this->con_sign)return false;                                   //需要先连接数据库再查询
-            $sql = "SELECT * FROM $list ORDER BY `post_order` DESC LIMIT $start,$limit";
+            $sql = "SELECT * FROM $list ORDER BY `$order` DESC LIMIT $start,$limit";
             $res = mysqli_query($this->con,$sql);
-            if(!$res)
+            if(!$res && !is_array($res))
             {
                 return server_error;
             }

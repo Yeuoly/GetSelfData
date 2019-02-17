@@ -220,8 +220,8 @@ class privatePostAction extends publicPostAction{
         $sql_fetch_start = ($page-1)*5;
         $sql_fetch_lenght = 5;
         //去用户的数据表里把我们要的数据的postID查出来
-        $postIDList = $DB->GetLastFewData('user_self_hash_list_'.$this->userUID,$sql_fetch_start,$sql_fetch_lenght);
-        if($DB->_is_failed($postIDList))
+        $postIDList = $DB->GetLastFewData('user_self_hash_list_'.$this->userUID,$sql_fetch_start,$sql_fetch_lenght,'post_order');
+        if($DB->_is_failed($postIDList) && !is_array($postIDList))
         {
             return server_error;
         }

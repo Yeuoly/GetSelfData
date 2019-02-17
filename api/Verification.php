@@ -15,6 +15,7 @@
     \NFG\HeaderSetting::SetAllowCredentials();
     \NFG\HeaderSetting::SetTextJson();
     \NFG\HeaderSetting::SetCharset();
+    \NFG\HeaderSetting::SetAllowOrigin();
 
     //设置
     define("request_interval",60);

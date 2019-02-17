@@ -62,3 +62,10 @@ $D->addHook('sayHello','You');
 $D->mainInstance();
 
 $C->mainInstance();*/
+
+include_once ("../utils/class/class.DBController.php");
+include_once ("../Config.php");
+$P = NEW DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+$P->Start();
+$res = $P->GetLastFewData('user_self_hash_list_7',0,5,'post_order');
+var_dump($res);

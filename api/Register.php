@@ -20,6 +20,7 @@
     \NFG\HeaderSetting::SetCharset();
     \NFG\HeaderSetting::SetTextJson();
     \NFG\HeaderSetting::SetAllowCredentials();
+    \NFG\HeaderSetting::SetAllowOrigin();
 
     //初始化Sessoion
     \NFG\InitCommunicate();

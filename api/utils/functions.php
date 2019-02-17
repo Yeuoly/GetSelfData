@@ -5,27 +5,29 @@
 
 
     namespace NFG;
-
+    include_once(dirname(__FILE__) . "/../Config.php");
     //设置回文的头部
     class HeaderSetting
     {
         static public function SetImagePng(){
-            header("Content-Type:image/png;");
+            header("Content-Type:image/png");
         }
         static public function SetTextJson(){
-            header("Content-Type:text/json;");
+            header("Content-Type:text/json");
         }
         static public function SetAllowCredentials(){
-            header("Access-Control-Allow-Credentials:true;");
+            header("Access-Control-Allow-Credentials:true");
         }
         static public function SetCharset(){
-            header("charset:utf-8;");
+            header("charset:utf-8");
+        }
+        static public function SetAllowOrigin(){
+            header("Access-Control-Allow-Origin:".CLIENT_HOST);
         }
     }
 
     function InitCommunicate()
     {
-        include_once(dirname(__FILE__) . "/../Config.php");
         session_name(SESSIONID);
         session_start();
         srand(time());
@@ -34,7 +36,6 @@
         * 加密
         * */
     function encode($src,$offset){
-        include_once(dirname(__FILE__) . "/../Config.php");
         include_once(FILEPATH . "/utils/class/class.Encrypt.php");
         return \SRMEncode::encode($src, $offset);
     }
@@ -43,7 +44,6 @@
     * 解密
     * */
     function decode($src,$offset){
-        include_once(dirname(__FILE__) . "/../Config.php");
         return \SRMEncode::decode($src,$offset);
     }
     /*
@@ -69,7 +69,6 @@
      * */
     function encryptPassword($source)
     {
-        include_once(dirname(__FILE__) . "/../Config.php");
         return md5(md5(md5(
             "^".$source."^".PASSWORD_HASH_SALT."^".PASSWORD_HASH_256."^".PASSWORD_HASH_CONFIRM
             )));

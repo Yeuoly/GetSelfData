@@ -9,6 +9,7 @@
     \NFG\HeaderSetting::SetTextJson();
     \NFG\HeaderSetting::SetAllowCredentials();
     \NFG\HeaderSetting::SetCharset();
+    \NFG\HeaderSetting::SetAllowOrigin();
 
     //回文主体
     $res = new ResponseAjax();

@@ -69,7 +69,7 @@ window.onload = function()
             $("#sec_master").html("验证码错误");
             return;
         }
-        regsiterMaster(account,password,verification);
+        registerMaster(account,password,verification);
     });
 }
 
@@ -77,7 +77,7 @@ function verifyToken(account,password)
 {
     var exr = pisert();
     $.ajax({
-        url : static_data.getUrlPath("login.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("Login.php",static_data.m_URL_DOMAIN_API_DIR),
         async : true,
         type : "post",
         data : {act : account , pswd : password , tim : exr[0]/1000 , rnd : exr[1]},
@@ -88,9 +88,9 @@ function verifyToken(account,password)
     	},
         success : function(data)
         {
-            if(data['data']['res'] == static_data.response.login.failed)
+            if(data['data']['res'] === static_data.response.login.failed)
                 $("#sec_master").html((data['data']['error']));
-            else if(data['data']['res'] == static_data.response.login.success)
+            else if(data['data']['res'] === static_data.response.login.success)
                 location.href = static_data.getUrlPath("",static_data.m_URL_DOMAIN_WEB_DIR);
         }
     });
@@ -99,7 +99,7 @@ function verifyToken(account,password)
 function requestEmailVerification(email,captcha)
 {
     $.ajax({
-        url : static_data.getUrlPath("verification.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("Verification.php",static_data.m_URL_DOMAIN_API_DIR),
         async : true,
         type : "post",
         data : {email : email , method : 'register' , captcha : captcha},
@@ -110,7 +110,7 @@ function requestEmailVerification(email,captcha)
     	},
         success : function(data)
         {
-            if(data['data']['res'] == static_data.response.requestVerification.success)
+            if(data['data']['res'] === static_data.response.requestVerification.success)
                 $("#sec_master").html(static_data.baseinfo.m_VERIFICATION_SUCCESS);
             else
                 $("#sec_master").html(data['data']['error']);
@@ -118,11 +118,11 @@ function requestEmailVerification(email,captcha)
     });
 }
 
-function regsiterMaster(account,password,verification)
+function registerMaster(account, password, verification)
 {
     var exr = pisert();
     $.ajax({
-        url : static_data.getUrlPath("register.php",static_data.m_URL_DOMAIN_API_DIR),
+        url : static_data.getUrlPath("Register.php",static_data.m_URL_DOMAIN_API_DIR),
         async : true,
         type : "post",
         data : {act : account,pswd : password,captcha : verification , tim : exr[0]/1000 , rnd : exr[1]},
@@ -133,10 +133,11 @@ function regsiterMaster(account,password,verification)
     	},
         success : function(data)
         {
-            if(data['data']['res'] == static_data.response.register.failed)
+            if(data['data']['res'] === static_data.response.register.failed)
                 $("#sec_master").html(data['data']['error']);
             else
-                location.href = static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
+                location.href = static_data.getUrlPath('LogOff.php',static_data.m_URL_DOMAIN_API_DIR)+
+                    "?next="+static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
         }
     });
 }
@@ -144,6 +145,6 @@ function regsiterMaster(account,password,verification)
 function getCaptcha()
 {
     $("#register_captcha").attr("src",static_data.getUrlPath(
-        "captcha.php?method=register",static_data.m_URL_DOMAIN_API_DIR)
+        "Captcha.php?method=register",static_data.m_URL_DOMAIN_API_DIR)
     );
 }

@@ -9,6 +9,8 @@
     \NFG\InitCommunicate();
     \NFG\HeaderSetting::SetTextJson();
     \NFG\HeaderSetting::SetCharset();
+    \NFG\HeaderSetting::SetAllowOrigin();
+    \NFG\HeaderSetting::SetAllowCredentials();
 
     $act = @$_POST['act'];          //账号
     $pswd = @$_POST['pswd'];        //密码

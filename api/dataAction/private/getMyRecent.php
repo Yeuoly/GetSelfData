@@ -35,7 +35,7 @@
     include_once(FILEPATH . "/utils/class/class.PostAction.php");
     $postActor = new privatePostAction($post_par_user_id,$post_par_user_uid);
     $recentPost = $postActor->getRecent($post_par_page);
-    if($postActor->_is_failed($recentPost)){
+    if($postActor->_is_failed($recentPost) && !is_array($recentPost)){
         $res->set('res',FAILED);
         $res->set('error',server_error,true);
     }
