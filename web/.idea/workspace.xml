@@ -2,46 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de9e15ad-0f4c-465b-9353-08acab83a038" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../api/Query.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/Captcha.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/LogOff.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/LogOff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Operate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/Verification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/dataAction/private/getMyRecent.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/dataAction/private/getMyRecent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/test/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/test/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/utils/class/class.DBController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/class/class.DBController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/utils/class/class.PostAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/class/class.PostAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/utils/class/class.Verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/class/class.Verification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/utils/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/css/msg.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/css/msg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/img/avatar/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/img/bg/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/img/bg/bg2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/js/jq.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/js/jq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/js/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/js/msg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/js/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/js/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/js/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/msg.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/msg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web-release/passport.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-release/test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/passport.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/passport.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/module.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/msg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passport.html" beforeDir="false" afterPath="$PROJECT_DIR$/passport.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,20 +19,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="996">
-              <caret line="167" column="28" lean-forward="true" selection-start-line="167" selection-start-column="28" selection-end-line="167" selection-end-column="28" />
+            <state relative-caret-position="510">
+              <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
               <folding>
                 <element signature="e#352#418#0" />
-                <element signature="e#517#1098#0" />
-                <element signature="e#1166#1801#0" />
-                <element signature="e#1854#2568#0" />
-                <element signature="e#2622#3210#0" />
                 <element signature="e#3261#3361#0" />
                 <element signature="e#3415#3523#0" />
-                <element signature="e#3579#3696#0" />
                 <element signature="e#3750#3863#0" />
                 <element signature="e#4088#4889#0" />
                 <element signature="e#5320#5806#0" />
@@ -82,11 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="325">
+              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -138,10 +106,8 @@
         <option value="$PROJECT_DIR$/operate/new-post.html" />
         <option value="$PROJECT_DIR$/css/msg.css" />
         <option value="$PROJECT_DIR$/operate/js/new-post.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/operate/js/editor-post.js" />
-        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/js/msg.js" />
@@ -149,6 +115,8 @@
         <option value="$PROJECT_DIR$/js/passport.js" />
         <option value="$PROJECT_DIR$/passport.html" />
         <option value="$PROJECT_DIR$/css/passport.css" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
@@ -159,8 +127,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1386" />
-    <option name="y" value="-8" />
+    <option name="x" value="46" />
+    <option name="y" value="3" />
     <option name="width" value="1394" />
     <option name="height" value="916" />
   </component>
@@ -170,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,6 +176,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,16 +240,17 @@
       <workItem from="1550238325120" duration="9113000" />
       <workItem from="1550290723634" duration="27618000" />
       <workItem from="1550386624113" duration="8642000" />
+      <workItem from="1550503760952" duration="3652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301998000" />
+    <option name="totallyTimeSpent" value="305650000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1386" y="-8" width="1394" height="916" extended-state="6" />
+    <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872124" visible="true" weight="0.16416791" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872124" visible="true" weight="0.16599733" />
       <window_info id="Structure" order="1" sideWeight="0.50127876" side_tool="true" weight="0.19865067" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -431,13 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="434" column="19" lean-forward="true" selection-start-line="434" selection-start-column="19" selection-end-line="434" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/msg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -462,19 +424,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="996">
-          <caret line="167" column="28" lean-forward="true" selection-start-line="167" selection-start-column="28" selection-end-line="167" selection-end-column="28" />
+        <state relative-caret-position="510">
+          <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
           <folding>
             <element signature="e#352#418#0" />
-            <element signature="e#517#1098#0" />
-            <element signature="e#1166#1801#0" />
-            <element signature="e#1854#2568#0" />
-            <element signature="e#2622#3210#0" />
             <element signature="e#3261#3361#0" />
             <element signature="e#3415#3523#0" />
-            <element signature="e#3579#3696#0" />
             <element signature="e#3750#3863#0" />
             <element signature="e#4088#4889#0" />
             <element signature="e#5320#5806#0" />
@@ -484,13 +455,6 @@
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#setTitle#0;n#!!block;n#InitWeb#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
         </state>
       </provider>
     </entry>

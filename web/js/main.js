@@ -24,68 +24,35 @@ function InitWeb()
         openBlackCover : function () {
             //首先把黑色幕布的z-index值调大，盖住整个屏幕
             var black_cover = document.getElementById('black-cover');
-            black_cover.style.setProperty('z-index','1');
-            //使用一个计时器逐渐调大opacity
-            var timer = setInterval(function () {
-                var opacity = functionGroup.getBlackCoverOpacity();
-                functionGroup.setBlackCoverOpacity(opacity + 0.06);
-                if(opacity >= static_data.userblock.m_MAX_BLACK_COVER_OPACITY - 0.06)
-                {
-                    clearInterval(timer);
-                }
-            },10);
+            black_cover.style.setProperty('z-index','2');
+            black_cover.style.setProperty('opacity','0.6');
         },
         //关掉黑幕，并移除黑幕的所有绑定事件
         closeBlackCover : function () {
             //获取黑色幕布的dom
             var black_cover = document.getElementById('black-cover');
-            //使用一个计时器逐渐调小opacity
-            var timer_cover = setInterval(function () {
-                var opacity = functionGroup.getBlackCoverOpacity();
-                functionGroup.setBlackCoverOpacity(opacity - 0.06);
-                if(opacity <= static_data.userblock.m_MIN_BLACK_COVER_OPACITY + 0.06)
-                {
-                    //把黑色幕布的z-index调低，弄到屏幕下面去
-                    black_cover.style.setProperty('z-index','-1');
-                    clearInterval(timer_cover);
-                }
-            } , 10);
+            black_cover.style.setProperty('opacity','0');
+            setTimeout(function () {
+                black_cover.style.setProperty('z-index','-1');
+            } , 500);
         },
         //打开侧边栏
         openSideMenu : function () {
             //获取右侧边栏dom
             var menu = document.getElementById('user-menu');
             //使用一个计时器逐渐移动侧边栏
-            var timer = setInterval(function () {
-                //获取左边界坐标
-                var left = functionGroup.getMenuLeft();
-                //设置左边界坐标
-                functionGroup.setMenuLeft(left + 10);
-                //向左移动到的最大值
-                var left_max = static_data.userblock.m_MAX_MENU_LEFT - 20;
-                if(left >= left_max)
-                {
-                    clearInterval(timer);
-                    functionGroup.setMenuLeft(0);
-                    menu.style.setProperty('box-shadow','2px 0px 1px rgb(173, 150, 150)');
-                }
-            },3);
+            menu.style.setProperty('transform','translateX(300px)');
+            setTimeout(function () {
+                menu.style.setProperty('box-shadow','2px 0px 1px rgb(173, 150, 150)');
+            });
         },
         //关掉侧边栏
         closeSideMenu : function () {
             var menu = document.getElementById('user-menu');
-            menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
-            var menu_width = functionGroup.getMenuWidth();
-            var timer_menu = setInterval(function () {
-                var left = functionGroup.getMenuLeft();
-                var right = left + menu_width;
-                if(right <= 0)
-                {
-                    clearInterval(timer_menu);
-                    return;
-                }
-                functionGroup.setMenuLeft(left - 10);
-            } , 3);
+            menu.style.setProperty('transform','translateX(0px)');
+            setTimeout(function () {
+                menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
+            } , 500);
         },
         //到网站主页去
         goToIndex : function () {
@@ -97,7 +64,11 @@ function InitWeb()
         },
         //移动到更新日志
         goToUpdateLog : function () {
-            location.href = static_data.getUrlPath('#updates-log-list',static_data.m_URL_DOMAIN_WEB_DIR);
+            if(document.location.href === static_data.getUrlPath('',static_data.m_URL_DOMAIN_WEB_DIR) ||
+                document.location.href === static_data.getUrlPath('index.html',static_data.m_URL_DOMAIN_WEB_DIR))
+                functionGroup.smoothScrollMove('updates-log-list');
+            else
+                document.location = static_data.getUrlPath('#updates-log-list',static_data.m_URL_DOMAIN_WEB_DIR);
         },
         //跳转页面到登录界面
         goToLogin : function () {
@@ -106,6 +77,12 @@ function InitWeb()
         //硬核翻译，发博客去
         goToSendPost : function () {
             location.href = static_data.getUrlPath('operate/editor-post.html',static_data.m_URL_DOMAIN_WEB_DIR);
+        },
+        //锚点平滑移动
+        smoothScrollMove : function(id){
+            $("html,body").animate({
+                scrollTop : $("#" + id).offset().top
+            }, 200);
         },
         //注销
         logOff : function () {
