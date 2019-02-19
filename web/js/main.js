@@ -334,6 +334,17 @@ function InitWeb()
                 v.html(innerHtml);
             return v;
         },
+        setWebIcon : function() {
+            var link = document.createElement('link');
+            link.type = 'image/x-icon';
+            link.rel = 'shortcut icon';
+            link.href = static_data.getUrlPath('img/shortcut.ico',static_data.m_URL_DOMAIN_WEB_DIR);
+            document.head.appendChild(link);
+        },
+        //设置标题
+        setTitle : function(){
+            document.title = static_data.getWebTitle();
+        },
         //修改css样式
         //设置左侧菜单栏左边界坐标
         setMenuLeft : function (value) {
@@ -405,6 +416,19 @@ function InitWeb()
             }
             scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
             return scrollTop;
+        },
+        //给页眉加一点功能，算是个钩子叭~
+        addHeaderFunc :function (innerHtml, handler, className, id) {
+            if(typeof innerHtml !== 'string')return;
+            handler = typeof handler === 'function' ? handler : function () {};
+            className = className ? className : 'headerList-default';
+            id = id ? id : '#';
+            app_self.constDom.header.headerFunctionList.push({
+                className : className,
+                click : handler,
+                id : id,
+                innerHtml : innerHtml
+            });
         }
     };
 
@@ -427,7 +451,8 @@ function InitWeb()
     this.constDom = new createVue();
 
     //设置标题
-    setTitle();
+    functionGroup.setWebIcon();
+    functionGroup.setTitle();
 
     //检测用户登录情况
     functionGroup.passJct();
@@ -477,23 +502,41 @@ function InitWeb()
         //头部固定栏
         var header = Vue.extend({
             template : '<div class="header" id="header">' +
-                '           <div class="user-block-open" id="user-block-open">' +
+                '           <div class="user-block-open header-function-list-dep" id="user-block-open">' +
                 '               <div ' +
                 '                   class="user-block-open-click" ' +
                 '                   id="user-block-open-click"' +
-                '                   @click="mouseClick"' +
+                '                   @click="mouseClickMenuButton"' +
                 '               >' +
                 '                   ≡≡' +
                 '               </div>' +
                 '           </div>' +
+                '           <ul id="header-function-list" v-for="dep in headerFunctionList">' +
+                '               <li class="header-function-list">' +
+                '                   <div class="header-function-list-dep">' +
+                '                       <div class="header-function-list-depInner">' +
+                '                           <div ' +
+                '                               name="DHolder"' +
+                '                               v-html="dep.innerHtml" ' +
+                '                               :class="dep.className" ' +
+                '                               @click="dep.click"' +
+                '                               :id="dep.id"' +
+                '                           >' +
+                '                           </div>' +
+                '                       </div>' +
+                '                   </div>' +
+                '               </li>' +
+                '           </ul>' +
                 '       </div>',
             data : function(){
                 return {
+                    headerFunctionList : [
 
+                    ]
                 }
             },
             methods : {
-                mouseClick : function() {
+                mouseClickMenuButton : function() {
                     functionGroup.openSideMenu();
                     functionGroup.openBlackCover();
                     //绑定black_cover的点击事件
@@ -722,10 +765,6 @@ function InitWeb()
         this.footer.$mount('#_footer');
     }
 
-    //设置标题
-    function setTitle(){
-        document.title = static_data.getWebTitle();
-    }
 }
 
 function pisert()

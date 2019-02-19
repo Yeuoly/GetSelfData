@@ -155,6 +155,11 @@ window.onload = function()
                 {
                     name : 'mysql',
                     content : '数据库使用了mysql，小网站，就没用MongoDB了'
+                },
+                {
+                    name : 'picb',
+                    content : '这是一个图床，因为咱的服务器太烂了，顶不死大图片，所以就传到第三方去了，' +
+                        '这个图床非常良心，放心用。所有可以编辑图片的界面的左上角都会有上传按钮'
                 }
             ]
         }

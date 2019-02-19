@@ -11,6 +11,13 @@ window.onload = function () {
     }
 
     this.constDom = new InitWeb();
+    this.constDom.functionGroup.addHeaderFunc(
+        '<img src="../img/upload-multiple.png" alt="/" style="width: 90%">',
+        function () {
+            window.open('https://www.picb.cc/upload','','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=850,height=400');
+        }
+    );
+
     mainHandle = this;
 
     this.constDom.functionGroup.bindUserOnloadNextTick(initEditor);
@@ -71,7 +78,7 @@ window.onload = function () {
                 '               <div v-else-if="bodyDep.html === \'picture\'" class="post-card-body-picture">' +
                 '                   <img class="post-card-body-img" :src="bodyDep.src" :alt="postDefaultImg">' +
                 '                   <input type="text" placeholder="填写图片链接地址" ' +
-                '                       v-model.lazy="bodyDep.src" :id="\'focus-id-\'+bodyDep.liID">' +
+                '                       v-model.lazy="bodyDep.src" :id="\'focus-id-\'+bodyDep.liID" style="width: 80%;float: left">' +
                 '               </div>' +
                 '               <div v-else-if="bodyDep.html === \'url\'" class="post-card-body-url">' +
                 '                   <input type="text" placeholder="填写链接地址" :id="\'focus-id-\'+bodyDep.liID" v-model="bodyDep.src">' +
@@ -85,13 +92,13 @@ window.onload = function () {
                 '                   <option value="url">url</option>' +
                 '                   <option value="table">table</option>' +
                 '               </select>' +
-                '               <input type="button" @click="addNewBlock(bodyDep.liID)" value="添加一个新的编辑区块">' +
-                '               <input type="button" @click="deleteBlock(bodyDep.liID)" value="删除这个区块">' +
+                '               <input type="button" @click="addNewBlock(bodyDep.liID)" value="+">' +
+                '               <input type="button" @click="deleteBlock(bodyDep.liID)" value="-">' +
                 '           </li>' +
                 '       </ul>' +
                 '   </div>' +
                 '   <div style="width: 100% ; overflow: auto" class="post-sender">' +
-                '       <input style="float: right ; margin-right: 10px" type="button" @click="send" value="发送">' +
+                '       <input id="button-send" style="float: right ; margin-right: 10px ; width: 190px" type="button" @click="send" value="发送">' +
                 '   </div>' +
                 '</div>' ,
             data : function () {

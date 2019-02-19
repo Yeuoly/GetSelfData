@@ -98,15 +98,6 @@ input::-webkit-input-placeholder{
     -o-transition: 0.2s; /* Opera */
 }
 
-#user-block-open{
-    border-radius: 50%;
-    padding: 5px;
-    margin: 0 auto;
-    float: left;
-    height: 35px;
-    width: 35px;
-}
-
 #user-block-open-click{
     border-radius: 50%;
     background-color: #fb8d8d;
@@ -120,8 +111,35 @@ input::-webkit-input-placeholder{
     letter-spacing: -3px;
 }
 
-#user-block-open-click:hover{
+#user-block-open-click:hover , .header-function-list-depInner:hover{
     background-color: #FF7E7E;
+}
+
+.header-function-list-dep {
+    border-radius: 50%;
+    padding: 5px;
+    margin: auto;
+    float: left;
+    height: 35px;
+    width: 35px;
+    background-color: #fb8d8d;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+.header-function-list-depInner{
+    border-radius: 50%;
+    background-color: #fb8d8d;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
 }
 
 .black-cover{
@@ -334,7 +352,7 @@ input::-webkit-input-placeholder{
     border-right: 10px;
     outline: 0px;
     background: rgba(255,255,255,0.4);
-    width: 190px;
+    width: 50px;
     margin-left: 10px;
     height: 25px;
     font-family: "微软雅黑";

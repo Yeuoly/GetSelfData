@@ -7,4 +7,4 @@
      */
 
     $query = @$_POST['q'];
-    $query = str_split($query,)
+    $query = str_split($query,' ');
