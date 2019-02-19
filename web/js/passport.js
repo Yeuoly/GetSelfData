@@ -13,7 +13,7 @@
 window.onload = function()
 {
     this.constDom = new InitWeb();
-    this.constDom.bindUserOnloadNextTick(function () {
+    this.constDom.functionGroup.bindUserOnloadNextTick(function () {
         $("#sec_master").html("您已经登录了哦~注册新账号咩~");
         $("#thr_master_2").css({"display":""});
     });

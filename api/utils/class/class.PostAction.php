@@ -152,8 +152,8 @@ class publicPostAction extends Base
         //如果是公共请求则需验证用户的权限，避免频繁判断，加了一个pos，只有第一次的时候才会判断
         if($pos == 1)
         {
-            if((__CLASS__ == 'privatePostAction' && $original_post['userUID'] != $_SESSION[SESSION_USERDATA][SESSION_USER_UID])||
-                (__CLASS__ == 'publicPostAction' && $_SESSION[SESSION_USERDATA][SESSION_USER_CLASS] != 2))
+            if((static::class == 'privatePostAction' && $original_post['userUID'] != strval($_SESSION[SESSION_USERDATA][SESSION_USER_UID]))||
+                (static::class == 'publicPostAction' && $_SESSION[SESSION_USERDATA][SESSION_USER_CLASS] != 2))
             {
                 return data_action_less_power;
             }
