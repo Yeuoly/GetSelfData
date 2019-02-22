@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        <div id="app"></div>
+    </div>
+    <script src="js/module.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.js"></script>
+    <script>
+        var app = new Vue({
+            el : '#app',
+            data : {
+                name : 'hello world'
+            },
+            methods : {
+                httpTest :function () {
+                    this.$http.interceptors.push(function (request, next) {
+                        request.credentials = true;
+                        next();
+                    });
+                    this.$http.post(
+                        'http://localhost:100/website/pif_mana/api/User.php',
+                        {
+
+                        }
+                    ).then(function (value) {
+                        console.log(value);
+                    }).catch(function (reason) {
+
+                    });
+                }
+            }
+        });
+        app.httpTest();
+    </script>
+</body>
+</html>
