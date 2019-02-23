@@ -1,14 +1,12 @@
 <template>
     <div class="header" id="header">
         <div class="user-block-open header-function-list-dep" id="user-block-open">
-            <div class="user-block-open-click"
-                 id="user-block-open-click"
-                 @click="mouseClickMenuButton"
-            >
+            <div class="user-block-open-click" id="user-block-open-click" @click="openSideMenu">
                 ≡≡
             </div>
         </div>
-        <ul id="header-function-list" v-for="dep in headerFunctionList">
+
+        <ul id="header-function-list" v-for="dep in headerFunctionList" :key="dep.className">
             <li class="header-function-list">
                 <div class="header-function-list-dep">
                     <div class="header-function-list-depInner">
@@ -26,6 +24,9 @@
     </div>
 </template>
 <script>
+
+    import { GlobalCommunication } from '../js/GlobalCommunication';
+
     export default {
         name : 'ConstHeader',
         data : () => {
@@ -36,15 +37,15 @@
             }
         },
         methods : {
-            mouseClickMenuButton : () => {
-/*                functionGroup.openSideMenu();
-                functionGroup.openBlackCover();
-                //绑定black_cover的点击事件
-                functionGroup.blackCoverBindClick( function() {
-                    functionGroup.closeSideMenu();
-                    functionGroup.closeBlackCover();
-                });*/
-            }
+            //打开右边侧栏菜单
+            openSideMenu : () =>{
+                GlobalCommunication.$emit('openBlackCover');
+                GlobalCommunication.$emit('openSideMenu');
+                GlobalCommunication.$emit('bindClickBlackCover',()=>{
+                    GlobalCommunication.$emit('closeBlackCover');
+                    GlobalCommunication.$emit('closeSideMenu');
+                });
+            },
         }
     }
 </script>
