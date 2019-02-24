@@ -47,9 +47,10 @@
     import { FunctionGroup } from "../js/GlobalUtils";
     import { GlobalCommunication } from "../js/GlobalCommunication";
     import { router } from "../router";
+    import { user_data } from "../main";
 
     export default {
-        data : function() {
+        data () {
             return {
                 //侧边功能栏
                 func: [
@@ -80,18 +81,7 @@
                     }
                 ],
                 //用户数据
-                user: {
-                    user_id: '未登录，点击登录',
-                    user_uid: '-1',
-                    user_email: 'example@google.com',
-                    user_lv: '0',
-                    user_exp: '0',
-                    user_class: '',
-                    avatar: '',
-                    srm_jct: '',
-                    login_time: '0',
-                    online: false
-                },
+                user : user_data,
                 //侧边菜单栏的css参数
                 css : {
                     left : 0,
@@ -123,9 +113,6 @@
                         router.replace('/about');
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
-                        //functionGroup.closeBlackCover();
-                        //functionGroup.closeSideMenu();
-                        //functionGroup.goToUpdateLog();
                         break;
                     case 'logOff':
                         //functionGroup.logOff();
@@ -155,10 +142,12 @@
             goToLogin () {
                 //router.go(0);
             },
+            //添加监听事件
             initEvent() {
                 GlobalCommunication.$on('openSideMenu',this.openSideMenu);
                 GlobalCommunication.$on('closeSideMenu',this.closeSideMenu);
-            }
+            },
+            //返回用户数据
         },
         created() {
             //获取屏幕大小
@@ -173,4 +162,5 @@
             this.initEvent();
         }
     }
+
 </script>

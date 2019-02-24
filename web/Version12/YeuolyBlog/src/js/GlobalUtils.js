@@ -1,5 +1,6 @@
 import { BaseModule } from "./module";
 import Vue from 'vue';
+import { getUserData } from "../main";
 
 export let FunctionGroup = {
 //获取屏幕大小、尺寸
@@ -51,7 +52,7 @@ export let FunctionGroup = {
     },
 //获取用户的登录状态
     isOnline :function () {
-        //return app_self.constDom.menu.user.online;
+        return getUserData('online');
     },
 //到网站主页去
     goToIndex : function () {

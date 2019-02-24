@@ -2,17 +2,20 @@
   <div id="app">
     <ConstDom />
     <router-view></router-view>
+    <ConstFooter />
   </div>
 </template>
 
 <script>
 
 import ConstDom from './components/ConstDom'
+import ConstFooter from './components/ConstFooter'
 
 export default {
   name: 'app',
   components: {
     ConstDom,
+    ConstFooter
   }
 }
 
