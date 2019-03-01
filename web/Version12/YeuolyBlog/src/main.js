@@ -7,7 +7,7 @@ Vue.config.productionTip = false;
 let user_data = {
   user_id: '未登录，点击登录',
   user_uid: '-1',
-  user_email: 'example@google.com',
+  user_email: 'example@example.com',
   user_lv: '0',
   user_exp: '0',
   user_class: '',

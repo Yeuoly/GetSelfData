@@ -15,9 +15,9 @@
      * */
     define("SESSIONID","HTTP_S_V_");
 
-    define("APISERVER_HOST","api.ylday.srmxy.cn http://api.ylday.srmxy.cn/");
+    define("APISERVER_HOST","*");
 
-    define("CLIENT_HOST","ylday.srmxy.cn http://ylday.srmxy.cn/");
+    define("CLIENT_HOST","*");
 
 //--------------------------------------------------------------------------//
     /*

@@ -38,8 +38,6 @@
         private $account = "";
         private $password = "";
         private $email = "";
-        private $time = 0;
-        private $rnd = 0;
 
         /*
          * 初始化账号信息，并验证格式
@@ -63,8 +61,6 @@
         public function __init($account = "",$password = "",$time = 0,$rnd = 0){
             $this->password = $password;
             $this->account = $account;
-            $this->time = $time;
-            $this->rnd = $rnd;
             return $this;
         }
 
@@ -97,8 +93,7 @@
          * */
         public function VerifyFormat(){
             $verifier = new FormatChecker();
-            if(!$verifier->FromAccount($this->account) || !$verifier->FromPassword($this->password) ||
-                !$verifier->FromTime($this->time) || !$verifier->FromNormalNum($this->rnd))
+            if(!$verifier->FromAccount($this->account) || !$verifier->FromPassword($this->password))
             {
                 return false;
             }

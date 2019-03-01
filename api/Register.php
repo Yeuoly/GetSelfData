@@ -27,8 +27,6 @@
 
     $account = @$_POST['act'];
     $password = @$_POST['pswd'];
-    $tim = @$_POST['tim'];
-    $rnd = @$_POST['rnd'];
     $captcha = @$_POST['captcha'];
 
     //服务端回文
@@ -55,7 +53,7 @@
         return passport_server_error;
     }
     $AccountActor = new AccountAction();
-    $AccountActor->__init($account,$password,$tim,$rnd)->__setEmail($email);
+    $AccountActor->__init($account,$password)->__setEmail($email);
     //账号信息格式错误
     $result = $AccountActor->VerifyFormat();
     if(!$result)

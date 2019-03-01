@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div>
+        <div id="app"></div>
+    </div>
+    <script src="js/jq.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/main.js">
+    </script>
+    <script>
+        var theUA = window.navigator.userAgent.toLowerCase();
+        if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+            document.body.style.cssText = "MARGIN: 0; PADDING: 0;"
+            var browerNav = document.createElement('div');
+            browerNav.setAttribute('id', 'brower-nav');
+            browerNav.innerHTML = '不好意思吼，这个网站比较辣鸡，不支持IE浏览器';
+            browerNav.style.cssText = "FONT-SIZE: 12px; BACKGROUND: #00a1d6; COLOR: #fff; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px;";
+            document.body.appendChild(browerNav);
+        }else{
+            var ass = new InitWeb();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>登录|注册</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- css files -->
+
+<link href="css/passport.css" rel='stylesheet' type='text/css' media="all" />
+<link href="css/main.css" rel='stylesheet' type='text/css' media="all" />
+<!-- /css files -->
+</head>
+<body>
+<div class="log" id="app">
+	<h1 id="sec_master">赶快登陆呐</h1>
+	<div class="content1" id="thr_master_1">
+		<h2>登录</h2>
+		<input id="l-userid" type="text" name="userid" placeholder="用户名">
+		<input id="l-pswd" type="text" name="psw" placeholder="密码">
+		<div class="button-row">
+			<input type="button" class="pas_gr" id="login_btn" value="登录">
+			<input type="button" class="pas_rd" id="go_register" value="注册">
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="content2" id="thr_master_2" style="display: none">
+		<h2>注册</h2>
+		<input id="r-userid" type="text" name="userid" placeholder="用户名">
+		<input id="r-email" type="text" name="email" placeholder="电子邮箱">
+		<input id="r-pswd" type="text" name="psw"  placeholder="密码">
+		<input id="r-captcha" type="text" name="captcha"  placeholder="验证码">
+		<div class="captcha">
+			<img id="register_captcha">
+		</div>
+		<input id="r-verification" type="text" name="captcha" placeholder="邮箱验证码">
+		<div class="button-row">
+			<input type="button" class="pas_rd" id="get_email_captcha_btn" value="获取邮箱验证码">
+			<input type="button" class="pas_rd" id="get_captcha_btn" value="获取验证码">
+		</div>
+		<div class="button-row">
+			<input type="button" class="pas_gr" id="register_btn" style="width: 80%" value="注册">
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+</body>
+<script type="text/javascript" src="js/jq.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+<script type="text/javascript" src="js/passport.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

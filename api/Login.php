@@ -14,13 +14,11 @@
 
     $act = @$_POST['act'];          //账号
     $pswd = @$_POST['pswd'];        //密码
-    $tim = @$_POST['tim'];          //时间戳
-    $rnd = @$_POST['rnd'];          //没鸟用的随机数
 
     $res = new ResponseAjax();      //输出结果
 
     //验证参数格式
-    $LoginActor = (new AccountAction())->__init($act,$pswd,$tim,$rnd)->VerifyFormat();
+    $LoginActor = (new AccountAction())->__init($act,$pswd)->VerifyFormat();
     if(!$LoginActor)
     {
         $res->set('res',FAILED);

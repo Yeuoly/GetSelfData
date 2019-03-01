@@ -252,7 +252,6 @@ export let FunctionGroup = {
             alertBox.appendChild(btn2);
         }
         document.body.appendChild(alertBox);
-        FunctionGroup.openBlackCover();
 
         //逐渐消失的动画
         function closeAlertBox(){
@@ -264,8 +263,6 @@ export let FunctionGroup = {
                 {
                     document.body.removeChild(alertBox);
                     clearInterval(timer);
-                    FunctionGroup.closeBlackCover();
-                    FunctionGroup.closeSideMenu();
                 }
             } , 2);
         }
@@ -395,4 +392,12 @@ export let DataGroup = {
     userOnloadNextTick : [
 
     ]
+};
+
+export let Pattern = {
+    account : /^[a-zA-Z0-9_]{0,}$/,
+    password : /^[a-zA-Z0-[\.*\+_\@#&\$!=\(\)\^-]{0,}$/,
+    email : /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\\.-])+\.([A-Za-z]{2,4})$/,
+    phoneNumber : /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/,
+    length6To16 : /^.{6,16}$/
 };
