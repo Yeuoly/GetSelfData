@@ -16,6 +16,9 @@
         components : {
             AboutList,
             IndexUpdateLog
+        },
+        mounted() {
+
         }
     }
 </script>

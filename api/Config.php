@@ -15,9 +15,9 @@
      * */
     define("SESSIONID","HTTP_S_V_");
 
-    define("APISERVER_HOST","*");
+    define("APISERVER_HOST","http://localhost:100");
 
-    define("CLIENT_HOST","*");
+    define("CLIENT_HOST","http://localhost:8080");
 
 //--------------------------------------------------------------------------//
     /*

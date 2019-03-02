@@ -102,7 +102,7 @@ window.onload = function () {
                 '   </div>' +
                 '</div>' ,
             data : function () {
-                var firstLiID = utils.getLiID();
+                let firstLiID = utils.getLiID();
                 return {
                     postDefaultImg : '您这图我tm加载不出来啊',
                     //缓存新建的区块的Id

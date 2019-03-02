@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <ConstDom />
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <ConstFooter />
   </div>
 </template>
@@ -9,7 +11,8 @@
 <script>
 import ConstDom from './components/ConstDom';
 import ConstFooter from './components/ConstFooter';
-import Axios from 'axios';
+import axios from 'axios';
+import qs from 'query-string'
 
 import { GlobalCommunication } from "./js/GlobalCommunication";
 import { user_data } from "./main";
@@ -26,8 +29,8 @@ export default {
   methods : {
 
     httpGet (url, params, success , error) {
-      Axios.defaults.withCredentials = true;
-      Axios.get(url,params).then((value) => {
+      axios.defaults.withCredentials = true;
+      axios.get(url,params).then((value) => {
         success(value.data);
       }).catch((reason) => {
         error(reason);
@@ -35,9 +38,9 @@ export default {
     },
 
     httpPost (url, params, success, error) {
-      Axios.defaults.withCredentials = true;
-      Axios.post(url,params).then((value) => {
-        console.log(value);
+      axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+      axios.defaults.withCredentials = true;
+      axios.post(url,qs.stringify(params)).then((value) => {
         success(value.data);
       }).catch((reason) => {
         error(reason);
@@ -73,6 +76,8 @@ export default {
     GlobalCommunication.$on('httpPost',this.httpPost);
     GlobalCommunication.$on('httpGet',this.httpGet);
     GlobalCommunication.$on('refreshUserData',this.refreshUserData);
+
+    this.refreshUserData();
   }
 }
 

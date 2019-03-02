@@ -5,6 +5,7 @@ import AboutPage from '../components/AboutPage';
 import SelfMainPage from  '../components/SelfMainPage';
 import Index from '../components/Index';
 import LoginPage from '../components/LoginPage';
+import EditPage from '../components/EditPage';
 
 import { FunctionGroup } from "../js/GlobalUtils";
 
@@ -33,6 +34,7 @@ export const router = new VueRouter({
             path : '/home',
             component : SelfMainPage,
             meta : {
+                keepAlive : true,
                 login_required : true
             }
         },
@@ -41,7 +43,17 @@ export const router = new VueRouter({
             path : '/login',
             component : LoginPage,
             meta : {
+                keepAlive : true,
                 login_required : false
+            }
+        },
+        {
+            name : 'edit',
+            path : '/edit',
+            component : EditPage,
+            meta : {
+                keepAlive : true,
+                login_required : true
             }
         }
     ]
@@ -49,6 +61,8 @@ export const router = new VueRouter({
 
 
 router.beforeEach((to , from , next) => {
+    if(from.name === 'home')
+        window.onscroll = null;
     if(!FunctionGroup.isOnline() && to.matched.some((item) => {
         return item.meta.login_required === true;
     }))

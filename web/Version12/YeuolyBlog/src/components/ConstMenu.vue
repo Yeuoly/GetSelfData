@@ -107,7 +107,9 @@
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'myIndex':
-                        //location.href = switchUrl('msg.html');
+                        router.replace('/home');
+                        GlobalCommunication.$emit('closeSideMenu');
+                        GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'aboutPage':
                         router.replace('/about');
@@ -115,10 +117,26 @@
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'logOff':
-                        //functionGroup.logOff();
+                        GlobalCommunication.$emit('httpGet',
+                            BaseModule.getUrlPath('LogOff.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                            {},
+                            (value) => {
+                                if(value.data['res'] === BaseModule.response.requestSuccess)
+                                {
+                                    location.href = BaseModule.getUrlPath('',BaseModule.m_URL_DOMAIN_WEB_DIR);
+                                }else {
+                                    FunctionGroup.alertBox(value.data['error']);
+                                }
+                            },
+                            () => {
+                                FunctionGroup.alertBox('发送了意外的错误');
+                            }
+                        );
                         break;
                     case 'send':
-                        //functionGroup.goToSendPost();
+                        router.replace('/edit');
+                        GlobalCommunication.$emit('closeSideMenu');
+                        GlobalCommunication.$emit('closeBlackCover');
                         break;
                 }
             },

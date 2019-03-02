@@ -59,6 +59,7 @@
 
     import { FunctionGroup } from "../js/GlobalUtils";
     import { BaseModule } from "../js/module";
+    import { GlobalCommunication } from "../js/GlobalCommunication";
 
     export default {
         data () {
@@ -83,19 +84,19 @@
                 page : 1,
                 isLoading : false,
                 flag : false,
-                isEnd : false
+                isEnd : false,
+                firstMounted : false
             }
         },
         methods : {
             deletePost (postID) {
-                FunctionGroup.http.post(
+                GlobalCommunication.$emit('httpPost',
                     BaseModule.getUrlPath('dataAction/private/operate.php',BaseModule.m_URL_DOMAIN_API_DIR),
                     {
                         postID : postID,
                         method : 'delete'
                     },
-                    {},
-                    (data) => {
+                    (value) => {
                         if(data['data']['res'] === BaseModule.response.requestSuccess)
                         {
                             FunctionGroup.alertBox('删除成功');
@@ -108,12 +109,12 @@
                             }
                         }
                         else
-                            FunctionGroup.alertBox(data['data']['error']);
+                            FunctionGroup.alertBox(value['data']['error']);
                     },
-                    (textStatus) => {
-                        FunctionGroup.alertBox('errorCode:'+textStatus.status);
+                    () => {
+                        FunctionGroup.alertBox('发生了意外的错误');
                     }
-                );
+                )
             },
             editPost (postID) {
                 location.href = BaseModule.getUrlPath('operate/editor-post.html?postID='+postID,BaseModule.m_URL_DOMAIN_WEB_DIR);
@@ -143,18 +144,18 @@
             },
             //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用，afterFail是在所有事情做完之后被调用
             getRecentPost :function (page , afterSuccess , afterFail) {
-                FunctionGroup.http.post(
+                GlobalCommunication.$emit('httpPost',
                     BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.m_URL_DOMAIN_API_DIR),
-                    { page : page },
-                    {},
-                    function (data) {
-                        console.log('getRecent post succeed');
-                        if(parseInt(data['data']['res']) === BaseModule.response.requestSuccess)
-                            afterSuccess(data);
+                    {
+                        page : page
+                    },
+                    (value) => {
+                        if(parseInt(value['data']['res']) === BaseModule.response.requestSuccess)
+                            afterSuccess(value);
                         else
                             this.alertBox('获取博客失败');
                     },
-                    function () {
+                    () => {
                         if(typeof afterFail === 'function')
                             afterFail();
                     }
@@ -228,6 +229,17 @@
                         myTry();
                     } , 1000);
                 }
+            }
+        },
+        //挂载时检测是否是第一次挂载，第一次挂载时加载数据
+        mounted() {
+            window.onscroll = this.onscroll();
+            if(!this.firstMounted)
+            {
+                this.firstMounted = true;
+                setTimeout(() => {
+                    this.getRecentPost(this.page,this.loadNewMsg);
+                }, 100);
             }
         }
     }

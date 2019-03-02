@@ -51,7 +51,11 @@
                             '写得不好的地方望各位指出'
                     },
                     {
-                        name : 'jQuery',
+                        name : 'Vue全家桶',
+                        content : 'Vue-router Vue-cli等'
+                    },
+                    {
+                        name : 'axios',
                         content : '也是学习阶段，用得也蛮菜的orz'
                     },
                     {
