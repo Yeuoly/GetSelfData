@@ -7,12 +7,11 @@
         >
             <div class="menu-user-block-avatar"
                  id="menu-user-block-avatar"
-                 :style='"width:"+css.UserBlockAvatarSize+"px;height:"+css.UserBlockAvatarSize+"px;"'
             >
                 <img id="menu-user-block-avatar-img"
                      class="menu-user-block-avatar-img"
                      :src="user.avatar"
-                     :style='"width: "+css.UserBlockAvatarSize+"px;"'
+                     alt=""
                 >
             </div>
             <div class="menu-user-block-uid" id="menu-user-block-uid">
@@ -21,7 +20,7 @@
                 </div>
             </div>
             <div class="menu-user-block-id" id="menu-user-block-id">
-                <div class="menu-user-block-id-txt" id="menu-user-block-id-txt" v-on="{click: !user.online && goToLogin}">
+                <div class="menu-user-block-id-txt" id="menu-user-block-id-txt" @click="login">
                     |id : {{user.user_id}}
                 </div>
             </div>
@@ -47,10 +46,11 @@
     import { FunctionGroup } from "../js/GlobalUtils";
     import { GlobalCommunication } from "../js/GlobalCommunication";
     import { router } from "../router";
-    import { user_data } from "../main";
+    import Store from '../store';
 
     export default {
         data () {
+            let self = this;
             return {
                 //侧边功能栏
                 func: [
@@ -81,15 +81,8 @@
                     }
                 ],
                 //用户数据
-                user : user_data,
+                user : self.$store.getters.userInfo,
                 //侧边菜单栏的css参数
-                css : {
-                    left : 0,
-                    width : 0,
-                    UserBlockAvatarSize : 0,
-                    UserBlockHeight : 0,
-                    UserBlockTxtSize : 0
-                }
             }
         },
         methods : {
@@ -97,7 +90,7 @@
             functionSwitch : function(key)
             {
                 function switchUrl(p) {
-                    return BaseModule.getUrlPath(p,BaseModule.m_URL_DOMAIN_WEB_DIR);
+                    return BaseModule.getUrlPath(p,BaseModule.dir_web);
                 }
                 switch(key)
                 {
@@ -118,12 +111,12 @@
                         break;
                     case 'logOff':
                         GlobalCommunication.$emit('httpGet',
-                            BaseModule.getUrlPath('LogOff.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                            BaseModule.getUrlPath('LogOff.php',BaseModule.dir_api),
                             {},
                             (value) => {
                                 if(value.data['res'] === BaseModule.response.requestSuccess)
                                 {
-                                    location.href = BaseModule.getUrlPath('',BaseModule.m_URL_DOMAIN_WEB_DIR);
+                                    location.href = BaseModule.getUrlPath('',BaseModule.dir_web);
                                 }else {
                                     FunctionGroup.alertBox(value.data['error']);
                                 }
@@ -157,8 +150,13 @@
                     menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
                 } , 500);
             },
-            goToLogin () {
-                //router.go(0);
+            login () {
+                if (!this.$store.getters.userInfo.online)
+                {
+                    router.replace('/login');
+                    GlobalCommunication.$emit('closeSideMenu');
+                    GlobalCommunication.$emit('closeBlackCover');
+                }
             },
             //添加监听事件
             initEvent() {
@@ -168,17 +166,149 @@
             //返回用户数据
         },
         created() {
-            //获取屏幕大小
-            let winSize = FunctionGroup.getWindowSize();
-            let winWidth = winSize.windowWidth;
-            this.css.UserBlockAvatarSize = 60;
-            this.css.UserBlockHeight = winWidth * 0.045;
-            this.css.left = -300;
-            this.css.width = 300;
-            this.css.UserBlockTxtSize = 18;
-
             this.initEvent();
         }
     }
 
 </script>
+
+<style>
+    #menu-user-block-avatar-img{
+        width: 60px;
+        height: 60px;
+    }
+
+    #user-menu{
+        width: 300px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        background-color: #ffb8b8;;
+        z-index: 2;
+        /* Transition left */
+        transition: .2s;
+        -moz-transition: .2s; /* Firefox 4 */
+        -webkit-transition: .2s; /* Safari and Chrome */
+        -o-transition: 0.2s; /* Opera */
+    }
+
+    #user-block-open-click{
+        border-radius: 50%;
+        background-color: #fb8d8d;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        font-size: 25px;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+        letter-spacing: -3px;
+    }
+
+    #user-block-open-click:hover , .header-function-list-depInner:hover{
+        background-color: #FF7E7E;
+    }
+
+    #menu-user-block{
+        padding-left: 5%;
+        padding-top: 5%;
+        width: 90%;
+        margin: 0 auto;
+        height: 5vw;
+    }
+
+    #menu-user-block-avatar{
+        float: left;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 15%;
+        min-width: 45px;
+    }
+
+    #menu-user-block-avatar-img{
+        width: 100%;
+    }
+
+    #menu-user-block-id{
+        margin: 0 auto;
+        float: right;
+        width: 75%;
+        height: 20%;
+    }
+
+    #menu-user-block-uid{
+        margin: 0 auto;
+        float: right;
+        width: 75%;
+        height: 20%;
+        padding-bottom: 20px;
+    }
+
+    #menu-user-block-id-txt{
+        text-align: left;
+        height: 100%;
+        vertical-align: middle;
+        font-size: 18px;
+        color: #ffffffeb;
+        cursor : pointer;
+    }
+
+    #menu-user-block-uid-txt{
+        text-align: left;
+        height: 100%;
+        vertical-align: middle;
+        font-size: 18px;
+        color: #ffffffeb;
+    }
+
+    .menu-user-block-div-line{
+        color: white;
+        display: block;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 0px;
+        flex: 1 1 0px;
+        max-width: 100%;
+        height: 0;
+        max-height: 0;
+        border: solid;
+        border-width: thin 0 0 0;
+        -webkit-transition: inherit;
+        transition: inherit;
+    }
+
+    .menu-func-ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu-func-ul li{
+        list-style: none;
+    }
+
+    .menu-func-li-btn-block{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .menu-func-li-btn-block:hover{
+        background-color: #ffa0a047;
+    }
+
+    .menu-func-li-btn-block-txt{
+        font-size: 18px;
+        margin: 0 auto;
+        width: 90%;
+        color: #ffffffeb;
+    }
+
+    .menu-func-li-btn-block-about{
+        font-size: 14px;
+        margin: 0 auto;
+        width: 90%;
+        color: #ffffffeb;
+    }
+</style>

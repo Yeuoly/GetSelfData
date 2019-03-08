@@ -7,7 +7,7 @@ import Index from '../components/Index';
 import LoginPage from '../components/LoginPage';
 import EditPage from '../components/EditPage';
 
-import { FunctionGroup } from "../js/GlobalUtils";
+import Store from '../store';
 
 Vue.use(VueRouter);
 
@@ -63,7 +63,7 @@ export const router = new VueRouter({
 router.beforeEach((to , from , next) => {
     if(from.name === 'home')
         window.onscroll = null;
-    if(!FunctionGroup.isOnline() && to.matched.some((item) => {
+    if(Store.getters.userInfo.online && to.matched.some((item) => {
         return item.meta.login_required === true;
     }))
         next('login');

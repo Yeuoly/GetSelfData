@@ -112,27 +112,27 @@ function InitWeb()
         },
         //到网站主页去
         goToIndex : function () {
-            location.href = static_data.getUrlPath('',static_data.m_URL_DOMAIN_WEB_DIR);
+            location.href = static_data.getUrlPath('',static_data.dir_web);
         },
         //到自己的主页去
         goToMyIndex : function () {
-            location.href = static_data.getUrlPath("msg.html",static_data.m_URL_DOMAIN_WEB_DIR);
+            location.href = static_data.getUrlPath("msg.html",static_data.dir_web);
         },
         //移动到更新日志
         goToUpdateLog : function () {
-            if(document.location.href === static_data.getUrlPath('',static_data.m_URL_DOMAIN_WEB_DIR) ||
-                document.location.href === static_data.getUrlPath('index.html',static_data.m_URL_DOMAIN_WEB_DIR))
+            if(document.location.href === static_data.getUrlPath('',static_data.dir_web) ||
+                document.location.href === static_data.getUrlPath('index.html',static_data.dir_web))
                 functionGroup.smoothScrollMove('updates-log-list');
             else
-                document.location = static_data.getUrlPath('#updates-log-list',static_data.m_URL_DOMAIN_WEB_DIR);
+                document.location = static_data.getUrlPath('#updates-log-list',static_data.dir_web);
         },
         //跳转页面到登录界面
         goToLogin : function () {
-            location.href = static_data.getUrlPath('passport.html',static_data.m_URL_DOMAIN_WEB_DIR);
+            location.href = static_data.getUrlPath('passport.html',static_data.dir_web);
         },
         //硬核翻译，发博客去
         goToSendPost : function () {
-            location.href = static_data.getUrlPath('operate/editor-post.html',static_data.m_URL_DOMAIN_WEB_DIR);
+            location.href = static_data.getUrlPath('operate/editor-post.html',static_data.dir_web);
         },
         //锚点平滑移动
         smoothScrollMove : function(id){
@@ -198,7 +198,7 @@ function InitWeb()
                         functionGroup.setUserInfo('online',true);
                         functionGroup.setUserInfo(
                             'avatar' ,
-                            static_data.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR)
+                            static_data.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',static_data.dir_img)
                         );
                         var handle_user_id_txt = $("#menu-user-block-id-txt");
                         handle_user_id_txt.css('cursor','default');
@@ -333,7 +333,7 @@ function InitWeb()
             var link = document.createElement('link');
             link.type = 'image/x-icon';
             link.rel = 'shortcut icon';
-            link.href = static_data.getUrlPath('img/shortcut.ico',static_data.m_URL_DOMAIN_WEB_DIR);
+            link.href = static_data.getUrlPath('img/shortcut.ico',static_data.dir_web);
             document.head.appendChild(link);
         },
         //设置标题

@@ -105,7 +105,7 @@
                 }
                 let vm = this;
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('Login.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                    BaseModule.getUrlPath('Login.php',BaseModule.dir_api),
                     {
                         act : vm.account,
                         pswd : vm.password

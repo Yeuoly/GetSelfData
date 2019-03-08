@@ -1,6 +1,5 @@
 import { BaseModule } from "./module";
 import Vue from 'vue';
-import { getUserData } from "../main";
 
 export let FunctionGroup = {
 //获取屏幕大小、尺寸
@@ -50,33 +49,29 @@ export let FunctionGroup = {
             windowHeight : windowHeight
         }
     },
-//获取用户的登录状态
-    isOnline :function () {
-        return getUserData('online');
-    },
 //到网站主页去
     goToIndex : function () {
-        location.href = BaseModule.getUrlPath('',BaseModule.m_URL_DOMAIN_WEB_DIR);
+        location.href = BaseModule.getUrlPath('',BaseModule.dir_web);
     },
 //到自己的主页去
     goToMyIndex : function () {
-        location.href = BaseModule.getUrlPath("msg.html",BaseModule.m_URL_DOMAIN_WEB_DIR);
+        location.href = BaseModule.getUrlPath("msg.html",BaseModule.dir_web);
     },
 //移动到更新日志
     goToUpdateLog : function () {
-        if(document.location.href === BaseModule.getUrlPath('',BaseModule.m_URL_DOMAIN_WEB_DIR) ||
-            document.location.href === BaseModule.getUrlPath('index.html',BaseModule.m_URL_DOMAIN_WEB_DIR))
+        if(document.location.href === BaseModule.getUrlPath('',BaseModule.dir_web) ||
+            document.location.href === BaseModule.getUrlPath('index.html',BaseModule.dir_web))
             FunctionGroup.smoothScrollMove('updates-log-list');
         else
-            document.location = BaseModule.getUrlPath('#updates-log-list',BaseModule.m_URL_DOMAIN_WEB_DIR);
+            document.location = BaseModule.getUrlPath('#updates-log-list',BaseModule.dir_web);
     },
 //跳转页面到登录界面
     goToLogin : function () {
-        location.href = BaseModule.getUrlPath('passport.html',BaseModule.m_URL_DOMAIN_WEB_DIR);
+        location.href = BaseModule.getUrlPath('passport.html',BaseModule.dir_web);
     },
 //硬核翻译，发博客去
     goToSendPost : function () {
-        location.href = BaseModule.getUrlPath('operate/editor-post.html',BaseModule.m_URL_DOMAIN_WEB_DIR);
+        location.href = BaseModule.getUrlPath('operate/editor-post.html',BaseModule.dir_web);
     },
 /*//锚点平滑移动
     smoothScrollMove : function(id){
@@ -89,7 +84,7 @@ export let FunctionGroup = {
         if(FunctionGroup.isOnline())
         {
             FunctionGroup.http.get(
-                BaseModule.getUrlPath("LogOff.php",BaseModule.m_URL_DOMAIN_API_DIR),
+                BaseModule.getUrlPath("LogOff.php",BaseModule.dir_api),
                 {},
                 {},
                 function(data)
@@ -132,7 +127,7 @@ export let FunctionGroup = {
 //登录检测
     passJct : function() {
         FunctionGroup.http.post(
-            BaseModule.getUrlPath("User.php",BaseModule.m_URL_DOMAIN_API_DIR),
+            BaseModule.getUrlPath("User.php",BaseModule.dir_api),
             {},
             {},
             function(data)
@@ -143,7 +138,7 @@ export let FunctionGroup = {
                     FunctionGroup.setUserInfo('online',true);
                     FunctionGroup.setUserInfo(
                         'avatar' ,
-                        BaseModule.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',BaseModule.m_URL_DOMAIN_IMG_DIR)
+                        BaseModule.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',BaseModule.dir_img)
                     );
                     let handle_user_id_txt = document.getElementById("menu-user-block-id-txt");
                     handle_user_id_txt.style.setProperty('cursor','default');
@@ -272,7 +267,7 @@ export let FunctionGroup = {
         let link = document.createElement('link');
         link.type = 'image/x-icon';
         link.rel = 'shortcut icon';
-        link.href = BaseModule.getUrlPath('img/shortcut.ico',BaseModule.m_URL_DOMAIN_WEB_DIR);
+        link.href = BaseModule.getUrlPath('img/shortcut.ico',BaseModule.dir_web);
         document.head.appendChild(link);
     },
 //设置标题

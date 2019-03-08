@@ -168,7 +168,7 @@ window.onload = function () {
                     else if(this.status.mode === 're')
                         method = 'modify';
                     $.ajax({
-                        url : static_data.getUrlPath('/dataAction/private/operate.php',static_data.m_URL_DOMAIN_API_DIR),
+                        url : static_data.getUrlPath('/dataAction/private/operate.php',static_data.dir_api),
                         async : true,
                         type : "post",
                         dataType : "json",
@@ -186,7 +186,7 @@ window.onload = function () {
                         success : function(data)
                         {
                             if(data['data']['res'] === static_data.response.requestSuccess)
-                                location.href = static_data.getUrlPath('msg.html',static_data.m_URL_DOMAIN_WEB_DIR);
+                                location.href = static_data.getUrlPath('msg.html',static_data.dir_web);
                             else
                                 mainHandle.constDom.functionGroup.alertBox(data['data']['error']);
                         }
@@ -218,7 +218,7 @@ window.onload = function () {
                     editor.status.postID = postID;
                     //获取post参数
                     $.ajax({
-                        url : static_data.getUrlPath('dataAction/private/getPost.php',static_data.m_URL_DOMAIN_API_DIR),
+                        url : static_data.getUrlPath('dataAction/private/getPost.php',static_data.dir_api),
                         async : true,
                         type : "post",
                         dataType : "json",
@@ -235,7 +235,7 @@ window.onload = function () {
                                 editor.post = {
                                     user_id : data['data']['data']['post_userID'],
                                     user_uid : data['data']['data']['post_userUID'],
-                                    avatar : static_data.getUrlPath('avatar/'+data['data']['data']['post_userUID']+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR),
+                                    avatar : static_data.getUrlPath('avatar/'+data['data']['data']['post_userUID']+'.jpg',static_data.dir_img),
                                     title : data['data']['data']['post_title'],
                                     about : data['data']['data']['post_about'],
                                     body : JSON.parse(data['data']['data']['post_data'])

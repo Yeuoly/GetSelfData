@@ -1,10 +1,7 @@
 let BaseModule = {
-    m_URL_DOMAIN_API_DIR : 0,
-    m_URL_DOMAIN_WEB_DIR   : 1,
-    m_URL_DOMAIN_IMG_DIR   : 2,
-    m_ADD_BLOCK_TYPE_TABLE : 1,
-    m_ADD_BLOCK_TYPE_URL   : 2,
-    m_ADD_BLOCK_TYPE_PIC   : 3,
+    dir_api : 0,
+    dir_web : 1,
+    dir_img : 2,
     response : {
         requestSuccess : 666,
         requestFail : -250
@@ -13,11 +10,11 @@ let BaseModule = {
     {
         switch(dtn)
         {
-            case BaseModule.m_URL_DOMAIN_API_DIR:
+            case BaseModule.dir_api:
                 return BaseModule.url.m_URL_DOMAIN_API + path;
-            case BaseModule.m_URL_DOMAIN_WEB_DIR:
+            case BaseModule.dir_web:
                 return BaseModule.url.m_URL_DOMAIN_WEB + path;
-            case BaseModule.m_URL_DOMAIN_IMG_DIR:
+            case BaseModule.dir_img:
                 return BaseModule.url.m_URL_DOMAIN_IMG + path;
         }
     },

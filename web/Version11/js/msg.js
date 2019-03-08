@@ -129,7 +129,7 @@ window.onload = function () {
                 );
             },
             editPost : function (postID) {
-                location.href = static_data.getUrlPath('operate/editor-post.html?postID='+postID,static_data.m_URL_DOMAIN_WEB_DIR);
+                location.href = static_data.getUrlPath('operate/editor-post.html?postID='+postID,static_data.dir_web);
             }
         }
     });
@@ -164,7 +164,7 @@ window.onload = function () {
                 title : post_title,
                 user : post_user,
                 userId : post_user_id,
-                avatarUrl : static_data.getUrlPath('avatar/'+post_user_id+'.jpg',static_data.m_URL_DOMAIN_IMG_DIR),
+                avatarUrl : static_data.getUrlPath('avatar/'+post_user_id+'.jpg',static_data.dir_img),
                 introduction : post_introduction,
                 postID : postID,
                 body : post_data
@@ -173,7 +173,7 @@ window.onload = function () {
         //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用，afterFail是在所有事情做完之后被调用
         getRecentPost :function (page , afterSuccess , afterFail) {
             FunctionGroup.http.post(
-                BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.dir_api),
                 { page : page },
                 {},
                 function (data) {

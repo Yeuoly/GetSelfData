@@ -1,48 +1,25 @@
-import Vue from 'vue'
-import App from './App.vue'
-import { router } from './router'
+import Vue from 'vue';
+import App from './App.vue';
+import { router } from './router';
+import { GlobalCommunication } from "./js/GlobalCommunication";
+import store from './store';
 
 Vue.config.productionTip = false;
-
-let user_data = {
-    user_id: '未登录，点击登录',
-    user_uid: -1,
-    user_email: 'example@example.com',
-    user_lv: -1,
-    user_exp: -1,
-    user_class: '',
-    avatar: '',
-    srm_jct: '',
-    login_time: -1,
-    online: true,
-    clearUserInfo() {
-        for (let key in user_data)
+Vue.prototype.$messageBox = function (payload) {
+    if(typeof payload !== 'object')
+    {
+        if(typeof payload === 'string')
         {
-            if (typeof user_data[key] === 'number')
-                user_data[key] = -1;
-            else if (typeof user_data[key] === 'string')
-                user_data[key] = 'NAN';
-            else {}
+            payload = { content : payload , type : 'normal'};
+        }else{
+            payload = { content : 'none' , type : 'normal'};
         }
     }
+    GlobalCommunication.$emit('MessageBox',payload);
 };
 
 new Vue({
     render: h => h(App),
+    store,
     router,
 }).$mount('#app');
-
-function getUserData (index) {
-    if(typeof index === 'undefined'){
-      return user_data;
-    }
-    if(typeof user_data[index] !== 'undefined'){
-      return user_data[index];
-    }
-    return null;
-}
-
-export {
-    getUserData,
-    user_data
-}

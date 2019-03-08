@@ -86,7 +86,7 @@ function verifyToken(account,password)
             if(data['data']['res'] === static_data.response.login.failed)
                 $("#sec_master").html((data['data']['error']));
             else if(data['data']['res'] === static_data.response.login.success)
-                location.href = static_data.getUrlPath("",static_data.m_URL_DOMAIN_WEB_DIR);
+                location.href = static_data.getUrlPath("",static_data.dir_web);
         }
     });
 }
@@ -132,7 +132,7 @@ function registerMaster(account, password, verification)
                 $("#sec_master").html(data['data']['error']);
             else
                 location.href = static_data.getUrlPath('LogOff.php',static_data.m_URL_DOMAIN_API_DIR)+
-                    "?next="+static_data.getUrlPath("passport.html",static_data.m_URL_DOMAIN_WEB_DIR);
+                    "?next="+static_data.getUrlPath("passport.html",static_data.dir_web);
         }
     });
 }

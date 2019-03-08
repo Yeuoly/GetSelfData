@@ -10,7 +10,7 @@
                 >
                 </div>
                 <div class="post-card-userblock-id">
-                    {{post.user_id}}
+                    {{post.userInfo.user_id}}
                 </div>
             </div>
             <div class="post-introduction">
@@ -62,7 +62,6 @@
 </template>
 
 <script>
-    import { user_data } from "../main";
     import { GlobalCommunication } from "../js/GlobalCommunication";
     import { BaseModule } from "../js/module";
     import { router } from "../router";
@@ -71,15 +70,12 @@
     export default {
         name: "EditPage",
         data () {
+            let self = this;
             return {
                 postDefaultImg : '您这图我tm加载不出来啊',
-                //缓存新建的区块的Id
-                newLiID : 1,
                 post : {
                     maxLine : 1,
-                    user_id : user_data.user_id,
-                    user_uid : user_data.user_uid,
-                    avatar : user_data.avatar,
+                    userInfo : self.$store.getters.userInfo,
                     title : '',
                     about : '',
                     body : [
@@ -111,7 +107,7 @@
                     }
                 }
             },
-            addNewBlock(liID) {
+            addNewBlock(liID, hook) {
                 let newLiID = this.post.maxLine + 1;
                 this.post.maxLine++;
                 this.___searchBlock(
@@ -141,10 +137,10 @@
                     method = 'modify';
 
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('/dataAction/private/operate.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                    BaseModule.getUrlPath('/dataAction/private/operate.php',BaseModule.dir_api),
                     {
-                        title : this.post.title,
-                        about : this.post.about,
+                        title : this.post.userInfo.title,
+                        about : this.post.userInfo.about,
                         data : JSON.stringify(this.post.body),
                         postID : this.status.postID,
                         method : method
@@ -160,6 +156,17 @@
                         FunctionGroup.alertBox('发生了意外的错误');
                     }
                 );
+            }
+        },
+        watch : {
+            'post.maxLine' : {
+                handler(){
+                    this.$nextTick(function () {
+                        document.getElementById('focus-id-'+this.post.maxLine).focus();
+                        this.$nextTick(null);
+                    })
+                },
+                immediate : false
             }
         }
     }

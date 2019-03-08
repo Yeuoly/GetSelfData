@@ -91,7 +91,7 @@
         methods : {
             deletePost (postID) {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('dataAction/private/operate.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                    BaseModule.getUrlPath('dataAction/private/operate.php',BaseModule.dir_api),
                     {
                         postID : postID,
                         method : 'delete'
@@ -117,7 +117,7 @@
                 )
             },
             editPost (postID) {
-                location.href = BaseModule.getUrlPath('operate/editor-post.html?postID='+postID,BaseModule.m_URL_DOMAIN_WEB_DIR);
+                location.href = BaseModule.getUrlPath('operate/editor-post.html?postID='+postID,BaseModule.dir_web);
             },//类型、标题、用户信息、数据、简介
             addPostCard : function(post_title, post_user, post_user_id , post_data, post_introduction ,postID){
                 //新建Vue的data对象
@@ -136,7 +136,7 @@
                     title : post_title,
                     user : post_user,
                     userId : post_user_id,
-                    avatarUrl : BaseModule.getUrlPath('avatar/'+post_user_id+'.jpg',BaseModule.m_URL_DOMAIN_IMG_DIR),
+                    avatarUrl : BaseModule.getUrlPath('avatar/'+post_user_id+'.jpg',BaseModule.dir_img),
                     introduction : post_introduction,
                     postID : postID,
                     body : post_data
@@ -145,7 +145,7 @@
             //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用，afterFail是在所有事情做完之后被调用
             getRecentPost :function (page , afterSuccess , afterFail) {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.m_URL_DOMAIN_API_DIR),
+                    BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.dir_api),
                     {
                         page : page
                     },
