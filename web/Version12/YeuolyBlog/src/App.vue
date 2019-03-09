@@ -10,15 +10,14 @@
 </template>
 
 <script>
-    import ConstDom from './components/ConstDom';
-    import ConstFooter from './components/ConstFooter';
+    import ConstDom from './components/Items/ConstDom';
+    import ConstFooter from './components/Items/ConstFooter';
     import MessageBox from './components/common/MessageBox';
     import axios from 'axios';
     import qs from 'query-string'
 
     import {GlobalCommunication} from "./js/GlobalCommunication";
     import {BaseModule} from "./js/module";
-    import {FunctionGroup} from "./js/GlobalUtils";
 
     export default {
         name: 'app',
@@ -63,7 +62,7 @@
                     },
                     (reason) => {
                         console.log(reason);
-                        FunctionGroup.alertBox('用户数据刷新失败');
+                        this.$messageBox('用户数据刷新失败','warn');
                     }
                 )
             }
@@ -75,15 +74,13 @@
             GlobalCommunication.$on('refreshUserData', this.refreshUserData);
 
             this.refreshUserData();
-            this.$messageBox('hello world');
-            this.$messageBox('fuckworld');
         }
     }
 
 </script>
 
 <style>
-    @import "../public/css/main.css";
+    @import "style/main.css";
 
     .card {
         box-shadow: 1px 1px 2px #a99f9f;

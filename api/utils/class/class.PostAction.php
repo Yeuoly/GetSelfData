@@ -79,7 +79,7 @@ class publicPostAction extends Base
                 'post_ID' => $dataDist['postID']
             ];
         }
-        return $this->getDataByHashID($dataDist['isOver'],$dataDist,$DB);
+        return $this->getDataByHashID($result['isOver'],$dataDist,$DB);
     }
 
     //将一个表的数据转换成json
@@ -227,16 +227,15 @@ class privatePostAction extends publicPostAction{
         }
         //缓存用户post数据
         $postList = [];
-        //定义一个undefined的字符串
-        define('none','undefined');
+
         foreach($postIDList as $postID)
         {
-            $postData = $this->getDataByHashID($postID['postID'],'',$DB);
+            $postData = $this->getDataByHashID($postID['postID'],null,$DB);
             //如果失败了的话，就直接把postData换成失败原因
             if(is_string($postData))
             {
                 $postData = [
-                    'postID' => $postID['postID'],
+                    'post_ID' => $postID['postID'],
                     'post_title' => 'failed to get Data',
                     'post_about' => 'there is an error happened in sql server',
                     'post_userID' => '-404',
@@ -255,13 +254,13 @@ class privatePostAction extends publicPostAction{
         if($this->_is_failed($DB)){
             return server_error;
         }
-        $data_lenght = strlen($post_data);
+        $data_lenght = mb_strlen($post_data);
         $times = 0;
         $postID = md5($post_title.$this->userID.time().$this->userUID.$post_date);
         $first_postID = $postID;
         while ($data_lenght > 0)
         {
-            $post_data_department = substr($post_data,$times * 1024 , 1024);
+            $post_data_department = mb_substr($post_data,$times * 1024 , 1024);
             $list_name = $this->hashListHead.$postID[0];
             $post_isOver = $data_lenght <= 1024 ? 'true' : md5($post_title.$this->userID.time().rand(0,999999).rand(0,999999));
             $res = $DB->InsertIntoList(
@@ -274,7 +273,8 @@ class privatePostAction extends publicPostAction{
                     'postID' => $postID,
                     'data' => $post_data_department,
                     'isOver' => $post_isOver
-                ]);
+                ]
+            );
             if($DB->_is_failed($res))
                 return server_error;
             $data_lenght -= 1024;

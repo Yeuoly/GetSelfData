@@ -52,11 +52,11 @@
                     },
                     {
                         name : 'Vue全家桶',
-                        content : 'Vue-router Vue-cli等'
+                        content : 'Vue-router Vue-cli Vuex等'
                     },
                     {
                         name : 'axios',
-                        content : '也是学习阶段，用得也蛮菜的orz'
+                        content : '代替了原本使用的Jquery的异步请求'
                     },
                     {
                         name : 'php',

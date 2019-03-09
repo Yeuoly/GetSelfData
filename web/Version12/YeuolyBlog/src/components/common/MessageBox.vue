@@ -1,6 +1,6 @@
 <template>
-    <transition name="msgBox">
-        <div :class="'srm-message-box srm-message-box-type-'+type " v-show="show">
+    <div id="msgBox" :class="show ? 'msgBox-enter' : 'msgBox-leave'">
+        <div :class="'srm-message-box srm-message-box-type-'+type">
             <div class="srm-message-box-content">
                 <div :class="'srm-message-box-icon srm-message-box-icon-type-'+type"></div>
                 <div :class="'srm-message-box-msg srm-message-box-msg-type-'+type">
@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-    </transition>
+    </div>
 </template>
 
 <script>
@@ -22,7 +22,7 @@
                 type : 'normal',
                 show : false,
                 over : false,
-                time : 999999,
+                time : 3000,
                 listEmpty : true,
                 list : []
             }
@@ -44,10 +44,10 @@
                 let self = this;
                 setTimeout(function () {
                     self.show = false;
-                    self.type = 'normal';
-                    self.content = 'none';
                     setTimeout(function () {
                         self.over = true;
+                        self.type = 'normal';
+                        self.content = 'none';
                         self.list.splice(0,1);
                         if(self.list.length === 0)
                             self.listEmpty = true;
@@ -76,24 +76,25 @@
 </script>
 
 <style scoped>
-
-    .msgBox-enter-active, .msgBox-leave-active{
-        transition: all .7s ease;
+    #msgBox{
+        transition: .5s all ease;
     }
 
-    .msgBox-enter, .msgBox-leave-to{
-        opacity: 0;
-    }
-
-    .msgBox-leave, .msgBox-enter-to{
+    .msgBox-enter{
+        transform: translateY(70px);
         opacity: 1;
+    }
+
+    .msgBox-leave{
+        transform: translateY(0px);
+        opacity: 0;
     }
 
     .srm-message-box{
         background: rgb(240,249,235);
-        border-radius: 10px;
-        position: fixed;
-        top: 40px;
+        border-radius: 7px;
+        position: absolute;
+        top: -50px;
         width: 20vw;
         left: calc((100% - 20vw) / 2);
         height: 40px;
@@ -110,6 +111,22 @@
     .srm-message-box-msg-type-normal{
         color: rgb(103,194,58);
     }
+
+    /******************************/
+
+    .srm-message-box-type-warn{
+        border: 1px solid rgba(245,108,108,0.8);
+    }
+
+    .srm-message-box-icon-type-warn{
+
+    }
+
+    .srm-message-box-msg-type-warn{
+        color: rgb(245,108,108);
+    }
+
+    /******************************/
 
     .srm-message-box-content{
         width: 90%;

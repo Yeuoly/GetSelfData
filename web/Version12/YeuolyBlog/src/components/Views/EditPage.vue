@@ -1,5 +1,6 @@
 <template>
     <div class="post-card">
+        <div class="vertical-blank-block"></div>
         <div class="post-card-head">
             <h3 class="post-title">
                 <input type="text" placeholder="填写标题" v-model="post.title" id="post-title-input">
@@ -45,10 +46,10 @@
                     <div style="height: 10px;"></div>
                     <label style="float: left;height: 25px;vertical-align: middle">类别：</label>
                     <select style="float: left;height: 25px; outline: none" :name="bodyDep.liID" v-model="bodyDep.html">
-                        <option value="blog">blog</option>
-                        <option value="picture">picture</option>
-                        <option value="url">url</option>
-                        <option value="table">table</option>
+                        <option value="blog">文字</option>
+                        <option value="picture">图片</option>
+                        <option value="url">链接</option>
+                        <option value="table">表格</option>
                     </select>
                     <input type="button" @click="addNewBlock(bodyDep.liID)" value="+">
                     <input type="button" @click="deleteBlock(bodyDep.liID)" value="-">
@@ -62,10 +63,9 @@
 </template>
 
 <script>
-    import { GlobalCommunication } from "../js/GlobalCommunication";
-    import { BaseModule } from "../js/module";
-    import { router } from "../router";
-    import { FunctionGroup } from "../js/GlobalUtils";
+    import { GlobalCommunication } from "../../js/GlobalCommunication";
+    import { BaseModule } from "../../js/module";
+    import { router } from "../../router";
 
     export default {
         name: "EditPage",
@@ -93,8 +93,36 @@
             }
         },
         methods : {
+            loadPost(postID){
+                GlobalCommunication.$emit('httpPost',
+                    BaseModule.getUrlPath('dataAction/private/getPost.php',BaseModule.dir_api),
+                    { postID : postID },
+                    (data) => {
+                        if(data.data['res'] === BaseModule.response.requestSuccess)
+                        {
+                            this.status.postID = postID;
+                            this.status.mode = 're';
+                            let post = JSON.parse(data.data.data['post_data'])
+                            let maxLineID = 1;
+                            for (let i in post)
+                            {
+                                maxLineID = post[i].liID > maxLineID ? maxLineID : maxLineID;
+                            }
+                            this.post.maxLine = maxLineID;
+                            this.post.title = data.data.data['post_title'];
+                            this.post.about = data.data.data['post_about'];
+                            this.post.body = post;
+                        }else{
+                            this.$messageBox(data.data['error'], 'warn');
+                        }
+                    },
+                    () => {
+                        this.$messageBox('发生了未知的错误', 'warn');
+                    }
+                );
+            },
             //这个用于给后面的区块数组操作寻找指定区块
-            ___searchBlock (liID,deletionCount,addition){
+            _searchBlock_ (liID, deletionCount, addition){
                 for(let i in this.post.body)
                 {
                     if(this.post.body[i].liID === liID)
@@ -110,14 +138,7 @@
             addNewBlock(liID, hook) {
                 let newLiID = this.post.maxLine + 1;
                 this.post.maxLine++;
-                this.___searchBlock(
-                    liID,
-                    0,
-                    {
-                        src : '',
-                        html : 'blog',
-                        liID : newLiID
-                    });
+                this._searchBlock_(liID, 0, { src : '', html : 'blog', liID : newLiID });
                 this.newLiID = newLiID;
             },
             clearPostData(){
@@ -127,7 +148,7 @@
                 this.addNewBlock(liID);
             },
             deleteBlock (liID) {
-                this.___searchBlock(liID,1);
+                this._searchBlock_(liID,1);
             },
             send () {
                 let method;
@@ -136,11 +157,17 @@
                 else if(this.status.mode === 're')
                     method = 'modify';
 
+                if(this.post.title === '' || this.post.about === '')
+                {
+                    this.$messageBox('标题和简介不能为空','warn');
+                    return;
+                }
+
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('/dataAction/private/operate.php',BaseModule.dir_api),
+                    BaseModule.getUrlPath('dataAction/private/operate.php',BaseModule.dir_api),
                     {
-                        title : this.post.userInfo.title,
-                        about : this.post.userInfo.about,
+                        title : this.post.title,
+                        about : this.post.about,
                         data : JSON.stringify(this.post.body),
                         postID : this.status.postID,
                         method : method
@@ -150,10 +177,12 @@
                         {
                             this.clearPostData();
                             router.replace('/home');
+                        }else{
+                            this.$messageBox(value.data['error']);
                         }
                     },
                     () => {
-                        FunctionGroup.alertBox('发生了意外的错误');
+                        this.$messageBox('发送了意外的错误');
                     }
                 );
             }
@@ -168,6 +197,16 @@
                 },
                 immediate : false
             }
+        },
+        mounted() {
+            console.log('fuck');
+            setTimeout(()=>{
+                let postID = this.$route.params['pid'];
+                if(typeof postID === 'string')
+                {
+                    this.loadPost(postID);
+                }
+            } , 500);
         }
     }
 </script>

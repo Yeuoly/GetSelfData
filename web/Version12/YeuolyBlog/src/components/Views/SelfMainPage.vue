@@ -57,9 +57,8 @@
 
 <script>
 
-    import { FunctionGroup } from "../js/GlobalUtils";
-    import { BaseModule } from "../js/module";
-    import { GlobalCommunication } from "../js/GlobalCommunication";
+    import { BaseModule } from "../../js/module";
+    import { GlobalCommunication } from "../../js/GlobalCommunication";
 
     export default {
         data () {
@@ -96,10 +95,10 @@
                         postID : postID,
                         method : 'delete'
                     },
-                    (value) => {
+                    (data) => {
                         if(data['data']['res'] === BaseModule.response.requestSuccess)
                         {
-                            FunctionGroup.alertBox('删除成功');
+                            this.$messageBox('删除成功');
                             for(let i in this.postDepartment)
                             {
                                 if(this.postDepartment[i].postID === postID)
@@ -109,15 +108,16 @@
                             }
                         }
                         else
-                            FunctionGroup.alertBox(value['data']['error']);
+                            this.$messageBox(data['data']['error'],'warn');
                     },
                     () => {
-                        FunctionGroup.alertBox('发生了意外的错误');
+                        this.$messageBox('发生了意外的错误','warn');
                     }
                 )
             },
+            //跳转编辑界面
             editPost (postID) {
-                location.href = BaseModule.getUrlPath('operate/editor-post.html?postID='+postID,BaseModule.dir_web);
+                this.$router.push({ name : 'edit' , params : { pid : postID } })
             },//类型、标题、用户信息、数据、简介
             addPostCard : function(post_title, post_user, post_user_id , post_data, post_introduction ,postID){
                 //新建Vue的data对象
@@ -153,7 +153,7 @@
                         if(parseInt(value['data']['res']) === BaseModule.response.requestSuccess)
                             afterSuccess(value);
                         else
-                            this.alertBox('获取博客失败');
+                            this.$messageBox('获取博客失败','warn');
                     },
                     () => {
                         if(typeof afterFail === 'function')
@@ -198,9 +198,9 @@
             },
             onscroll() {
                 function myTry() {
-                    let documentTop = FunctionGroup.getDocumentTop();
-                    let scrollHeight = FunctionGroup.getScrollHeight();
-                    let windowHeight = FunctionGroup.getWindowHeight();
+                    let documentTop = this.$getDocumentTop();
+                    let scrollHeight = this.$getScrollHeight();
+                    let windowHeight = this.$getWindowHeight();
                     if(scrollHeight === windowHeight + documentTop)
                     {
                         //进入加载状态

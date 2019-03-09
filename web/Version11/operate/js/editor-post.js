@@ -129,7 +129,7 @@ window.onload = function () {
             },
             methods : {
                 //这个用于给后面的区块数组操作寻找指定区块
-                ___searchBlock : function(liID,deletionCount,addition){
+                _searchBlock_ : function(liID, deletionCount, addition){
                     for(var i in this.post.body)
                     {
                         if(this.post.body[i].liID === liID)
@@ -141,11 +141,11 @@ window.onload = function () {
                             return;
                         }
                     }
-                    console.log('failed to find index in ___searchBlock()');
+                    console.log('failed to find index in _searchBlock_()');
                 },
                 addNewBlock : function (liID) {
                     var newLiID = utils.getLiID();
-                    this.___searchBlock(
+                    this._searchBlock_(
                         liID,
                         0,
                         {
@@ -159,7 +159,7 @@ window.onload = function () {
                     this.addNewBlock(liID);
                 },
                 deleteBlock : function (liID) {
-                    this.___searchBlock(liID,1);
+                    this._searchBlock_(liID,1);
                 },
                 send : function () {
                     var method;

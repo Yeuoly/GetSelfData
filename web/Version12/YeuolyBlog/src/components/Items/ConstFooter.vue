@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import { BaseModule } from "../js/module";
+    import { BaseModule } from "../../js/module";
 
     export default {
         name : 'ConstFooter',

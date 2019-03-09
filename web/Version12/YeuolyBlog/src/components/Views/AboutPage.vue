@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import AboutList from './AboutList';
-    import IndexUpdateLog from './IndexUpdateLog';
+    import AboutList from '../Items/AboutList';
+    import IndexUpdateLog from '../Items/IndexUpdateLog';
 
     export default {
         name : 'AboutPage',

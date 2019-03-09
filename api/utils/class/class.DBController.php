@@ -84,7 +84,7 @@
             $row = mysqli_fetch_array($full_list);                              //判断键值是否存在，不存在返回false
             foreach ($datalist as $key => $val)
             {
-                if(!isset($row[$key]) && $row != null)
+                if(!array_key_exists($key,$row) && $row != null)
                 {
                     return self::server_error;
                 }

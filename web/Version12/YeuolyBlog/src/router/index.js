@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import AboutPage from '../components/AboutPage';
-import SelfMainPage from  '../components/SelfMainPage';
-import Index from '../components/Index';
-import LoginPage from '../components/LoginPage';
-import EditPage from '../components/EditPage';
+import AboutPage from '../components/Views/AboutPage';
+import SelfMainPage from '../components/Views/SelfMainPage';
+import Index from '../components/Views/Index';
+import LoginPage from '../components/Views/LoginPage';
+import EditPage from '../components/Views/EditPage';
 
 import Store from '../store';
 

@@ -25,7 +25,7 @@
 </template>
 <script>
 
-    import { GlobalCommunication } from '../js/GlobalCommunication';
+    import { GlobalCommunication } from '../../js/GlobalCommunication';
 
     export default {
         name : 'ConstHeader',

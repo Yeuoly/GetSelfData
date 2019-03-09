@@ -291,40 +291,6 @@ export let FunctionGroup = {
     /*blackCoverBindClick : function(src) {
         app_self.constDom.black_cover.bind(src);
     },*/
-//获取滚动条高度
-    getScrollHeight : function () {
-        let scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
-        if (document.body) {
-            bodyScrollHeight = document.body.scrollHeight;
-        }
-        if (document.documentElement) {
-            documentScrollHeight = document.documentElement.scrollHeight;
-        }
-        scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
-        return scrollHeight;
-    },
-//获取可视窗口高度
-    getWindowHeight : function () {
-        let windowHeight = 0;
-        if (document.compatMode === "CSS1Compat") {
-            windowHeight = document.documentElement.clientHeight;
-        } else {
-            windowHeight = document.body.clientHeight;
-        }
-        return windowHeight;
-    },
-//获取文档高度
-    getDocumentTop : function () {
-        let scrollTop =  0, bodyScrollTop = 0, documentScrollTop = 0;
-        if (document.body) {
-            bodyScrollTop = document.body.scrollTop;
-        }
-        if (document.documentElement) {
-            documentScrollTop = document.documentElement.scrollTop;
-        }
-        scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
-        return scrollTop;
-    },
 //给页眉加一点功能，算是个钩子叭~
     addHeaderFunc :function (innerHtml, handler, className, id) {
         if(typeof innerHtml !== 'string')return;

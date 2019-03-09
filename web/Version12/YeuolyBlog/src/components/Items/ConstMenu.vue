@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="menu-user-block-id" id="menu-user-block-id">
-                <div class="menu-user-block-id-txt" id="menu-user-block-id-txt" @click="login">
+                <div class="menu-user-block-id-txt" id="menu-user-block-id-txt">
                     |id : {{user.user_id}}
                 </div>
             </div>
@@ -42,11 +42,10 @@
 
 <script>
 
-    import { BaseModule } from '../js/module';
-    import { FunctionGroup } from "../js/GlobalUtils";
-    import { GlobalCommunication } from "../js/GlobalCommunication";
-    import { router } from "../router";
-    import Store from '../store';
+    import { BaseModule } from '../../js/module';
+    import { GlobalCommunication } from "../../js/GlobalCommunication";
+    import { router } from "../../router";
+    import Store from '../../store';
 
     export default {
         data () {
@@ -60,9 +59,14 @@
                         func : 'index'
                     },
                     {
-                        name: '我的主页',
-                        about: '字面意思呀，巴拉拉能量让你回到自己的主页！',
-                        func: 'myIndex'
+                        name : '登录or注册',
+                        about : '登录or注册',
+                        func : 'passport'
+                    },
+                    {
+                        name : '我的主页',
+                        about : '字面意思呀，巴拉拉能量让你回到自己的主页！',
+                        func : 'myIndex'
                     },
                     {
                         name : '发post去',
@@ -70,14 +74,14 @@
                         func : 'send'
                     },
                     {
-                        name: '关于',
-                        about: '估计你对这个没啥兴趣',
-                        func: 'aboutPage'
+                        name : '关于',
+                        about : '估计你对这个没啥兴趣',
+                        func : 'aboutPage'
                     },
                     {
-                        name: '注销',
-                        about: '嘤嘤嘤咱要溜了',
-                        func: 'logOff'
+                        name : '注销',
+                        about : '嘤嘤嘤咱要溜了',
+                        func : 'logOff'
                     }
                 ],
                 //用户数据
@@ -89,13 +93,15 @@
             //点击这个dom的时候的函数处理事件，使用一个function和多个key来判断不同情况下执行什么任务
             functionSwitch : function(key)
             {
-                function switchUrl(p) {
-                    return BaseModule.getUrlPath(p,BaseModule.dir_web);
-                }
                 switch(key)
                 {
                     case 'index':
                         router.replace('/');
+                        GlobalCommunication.$emit('closeSideMenu');
+                        GlobalCommunication.$emit('closeBlackCover');
+                        break;
+                    case 'passport':
+                        router.replace('/login');
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
@@ -118,11 +124,11 @@
                                 {
                                     location.href = BaseModule.getUrlPath('',BaseModule.dir_web);
                                 }else {
-                                    FunctionGroup.alertBox(value.data['error']);
+                                    this.$messageBox(value.data['error'],'warn');
                                 }
                             },
                             () => {
-                                FunctionGroup.alertBox('发送了意外的错误');
+                                this.$messageBox('发送了意外的错误','warn');
                             }
                         );
                         break;
@@ -149,14 +155,6 @@
                 setTimeout(function () {
                     menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
                 } , 500);
-            },
-            login () {
-                if (!this.$store.getters.userInfo.online)
-                {
-                    router.replace('/login');
-                    GlobalCommunication.$emit('closeSideMenu');
-                    GlobalCommunication.$emit('closeBlackCover');
-                }
             },
             //添加监听事件
             initEvent() {
@@ -251,7 +249,6 @@
         vertical-align: middle;
         font-size: 18px;
         color: #ffffffeb;
-        cursor : pointer;
     }
 
     #menu-user-block-uid-txt{

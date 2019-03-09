@@ -26,12 +26,27 @@
     $post_user = @$_SESSION[SESSION_USERDATA][SESSION_USER_ID];
     $post_user_uid = @$_SESSION[SESSION_USERDATA][SESSION_USER_UID];
     $post_method = @$_POST['method'];
+    $post_data = @$_POST['data'];
+    $post_title = @$_POST['title'];
+    $post_about = @$_POST['about'];
+    $post_id = @$_POST['postID'];
 
-    if(!$post_method)
+    /**
+     *
+     * 验证参数格式
+     *
+     * */
+    include_once (FILEPATH . "/utils/class/class.Format.php");
+
+    $f = new FormatChecker();
+
+    if(!$f->FromNormalStr($post_method) || ($post_method != 'delete' && (!$f->FromNormalStr($post_data) ||
+            !$f->FromNormalStr($post_title) || !$f->FromNormalStr($post_data))))
     {
         $res->set('res',FAILED);
         $res->set('error',wrong_params , true);
     }
+
 
     /**
      *
@@ -45,10 +60,6 @@
     switch($post_method)
     {
         case 'modify':
-            $post_data = @$_POST['data'];
-            $post_title = @$_POST['title'];
-            $post_about = @$_POST['about'];
-            $post_id = @$_POST['postID'];
             /**
              *
              * 引入格式验证类
@@ -75,9 +86,6 @@
             break;
         case 'newPost':
             date_default_timezone_set('Asia/Shanghai');
-            $post_data = @$_POST['data'];
-            $post_title = @$_POST['title'];
-            $post_about = @$_POST['about'];
             $post_date = date('Y-m-d');
 
             include_once(FILEPATH . "/utils/class/class.Format.php");
@@ -98,19 +106,18 @@
             $res->output();
             break;
         case 'delete':
-            $postID = @$_POST['postID'];
-            if(!$postID)
+            if(!$post_id)
             {
                 $res->set('res',FAILED);
                 $res->set('error',wrong_params , true);
             }
-            $result = $postActor->FindPostByHashIDInMyList($postID);
+            $result = $postActor->FindPostByHashIDInMyList($post_id);
             if($postActor->_is_failed($result))
             {
                 $res->set('res',FAILED);
                 $res->set('error',$result,true);
             }
-            $result = $postActor->deletePost($postID);
+            $result = $postActor->deletePost($post_id);
             if($postActor->_is_failed($result))
             {
                 $res->set('res',FAILED);

@@ -30,11 +30,10 @@
 
 <script>
 
-    import { BaseModule } from "../js/module";
-    import { GlobalCommunication } from "../js/GlobalCommunication";
-    import { Pattern } from "../js/GlobalUtils";
-    import { FunctionGroup } from "../js/GlobalUtils";
-    import { router } from "../router";
+    import { BaseModule } from "../../js/module";
+    import { GlobalCommunication } from "../../js/GlobalCommunication";
+    import { Pattern } from "../../js/GlobalUtils";
+    import { router } from "../../router";
 
     export default {
         name : 'LoginPage',
@@ -45,7 +44,7 @@
                 account_tip : '',
                 password_tip : '',
                 format_allowed_password : false,
-                format_allowed_account : false
+                format_allowed_account : false,
             }
         },
         methods : {
@@ -100,7 +99,7 @@
             login () {
                 if(!this.format_allowed_account || !this.format_allowed_password )
                 {
-                    FunctionGroup.alertBox('麻烦看一看上面的提示啦！');
+                    this.$messageBox('麻烦看一看上面的提示啦！','warn');
                     return;
                 }
                 let vm = this;
@@ -115,11 +114,11 @@
                             router.replace('/');
                             GlobalCommunication.$emit('refreshUserData');
                         } else {
-                            FunctionGroup.alertBox(value.data.error);
+                            this.$messageBox(value.data.error,'warn');
                         }
                     },
                     () => {
-                        FunctionGroup.alertBox('遇到意外的错误');
+                        this.$messageBox('遇到意外的错误','warn');
                     }
                 );
             }

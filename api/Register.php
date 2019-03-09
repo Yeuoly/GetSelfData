@@ -8,8 +8,8 @@
 
     //引入类文件
     include_once(dirname(__FILE__) . "/Config.php");
-    include_once (FILEPATH . "/utils/mailpack.php");
-    include_once (FILEPATH . "/utils/functions.php");
+    include_once(FILEPATH . "/utils/mailpack.php");
+    include_once(FILEPATH . "/utils/functions.php");
     include_once(FILEPATH . "/utils/class/class.Encrypt.php");
     include_once(FILEPATH . "/utils/class/class.Verification.php");
     include_once(FILEPATH . "/utils/class/class.ResponseAjax.php");
