@@ -77,6 +77,7 @@
 
 <style scoped>
     #msgBox{
+        background: white;
         transition: .5s all ease;
     }
 

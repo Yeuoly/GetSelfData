@@ -56,13 +56,10 @@
                     (value) => {
                         if (value.data.res === BaseModule.response.requestSuccess) {
                             this.$store.commit('setUserInfo',value.data.data);
-                        } else {
-
                         }
                     },
-                    (reason) => {
-                        console.log(reason);
-                        this.$messageBox('用户数据刷新失败','warn');
+                    () => {
+                        this.$utils.messageBox('用户数据刷新失败','warn');
                     }
                 )
             }
@@ -79,8 +76,15 @@
 
 </script>
 
-<style>
+<style scoped>
     @import "style/main.css";
+
+    .app{
+        padding-right: 0;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+    }
 
     .card {
         box-shadow: 1px 1px 2px #a99f9f;

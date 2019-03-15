@@ -2,7 +2,7 @@
     <div class="header" id="header">
         <div class="user-block-open header-function-list-dep" id="user-block-open">
             <div class="user-block-open-click" id="user-block-open-click" @click="openSideMenu">
-                ≡≡
+                <i class="yb-icon-font" style="font-size: 25px">&#xe65c;</i>
             </div>
         </div>
 
@@ -31,9 +31,7 @@
         name : 'ConstHeader',
         data : () => {
             return {
-                headerFunctionList : [
-
-                ]
+                headerFunctionList : []
             }
         },
         methods : {
@@ -51,52 +49,35 @@
 </script>
 
 <style>
+
     .header{
-        box-shadow: 3px 3px 2px #a99f9f;
+        box-shadow: 2px 1px 1px #a99f9f;
         opacity: 0.7;
         width: 100%;
         height: 45px;
         padding-left: 5px;
         border: 0;
-        background-color: #fb8d8d;
+        background-color: #bbe6d6;
         background-attachment:fixed;
         margin-left: -5px;
     }
 
-    .header-statue{
+    #user-block-open-click{
+        border-radius: 50%;
+        background-color: transparent;
+        width: 100%;
         height: 100%;
-        width: 50%;
-        font-size: 150%;
-        font-family: "微软雅黑";
-        color: white;
-        float: left;
-        vertical-align: middle;
-    }
-
-    .header-passport{
-        width: 20%;
-        font-family: "微软雅黑";
-        height: 100%;
-        vertical-align: middle;
-        float: right;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        text-align: right;
-    }
-
-    .header-passport #passport{
-        width: 80%;
-        height: 100%;
-        border: 0px;
-        color: white;
-        font-size: 130%;
-        background: transparent;
-        vertical-align: middle;
-        margin: 0 auto;
-    }
-
-    .header-passport #passport:hover{
         cursor: pointer;
+        font-size: 25px;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+        letter-spacing: -3px;
     }
+
+    #user-block-open-click:hover , .header-function-list-depInner:hover{
+        background-color: #94e6d1;
+    }
+
+
 </style>

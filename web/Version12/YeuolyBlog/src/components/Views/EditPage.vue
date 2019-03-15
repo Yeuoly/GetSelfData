@@ -113,11 +113,11 @@
                             this.post.about = data.data.data['post_about'];
                             this.post.body = post;
                         }else{
-                            this.$messageBox(data.data['error'], 'warn');
+                            this.$utils.messageBox(data.data['error'], 'warn');
                         }
                     },
                     () => {
-                        this.$messageBox('发生了未知的错误', 'warn');
+                        this.$utils.messageBox('发生了未知的错误', 'warn');
                     }
                 );
             },
@@ -159,7 +159,7 @@
 
                 if(this.post.title === '' || this.post.about === '')
                 {
-                    this.$messageBox('标题和简介不能为空','warn');
+                    this.$utils.messageBox('标题和简介不能为空','warn');
                     return;
                 }
 
@@ -178,11 +178,11 @@
                             this.clearPostData();
                             router.replace('/home');
                         }else{
-                            this.$messageBox(value.data['error']);
+                            this.$utils.messageBox(value.data['error']);
                         }
                     },
                     () => {
-                        this.$messageBox('发送了意外的错误');
+                        this.$utils.messageBox('发送了意外的错误','warn');
                     }
                 );
             }
@@ -212,5 +212,147 @@
 </script>
 
 <style scoped>
+
+    .post-card-body-blog input[type="text"], .post-card-body-picture input[type="text"] , .post-card-body-url input[type="text"]{
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .post-card input[type="button"]{
+        overflow: paged-x;
+        float: left;
+        border: 0px;
+        border-right: 10px;
+        outline: 0px;
+        background: rgba(255,255,255,0.4);
+        width: 50px;
+        margin-left: 10px;
+        height: 25px;
+        font-family: "微软雅黑";
+        font-size: 18px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .post-introduction textarea{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .post-title input[type="text"]{
+        color: white;
+        font-family:  "微软雅黑";
+        font-size: 150%;
+        width: 80%;
+        text-align: center;
+    }
+
+    .post-card-body-li{
+        margin-bottom: 40px;
+        overflow: auto;
+    }
+
+    .post-card-head{
+        width: 100%;
+        overflow: auto;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .post-card-body{
+        width: 95%;
+        margin: 0 auto;
+        overflow: auto;
+        text-align: left;
+        padding-bottom: 10px;
+    }
+
+    .post-introduction{
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 10px;
+        /* margin-left: -30px; */
+        float: left;
+        width: 68%;
+        min-height: 50px;
+        text-align: justify;
+        background-color: rgba(255,255,255,0.135);
+        border-radius: 5px;
+        word-wrap: break-word;
+        word-break: break-all;
+        letter-spacing: 1px;
+        line-height: 22px;
+        border: 10px;
+    }
+
+    .post-title{
+        margin: 0 auto;
+        padding-bottom: 10px;
+    }
+
+    .post-card-userblock{
+        padding-left: 25px;
+        width: 17%;
+        height: 50px;
+        float: left;
+    }
+
+    .post-card-userblock-id{
+        /* float: left; */
+        width: 50%;
+        padding-left: 10px;
+        text-align: left;
+        font-size: 15px;
+        /* white-space: nowrap; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .post-card-userblock-avatar{
+        float: left;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+    }
+
+    #post-card-userblock-avatar-img{
+        object-fit: cover;
+        border: none;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 25px;
+    }
+
+    .post-card-body-url a{
+        font-size: 135%;
+        color: black;
+        /*text-decoration: none;*/
+    }
+
+    .post-card-body-table{
+        width: 90%;
+        margin: 0 auto;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .post-card-body-blog{
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .post-card-body-table td{
+        display: table-cell;
+        text-align: center;
+        font-family: "微软雅黑 Narrow";
+        color:rgb(37, 37, 37);
+    }
 
 </style>

@@ -4,11 +4,17 @@
             <li class="post-card-li" v-for="ev in postDepartment">
                 <div class="vertical-blank-block"></div>
                 <div class="post-card">
+                    <div class="post-card-operate yb-icon-font">
+                        <div class="post-card-operate-content">
+                            <div class="post-card-operate-dropdown">
+                                <div class="post-card-edition post-card-operate-item" @click="editPost(ev.postID)">编辑</div>
+                                <div class="post-card-deletion post-card-operate-item" @click="deletePost(ev.postID)">删除</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="post-card-head">
                         <h3 class="post-title">
                             {{ev.title}}
-                            <div class="post-card-deletion" @click="deletePost(ev.postID)">删除</div>
-                            <div class="post-card-edition " @click="editPost(ev.postID)">编辑</div>
                         </h3>
                         <div class="post-card-userblock">
                             <div class="post-card-userblock-avatar"
@@ -98,7 +104,7 @@
                     (data) => {
                         if(data['data']['res'] === BaseModule.response.requestSuccess)
                         {
-                            this.$messageBox('删除成功');
+                            this.$utils.messageBox('删除成功');
                             for(let i in this.postDepartment)
                             {
                                 if(this.postDepartment[i].postID === postID)
@@ -108,10 +114,10 @@
                             }
                         }
                         else
-                            this.$messageBox(data['data']['error'],'warn');
+                            this.$utils.messageBox(data['data']['error'],'warn');
                     },
                     () => {
-                        this.$messageBox('发生了意外的错误','warn');
+                        this.$utils.messageBox('发生了意外的错误','warn');
                     }
                 )
             },
@@ -153,7 +159,7 @@
                         if(parseInt(value['data']['res']) === BaseModule.response.requestSuccess)
                             afterSuccess(value);
                         else
-                            this.$messageBox('获取博客失败','warn');
+                            this.$utils.messageBox('获取博客失败','warn');
                     },
                     () => {
                         if(typeof afterFail === 'function')
@@ -245,7 +251,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     li{
         list-style: none;
     }
@@ -257,72 +263,170 @@
         border-radius: 5px;
     }
 
-    .oprate-box{
-        height: 200px;
-        width: 50%;
+    .post-card{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 70%;
+        overflow:auto;
+        background-color: rgba(238, 238, 238, 0.315);
         margin: 0 auto;
+        border-radius:5px;
+        position: relative;
     }
 
-    .oprate-box input[type="text"]{
-        height: 50px;
-        background-color: transparent;
-        border-top-width: 0px;
-        border-left-width: 0px;
-        border-right-width: 0px;
-        border-bottom-width: 2px;
-        border-color: white;
-        outline:none;
+    .post-card-operate{
+        position: absolute;
+        top: 20px;
+        right: 30px;
     }
 
-    .oprate-box .oprate-box-infomana-showinfo input[type="text"]{
-        color: white;
-        font-family:  "微软雅黑";
-        font-size: 200%;
-        width: 80%;
+    .post-card-operate-content{
+        display: inline-block;
     }
 
-    .oprate-box .oprate-box-infomana-showinfo .oprate-box-button{
-        float: right;
-        padding-top: 20px;
-        padding-right: 7%;
-    }
-
-    .oprate-box .oprate-box-infomana-showinfo .oprate-box-button input[type="submit"]{
-        border: 0px;
-        outline: 0px;
-        background: white;
-        width: 150px;
-        height: 40px;
-        font-family: "微软雅黑";
-        font-size: 120%;
-        opacity: 0.7;
-    }
-
-    .post-card-body-table td button{
-        border: 0px;
-        outline: 0px;
-        height: 100%;
-        width: 40%;
-        opacity: 0.7;
-    }
-
-    .post-card-body-table td button:hover{
+    .post-card-operate-content::before{
+        content: "\e606";
         cursor: pointer;
     }
 
-    .oprate-box .oprate-box-infomana-showinfo .oprate-box-label{
-        color: white;
-        font-family: "微软雅黑";
-        font-size: 200%;
-        padding-right: 5px;
+    .post-card-operate-dropdown{
+        display: none;
+        position: absolute;
+        border: 1px solid #d7dfeab8;
+        min-width: 60px;
+        margin-left: -80px;
+        border-radius: 8px;
+        text-align: center;
+        overflow: auto;
     }
 
-    .help-box{
+    .post-card-operate-content:hover .post-card-operate-dropdown{
+        display: block;
+    }
+
+    .post-card-operate-item{
+        padding-top: 8px;
+        background: rgba( 244 , 244 , 244 , 0.3);
+        width: 100px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .post-card-operate-item:hover{
+        color: #00b5e5;
+    }
+
+    /*下面是post-card-body的样式*/
+
+    .post-card-body-li{
+        margin-bottom: 40px;
+        overflow: auto;
+    }
+
+    .post-card-head{
+        width: 100%;
+        overflow: auto;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .post-card-body{
+        width: 95%;
+        margin: 0 auto;
+        overflow: auto;
+        text-align: left;
+        padding-bottom: 10px;
+    }
+
+    .post-introduction{
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 10px;
+        /* margin-left: -30px; */
+        float: left;
+        width: 68%;
+        min-height: 50px;
+        text-align: justify;
+        background-color: rgba(255,255,255,0.135);
+        border-radius: 5px;
+        word-wrap: break-word;
+        word-break: break-all;
+        letter-spacing: 1px;
+        line-height: 22px;
+        border: 10px;
+    }
+
+    .post-title{
+        margin: 0 auto;
+        padding-bottom: 10px;
+    }
+
+    .post-card-userblock{
+        padding-left: 25px;
+        width: 17%;
+        height: 50px;
+        float: left;
+    }
+
+    .post-card-userblock-id{
+        /* float: left; */
+        width: 50%;
+        padding-left: 10px;
+        text-align: left;
+        font-size: 15px;
+        /* white-space: nowrap; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .post-card-userblock-avatar{
+        float: left;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+    }
+
+    #post-card-userblock-avatar-img{
+        object-fit: cover;
+        border: none;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 25px;
+    }
+
+    .post-card-body-url a{
+        font-size: 135%;
+        color: black;
+        /*text-decoration: none;*/
+    }
+
+    .post-card-body-table{
         width: 90%;
         margin: 0 auto;
-        color: white;
-        font-family: "微软雅黑";
-        font-size: 120%;
-        text-align: left;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .post-card-body-blog{
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .post-card-body-table td{
+        display: table-cell;
+        text-align: center;
+        font-family: "微软雅黑 Narrow";
+        color:rgb(37, 37, 37);
+    }
+
+    .post-card-body-img{
+        width: 100%;
     }
 </style>

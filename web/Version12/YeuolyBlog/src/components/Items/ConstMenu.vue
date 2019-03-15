@@ -101,7 +101,7 @@
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'passport':
-                        router.replace('/login');
+                        router.replace('/passport');
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
@@ -124,11 +124,11 @@
                                 {
                                     location.href = BaseModule.getUrlPath('',BaseModule.dir_web);
                                 }else {
-                                    this.$messageBox(value.data['error'],'warn');
+                                    this.$utils.messageBox(value.data['error'],'warn');
                                 }
                             },
                             () => {
-                                this.$messageBox('发送了意外的错误','warn');
+                                this.$utils.messageBox('发送了意外的错误','warn');
                             }
                         );
                         break;
@@ -182,30 +182,13 @@
         position: fixed;
         top: 0;
         left: -300px;
-        background-color: #ffb8b8;;
+        background-color: transparent;;
         z-index: 2;
         /* Transition left */
         transition: .2s;
         -moz-transition: .2s; /* Firefox 4 */
         -webkit-transition: .2s; /* Safari and Chrome */
         -o-transition: 0.2s; /* Opera */
-    }
-
-    #user-block-open-click{
-        border-radius: 50%;
-        background-color: #fb8d8d;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        font-size: 25px;
-        text-align: center;
-        vertical-align: middle;
-        color: white;
-        letter-spacing: -3px;
-    }
-
-    #user-block-open-click:hover , .header-function-list-depInner:hover{
-        background-color: #FF7E7E;
     }
 
     #menu-user-block{
@@ -307,5 +290,32 @@
         margin: 0 auto;
         width: 90%;
         color: #ffffffeb;
+    }
+
+    .header-function-list-dep {
+        border-radius: 50%;
+        padding: 5px;
+        margin: auto;
+        float: left;
+        height: 35px;
+        width: 35px;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 25px;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+    }
+
+    .header-function-list-depInner{
+        border-radius: 50%;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        font-size: 25px;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
     }
 </style>

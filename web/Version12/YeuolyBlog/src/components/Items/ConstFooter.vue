@@ -15,12 +15,12 @@
     }
 </script>
 
-<style>
+<style scoped>
     .footer{
         width: 100%;
         height: 25px;
         text-align: center;
         color: white;
-        background-color: rgb(255, 196, 196);
+        background-color: transparent;
     }
 </style>
