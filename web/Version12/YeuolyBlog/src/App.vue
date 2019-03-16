@@ -12,7 +12,7 @@
 <script>
     import ConstDom from './components/Items/ConstDom';
     import ConstFooter from './components/Items/ConstFooter';
-    import MessageBox from './components/common/MessageBox';
+    import MessageBox from './components/Common/MessageBox';
     import axios from 'axios';
     import qs from 'query-string'
 
@@ -56,6 +56,11 @@
                     (value) => {
                         if (value.data.res === BaseModule.response.requestSuccess) {
                             this.$store.commit('setUserInfo',value.data.data);
+                            this.$store.commit('setUserInfo',{ online : true });
+                        }
+                        if(!this.$store.getters.userInfo.firstLoad) {
+                            this.$store.commit('setUserInfo',{ firstLoad : true });
+                            GlobalCommunication.$emit('firstLoadOver');
                         }
                     },
                     () => {

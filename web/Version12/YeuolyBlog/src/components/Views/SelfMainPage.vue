@@ -28,6 +28,7 @@
                         <div class="post-introduction">
                             {{ev.introduction}}
                         </div>
+                        <div class="post-introduction-full-blank"></div>
                     </div>
                     <div class="post-card-body">
                         <ul class="post-card-body-ul">
@@ -422,11 +423,44 @@
     .post-card-body-table td{
         display: table-cell;
         text-align: center;
-        font-family: "微软雅黑 Narrow";
         color:rgb(37, 37, 37);
     }
 
     .post-card-body-img{
         width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .post-card{
+            position: relative;
+        }
+
+        .post-introduction{
+            position: absolute;
+            top: 100px;
+            left: calc((10% - 20px) / 2);
+            width: 90%;
+        }
+
+        .post-introduction-full-blank{
+            height: 130px;
+        }
+
+        .post-card-userblock{
+            width: 80%;
+            padding-bottom: 10px;
+        }
+
+        .post-card-userblock-id{
+            float: right;
+        }
+
+        .post-card-body:before{
+            height: 60px;
+        }
+
+        .post-card-body{
+
+        }
     }
 </style>

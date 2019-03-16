@@ -10,6 +10,7 @@ export default {
         srm_jct: '',
         login_time: -1,
         online: false,
+        firstLoad : false
     },
     getters : {
         userInfo(state){

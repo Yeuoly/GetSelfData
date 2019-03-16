@@ -65,7 +65,7 @@
                     this.switchMsg();
             },
             //监听是否有新的消息加入，如果原本没有在执行的消息就直接切换消息，如果有的话不做处理，等待over切换
-            list (newVal,oldVal) {
+            list (newVal) {
                 if(newVal.length !== 0 && this.listEmpty){
                     this.listEmpty = false;
                     this.switchMsg();
@@ -98,7 +98,7 @@
         top: -50px;
         width: 20vw;
         left: calc((100% - 20vw) / 2);
-        height: 40px;
+        min-height: 40px;
     }
 
     .srm-message-box-type-normal{

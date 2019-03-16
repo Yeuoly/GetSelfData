@@ -4,10 +4,11 @@
             <div class="holder">
                 <input :id="ID"
                        class="font-normal-size passport-input"
-                       type="text"
+                       :type="type"
                        :placeholder="placeholder"
-                       v-model="model"
-                       @keyup="keyup(keyupP)"
+                       :value="hostValue"
+                       @input="handleInput"
+                       @keyup="handleKeyUp"
                 >
             </div>
             <div id="tip-passport-account" class="tip">
@@ -19,23 +20,32 @@
 
 <script>
     export default {
+        model : {
+            prop : 'hostValue',
+            event : 'change'
+        },
         props : {
             placeholder : String,
             ID : String,
-            keyup : Function,
-            keyupP : String,
             type : String,
+            tip : String,
+            hostValue : String
         },
         name: "PassportInput",
         data () {
             return {
-                model : '',
-                tip : ''
+
             }
         },
         methods : {
+            handleInput(e){
+                this.$emit('change',e.target.value);
+            },
             setTip(content){
                 this.tip = content;
+            },
+            handleKeyUp(){
+                this.$emit('VKeyup');
             }
         }
     }
@@ -55,11 +65,12 @@
         border: 0;
         margin: 0 auto;
         outline: none;
-        width: 95%;
+        width: calc(100% - 20px);
         font-size: 18px;
     }
 
     .holder{
+        width: 95%;
         vertical-align: middle;
         background: white;
         border-radius: 5px;

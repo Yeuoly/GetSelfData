@@ -45,7 +45,6 @@
     import { BaseModule } from '../../js/module';
     import { GlobalCommunication } from "../../js/GlobalCommunication";
     import { router } from "../../router";
-    import Store from '../../store';
 
     export default {
         data () {
@@ -192,11 +191,12 @@
     }
 
     #menu-user-block{
+        overflow: auto;
         padding-left: 5%;
         padding-top: 5%;
         width: 90%;
         margin: 0 auto;
-        height: 5vw;
+        height: 10vh;
     }
 
     #menu-user-block-avatar{
@@ -318,4 +318,5 @@
         vertical-align: middle;
         color: white;
     }
+
 </style>
