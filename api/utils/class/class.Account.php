@@ -83,7 +83,7 @@
                 return passport_server_error;
             }
 
-            return $DB->GetRowFromList(MYSQL_USER_LIST,mysql_key_account,$account);
+            return $DB->GetRowFromList(MYSQL_USER_LIST,[ 'act' => $account ]);
         }
 
         /*

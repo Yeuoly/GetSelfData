@@ -6,7 +6,7 @@
                     placeholder="账号"
                     type="text"
                     @VKeyup="verifyFormat('account')"
-                    v-model="account"
+                    v-model.lazy="account"
                     :tip="account_tip"
                     ID="input-account"
             />
@@ -39,7 +39,7 @@
                     type="text"
                     @VKeyup="verifyFormat('normalCaptcha')"
                     v-model="normal_captcha"
-                    :tip="normal_captcha_tip"
+                    :tip="getNormalCaptcha"
                     ID="input-NormalCaptcha"
             />
             <EmailCaptcha
@@ -52,17 +52,23 @@
             />
         </div>
         <div class="btn-group">
-            <LoginBtn
-                    @VClick="login"
-                    :enable="true"
-                    content="&#xe600; 登录"
-                    class-name="login-btn yb-icon-font"
-            />
             <RegisterBtn
                     @VClick="register"
                     :enable="allowedRegister"
                     content="&#xe71c; 注册"
-                    class-name="register-btn yb-icon-font"
+                    class-name="register-btn flex-cell yb-icon-font"
+            />
+            <NormalCaptchaBtn
+                    @VClick=""
+                    :enable="true"
+                    content="&#xe636; 发送验证码"
+                    class-name="captcha-btn flex-cell yb-icon-font"
+            />
+            <LoginBtn
+                    @VClick="login"
+                    :enable="true"
+                    content="&#xe600; 登录"
+                    class-name="login-btn flex-cell yb-icon-font"
             />
         </div>
     </div>
@@ -73,6 +79,9 @@
     import CommonButton from '../Common/CommonButton';
     import PassportInput from '../Common/PassportInput';
     import Title from '../Common/PassportTitle';
+    import { Pattern } from "../../js/GlobalUtils";
+    import { GlobalCommunication } from "../../js/GlobalCommunication";
+    import { BaseModule } from "../../js/module";
 
     export default {
         name: "RegisterPage",
@@ -85,7 +94,8 @@
             NormalCaptcha : PassportInput,
             EmailCaptcha : PassportInput,
             RegisterBtn : CommonButton,
-            LoginBtn : CommonButton
+            LoginBtn : CommonButton,
+            NormalCaptchaBtn : CommonButton
         },
         data () {
             return {
@@ -105,24 +115,113 @@
                 format_allowed_password : false,
                 format_allowed_repeat_password : false,
                 format_allowed_email : false,
+                querying : false
             }
         },
         computed : {
             allowedRegister() {
                 return this.format_allowed_account && this.format_allowed_password &&
                     this.format_allowed_repeat_password && this.format_allowed_email
-            }
+            },
+            getNormalCaptcha () {
+                return '<img ' +
+                    'alt="error" ' +
+                    'src="'+ BaseModule.getUrlPath('Captcha.php?method=register',BaseModule.dir_api) +'"' +
+                    'style="height: 25px;padding-bottom: 5px"' +
+                    '>';
+            },
         },
         methods : {
             verifyFormat(method){
                 switch (method) {
                     case 'account':
+                        if(this.account.length < 6)
+                        {
+                            this.account_tip = '这么短小的嘛qwq';
+                            this.format_allowed_account = false;
+                        }
+                        else if(this.account.length > 16)
+                        {
+                            this.account_tip = '好长啊。。要死啦';
+                            this.format_allowed_account = false;
+                        }
+                        else if(!Pattern.account.test(this.account))
+                        {
+                            this.account_tip = '奇奇怪怪的名字是不可以的哦';
+                            this.format_allowed_account = false;
+                        }
+                        else
+                        {
+                            if(!this.querying)
+                            {
+                                this.querying = true;
+                                setTimeout( () => {
+                                    GlobalCommunication.$emit('httpPost',
+                                        BaseModule.getUrlPath('FindUser.php',BaseModule.dir_api),
+                                        {
+                                            n : this.account
+                                        },
+                                        (data) => {
+                                            if(data.data['find'] === true)
+                                            {
+                                                this.account_tip = '这个名字已经被占用了哦~';
+                                                this.format_allowed_account = false;
+                                            }else{
+                                                this.account_tip = '';
+                                                this.format_allowed_account = true;
+                                            }
+                                        },
+                                        () => {
+                                            this.account_tip = '阿拉啦服务器好像坏掉惹';
+                                            this.format_allowed_account = false;
+                                        }
+                                    );
+                                    this.querying = false;
+                                } ,1000);
+                            }
+                        }
                         break;
                     case 'password':
+                        if(this.password.length < 6)
+                        {
+                            this.password_tip = '这么短小的嘛qwq';
+                            this.format_allowed_password = false;
+                        }
+                        else if(this.password.length > 16)
+                        {
+                            this.password_tip = '好长啊。。要死啦';
+                            this.format_allowed_password = false;
+                        }
+                        else if(!Pattern.password.test(this.password))
+                        {
+                            this.password_tip = '密码也是不允许变得奇怪的哦';
+                            this.format_allowed_password = false;
+                        }
+                        else
+                        {
+                            this.password_tip = '';
+                            this.format_allowed_password = true;
+                        }
                         break;
                     case 'repeatPassword':
+                        if(this.repeat_password !== this.password)
+                        {
+                            this.repeat_password_tip = '主人的两次密码不一样哦~';
+                            this.format_allowed_repeat_password = false;
+                        }else{
+                            this.repeat_password_tip = '';
+                            this.format_allowed_repeat_password = true;
+                        }
                         break;
                     case 'email':
+                        if(!Pattern.email.test(this.email))
+                        {
+                            this.email_tip = '好奇怪的邮箱诶。。';
+                            this.format_allowed_email = false;
+                        }else{
+                            this.email_tip = '';
+                            this.format_allowed_email = true;
+                        }
                         break;
                     case 'normalCaptcha':
                         break;
@@ -134,7 +233,25 @@
                 this.$router.push({ name : 'login' });
             },
             register () {
-
+                GlobalCommunication.$emit('httpPost',
+                    BaseModule.getUrlPath('Register.php',BaseModule.dir_api),
+                    {
+                        act : this.account,
+                        pswd : this.password,
+                        captcha : this.email_captcha
+                    },
+                    (data) => {
+                        if(data.data['res'] === BaseModule.response.requestSuccess)
+                        {
+                            this.$utils.messageBox('注册成功~');
+                            setTimeout(() => {
+                                document.location = BaseModule.getUrlPath('#/passport/login',BaseModule.dir_web);
+                            }, 1000);
+                        }else{
+                            this.$utils.messageBox(data.data['error'],'warn');
+                        }
+                    }
+                );
             }
         }
     }
@@ -147,15 +264,25 @@
         width: 80%;
         margin: 0 auto;
         position: relative;
+        display: flex;
+        flex-direction: row ;
+        flex-wrap: nowrap;
     }
 
     .login-btn{
-        position: absolute;
-        left: calc((100% / 2) + 10px);
+
     }
 
     .register-btn{
-        position: absolute;
-        right: calc((100% / 2) + 10px);
+
+    }
+
+    .captcha-btn{
+
+    }
+
+    .flex-cell{
+        flex: 1;
+        width: 20%;
     }
 </style>

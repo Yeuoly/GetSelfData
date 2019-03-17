@@ -22,7 +22,7 @@
             header("charset:utf-8");
         }
         static public function SetAllowOrigin(){
-            header("Access-Control-Allow-Origin:".CLIENT_HOST);
+            header("Access-Control-Allow-Origin:".(CLIENT_HOST == '*' ? $_SERVER['HTTP_ORIGIN'] : CLIENT_HOST));
         }
     }
 

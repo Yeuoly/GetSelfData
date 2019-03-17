@@ -58,7 +58,7 @@
         box-shadow: rgba(0,0,0,.2) 0 1px 2px;
     }
 
-    @media (max-width: 786px) {
+    @media (max-width: 1276px) {
         #passport-item-container{
             width: 90vw;
         }

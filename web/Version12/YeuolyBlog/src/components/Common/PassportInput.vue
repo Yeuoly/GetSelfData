@@ -12,7 +12,7 @@
                 >
             </div>
             <div id="tip-passport-account" class="tip">
-                {{tip}}
+                <div v-html="tip"></div>
             </div>
         </label>
     </div>

@@ -1,17 +1,15 @@
 <template>
-    <div id="updates-log" class="card">
-        <h2 id="log-title" class="card-title">
+    <div id="updates-log" class="card yb-icon-font">
+        <h3 id="log-title" class="card-title">
             {{title}}
-        </h2>
-        <div class="vertical-blank-block"></div>
+        </h3>
         <div id="updates-log-list">
             <ul>
                 <li v-for="log in updateLog">
                     <div class="updateLog">
-                        <span class="updateLog-avatar"></span>
-                        <span class="updateLog-title">{{log.date}} : {{log.title}}</span>
+                        <span class="updateLog-title">{{log.date}} &#xe648; {{log.title}}</span>
                         <span class="updateLog-blank-block"></span>
-                        <span class="updateLog-content">{{log.content}}</span>
+                        <span class="updateLog-content"> &#xe648; {{log.content}}</span>
                     </div>
                     <div class="vertical-blank-block"></div>
                 </li>
@@ -75,45 +73,38 @@
                         date    : '2018/10/01'
                     }
                 ],
-                class : 'normal',
-                normal : ''
             }
         }
     }
 </script>
 
-<style>
+<style scoped>
     #updates-log-list li{
         list-style: none;
     }
 
+    .card{
+        -webkit-text-stroke-width: 0;
+    }
+
     .updateLog{
-        width: 90%;
+        width: 100%;
         overflow: auto;
         margin: 0 auto;
     }
 
-    .updateLog-avatar{
-        padding-left: 10px;
-        padding-top: 10px;
-        width: 5%;
-        float: left;
-    }
-
     .updateLog-title{
-        font-size: 18px;
+        font-size: 16px;
         width: 90%;
-        float: right;
     }
 
     .updateLog-content{
+        float: left;
         font-size: 14px;
         width: 90%;
-        float: right;
     }
 
     .updateLog-blank-block{
-        float: right;
         width: 100%;
         height: 8px;
         padding: 0;

@@ -104,7 +104,7 @@
                     }
                     else if(this.password.length > 16)
                     {
-                        this.account_tip = '好长啊。。要死啦';
+                        this.password_tip = '好长啊。。要死啦';
                         this.format_allowed_password = false;
                     }
                     else if(!Pattern.password.test(this.password))
@@ -166,11 +166,13 @@
 
     .login-btn{
         position: absolute;
+        width: 30%;
         right: calc((100% / 2) + 10px);
     }
 
     .register-btn{
         position: absolute;
+        width: 30%;
         left: calc((100% / 2) + 10px);
     }
 </style>

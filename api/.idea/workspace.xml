@@ -3,31 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avatar.php" beforeDir="false" afterPath="$PROJECT_DIR$/FindUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataAction/private/operate.php" beforeDir="false" afterPath="$PROJECT_DIR$/dataAction/private/operate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.DBController.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.DBController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/class/class.PostAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.PostAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/class/class.Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.Account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/.idea/dictionaries/Administrator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/css/msg.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/css/passport.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/jq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/module.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/msg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/passport.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/js/vue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/msg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/operate/editor-post.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/operate/js/editor-post.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-release/vue/msg.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version11/operate/js/editor-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version11/operate/js/editor-post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/AboutList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/AboutPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/AboutPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/ConstBlackCover.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstBlackCover.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/ConstDom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstDom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/ConstFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstFooter.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/ConstHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/ConstMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/EditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/IndexUpdateLog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/SelfMainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/common/MessageBox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/common/MessageBox.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/operate/js/editor-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/operate/js/editor-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/AboutPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/AboutPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,87 +69,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="225" selection-start-line="225" selection-end-line="225" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+            <state relative-caret-position="534">
+              <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
               <folding>
-                <element signature="e#6#75#0#PHP" expanded="true" />
+                <element signature="n#__construct#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#__init#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#__setEmail#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#VerifyFormat#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#Login#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#Register#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#UpdateJct#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#CheckJct#0;n#AccountAction#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Query.php">
+        <entry file="file://$PROJECT_DIR$/FindUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            <state relative-caret-position="288">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
+        <entry file="file://$PROJECT_DIR$/Register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="468">
+              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Register.php">
+        <entry file="file://$PROJECT_DIR$/Captcha.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="50" column="15" lean-forward="true" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/class/class.Format.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-              <folding>
-                <element signature="n#FromNormalNum#0;n#FormatChecker#0;n#!!top" />
-                <element signature="n#FromNormalStr#0;n#FormatChecker#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataAction/private/getPost.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/class/class.PostAction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="432">
+              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -200,19 +170,20 @@
         <option value="$PROJECT_DIR$/LogOff.php" />
         <option value="$PROJECT_DIR$/User.php" />
         <option value="$PROJECT_DIR$/Verification.php" />
-        <option value="$PROJECT_DIR$/utils/functions.php" />
         <option value="$PROJECT_DIR$/test/test.php" />
         <option value="$PROJECT_DIR$/utils/class/class.Verification.php" />
         <option value="$PROJECT_DIR$/Query.php" />
         <option value="$PROJECT_DIR$/dataAction/private/getMyRecent.php" />
-        <option value="$PROJECT_DIR$/utils/class/class.Account.php" />
         <option value="$PROJECT_DIR$/Login.php" />
-        <option value="$PROJECT_DIR$/Config.php" />
         <option value="$PROJECT_DIR$/Avatar.php" />
-        <option value="$PROJECT_DIR$/Register.php" />
         <option value="$PROJECT_DIR$/dataAction/private/operate.php" />
         <option value="$PROJECT_DIR$/utils/class/class.PostAction.php" />
         <option value="$PROJECT_DIR$/utils/class/class.DBController.php" />
+        <option value="$PROJECT_DIR$/Config.php" />
+        <option value="$PROJECT_DIR$/utils/functions.php" />
+        <option value="$PROJECT_DIR$/utils/class/class.Account.php" />
+        <option value="$PROJECT_DIR$/FindUser.php" />
+        <option value="$PROJECT_DIR$/Register.php" />
       </list>
     </option>
   </component>
@@ -364,17 +335,19 @@
       <workItem from="1551441277934" duration="5325000" />
       <workItem from="1551511264987" duration="1769000" />
       <workItem from="1552112193889" duration="6349000" />
+      <workItem from="1552797093532" duration="6843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266793000" />
+    <option name="totallyTimeSpent" value="273636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18206158" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18473895" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -476,32 +449,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Captcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Operate.php" />
     <entry file="file://$PROJECT_DIR$/LogOff.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Verification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -533,35 +485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Avatar.php">
+    <entry file="file://$PROJECT_DIR$/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/class/class.Format.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-          <folding>
-            <element signature="n#FromNormalNum#0;n#FormatChecker#0;n#!!top" />
-            <element signature="n#FromNormalStr#0;n#FormatChecker#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="46" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -572,27 +499,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config.php">
+    <entry file="file://$PROJECT_DIR$/utils/class/class.PostAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding>
-            <element signature="e#6#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="46" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="162">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -603,10 +513,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/class/class.Format.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding>
+            <element signature="n#FromNormalNum#0;n#FormatChecker#0;n#!!top" />
+            <element signature="n#FromNormalStr#0;n#FormatChecker#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#6#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/class/class.DBController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+        <state relative-caret-position="540">
+          <caret line="84" column="28" lean-forward="true" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
           <folding>
             <element signature="n#__construct#0;n#DB_Controller#0;n#!!top" />
             <element signature="n#Init#0;n#DB_Controller#0;n#!!top" />
@@ -619,17 +571,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/class/class.PostAction.php">
+    <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="534">
+          <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
+          <folding>
+            <element signature="n#__construct#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#__init#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#__setEmail#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#VerifyFormat#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#Login#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#Register#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#UpdateJct#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#CheckJct#0;n#AccountAction#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="50" column="15" lean-forward="true" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+        <state relative-caret-position="468">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Verification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
         </state>
       </provider>
     </entry>

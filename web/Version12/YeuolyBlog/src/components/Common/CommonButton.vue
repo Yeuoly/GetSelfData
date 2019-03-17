@@ -29,7 +29,7 @@
     .btn-holder{
         transition: background-color .5s ease;
         overflow: auto;
-        width: 100px;
+        width: 100%;
         height: 35px;
         border-radius: 2px;
         background-color: white;
