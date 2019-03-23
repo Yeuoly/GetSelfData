@@ -1,31 +1,30 @@
 <template>
     <div class="post-card">
-        <div class="vertical-blank-block"></div>
         <div class="post-card-head">
             <h3 class="post-title">
-                <input type="text" placeholder="填写标题" v-model="post.title" id="post-title-input">
+                <NormalEditor
+                        placeholder="填写标题"
+                        v-model="post.title"
+                        id-name="post-title-input"
+                        :disable-break-word="true"
+                />
             </h3>
-            <div class="post-card-userblock">
-                <div class="post-card-userblock-avatar"
-                     :style="{backgroundImage : 'url( ' + post.avatar +  ')'}"
-                >
-                </div>
-                <div class="post-card-userblock-id">
-                    {{post.userInfo.user_id}}
-                </div>
-            </div>
             <div class="post-introduction">
-                <textarea placeholder="填写简介" v-model="post.about"></textarea>
+                <NormalEditor
+                        v-model="post.about"
+                        placeholder="简介"
+                        class-name="post-introduction-text"
+                />
             </div>
         </div>
         <div class="post-card-body">
             <ul class="post-card-body-ul">
                 <li :id="bodyDep.liID" class="post-card-body-li" v-for="bodyDep in post.body">
                     <div v-if="bodyDep.html === 'blog'">
-                        <div class="post-card-body-blog">
-                            <input type="text" v-model="bodyDep.src" :id="'focus-id-'+bodyDep.liID"
-                                   @keydown.enter="onInputEnter(bodyDep.liID)" />
-                        </div>
+                        <NormalEditor
+                                v-model="bodyDep.src"
+                                :id-name="'focus-id-'+bodyDep.liID"
+                        />
                     </div>
                     <table v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
                         <tr v-for="dep in bodyDep.src">
@@ -35,45 +34,55 @@
                         </tr>
                     </table>
                     <div v-else-if="bodyDep.html === 'picture'" class="post-card-body-picture">
-                        <img class="post-card-body-img" :src="bodyDep.src" :alt="postDefaultImg">
-                        <input type="text" placeholder="填写图片链接地址"
-                               v-model.lazy="bodyDep.src" :id="'focus-id-'+bodyDep.liID" style="width: 80%;float: left">
+                        <PictureEditor
+                                image-class="post-card-body-img"
+                                v-model="bodyDep.src"
+                                :id="'focus-id-'+bodyDep.liID"
+                        />
                     </div>
                     <div v-else-if="bodyDep.html === 'url'" class="post-card-body-url">
-                        <input type="text" placeholder="填写链接地址" :id="'focus-id-'+bodyDep.liID" v-model="bodyDep.src">
-                        <input type="text" placeholder="填写链接文字" v-model="bodyDep.about">
+                        <UrlEditor
+                                v-model="bodyDep.src"
+                        />
                     </div>
-                    <div style="height: 10px;"></div>
-                    <label style="float: left;height: 25px;vertical-align: middle">类别：</label>
-                    <select style="float: left;height: 25px; outline: none" :name="bodyDep.liID" v-model="bodyDep.html">
-                        <option value="blog">文字</option>
-                        <option value="picture">图片</option>
-                        <option value="url">链接</option>
-                        <option value="table">表格</option>
-                    </select>
-                    <input type="button" @click="addNewBlock(bodyDep.liID)" value="+">
-                    <input type="button" @click="deleteBlock(bodyDep.liID)" value="-">
                 </li>
             </ul>
         </div>
-        <div style="width: 100% ; overflow: auto" class="post-sender">
-            <input id="button-send" style="float: right ; margin-right: 10px ; width: 190px" type="button" @click="send" value="发送">
+        <div class="post-sender">
+            <CommonButton
+                    enable="true"
+                    class-name="a"
+                    @VClick="send"
+                    content="发送"
+            />
         </div>
     </div>
 </template>
 
 <script>
-    import { GlobalCommunication } from "../../js/GlobalCommunication";
-    import { BaseModule } from "../../js/module";
-    import { router } from "../../router";
+    import { GlobalCommunication } from "../../js/GlobalCommunication"
+    import { BaseModule } from "../../js/module"
+    import { router } from "../../router"
+
+    import PictureEditor from '../Common/PictureInput'
+    import UrlEditor from '../Common/UrlInput'
+    import NormalEditor from '../Common/NormalInput'
+    import CommonButton from '../Common/CommonButton'
 
     export default {
         name: "EditPage",
+        components : {
+            CommonButton,
+            PictureEditor,
+            UrlEditor,
+            NormalEditor
+        },
         data () {
             let self = this;
             return {
                 postDefaultImg : '您这图我tm加载不出来啊',
                 post : {
+                    currentLine : 1,
                     maxLine : 1,
                     userInfo : self.$store.getters.userInfo,
                     title : '',
@@ -93,6 +102,9 @@
             }
         },
         methods : {
+            toString(src) {
+                return src.toString();
+            },
             loadPost(postID){
                 GlobalCommunication.$emit('httpPost',
                     BaseModule.getUrlPath('dataAction/private/getPost.php',BaseModule.dir_api),
@@ -199,7 +211,6 @@
             }
         },
         mounted() {
-            console.log('fuck');
             setTimeout(()=>{
                 let postID = this.$route.params['pid'];
                 if(typeof postID === 'string')
@@ -213,42 +224,62 @@
 
 <style scoped>
 
-    .post-card-body-blog input[type="text"], .post-card-body-picture input[type="text"] , .post-card-body-url input[type="text"]{
-        width: 100%;
-        font-size: 18px;
+    .post-card{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 70%;
+        overflow:auto;
+        background-color: rgba(238, 238, 238, 0.315);
+        margin: 0 auto;
+        border-radius:5px;
+        position: relative;
     }
 
-    .post-card input[type="button"]{
-        overflow: paged-x;
-        float: left;
-        border: 0px;
-        border-right: 10px;
-        outline: 0px;
-        background: rgba(255,255,255,0.4);
-        width: 50px;
-        margin-left: 10px;
-        height: 25px;
-        font-family: "微软雅黑";
-        font-size: 18px;
-        color: black;
+    .post-card-operate{
+        position: absolute;
+        top: 20px;
+        right: 30px;
+    }
+
+    .post-card-operate-content{
+        display: inline-block;
+    }
+
+    .post-card-operate-content::before{
+        content: "\e606";
         cursor: pointer;
     }
 
-    .post-introduction textarea{
-        width: 100%;
-        font-size: 15px;
+    .post-card-operate-dropdown{
+        display: none;
+        position: absolute;
+        border: 1px solid #d7dfeab8;
+        min-width: 60px;
+        margin-left: -80px;
+        border-radius: 8px;
+        text-align: center;
+        overflow: auto;
     }
 
-    .post-title input[type="text"]{
-        color: white;
-        font-family:  "微软雅黑";
-        font-size: 150%;
-        width: 80%;
-        text-align: center;
+    .post-card-operate-content:hover .post-card-operate-dropdown{
+        display: block;
     }
+
+    .post-card-operate-item{
+        padding-top: 8px;
+        background: rgba( 244 , 244 , 244 , 0.3);
+        width: 100px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .post-card-operate-item:hover{
+        color: #00b5e5;
+    }
+
+    /*下面是post-card-body的样式*/
 
     .post-card-body-li{
-        margin-bottom: 40px;
         overflow: auto;
     }
 
@@ -264,30 +295,35 @@
         margin: 0 auto;
         overflow: auto;
         text-align: left;
-        padding-bottom: 10px;
+        background-color: white;
+        padding: 5px;
     }
 
     .post-introduction{
         margin: 0 auto;
         overflow: hidden;
-        padding: 10px;
-        /* margin-left: -30px; */
-        float: left;
-        width: 68%;
+        width: 95%;
         min-height: 50px;
         text-align: justify;
-        background-color: rgba(255,255,255,0.135);
+        background-color: white;
         border-radius: 5px;
         word-wrap: break-word;
         word-break: break-all;
         letter-spacing: 1px;
         line-height: 22px;
-        border: 10px;
+        padding: 5px;
+    }
+
+    .post-introduction-text{
+        font-size: 30px;
     }
 
     .post-title{
-        margin: 0 auto;
-        padding-bottom: 10px;
+        margin: 10px auto;
+        padding: 5px;
+        width: 95%;
+        background-color: white;
+        height: 30px;
     }
 
     .post-card-userblock{
@@ -351,8 +387,18 @@
     .post-card-body-table td{
         display: table-cell;
         text-align: center;
-        font-family: "微软雅黑 Narrow";
         color:rgb(37, 37, 37);
+    }
+
+    .post-card-body-img{
+        width: 100%;
+    }
+
+
+    .post-sender{
+        margin: 0 auto;
+        width: 95%;
+        padding: 5px;
     }
 
 </style>

@@ -64,12 +64,12 @@
                     },
                     {
                         name : '我的主页',
-                        about : '字面意思呀，巴拉拉能量让你回到自己的主页！',
+                        about : '回家咯~',
                         func : 'myIndex'
                     },
                     {
-                        name : '发post去',
-                        about : '皮皮站，咱们去发博客！',
+                        name : '发送博客',
+                        about : '也该干正事了',
                         func : 'send'
                     },
                     {

@@ -1,7 +1,7 @@
 <template>
     <div id="login-page">
         <Title title="&#xe600; 登录" />
-        <div class="input-group">
+        <form class="input-group">
             <Account
                     placeholder="账号"
                     type="text"
@@ -18,7 +18,7 @@
                     :tip="password_tip"
                     ID="input-password"
             />
-        </div>
+        </form>
         <div class="btn-group">
             <LoginBtn
                     @VClick="login"

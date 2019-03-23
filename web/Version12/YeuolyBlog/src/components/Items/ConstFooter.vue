@@ -9,7 +9,7 @@
         name : 'ConstFooter',
         data () {
             return {
-                copyright : BaseModule.baseinfo.m_COPYRIGHT
+                copyright : BaseModule.BaseInfo.m_COPYRIGHT
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
     <div id="register-page">
         <Title title="&#xe71c; 注册" />
-        <div class="input-group">
+        <form class="input-group">
             <Account
                     placeholder="账号"
                     type="text"
@@ -50,7 +50,7 @@
                     :tip="email_captcha_tip"
                     ID="input-EmailCaptcha"
             />
-        </div>
+        </form>
         <div class="btn-group">
             <RegisterBtn
                     @VClick="register"
@@ -59,8 +59,8 @@
                     class-name="register-btn flex-cell yb-icon-font"
             />
             <NormalCaptchaBtn
-                    @VClick=""
-                    :enable="true"
+                    @VClick="getEmailCaptcha"
+                    :enable="allowGetNormalCaptcha"
                     content="&#xe636; 发送验证码"
                     class-name="captcha-btn flex-cell yb-icon-font"
             />
@@ -119,9 +119,15 @@
             }
         },
         computed : {
-            allowedRegister() {
+            allowCommon () {
                 return this.format_allowed_account && this.format_allowed_password &&
-                    this.format_allowed_repeat_password && this.format_allowed_email
+                this.format_allowed_repeat_password && this.format_allowed_email;
+            },
+            allowedRegister() {
+                return this.allowCommon && this.normal_captcha !== '' && this.email_captcha !== '';
+            },
+            allowGetNormalCaptcha() {
+                return this.allowCommon && this.normal_captcha !== '';
             },
             getNormalCaptcha () {
                 return '<img ' +
@@ -250,6 +256,27 @@
                         }else{
                             this.$utils.messageBox(data.data['error'],'warn');
                         }
+                    }
+                );
+            },
+            getEmailCaptcha () {
+                GlobalCommunication.$emit('httpPost',
+                    BaseModule.getUrlPath('Verification.php',BaseModule.dir_api),
+                    {
+                        email : this.email,
+                        method : 'register',
+                        captcha : this.normal_captcha
+                    },
+                    (data) => {
+                        if(data.data['res'] === BaseModule.response.requestSuccess)
+                        {
+                            this.$utils.messageBox('验证码已发送');
+                        }else{
+                            this.$utils.messageBox(data.data['error'],'warn');
+                        }
+                    },
+                    () => {
+                        this.$utils.messageBox('发送了意外的错误','warn');
                     }
                 );
             }

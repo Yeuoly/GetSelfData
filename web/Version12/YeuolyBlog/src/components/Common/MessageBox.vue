@@ -22,7 +22,7 @@
                 type : 'normal',
                 show : false,
                 over : false,
-                time : 3000,
+                time : 2000,
                 listEmpty : true,
                 list : []
             }
@@ -79,6 +79,8 @@
     #msgBox{
         background: white;
         transition: .5s all ease;
+        z-index: 5;
+        position: relative;
     }
 
     .msgBox-enter{
@@ -99,10 +101,11 @@
         width: 20vw;
         left: calc((100% - 20vw) / 2);
         min-height: 40px;
+
     }
 
     .srm-message-box-type-normal{
-        border: 1px solid rgba(103,194,58,0.8);
+        border: 1px solid rgba(103,194,58,0.7);
     }
 
     .srm-message-box-icon-type-normal{
@@ -133,10 +136,16 @@
         width: 90%;
         height: 95%;
         margin: 0 auto;
+        position: relative;
     }
 
     .srm-message-box-msg{
-
+        font-size: 15px;
+        text-align: center;
+        vertical-align: middle;
+        position: absolute;
+        top: 50%;
+        transform: translate(0 , 50%);
     }
 
 </style>

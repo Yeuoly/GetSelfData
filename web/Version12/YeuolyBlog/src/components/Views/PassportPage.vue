@@ -16,7 +16,7 @@
             select(){
                 if(this.$store.getters.userInfo.online) {
                     this.$router.push({ name : 'register' });
-                    this.$utils.messageBox('您已经登录了哦~再注册一个吧~');
+                    this.$utils.messageBox('您已经登录了哦~再注册一个咩？');
                 }
                 else
                     this.$router.push({ name : 'login' });

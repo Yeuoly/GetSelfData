@@ -29,6 +29,11 @@
                 title : '网站更新日志',
                 updateLog :[
                     {
+                        title   : '单页应用重构完成 Version: 1.2-release',
+                        content : '经过一段时间的重构，正式以单页应用的形式上线，为了更佳的体验，修改了大量样式',
+                        date    : '2019/3/23'
+                    },
+                    {
                         title   : '开始大规模重构 Version: 1.2-alpha',
                         content : '考虑到网站的兼容性、可管理性、可扩展性等因素，对网站前端进行了大规模重构' +
                             '，改为单页应用，正式使用webpack和vue-cli',
