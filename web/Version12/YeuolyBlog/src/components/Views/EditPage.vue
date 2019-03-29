@@ -1,5 +1,5 @@
 <template>
-    <div class="post-card">
+    <div class="post-card yb-icon-font">
         <div class="post-card-head">
             <h3 class="post-title">
                 <NormalEditor
@@ -16,6 +16,12 @@
                         class-name="post-introduction-text"
                 />
             </div>
+        </div>
+        <div class="post-tools-bar">
+            <top-tool-bar
+                    :list="topTools"
+                    host-class="tools"
+            />
         </div>
         <div class="post-card-body">
             <ul class="post-card-body-ul">
@@ -50,7 +56,7 @@
         </div>
         <div class="post-sender">
             <CommonButton
-                    enable="true"
+                    :enable="true"
                     class-name="a"
                     @VClick="send"
                     content="发送"
@@ -61,13 +67,14 @@
 
 <script>
     import { GlobalCommunication } from "../../js/GlobalCommunication"
-    import { BaseModule } from "../../js/module"
+    import { InfoModule } from "../../js/module"
     import { router } from "../../router"
 
     import PictureEditor from '../Common/PictureInput'
     import UrlEditor from '../Common/UrlInput'
     import NormalEditor from '../Common/NormalInput'
     import CommonButton from '../Common/CommonButton'
+    import TopToolBar from '../Common/TopToolBar'
 
     export default {
         name: "EditPage",
@@ -75,12 +82,62 @@
             CommonButton,
             PictureEditor,
             UrlEditor,
-            NormalEditor
+            NormalEditor,
+            TopToolBar
         },
         data () {
             let self = this;
             return {
-                postDefaultImg : '您这图我tm加载不出来啊',
+                /***
+                    topTools is for the tools bar
+                 ***/
+                topTools :[
+                    {
+                        html : '&#xe614;',
+                        title : '上传图片',
+                        func : function () {
+                            window.open(
+                                'https://www.picb.cc/upload',
+                                '',
+                                'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=850,height=400'
+                            );
+                        },
+                        class : 'none'
+                    },{
+                        html : '&#xe604;',
+                        title : '添加链接',
+                        func : () => {
+                            this.addNewBlock(this.post.maxLine,'url');
+                        },
+                        class : 'none'
+                    },{
+                        html : '&#xe678;',
+                        title : '添加图片',
+                        func : () => {
+                            this.addNewBlock(this.post.maxLine,'picture');
+                        },
+                        class : 'none'
+                    },{
+                        html : '&#xe796;',
+                        title : '添加表格',
+                        func : () => {
+                            this.addNewBlock(this.post.maxLine,'table');
+                        },
+                        class : 'none'
+                    },{
+                        html : '&#xe6ed;',
+                        title : '继续写字（这个是为了防止你们打不了字加的）',
+                        func : () => {
+                            this.addNewBlock(this.post.maxLine);
+                        },
+                        class : 'none'
+                    }
+                ],
+
+                /***
+                    $post is a list about the post ,
+                    it includes all the information of current post
+                 ***/
                 post : {
                     currentLine : 1,
                     maxLine : 1,
@@ -107,10 +164,10 @@
             },
             loadPost(postID){
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('dataAction/private/getPost.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('dataAction/private/getPost.php',InfoModule.dir_api),
                     { postID : postID },
                     (data) => {
-                        if(data.data['res'] === BaseModule.response.requestSuccess)
+                        if(data.data['res'] === InfoModule.response.requestSuccess)
                         {
                             this.status.postID = postID;
                             this.status.mode = 're';
@@ -147,17 +204,11 @@
                     }
                 }
             },
-            addNewBlock(liID, hook) {
+            addNewBlock(liID, type ,hook) {
                 let newLiID = this.post.maxLine + 1;
                 this.post.maxLine++;
-                this._searchBlock_(liID, 0, { src : '', html : 'blog', liID : newLiID });
+                this._searchBlock_(liID, 0, { src : '', html : type ? type : 'blog', liID : newLiID });
                 this.newLiID = newLiID;
-            },
-            clearPostData(){
-
-            },
-            onInputEnter (liID){
-                this.addNewBlock(liID);
             },
             deleteBlock (liID) {
                 this._searchBlock_(liID,1);
@@ -176,7 +227,7 @@
                 }
 
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('dataAction/private/operate.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('dataAction/private/operate.php',InfoModule.dir_api),
                     {
                         title : this.post.title,
                         about : this.post.about,
@@ -185,7 +236,7 @@
                         method : method
                     },
                     (value) => {
-                        if (value.data['res'] === BaseModule.response.requestSuccess)
+                        if (value.data['res'] === InfoModule.response.requestSuccess)
                         {
                             this.clearPostData();
                             router.replace('/home');
@@ -194,20 +245,9 @@
                         }
                     },
                     () => {
-                        this.$utils.messageBox('发送了意外的错误','warn');
+                        this.$utils.messageBox('发生了意外的错误','warn');
                     }
                 );
-            }
-        },
-        watch : {
-            'post.maxLine' : {
-                handler(){
-                    this.$nextTick(function () {
-                        document.getElementById('focus-id-'+this.post.maxLine).focus();
-                        this.$nextTick(null);
-                    })
-                },
-                immediate : false
             }
         },
         mounted() {
@@ -288,6 +328,15 @@
         overflow: auto;
         text-align: center;
         padding-bottom: 10px;
+    }
+
+    .post-tools-bar{
+        width: 190px;
+        padding-left: calc(2.5% - 5px);
+    }
+
+    .tools{
+
     }
 
     .post-card-body{

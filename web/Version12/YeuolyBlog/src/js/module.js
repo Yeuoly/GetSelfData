@@ -1,4 +1,21 @@
-let BaseModule = {
+import axios from 'axios'
+
+
+let url = {
+    "localhost":{
+        "api" : "http://localhost:100/website/pif_mana/api/",
+        "web" : "http://localhost:8080/",
+        "img" : "http://localhost:100/website/pif_mana/img/"
+    },
+    "remoteserver" : {
+        "api" : "http://localhost:100/website/pif_mana/api/",
+        "web" : "http:8080/",
+        "img" : "http://localhost:100/website/pif_mana/img/"
+    }
+};
+
+
+let InfoModule = {
     dir_api : 0,
     dir_web : 1,
     dir_img : 2,
@@ -10,24 +27,23 @@ let BaseModule = {
     {
         switch(dtn)
         {
-            case BaseModule.dir_api:
-                return BaseModule.url.m_URL_DOMAIN_API + path;
-            case BaseModule.dir_web:
-                return BaseModule.url.m_URL_DOMAIN_WEB + path;
-            case BaseModule.dir_img:
-                return BaseModule.url.m_URL_DOMAIN_IMG + path;
+            case InfoModule.dir_api:
+                return InfoModule.url.api + path;
+            case InfoModule.dir_web:
+                return InfoModule.url.web + path;
+            case InfoModule.dir_img:
+                return InfoModule.url.img + path;
         }
     },
-    BaseInfo : {
-        m_COPYRIGHT            : "© 2019 - Yeuoly",
+    others : {
+        copyright : "© 2019 - Yeuoly",
     },
-    url : {
-        m_URL_DOMAIN_API       : "http://localhost:100/website/pif_mana/api/",
-        m_URL_DOMAIN_WEB       : "http:8080/",
-        m_URL_DOMAIN_IMG       : "http://localhost:100/website/pif_mana/img/"
-    },
+    url :
+        document.location.origin + '/' === url.localhost['web'] ?
+        url.localhost :
+        url.remoteserver
 };
 
 export {
-    BaseModule
+    InfoModule
 }

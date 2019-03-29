@@ -757,7 +757,7 @@ function InitWeb()
         });
         //底部固定栏
         var footer = Vue.extend({
-            template : '<div class="footer" id="footer">'+static_data.baseinfo.m_COPYRIGHT+'</div>',
+            template : '<div class="footer" id="footer">'+static_data.baseinfo.copyright+'</div>',
             data : function(){
                 return {
 

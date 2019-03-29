@@ -1,4 +1,4 @@
-import { BaseModule } from "./module";
+import { InfoModule } from "./module";
 import Vue from 'vue';
 
 export let FunctionGroup = {
@@ -51,27 +51,27 @@ export let FunctionGroup = {
     },
 //到网站主页去
     goToIndex : function () {
-        location.href = BaseModule.getUrlPath('',BaseModule.dir_web);
+        location.href = InfoModule.getUrlPath('',InfoModule.dir_web);
     },
 //到自己的主页去
     goToMyIndex : function () {
-        location.href = BaseModule.getUrlPath("msg.html",BaseModule.dir_web);
+        location.href = InfoModule.getUrlPath("msg.html",InfoModule.dir_web);
     },
 //移动到更新日志
     goToUpdateLog : function () {
-        if(document.location.href === BaseModule.getUrlPath('',BaseModule.dir_web) ||
-            document.location.href === BaseModule.getUrlPath('index.html',BaseModule.dir_web))
+        if(document.location.href === InfoModule.getUrlPath('',InfoModule.dir_web) ||
+            document.location.href === InfoModule.getUrlPath('index.html',InfoModule.dir_web))
             FunctionGroup.smoothScrollMove('updates-log-list');
         else
-            document.location = BaseModule.getUrlPath('#updates-log-list',BaseModule.dir_web);
+            document.location = InfoModule.getUrlPath('#updates-log-list',InfoModule.dir_web);
     },
 //跳转页面到登录界面
     goToLogin : function () {
-        location.href = BaseModule.getUrlPath('passport.html',BaseModule.dir_web);
+        location.href = InfoModule.getUrlPath('passport.html',InfoModule.dir_web);
     },
 //硬核翻译，发博客去
     goToSendPost : function () {
-        location.href = BaseModule.getUrlPath('operate/editor-post.html',BaseModule.dir_web);
+        location.href = InfoModule.getUrlPath('operate/editor-post.html',InfoModule.dir_web);
     },
 /*//锚点平滑移动
     smoothScrollMove : function(id){
@@ -84,12 +84,12 @@ export let FunctionGroup = {
         if(FunctionGroup.isOnline())
         {
             FunctionGroup.http.get(
-                BaseModule.getUrlPath("LogOff.php",BaseModule.dir_api),
+                InfoModule.getUrlPath("LogOff.php",InfoModule.dir_api),
                 {},
                 {},
                 function(data)
                 {
-                    if(data['data']['res'] === BaseModule.response.passjct.success)
+                    if(data['data']['res'] === InfoModule.response.passjct.success)
                     {
                         FunctionGroup.clearUserInfo();
                     }
@@ -127,18 +127,18 @@ export let FunctionGroup = {
 //登录检测
     passJct : function() {
         FunctionGroup.http.post(
-            BaseModule.getUrlPath("User.php",BaseModule.dir_api),
+            InfoModule.getUrlPath("User.php",InfoModule.dir_api),
             {},
             {},
             function(data)
             {
-                if(data['data']['res'] === BaseModule.response.passjct.success)
+                if(data['data']['res'] === InfoModule.response.passjct.success)
                 {
                     FunctionGroup.setUserInfoArray(data['data']['data']);
                     FunctionGroup.setUserInfo('online',true);
                     FunctionGroup.setUserInfo(
                         'avatar' ,
-                        BaseModule.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',BaseModule.dir_img)
+                        InfoModule.getUrlPath('avatar/'+data['data']['data']['user_uid']+'.jpg',InfoModule.dir_img)
                     );
                     let handle_user_id_txt = document.getElementById("menu-user-block-id-txt");
                     handle_user_id_txt.style.setProperty('cursor','default');
@@ -267,12 +267,12 @@ export let FunctionGroup = {
         let link = document.createElement('link');
         link.type = 'image/x-icon';
         link.rel = 'shortcut icon';
-        link.href = BaseModule.getUrlPath('img/shortcut.ico',BaseModule.dir_web);
+        link.href = InfoModule.getUrlPath('img/shortcut.ico',InfoModule.dir_web);
         document.head.appendChild(link);
     },
 //设置标题
     setTitle : function(){
-        document.title = BaseModule.getWebTitle();
+        document.title = InfoModule.getWebTitle();
     },
 //获取指定cookie
     getDestinationCookie : function (cookieName) {

@@ -81,7 +81,7 @@
     import Title from '../Common/PassportTitle';
     import { Pattern } from "../../js/GlobalUtils";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
-    import { BaseModule } from "../../js/module";
+    import { InfoModule } from "../../js/module";
 
     export default {
         name: "RegisterPage",
@@ -132,7 +132,7 @@
             getNormalCaptcha () {
                 return '<img ' +
                     'alt="error" ' +
-                    'src="'+ BaseModule.getUrlPath('Captcha.php?method=register',BaseModule.dir_api) +'"' +
+                    'src="'+ InfoModule.getUrlPath('Captcha.php?method=register',InfoModule.dir_api) +'"' +
                     'style="height: 25px;padding-bottom: 5px"' +
                     '>';
             },
@@ -163,7 +163,7 @@
                                 this.querying = true;
                                 setTimeout( () => {
                                     GlobalCommunication.$emit('httpPost',
-                                        BaseModule.getUrlPath('FindUser.php',BaseModule.dir_api),
+                                        InfoModule.getUrlPath('FindUser.php',InfoModule.dir_api),
                                         {
                                             n : this.account
                                         },
@@ -240,18 +240,18 @@
             },
             register () {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('Register.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('Register.php',InfoModule.dir_api),
                     {
                         act : this.account,
                         pswd : this.password,
                         captcha : this.email_captcha
                     },
                     (data) => {
-                        if(data.data['res'] === BaseModule.response.requestSuccess)
+                        if(data.data['res'] === InfoModule.response.requestSuccess)
                         {
                             this.$utils.messageBox('注册成功~');
                             setTimeout(() => {
-                                document.location = BaseModule.getUrlPath('#/passport/login',BaseModule.dir_web);
+                                document.location = InfoModule.getUrlPath('#/passport/login',InfoModule.dir_web);
                             }, 1000);
                         }else{
                             this.$utils.messageBox(data.data['error'],'warn');
@@ -261,14 +261,14 @@
             },
             getEmailCaptcha () {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('Verification.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('Verification.php',InfoModule.dir_api),
                     {
                         email : this.email,
                         method : 'register',
                         captcha : this.normal_captcha
                     },
                     (data) => {
-                        if(data.data['res'] === BaseModule.response.requestSuccess)
+                        if(data.data['res'] === InfoModule.response.requestSuccess)
                         {
                             this.$utils.messageBox('验证码已发送');
                         }else{

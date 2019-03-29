@@ -11,7 +11,7 @@
 */
 
 import {FunctionGroup} from "../../Version12/YeuolyBlog/src/js/GlobalUtils";
-import {BaseModule} from "../../Version12/YeuolyBlog/src/js/module";
+import {InfoModule} from "../../Version12/YeuolyBlog/src/js/module";
 
 window.onload = function () {
     let theUA = window.navigator.userAgent.toLowerCase();
@@ -173,12 +173,12 @@ window.onload = function () {
         //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用，afterFail是在所有事情做完之后被调用
         getRecentPost :function (page , afterSuccess , afterFail) {
             FunctionGroup.http.post(
-                BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.dir_api),
+                InfoModule.getUrlPath('dataAction/private/getMyRecent.php',InfoModule.dir_api),
                 { page : page },
                 {},
                 function (data) {
                     console.log('getRecent post succeed');
-                    if(parseInt(data['data']['res']) === BaseModule.response.requestSuccess)
+                    if(parseInt(data['data']['res']) === InfoModule.response.requestSuccess)
                         afterSuccess(data);
                     else
                         FunctionGroup.alertBox('获取博客失败');

@@ -42,7 +42,7 @@
 
 <script>
 
-    import { BaseModule } from '../../js/module';
+    import { InfoModule } from '../../js/module';
     import { GlobalCommunication } from "../../js/GlobalCommunication";
     import { router } from "../../router";
 
@@ -116,12 +116,12 @@
                         break;
                     case 'logOff':
                         GlobalCommunication.$emit('httpGet',
-                            BaseModule.getUrlPath('LogOff.php',BaseModule.dir_api),
+                            InfoModule.getUrlPath('LogOff.php',InfoModule.dir_api),
                             {},
                             (value) => {
-                                if(value.data['res'] === BaseModule.response.requestSuccess)
+                                if(value.data['res'] === InfoModule.response.requestSuccess)
                                 {
-                                    location.href = BaseModule.getUrlPath('',BaseModule.dir_web);
+                                    location.href = InfoModule.getUrlPath('',InfoModule.dir_web);
                                 }else {
                                     this.$utils.messageBox(value.data['error'],'warn');
                                 }

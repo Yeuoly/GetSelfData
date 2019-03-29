@@ -41,7 +41,7 @@
     import PassportInput from '../Common/PassportInput';
     import CommonButton from '../Common/CommonButton';
     import Title from '../Common/PassportTitle';
-    import { BaseModule } from "../../js/module";
+    import { InfoModule } from "../../js/module";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
     import { Pattern } from "../../js/GlobalUtils";
 
@@ -122,7 +122,7 @@
             login () {
                 let vm = this;
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('Login.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('Login.php',InfoModule.dir_api),
                     {
                         act : vm.account,
                         pswd : vm.password
@@ -131,7 +131,7 @@
                         if(value.data.res === 666){
                             this.$utils.messageBox('登录成功');
                             setTimeout(() => {
-                                document.location = BaseModule.getUrlPath('',BaseModule.dir_web);
+                                document.location = InfoModule.getUrlPath('',InfoModule.dir_web);
                             }, 500);
                         } else {
                             this.$utils.messageBox(value.data.error,'warn');

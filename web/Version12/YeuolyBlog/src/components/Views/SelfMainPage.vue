@@ -64,7 +64,7 @@
 
 <script>
 
-    import { BaseModule } from "../../js/module";
+    import { InfoModule } from "../../js/module";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
 
     export default {
@@ -97,13 +97,13 @@
         methods : {
             deletePost (postID) {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('dataAction/private/operate.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('dataAction/private/operate.php',InfoModule.dir_api),
                     {
                         postID : postID,
                         method : 'delete'
                     },
                     (data) => {
-                        if(data['data']['res'] === BaseModule.response.requestSuccess)
+                        if(data['data']['res'] === InfoModule.response.requestSuccess)
                         {
                             this.$utils.messageBox('删除成功');
                             for(let i in this.postDepartment)
@@ -143,7 +143,7 @@
                     title : post_title,
                     user : post_user,
                     userId : post_user_id,
-                    avatarUrl : BaseModule.getUrlPath('avatar/'+post_user_id+'.jpg',BaseModule.dir_img),
+                    avatarUrl : InfoModule.getUrlPath('avatar/'+post_user_id+'.jpg',InfoModule.dir_img),
                     introduction : post_introduction,
                     postID : postID,
                     body : post_data
@@ -152,12 +152,12 @@
             //获取近期post，page是页面数，afterSuccess是一个function，在success中被调用，afterFail是在所有事情做完之后被调用
             getRecentPost :function (page , afterSuccess , afterFail) {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('dataAction/private/getMyRecent.php',BaseModule.dir_api),
+                    InfoModule.getUrlPath('dataAction/private/getMyRecent.php',InfoModule.dir_api),
                     {
                         page : page
                     },
                     (value) => {
-                        if(parseInt(value['data']['res']) === BaseModule.response.requestSuccess)
+                        if(parseInt(value['data']['res']) === InfoModule.response.requestSuccess)
                             afterSuccess(value);
                         else
                             this.$utils.messageBox('获取博客失败','warn');

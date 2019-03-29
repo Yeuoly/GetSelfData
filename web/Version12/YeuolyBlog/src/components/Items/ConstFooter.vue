@@ -3,13 +3,13 @@
 </template>
 
 <script>
-    import { BaseModule } from "../../js/module";
+    import { InfoModule } from "../../js/module";
 
     export default {
         name : 'ConstFooter',
         data () {
             return {
-                copyright : BaseModule.BaseInfo.m_COPYRIGHT
+                copyright : InfoModule.others.copyright
             }
         }
     }

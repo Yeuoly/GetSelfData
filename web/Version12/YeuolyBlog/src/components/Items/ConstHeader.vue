@@ -72,7 +72,6 @@
         text-align: center;
         vertical-align: middle;
         color: white;
-        letter-spacing: -3px;
     }
 
     #user-block-open-click:hover , .header-function-list-depInner:hover{

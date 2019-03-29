@@ -17,7 +17,7 @@
     import qs from 'query-string'
 
     import {GlobalCommunication} from "./js/GlobalCommunication";
-    import {BaseModule} from "./js/module";
+    import {InfoModule} from "./js/module";
 
     export default {
         name: 'app',
@@ -51,10 +51,10 @@
 
             refreshUserData() {
                 GlobalCommunication.$emit('httpPost',
-                    BaseModule.getUrlPath('User.php', BaseModule.dir_api),
+                    InfoModule.getUrlPath('User.php', InfoModule.dir_api),
                     {},
                     (value) => {
-                        if (value.data.res === BaseModule.response.requestSuccess) {
+                        if (value.data.res === InfoModule.response.requestSuccess) {
                             this.$store.commit('setUserInfo',value.data.data);
                             this.$store.commit('setUserInfo',{ online : true });
                         }

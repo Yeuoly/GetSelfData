@@ -35,7 +35,8 @@
                     '目前就是一个博客，之后会对这个进行各种魔改,' +
                     '网站会在您的计算机上储存cookies，如果您不希望被储存此类数据，关掉就完事了。' +
                     '联系我请发送邮件到admin@srmxy.cn。以下是本站使用到的工具。' +
-                    '还有件巨重要的事情，麻烦用Chrome访问，IE太屎了，css写得真的蛋疼，本职是高中生。',
+                    '还有件巨重要的事情，麻烦用Chrome访问，IE太屎了，css写得真的蛋疼，本职是高中生。' +
+                    '网站开源在github : https://github.com/Yeuoly/GetSelfData',
                 techList : [
                     {
                         name : '&#xe617;',

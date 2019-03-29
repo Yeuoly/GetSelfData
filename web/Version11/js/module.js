@@ -90,11 +90,11 @@ function NotForgetData()
         switch(dtn)
         {
         case this.dir_api:
-            return this.url.m_URL_DOMAIN_API + path;
+            return this.url.api + path;
         case this.dir_web:
-            return this.url.m_URL_DOMAIN_WEB + path;
+            return this.url.web + path;
         case this.dir_img:
-            return this.url.m_URL_DOMAIN_IMG + path;
+            return this.url.img + path;
         }
     }
     
