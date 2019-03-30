@@ -50,13 +50,15 @@
     }
 
     .input{
+        cursor: text;
         width: 100%;
         min-height:20px;
         outline: 0;
-        font-size: 13px;
+        font-size: 16px;
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-user-modify: read-write-plaintext-only;
+        font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
     }
 
     [contenteditable=true]:empty:not(:focus):before{

@@ -1,48 +1,45 @@
 <template>
-    <div class="url-input"
-         @mouseleave="handleChange(); bottomBarShow = false"
-         @mouseenter="bottomBarShow = true"
-    >
-        <div class="url-input-text">
-            <input type="text"
-                   v-model="vHostValue.text"
-            >
-        </div>
-        <div class="url-input-url" v-show="bottomBarShow">
-            <input type="text" placeholder="链接" v-model="vHostValue.url">
-        </div>
+    <div class="url-input">
+        <common-editor
+                v-model="hostValue.text"
+                :disable-break-word="true"
+                placeholder="链接文本"
+                class-name="dep"
+        />
+        <common-editor
+                v-model="hostValue.url"
+                :disable-break-word="true"
+                placeholder="链接地址"
+                class-name="dep"
+        />
     </div>
 </template>
 
 <script>
+
+    import CommonEditor from '../Common/NormalInput'
+
     export default {
         name: "UrlInput",
+        components : {
+            CommonEditor
+        },
         model : {
             prop : 'hostValue',
             event : 'change'
         },
         props : {
-            hostValue : String
-        },
-        data () {
-            return {
-                bottomBarShow : false,
-                vHostValue : { text : '' , url : '' },
-            }
+            hostValue : Object
         },
         methods : {
             handleChange () {
-                this.$emit('change',JSON.stringify(this.vHostValue));
+                this.$emit('change',this.hostValue);
             }
         },
         watch : {
             hostValue : {
                 handler () {
-                    try {
-                        this.vHostValue = JSON.parse(this.hostValue);
-                    }catch (e) {
-
-                    }
+                    this.handleChange();
                 },
                 immediate : false,
                 deep : true
@@ -54,19 +51,20 @@
 <style scoped>
 
     .url-input{
-        position: relative;
-    }
-
-    .url-input-url{
-        position: absolute;
-        top: -20px;
-        width: 200px;
-    }
-
-    .url-input input{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         border: 0;
         background-color: transparent;
-        outline: none;
+        text-decoration: none;
+        font-size: 16px;
+        font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+    }
+
+    .dep{
+        flex: 1;
+        width: 50%;
+        padding-right: 5px;
     }
 
 </style>

@@ -28,7 +28,6 @@
                         <div class="post-introduction">
                             {{ev.introduction}}
                         </div>
-                        <div class="post-introduction-full-blank"></div>
                     </div>
                     <div class="post-card-body">
                         <ul class="post-card-body-ul">
@@ -49,8 +48,8 @@
                                     <img class="post-card-body-img" :src="bodyDep.src" alt="/">
                                 </div>
                                 <div v-else-if="bodyDep.html === 'url' " class="post-card-body-url">
-                                    <a :href="bodyDep.src">
-                                        网页链接：{{bodyDep.about}}
+                                    <a :href="bodyDep.src.url">
+                                        {{bodyDep.src.text}}
                                     </a>
                                 </div>
                             </li>
@@ -70,23 +69,7 @@
     export default {
         data () {
             return {
-                postDepartment : [
-                    //以下是测试内容
-                    /*{
-                        title : 'hello world',
-                        user : 'tester',
-                        userId : '10086',
-                        avatarUrl : '',
-                        introduction : 'introductions',
-                        postID : '108861',
-                        body : [
-                            {
-                                html : 'blog',
-                                src : 'hello world'
-                            }
-                        ]
-                    }*/
-                ],
+                postDepartment : [],
                 page : 1,
                 isLoading : false,
                 flag : false,
@@ -278,7 +261,7 @@
     .post-card-operate{
         position: absolute;
         top: 20px;
-        right: 30px;
+        right: 15px;
     }
 
     .post-card-operate-content{
@@ -360,6 +343,7 @@
     .post-title{
         margin: 0 auto;
         padding-bottom: 10px;
+        width: 65%;
     }
 
     .post-card-userblock{
@@ -436,14 +420,8 @@
         }
 
         .post-introduction{
-            position: absolute;
-            top: 100px;
-            left: calc((10% - 20px) / 2);
             width: 90%;
-        }
-
-        .post-introduction-full-blank{
-            height: 130px;
+            margin-left: 2.5%;
         }
 
         .post-card-userblock{
@@ -460,7 +438,9 @@
         }
 
         .post-card-body{
-
+            width: 90%;
+            margin-left: 2.5%;
+            padding: 10px;
         }
     }
 </style>

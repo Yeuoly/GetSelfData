@@ -1,66 +1,68 @@
 <template>
     <div class="post-card yb-icon-font">
-        <div class="post-card-head">
-            <h3 class="post-title">
-                <NormalEditor
-                        placeholder="填写标题"
-                        v-model="post.title"
-                        id-name="post-title-input"
-                        :disable-break-word="true"
-                />
-            </h3>
-            <div class="post-introduction">
-                <NormalEditor
-                        v-model="post.about"
-                        placeholder="简介"
-                        class-name="post-introduction-text"
+        <div class="post-card-inner">
+            <div class="post-card-head">
+                <h3 class="post-title">
+                    <NormalEditor
+                            placeholder="填写标题"
+                            v-model="post.title"
+                            id-name="post-title-input"
+                            :disable-break-word="true"
+                    />
+                </h3>
+                <div class="post-introduction">
+                    <NormalEditor
+                            v-model="post.about"
+                            placeholder="简介"
+                            class-name="post-introduction-text"
+                    />
+                </div>
+            </div>
+            <div class="post-tools-bar">
+                <top-tool-bar
+                        :list="topTools"
+                        host-class="tools"
                 />
             </div>
-        </div>
-        <div class="post-tools-bar">
-            <top-tool-bar
-                    :list="topTools"
-                    host-class="tools"
-            />
-        </div>
-        <div class="post-card-body">
-            <ul class="post-card-body-ul">
-                <li :id="bodyDep.liID" class="post-card-body-li" v-for="bodyDep in post.body">
-                    <div v-if="bodyDep.html === 'blog'">
-                        <NormalEditor
-                                v-model="bodyDep.src"
-                                :id-name="'focus-id-'+bodyDep.liID"
-                        />
-                    </div>
-                    <table v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
-                        <tr v-for="dep in bodyDep.src">
-                            <td v-for="(value,key) in dep" :tdKey="key">
-                                {{value}}
-                            </td>
-                        </tr>
-                    </table>
-                    <div v-else-if="bodyDep.html === 'picture'" class="post-card-body-picture">
-                        <PictureEditor
-                                image-class="post-card-body-img"
-                                v-model="bodyDep.src"
-                                :id="'focus-id-'+bodyDep.liID"
-                        />
-                    </div>
-                    <div v-else-if="bodyDep.html === 'url'" class="post-card-body-url">
-                        <UrlEditor
-                                v-model="bodyDep.src"
-                        />
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="post-sender">
-            <CommonButton
-                    :enable="true"
-                    class-name="a"
-                    @VClick="send"
-                    content="发送"
-            />
+            <div class="post-card-body">
+                <ul class="post-card-body-ul">
+                    <li :id="bodyDep.liID" class="post-card-body-li" v-for="bodyDep in post.body">
+                        <div v-if="bodyDep.html === 'blog'">
+                            <NormalEditor
+                                    v-model="bodyDep.src"
+                                    :id-name="'focus-id-'+bodyDep.liID"
+                            />
+                        </div>
+                        <table v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
+                            <tr v-for="dep in bodyDep.src">
+                                <td v-for="(value,key) in dep" :tdKey="key">
+                                    {{value}}
+                                </td>
+                            </tr>
+                        </table>
+                        <div v-else-if="bodyDep.html === 'picture'" class="post-card-body-picture">
+                            <PictureEditor
+                                    image-class="post-card-body-img"
+                                    v-model="bodyDep.src"
+                                    :id="'focus-id-'+bodyDep.liID"
+                            />
+                        </div>
+                        <div v-else-if="bodyDep.html === 'url'" class="post-card-body-url">
+                            <UrlEditor
+                                    v-model="bodyDep.src"
+                            />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="post-sender">
+                <CommonButton
+                        :enable="true"
+                        class-name="a"
+                        @VClick="send"
+                        content="发送"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -103,28 +105,32 @@
                             );
                         },
                         class : 'none'
-                    },{
+                    },
+                    {
                         html : '&#xe604;',
                         title : '添加链接',
                         func : () => {
                             this.addNewBlock(this.post.maxLine,'url');
                         },
                         class : 'none'
-                    },{
+                    },
+                    {
                         html : '&#xe678;',
                         title : '添加图片',
                         func : () => {
                             this.addNewBlock(this.post.maxLine,'picture');
                         },
                         class : 'none'
-                    },{
+                    },
+                    {
                         html : '&#xe796;',
                         title : '添加表格',
                         func : () => {
                             this.addNewBlock(this.post.maxLine,'table');
                         },
                         class : 'none'
-                    },{
+                    },
+                    {
                         html : '&#xe6ed;',
                         title : '继续写字（这个是为了防止你们打不了字加的）',
                         func : () => {
@@ -204,10 +210,38 @@
                     }
                 }
             },
+            clearPostData () {
+                this.post.title = '';
+                this.post.maxLine = 1;
+                this.post.about = '';
+                this.post.body = [];
+                this.post.currentLine = 1;
+            },
             addNewBlock(liID, type ,hook) {
                 let newLiID = this.post.maxLine + 1;
                 this.post.maxLine++;
-                this._searchBlock_(liID, 0, { src : '', html : type ? type : 'blog', liID : newLiID });
+                let object = {
+                    src : '',
+                    html : '',
+                    liID : newLiID
+                };
+                if (typeof type === 'undefined')
+                {
+                    object.html = 'blog';
+                }
+                else if (type === 'url')
+                {
+                    object.html = 'url';
+                    object.src = {
+                        text : '',
+                        url : ''
+                    }
+                }
+                else
+                {
+                    object.html = type
+                }
+                this._searchBlock_(liID, 0, object);
                 this.newLiID = newLiID;
             },
             deleteBlock (liID) {
@@ -275,49 +309,16 @@
         position: relative;
     }
 
-    .post-card-operate{
-        position: absolute;
-        top: 20px;
-        right: 30px;
-    }
-
-    .post-card-operate-content{
-        display: inline-block;
-    }
-
-    .post-card-operate-content::before{
-        content: "\e606";
-        cursor: pointer;
-    }
-
-    .post-card-operate-dropdown{
-        display: none;
-        position: absolute;
-        border: 1px solid #d7dfeab8;
-        min-width: 60px;
-        margin-left: -80px;
-        border-radius: 8px;
-        text-align: center;
-        overflow: auto;
-    }
-
-    .post-card-operate-content:hover .post-card-operate-dropdown{
-        display: block;
-    }
-
-    .post-card-operate-item{
-        padding-top: 8px;
-        background: rgba( 244 , 244 , 244 , 0.3);
-        width: 100px;
-        height: 30px;
-        cursor: pointer;
-    }
-
-    .post-card-operate-item:hover{
-        color: #00b5e5;
+    .post-card-inner{
+        width: 95%;
+        margin: 0 auto;
     }
 
     /*下面是post-card-body的样式*/
+
+    .post-card-body-ul{
+        padding: 15px;
+    }
 
     .post-card-body-li{
         overflow: auto;
@@ -325,14 +326,13 @@
 
     .post-card-head{
         width: 100%;
-        overflow: auto;
+        overflow: hidden;
         text-align: center;
         padding-bottom: 10px;
     }
 
     .post-tools-bar{
         width: 190px;
-        padding-left: calc(2.5% - 5px);
     }
 
     .tools{
@@ -340,25 +340,24 @@
     }
 
     .post-card-body{
-        width: 95%;
+        width: 100%;
         margin: 0 auto;
         overflow: auto;
         text-align: left;
+        line-height: 25px;
         background-color: white;
-        padding: 5px;
     }
 
     .post-introduction{
         margin: 0 auto;
         overflow: hidden;
-        width: 95%;
+        width: 100%;
         min-height: 50px;
         text-align: justify;
         background-color: white;
         border-radius: 5px;
         word-wrap: break-word;
         word-break: break-all;
-        letter-spacing: 1px;
         line-height: 22px;
         padding: 5px;
     }
@@ -368,11 +367,9 @@
     }
 
     .post-title{
-        margin: 10px auto;
         padding: 5px;
-        width: 95%;
+        width: 100%;
         background-color: white;
-        height: 30px;
     }
 
     .post-card-userblock{
@@ -418,7 +415,6 @@
     .post-card-body-url a{
         font-size: 135%;
         color: black;
-        /*text-decoration: none;*/
     }
 
     .post-card-body-table{
@@ -439,15 +435,10 @@
         color:rgb(37, 37, 37);
     }
 
-    .post-card-body-img{
-        width: 100%;
-    }
-
-
     .post-sender{
         margin: 0 auto;
-        width: 95%;
-        padding: 5px;
+        width: 100%;
+        padding-top: 5px;
     }
 
 </style>

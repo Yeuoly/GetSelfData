@@ -47,5 +47,11 @@
         border: 0;
         background-color: transparent;
         outline: none;
+        font-size: 16px;
+        font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+    }
+
+    ::placeholder{
+        color: #a99f9f;
     }
 </style>
