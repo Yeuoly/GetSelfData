@@ -1,7 +1,7 @@
 ;(function()
 {
 	// CommonJS
-	SyntaxHighlighter = SyntaxHighlighter || (typeof require !== 'undefined'? require('utils/phpmailer/examples/scripts/shCore').SyntaxHighlighter : null);
+	SyntaxHighlighter = SyntaxHighlighter || (typeof require !== 'undefined'? require('utils/plusings/phpmailer/examples/scripts/shCore').SyntaxHighlighter : null);
 
 	function Brush()
 	{

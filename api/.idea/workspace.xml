@@ -3,6 +3,132 @@
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/.scrutinizer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/.scrutinizer.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/PHPMailerAutoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/PHPMailerAutoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/VERSION" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/changelog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/class.phpmailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/class.phpmailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/class.phpmaileroauth.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/class.phpmaileroauth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/class.phpmaileroauthgoogle.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/class.phpmaileroauthgoogle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/class.pop3.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/class.pop3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/class.smtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/class.smtp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/Callback_function_notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/Callback_function_notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/DomainKeys_notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/DomainKeys_notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/Note_for_SMTP_debugging.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/Note_for_SMTP_debugging.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/extending.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/extending.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/generatedocs.sh" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/generatedocs.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/docs/pop3_article.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/docs/pop3_article.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/code_generator.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/code_generator.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/contents.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/contents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/contentsutf8.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/contentsutf8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/exceptions.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/exceptions.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/gmail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/gmail.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/gmail_xoauth.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/gmail_xoauth.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/images/phpmailer.png" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/images/phpmailer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/images/phpmailer_mini.png" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/images/phpmailer_mini.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/mail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/mail.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/mailing_list.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/mailing_list.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/pop_before_smtp.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/pop_before_smtp.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/scripts/XRegExp.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/scripts/XRegExp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/scripts/shAutoloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/scripts/shAutoloader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/scripts/shBrushPhp.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/scripts/shBrushPhp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/scripts/shCore.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/scripts/shCore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/scripts/shLegacy.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/scripts/shLegacy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/send_file_upload.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/send_file_upload.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/sendmail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/sendmail.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/signed-mail.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/signed-mail.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/smtp.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/smtp.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/smtp_check.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/smtp_check.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/smtp_no_auth.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/smtp_no_auth.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/ssl_options.phps" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/ssl_options.phps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCore.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCore.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreDefault.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreDefault.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreDjango.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreDjango.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreEclipse.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreEclipse.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreEmacs.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreEmacs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreFadeToGrey.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreFadeToGrey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreMDUltra.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreMDUltra.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreMidnight.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreMidnight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shCoreRDark.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shCoreRDark.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeAppleScript.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeAppleScript.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeDefault.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeDefault.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeDjango.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeDjango.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeEclipse.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeEclipse.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeEmacs.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeEmacs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeFadeToGrey.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeFadeToGrey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeMDUltra.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeMDUltra.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeMidnight.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeMidnight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeRDark.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeRDark.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/shThemeVisualStudio.css" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/shThemeVisualStudio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/examples/styles/wrapping.png" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/examples/styles/wrapping.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/extras/EasyPeasyICS.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/extras/EasyPeasyICS.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/extras/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/extras/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/extras/htmlfilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/extras/htmlfilter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/extras/ntlm_sasl_client.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/extras/ntlm_sasl_client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/get_oauth_token.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/get_oauth_token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-am.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-am.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ar.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-az.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-az.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-be.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-be.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-bg.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-bg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-br.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-br.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ca.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ca.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ch.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-cz.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-cz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-de.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-de.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-dk.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-dk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-el.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-el.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-eo.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-eo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-es.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-es.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-et.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-et.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-fi.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-fi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-fo.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-fo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-fr.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-fr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-gl.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-gl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-he.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-he.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-hr.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-hr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-hu.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-hu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-id.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-it.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-it.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ja.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ja.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ka.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ka.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ko.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ko.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-lt.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-lt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-lv.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-lv.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ms.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-nl.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-nl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-no.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-no.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-pl.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-pl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-pt.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-pt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ro.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-ru.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-ru.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-se.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-se.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-sk.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-sk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-sl.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-sl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-sr.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-sr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-tr.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-tr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-uk.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-uk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-vi.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-vi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-zh.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-zh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/language/phpmailer.lang-zh_cn.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/language/phpmailer.lang-zh_cn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/fakepopserver.sh" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/fakepopserver.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/fakesendmail.sh" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/fakesendmail.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/phpmailerLangTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/phpmailerLangTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/phpmailerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/phpmailerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/runfakepopserver.sh" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/runfakepopserver.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/test_callback.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/test_callback.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/test/testbootstrap-dist.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/test/testbootstrap-dist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/phpmailer/travis.phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/phpmailer/travis.phpunit.xml.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/dictionaries/Administrator.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/encodings.xml" beforeDir="false" />
@@ -27,12 +153,6 @@
       <change beforePath="$PROJECT_DIR$/../web-release/operate/js/editor-post.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/vue/msg.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/MessageBox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/MessageBox.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/store/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/store/UserInfo.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,29 +180,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1062">
-              <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
-              <folding>
-                <element signature="n#__construct#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#__init#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#__setEmail#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#VerifyFormat#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#Login#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#Register#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#UpdateJct#0;n#AccountAction#0;n#!!top" />
-                <element signature="n#CheckJct#0;n#AccountAction#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindUser.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -100,7 +201,7 @@
         <entry file="file://$PROJECT_DIR$/Captcha.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -109,7 +210,7 @@
         <entry file="file://$PROJECT_DIR$/utils/class/class.Format.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
                 <element signature="n#FromNormalNum#0;n#FormatChecker#0;n#!!top" />
                 <element signature="n#FromNormalStr#0;n#FormatChecker#0;n#!!top" />
@@ -127,11 +228,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Verification.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="396">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/autoInclude.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/interface/interface.chat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/interface/interface.user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class/class.user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -159,9 +296,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apipack/class.list_operate.php" />
-        <option value="$PROJECT_DIR$/utils/class/db_controller.php" />
-        <option value="$PROJECT_DIR$/constant/constant_data.php" />
         <option value="$PROJECT_DIR$/constant/config.php" />
         <option value="$PROJECT_DIR$/utils/class/class.login.php" />
         <option value="$PROJECT_DIR$/utils/class/class.accountaction.php" />
@@ -208,6 +342,11 @@
         <option value="$PROJECT_DIR$/Register.php" />
         <option value="$PROJECT_DIR$/utils/functions.php" />
         <option value="$PROJECT_DIR$/Captcha.php" />
+        <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/autoInclude.php" />
+        <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class.chat.php" />
+        <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/interface/interface.user.php" />
+        <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class/class.user.php" />
+        <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/interface/interface.chat.php" />
       </list>
     </option>
   </component>
@@ -223,7 +362,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,21 +410,54 @@
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="plusings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="plusings" type="462c0819:PsiDirectoryNode" />
+              <item name="yeuoly-chat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="plusings" type="462c0819:PsiDirectoryNode" />
+              <item name="yeuoly-chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="plusings" type="462c0819:PsiDirectoryNode" />
+              <item name="yeuoly-chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="E:/index/Phpstudy/PHPTutorial/MySQL" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\H\Shared\Web\website\pif_mana\api\utils\plusings\yeuoly-chat\src\interface" />
+      <recent name="I:\H\Shared\Web\website\pif_mana\api\utils\plusings" />
       <recent name="I:\H\Shared\Web\website\pif_mana\api\utils" />
       <recent name="I:\H\Shared\Web\website\pif_mana\api" />
       <recent name="I:\H\Shared\Web\website\pif_mana\api\utils\class" />
@@ -362,17 +533,18 @@
       <workItem from="1552797093532" duration="7659000" />
       <workItem from="1553231104841" duration="1532000" />
       <workItem from="1553248380897" duration="634000" />
+      <workItem from="1554389529066" duration="5092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276618000" />
+    <option name="totallyTimeSpent" value="281710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19009371" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19277108" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -598,7 +770,7 @@
     <entry file="file://$PROJECT_DIR$/FindUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -612,14 +784,14 @@
     <entry file="file://$PROJECT_DIR$/Captcha.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/class/class.Format.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
             <element signature="n#FromNormalNum#0;n#FormatChecker#0;n#!!top" />
             <element signature="n#FromNormalStr#0;n#FormatChecker#0;n#!!top" />
@@ -636,8 +808,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Verification.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="396">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/autoInclude.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class/class.user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/interface/interface.user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/interface/interface.chat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
         </state>
       </provider>
     </entry>
