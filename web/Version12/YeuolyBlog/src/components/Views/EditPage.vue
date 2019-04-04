@@ -41,14 +41,14 @@
                             </tr>
                         </table>
                         <div v-else-if="bodyDep.html === 'picture'" class="post-card-body-picture">
-                            <PictureEditor
+                            <picture-editor
                                     image-class="post-card-body-img"
                                     v-model="bodyDep.src"
                                     :id="'focus-id-'+bodyDep.liID"
                             />
                         </div>
                         <div v-else-if="bodyDep.html === 'url'" class="post-card-body-url">
-                            <UrlEditor
+                            <url-editor
                                     v-model="bodyDep.src"
                             />
                         </div>

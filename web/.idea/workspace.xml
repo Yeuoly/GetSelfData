@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="de9e15ad-0f4c-465b-9353-08acab83a038" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../img/avatar/1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/dictionaries/Administrator.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/misc.xml" beforeDir="false" />
@@ -28,10 +27,6 @@
       <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/vue/msg.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" afterDir="false" />
     </list>
@@ -47,14 +42,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="157" column="25" lean-forward="true" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
+            <state relative-caret-position="377">
+              <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
               <folding>
-                <element signature="e#2550#2616#0" expanded="true" />
+                <element signature="e#2851#2917#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTable.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -63,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
-              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -80,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="400">
+              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -89,26 +93,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+            <state relative-caret-position="320">
+              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TableInput.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1522">
-              <caret line="174" column="55" lean-forward="true" selection-start-line="174" selection-start-column="55" selection-end-line="174" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TopToolBar.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+            <state relative-caret-position="128">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#53#100#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>li</find>
-      <find>white</find>
       <find>text-align</find>
       <find>getMy</find>
       <find>'</find>
@@ -156,6 +152,8 @@
       <find>post-card-op</find>
       <find>post-title</find>
       <find>log</find>
+      <find>post-card-body</find>
+      <find>url</find>
     </findStrings>
     <replaceStrings>
       <replace>this.functionGroup</replace>
@@ -175,11 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/ConstFooter.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/LoginPage.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/AboutPage.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Index.vue" />
-        <option value="$PROJECT_DIR$/Version11/operate/js/editor-post.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/AboutList.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/store/index.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/public/css/main.css" />
@@ -223,9 +216,14 @@
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonPictureHolder.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTable.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonUrlLink.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TableInput.vue" />
       </list>
     </option>
   </component>
@@ -247,7 +245,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -360,7 +358,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +366,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553876462777" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554386066344" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -459,11 +457,12 @@
       <workItem from="1553852940352" duration="16080000" />
       <workItem from="1553919994576" duration="1317000" />
       <workItem from="1553921365586" duration="11970000" />
+      <workItem from="1554378066370" duration="8004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="589954000" />
+    <option name="totallyTimeSpent" value="597958000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,7 +476,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872124" visible="true" weight="0.19076306" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872124" visible="true" weight="0.19344042" />
       <window_info id="Structure" order="1" sideWeight="0.50127876" side_tool="true" weight="0.19865067" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -515,41 +514,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Version11/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="60" column="14" lean-forward="true" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/babel.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version11/js/module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="41" column="10" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="41" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/js/GlobalCommunication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version11/css/msg.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -839,38 +803,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TopToolBar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1522">
-          <caret line="174" column="55" lean-forward="true" selection-start-line="174" selection-start-column="55" selection-end-line="174" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -881,12 +817,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TopToolBar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonPictureHolder.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonUrlLink.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="e#2796#2840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="157" column="25" lean-forward="true" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
+        <state relative-caret-position="377">
+          <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
           <folding>
-            <element signature="e#2550#2616#0" expanded="true" />
+            <element signature="e#2851#2917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TableInput.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#53#100#0" expanded="true" />
           </folding>
         </state>
       </provider>

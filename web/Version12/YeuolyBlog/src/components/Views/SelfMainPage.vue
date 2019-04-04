@@ -32,25 +32,17 @@
                     <div class="post-card-body">
                         <ul class="post-card-body-ul">
                             <li class="post-card-body-li" v-for="bodyDep in ev.body">
-                                <div v-if="bodyDep.html === 'blog' ">
-                                    <div class="post-card-body-blog">
-                                        {{bodyDep.src}}
-                                    </div>
+                                <div v-if="bodyDep.html === 'blog' " class="post-card-body-blog">
+                                    <common-text-area :src="bodyDep.src"/>
                                 </div>
-                                <table v-else-if="bodyDep.html === 'table' " class="post-card-body-table">
-                                    <tr v-for="dep in bodyDep.src">
-                                        <td v-for="(value,key) in dep" :tdKey="key">
-                                            {{value}}
-                                        </td>
-                                    </tr>
-                                </table>
+                                <div v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
+                                    <common-table :src="bodyDep.src"/>
+                                </div>
                                 <div v-else-if="bodyDep.html === 'picture' " class="post-card-body-picture">
-                                    <img class="post-card-body-img" :src="bodyDep.src" alt="/">
+                                    <common-picture-holder :src="bodyDep.src"/>
                                 </div>
                                 <div v-else-if="bodyDep.html === 'url' " class="post-card-body-url">
-                                    <a :href="bodyDep.src.url">
-                                        {{bodyDep.src.text}}
-                                    </a>
+                                    <common-url-link :src="bodyDep.src"/>
                                 </div>
                             </li>
                         </ul>
@@ -63,10 +55,15 @@
 
 <script>
 
-    import { InfoModule } from "../../js/module";
-    import { GlobalCommunication } from "../../js/GlobalCommunication";
+    import { InfoModule } from "../../js/module"
+    import { GlobalCommunication } from "../../js/GlobalCommunication"
+    import CommonTextArea from "../Common/CommonTextArea"
+    import CommonPictureHolder from "../Common/CommonPictureHolder"
+    import CommonTable from "../Common/CommonTable"
+    import CommonUrlLink from "../Common/CommonUrlLink"
 
     export default {
+        components: {CommonUrlLink, CommonTable, CommonPictureHolder, CommonTextArea},
         data () {
             return {
                 postDepartment : [],
@@ -386,32 +383,9 @@
         border-radius: 25px;
     }
 
-    .post-card-body-url a{
-        font-size: 135%;
-        color: black;
-        /*text-decoration: none;*/
-    }
-
-    .post-card-body-table{
-        width: 90%;
-        margin: 0 auto;
-        word-wrap: break-word;
-        word-break: break-all;
-    }
-
     .post-card-body-blog{
         word-wrap: break-word;
         word-break: break-all;
-    }
-
-    .post-card-body-table td{
-        display: table-cell;
-        text-align: center;
-        color:rgb(37, 37, 37);
-    }
-
-    .post-card-body-img{
-        width: 100%;
     }
 
     @media (max-width: 768px) {
