@@ -1,5 +1,5 @@
 <template>
-    <span :class="className ? className : ''">
+    <span>
         {{ src ? src : ''}}
     </span>
 </template>
@@ -9,11 +9,6 @@
         name: "CommonTextArea",
         props : {
             src : String,
-            className : String
         }
     }
 </script>
-
-<style scoped>
-
-</style>

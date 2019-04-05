@@ -57,7 +57,7 @@
         height: 45px;
         padding-left: 5px;
         border: 0;
-        background-color: #bbe6d6;
+        background-color: #607d8b;
         background-attachment:fixed;
         margin-left: -5px;
     }
@@ -75,7 +75,7 @@
     }
 
     #user-block-open-click:hover , .header-function-list-depInner:hover{
-        background-color: #94e6d1;
+        background-color: #597b8b;
     }
 
 

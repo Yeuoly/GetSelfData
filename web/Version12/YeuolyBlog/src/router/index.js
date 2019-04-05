@@ -73,7 +73,7 @@ export const router = new VueRouter({
             path : '/edit',
             component : EditPage,
             meta : {
-                keepAlive : true,
+                keepAlive : false,
                 login_required : true
             }
         }

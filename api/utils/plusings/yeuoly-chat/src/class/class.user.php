@@ -39,7 +39,7 @@ class YeuolyChatUser implements _YeuolyChatUser{
     public function getUserEmail()
     {
         // TODO: Implement getUserEmail() method.
-        return $this->userEmail
+        return $this->userEmail;
     }
 
     public function getUserLevel()

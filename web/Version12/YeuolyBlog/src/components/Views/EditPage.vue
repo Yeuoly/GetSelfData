@@ -19,10 +19,13 @@
                 </div>
             </div>
             <div class="post-tools-bar">
-                <top-tool-bar
-                        :list="topTools"
-                        host-class="tools"
-                />
+                <top-tool-bar>
+                    <div title="上传图片" @click="uploadPicture">&#xe614;</div>
+                    <div title="添加图片" @click="addNewBlock(post.maxLine,'picture')">&#xe678;</div>
+                    <div title="添加链接" @click="addNewBlock(post.maxLine,'url')">&#xe604;</div>
+                    <div title="添加表格" @click="addNewBlock(post.maxLine,'table')">&#xe796;</div>
+                    <div title="添加文字" @click="addNewBlock(post.maxLine)">&#xe6ed;</div>
+                </top-tool-bar>
             </div>
             <div class="post-card-body">
                 <ul class="post-card-body-ul">
@@ -31,6 +34,7 @@
                             <NormalEditor
                                     v-model="bodyDep.src"
                                     :id-name="'focus-id-'+bodyDep.liID"
+                                    placeholder="输入"
                             />
                         </div>
                         <table v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
@@ -93,56 +97,9 @@
                 /***
                     topTools is for the tools bar
                  ***/
-                topTools :[
-                    {
-                        html : '&#xe614;',
-                        title : '上传图片',
-                        func : function () {
-                            window.open(
-                                'https://www.picb.cc/upload',
-                                '',
-                                'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=850,height=400'
-                            );
-                        },
-                        class : 'none'
-                    },
-                    {
-                        html : '&#xe604;',
-                        title : '添加链接',
-                        func : () => {
-                            this.addNewBlock(this.post.maxLine,'url');
-                        },
-                        class : 'none'
-                    },
-                    {
-                        html : '&#xe678;',
-                        title : '添加图片',
-                        func : () => {
-                            this.addNewBlock(this.post.maxLine,'picture');
-                        },
-                        class : 'none'
-                    },
-                    {
-                        html : '&#xe796;',
-                        title : '添加表格',
-                        func : () => {
-                            this.addNewBlock(this.post.maxLine,'table');
-                        },
-                        class : 'none'
-                    },
-                    {
-                        html : '&#xe6ed;',
-                        title : '继续写字（这个是为了防止你们打不了字加的）',
-                        func : () => {
-                            this.addNewBlock(this.post.maxLine);
-                        },
-                        class : 'none'
-                    }
-                ],
-
                 /***
-                    $post is a list about the post ,
-                    it includes all the information of current post
+                 $post is a list about the post ,
+                 it includes all the information of current post
                  ***/
                 post : {
                     currentLine : 1,
@@ -165,8 +122,12 @@
             }
         },
         methods : {
-            toString(src) {
-                return src.toString();
+            uploadPicture: function () {
+                window.open(
+                    'https://www.picb.cc/upload',
+                    '',
+                    'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=850,height=400'
+                );
             },
             loadPost(postID){
                 GlobalCommunication.$emit('httpPost',
@@ -317,7 +278,7 @@
     /*下面是post-card-body的样式*/
 
     .post-card-body-ul{
-        padding: 15px;
+        padding: 5px;
     }
 
     .post-card-body-li{

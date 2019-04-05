@@ -1,10 +1,8 @@
 <template>
     <div id="app">
         <ConstDom/>
-        <MessageBox></MessageBox>
-        <keep-alive>
+        <MessageBox />
             <router-view></router-view>
-        </keep-alive>
         <ConstFooter/>
     </div>
 </template>
@@ -30,8 +28,6 @@
         methods: {
 
             httpGet(url, params, success, error) {
-                axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-                axios.defaults.withCredentials = true;
                 axios.get(url, qs.stringify(params)).then((value) => {
                     success(value.data);
                 }).catch((reason) => {
@@ -40,8 +36,6 @@
             },
 
             httpPost(url, params, success, error) {
-                axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-                axios.defaults.withCredentials = true;
                 axios.post(url, qs.stringify(params)).then((value) => {
                     success(value.data);
                 }).catch((reason) => {
@@ -74,8 +68,10 @@
             GlobalCommunication.$on('httpPost', this.httpPost);
             GlobalCommunication.$on('httpGet', this.httpGet);
             GlobalCommunication.$on('refreshUserData', this.refreshUserData);
-
             this.refreshUserData();
+            axios.post(InfoModule.getUrlPath('extra/count/count.php',InfoModule.dir_api)).then(() => {}).catch(() => {});
+            axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+            axios.defaults.withCredentials = true;
         }
     }
 

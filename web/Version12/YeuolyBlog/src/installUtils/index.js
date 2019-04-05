@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {GlobalCommunication} from "../js/GlobalCommunication";
+import echarts from 'echarts'
 
 let utils = {
 
@@ -51,7 +52,38 @@ let utils = {
             }
         }
         GlobalCommunication.$emit('MessageBox', payload);
+    },
+
+    date(format, timestamp){
+        let date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        let Y = date.getFullYear();
+        let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
+        let D = date.getDate();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        let res = '';
+        for(let i in format){
+            if(format[i] === 'Y'){
+                res += Y;
+            }else if(format[i]  === 'M'){
+                res += M;
+            }else if(format[i]  === 'D'){
+                res += D;
+            }else if(format[i]  === 'h'){
+                res += h;
+            }else if(format[i]  === 'm'){
+                res += m;
+            }else if(format[i]  === 's'){
+                res += s;
+            }else{
+                res += format[i] ;
+            }
+        }
+        return res;
     }
 };
 
 Vue.prototype.$utils = utils;
+Vue.prototype.$echarts = echarts;
+

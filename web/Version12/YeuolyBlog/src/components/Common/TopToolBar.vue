@@ -1,42 +1,21 @@
 <template>
-    <div :class="'top-tool-bar '+hostClass">
+    <div :class="'top-tool-bar '+(className ? className : '')">
         <div class="holder">
-            <div v-for="dep in list" class="item">
-                <div :class="dep.class + ' controller'" @click="dep.func" :title="dep.title">
-                    <div v-html="dep.html" class="son">
-
-                    </div>
-                </div>
-            </div>
+            <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
 
-    import CommonButton from '../Common/CommonButton'
-
     export default {
         name: "TopToolBar",
         props : {
-            /***   This list should be like
-             {
-                 html : htmlCode or just a string
-                 func : a function which will be emit when click
-                 class : just a style sign
-                 title : it is a html attribute
-             }
-             ***/
-            list : Array,
-
             /***
                 hostClass is in the same class with top-tool-bar
                 use it to control the host object's style
              ***/
-            hostClass : String
-        },
-        components : {
-            CommonButton
+            className : String
         }
     }
 </script>
@@ -57,24 +36,17 @@
         height: 100%;
     }
 
-    .item{
+    .holder div{
         transition: .5s all ease;
         flex: 1;
         overflow: auto;
         height: 100%;
-    }
-
-    .controller{
         text-align: center;
         font-size: 17px;
-        width: 100%;
-        margin: 0 auto;
-        height: 100%;
-        vertical-align: middle;
-        position: relative;
+        line-height: 30px;
     }
 
-    .item:hover{
+    .holder div:hover{
         background-color: rgba(0,0,0,.06);
         cursor: pointer;
     }

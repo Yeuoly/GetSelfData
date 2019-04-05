@@ -2,52 +2,55 @@
     <div class="wrap" id="includes">
         <ul class="post-card-ul">
             <li class="post-card-li" v-for="ev in postDepartment">
-                <div class="vertical-blank-block"></div>
                 <div class="post-card">
-                    <div class="post-card-operate yb-icon-font">
-                        <div class="post-card-operate-content">
-                            <div class="post-card-operate-dropdown">
-                                <div class="post-card-edition post-card-operate-item" @click="editPost(ev.postID)">编辑</div>
-                                <div class="post-card-deletion post-card-operate-item" @click="deletePost(ev.postID)">删除</div>
+                        <div class="post-card-operate yb-icon-font">
+                            <common-drop-down-list>
+                                <div @click="editPost(ev.postID)">编辑</div>
+                                <div @click="deletePost(ev.postID)">删除</div>
+                            </common-drop-down-list>
+                        </div>
+                        <div class="post-card-head">
+                            <h3 class="post-title">
+                                {{ev.title}}
+                            </h3>
+                            <div class="post-card-userblock">
+                                <div class="post-card-userblock-avatar"
+                                     :style="{ backgroundImage : 'url(' + ev.avatarUrl + ')'}"
+                                >
+                                </div>
+                                <div class="post-card-userblock-id">
+                                    {{ev.user}}
+                                </div>
+                            </div>
+                            <div class="post-introduction">
+                                {{ev.introduction}}
                             </div>
                         </div>
-                    </div>
-                    <div class="post-card-head">
-                        <h3 class="post-title">
-                            {{ev.title}}
-                        </h3>
-                        <div class="post-card-userblock">
-                            <div class="post-card-userblock-avatar"
-                                 :style="{ backgroundImage : 'url(' + ev.avatarUrl + ')'}"
-                            >
-                            </div>
-                            <div class="post-card-userblock-id">
-                                {{ev.user}}
-                            </div>
+                        <div class="post-card-body">
+                            <ul class="post-card-body-ul">
+                                <li class="post-card-body-li" v-for="bodyDep in ev.body">
+                                    <div v-if="bodyDep.html === 'blog' " class="post-card-body-blog">
+                                        <common-text-area :src="bodyDep.src"/>
+                                    </div>
+                                    <div v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
+                                        <common-table :src="bodyDep.src"/>
+                                    </div>
+                                    <div v-else-if="bodyDep.html === 'picture' " class="post-card-body-picture">
+                                        <common-picture-holder :src="bodyDep.src"/>
+                                    </div>
+                                    <div v-else-if="bodyDep.html === 'url' " class="post-card-body-url">
+                                        <common-url-link :src="bodyDep.src"/>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="post-introduction">
-                            {{ev.introduction}}
+                        <div class="extra-function">
+                            <top-tool-bar
+                                    list=""
+                            />
                         </div>
                     </div>
-                    <div class="post-card-body">
-                        <ul class="post-card-body-ul">
-                            <li class="post-card-body-li" v-for="bodyDep in ev.body">
-                                <div v-if="bodyDep.html === 'blog' " class="post-card-body-blog">
-                                    <common-text-area :src="bodyDep.src"/>
-                                </div>
-                                <div v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
-                                    <common-table :src="bodyDep.src"/>
-                                </div>
-                                <div v-else-if="bodyDep.html === 'picture' " class="post-card-body-picture">
-                                    <common-picture-holder :src="bodyDep.src"/>
-                                </div>
-                                <div v-else-if="bodyDep.html === 'url' " class="post-card-body-url">
-                                    <common-url-link :src="bodyDep.src"/>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <hr>
             </li>
         </ul>
     </div>
@@ -61,9 +64,18 @@
     import CommonPictureHolder from "../Common/CommonPictureHolder"
     import CommonTable from "../Common/CommonTable"
     import CommonUrlLink from "../Common/CommonUrlLink"
+    import CommonDropDownList from "../Common/CommonDropDownList";
+    import TopToolBar from '../Common/TopToolBar';
 
     export default {
-        components: {CommonUrlLink, CommonTable, CommonPictureHolder, CommonTextArea},
+        components: {
+            CommonDropDownList,
+            CommonUrlLink,
+            CommonTable,
+            CommonPictureHolder,
+            CommonTextArea,
+            TopToolBar
+        },
         data () {
             return {
                 postDepartment : [],
@@ -71,7 +83,10 @@
                 isLoading : false,
                 flag : false,
                 isEnd : false,
-                firstMounted : false
+                firstMounted : false,
+                extraPostFunction : {
+
+                }
             }
         },
         methods : {
@@ -105,20 +120,9 @@
             //跳转编辑界面
             editPost (postID) {
                 this.$router.push({ name : 'edit' , params : { pid : postID } })
-            },//类型、标题、用户信息、数据、简介
+            },
+            //类型、标题、用户信息、数据、简介
             addPostCard : function(post_title, post_user, post_user_id , post_data, post_introduction ,postID){
-                //新建Vue的data对象
-                //原本body内是单一的类型，后来想了想，一个post内应该有很多种不同类型的内容，所以将body改为了一个数组
-                //body内学习wordpress的风格，用板块划分，一个板块内只允许一种类型的内容
-                //使用数组记录body内的所有板块，html是最终要放到节点里的dom字符串
-                //post_data里的数据是一个json字符串，其格式为
-                //[
-                //    {
-                //        class : '',
-                //        src : data for this class
-                //    }
-                //]
-                //最终储存在Vue data里的应该为{html:'',src:''} html为给v-if判断类型的变量
                 this.postDepartment.push({
                     title : post_title,
                     user : post_user,
@@ -237,6 +241,10 @@
         list-style: none;
     }
 
+    hr{
+        border-color: #80808024;
+    }
+
     .wrap{
         width: 100%;
         margin: 0 auto;
@@ -245,56 +253,11 @@
     }
 
     .post-card{
-        padding-top: 10px;
-        padding-bottom: 10px;
         width: 70%;
         overflow:auto;
-        background-color: rgba(238, 238, 238, 0.315);
         margin: 0 auto;
         border-radius:5px;
         position: relative;
-    }
-
-    .post-card-operate{
-        position: absolute;
-        top: 20px;
-        right: 15px;
-    }
-
-    .post-card-operate-content{
-        display: inline-block;
-    }
-
-    .post-card-operate-content::before{
-        content: "\e606";
-        cursor: pointer;
-    }
-
-    .post-card-operate-dropdown{
-        display: none;
-        position: absolute;
-        border: 1px solid #d7dfeab8;
-        min-width: 60px;
-        margin-left: -80px;
-        border-radius: 8px;
-        text-align: center;
-        overflow: auto;
-    }
-
-    .post-card-operate-content:hover .post-card-operate-dropdown{
-        display: block;
-    }
-
-    .post-card-operate-item{
-        padding-top: 8px;
-        background: rgba( 244 , 244 , 244 , 0.3);
-        width: 100px;
-        height: 30px;
-        cursor: pointer;
-    }
-
-    .post-card-operate-item:hover{
-        color: #00b5e5;
     }
 
     /*下面是post-card-body的样式*/
@@ -309,6 +272,13 @@
         overflow: auto;
         text-align: center;
         padding-bottom: 10px;
+    }
+
+    .post-card-operate{
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        right: 15px;
     }
 
     .post-card-body{
@@ -338,8 +308,9 @@
     }
 
     .post-title{
-        margin: 0 auto;
+        text-align: left;
         padding-bottom: 10px;
+        margin-left: 25px;
         width: 65%;
     }
 
@@ -415,6 +386,12 @@
             width: 90%;
             margin-left: 2.5%;
             padding: 10px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .post-card{
+            width: 100%;
         }
     }
 </style>
