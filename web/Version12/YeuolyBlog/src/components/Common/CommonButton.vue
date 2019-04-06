@@ -55,7 +55,7 @@
     }
 
     .btn-enable:hover{
-        background-color: rgba(0,0,0,.06);
+        background-color: rgba(0,0,0,.1);
     }
 
     .btn-disable{

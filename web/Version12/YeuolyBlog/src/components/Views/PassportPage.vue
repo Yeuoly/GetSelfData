@@ -1,7 +1,9 @@
 <template>
     <div id="passport">
         <div id="passport-item-container">
-            <router-view></router-view>
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
         </div>
     </div>
 </template>
@@ -51,11 +53,10 @@
         margin: auto;
         background: rgba(244,244,244,0.3);
         padding-top: 30px;
-        margin-top: 60px;
         border-radius: 8px;
         min-height: 30vh;
         padding-bottom: 30px;
-        box-shadow: rgba(0,0,0,.2) 0 1px 2px;
+        box-shadow: rgba(0,0,0,.3) 0 1px 2px;
     }
 
     @media (max-width: 1276px) {

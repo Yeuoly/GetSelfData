@@ -11,6 +11,9 @@ import EditPage from '../components/Views/EditPage';
 
 import Store from '../store';
 import {GlobalCommunication} from "../js/GlobalCommunication";
+import SettingPage from "../components/Views/SettingPage";
+import BasePrivateSetting from "../components/Items/BasePrivateSetting";
+import AdvancePrivateSetting from "../components/Items/AdvancePrivateSetting";
 
 Vue.use(VueRouter);
 
@@ -18,9 +21,10 @@ export const router = new VueRouter({
     routes : [
         {
             name : 'index',
-            path : '',
+            path : '/',
             component : Index,
             meta : {
+                keepAlive : true,
                 login_required : false
             }
         },
@@ -52,17 +56,19 @@ export const router = new VueRouter({
             children: [
                 {
                     name : 'login',
-                    path : 'login',
+                    path : '/passport/login',
                     component : LoginPage,
                     meta : {
+                        keepAlive : true,
                         login_required : false
                     }
                 },
                 {
                     name : 'register',
-                    path : 'register',
+                    path : '/passport/register',
                     component : RegisterPage,
                     meta : {
+                        keepAlive : true,
                         login_required : false
                     }
                 }
@@ -76,6 +82,33 @@ export const router = new VueRouter({
                 keepAlive : false,
                 login_required : true
             }
+        },
+        {
+            name : 'setting',
+            path : '/setting',
+            component : SettingPage,
+            meta : {
+                keepAlive : false,
+                login_required : true
+            },
+            children: [
+                {
+                    name : 'setting-user-base',
+                    path : '/setting/user-base',
+                    component : BasePrivateSetting,
+                    meta : {
+                        login_required : true
+                    }
+                },
+                {
+                    name : 'setting-user-advance',
+                    path : '/setting/user-advance',
+                    component : AdvancePrivateSetting,
+                    meta : {
+                        login_required : true
+                    }
+                }
+            ]
         }
     ]
 });

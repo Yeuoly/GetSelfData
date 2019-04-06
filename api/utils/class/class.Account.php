@@ -69,9 +69,9 @@
             return $this;
         }
 
-        /*
-         * 返回一个用户的所有信息
-         *
+        /**
+         * @param string $account the account of a user
+         * @return mixed if success , will return user's info , if not will return the reason
          * */
         static public function FindUser($account){
             $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
@@ -86,10 +86,9 @@
             return $DB->GetRowFromList(MYSQL_USER_LIST,[ 'act' => $account ]);
         }
 
-        /*
-         * 验证参数格式
-         * 错误返回false
-         * 成功返回this
+        /**
+         * This function is used to verify the format of information
+         * @return mixed if failed , will return false , if not , will return this object
          * */
         public function VerifyFormat(){
             $verifier = new FormatChecker();
@@ -100,10 +99,11 @@
             return $this;
         }
 
-        /*
-         * 验证密码
-         * 错误返回原因
-         * 成功返回true，并将jct存入user_data
+        /**
+         * This function is used to login , it will set the token to cookie
+         * You will get the meta of user
+         * @param array $srm_jct the information of user will be saved there
+         * @return boolean success or not
          * */
         public function Login(&$srm_jct){
             //初始化数据库
@@ -152,10 +152,10 @@
             return true;
         }
 
-        /*
-         * 注册账号（其实就是往数据库里加一个账号记录）
-         *
-         * */
+        /**
+         * @param string $user_data
+         * @return array|bool|int|mixed|string|null
+         */
         public function Register(&$user_data){
             $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
             if($DB->_is_failed($DB->Start()))
@@ -224,17 +224,21 @@
             return true;
         }
 
-        //更新jct
+        /**
+         * this function will update the token and session
+         * @param string $jct the token of login
+         */
         static protected function UpdateJct($jct){
             $_SESSION[SESSION_USERDATA][SESSION_LOGIN_TIME] = time();
             $_SESSION[SESSION_USERDATA][SESSION_SRM_JCT] = $jct;
             setcookie(COOKIE_SRM_JCT,$jct,time() + COOKIE_SAVING_TIME , "/");
         }
 
-        /*
-         * 检测jct是否在线，如果在线就更新jct时间
-         *
-         * */
+        /**
+         * @param $jct
+         * @param null $user_data
+         * @return bool|string
+         */
         static public function CheckJct($jct,&$user_data = null){
             //短期频繁登录用户直接用SESSION操作
             if(isset($_SESSION[SESSION_USERDATA][SESSION_SRM_JCT]) &&
@@ -290,6 +294,81 @@
             ];
             $_SESSION[SESSION_USERDATA] = $login_data;
             $user_data = $login_data;
+            return true;
+        }
+
+        /**
+         * This function is used to modify user's info
+         * If password was been modified , it will clear the session and the token in db
+         * @param string $dest which info you wanna to modify
+         * @param string $origin the origin value , if the value given is not the same
+         *                       as the data in database , this direction will be failed
+         * @param string $modified
+         * @return boolean|string bool(true)->succeed , other->failed
+         */
+        public function updateUserInfo($dest,$modified,$origin = null){
+            $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+            if($DB->_is_failed($DB->Start()))
+            {
+                return passport_server_error;
+            }
+            switch ($dest){
+                case 'avatar':
+                    break;
+                case 'id':
+                    $res = $DB->SetInList(
+                        MYSQL_USER_LIST,
+                        mysql_key_account,
+                        $modified,
+                        mysql_key_uid,
+                        $_SESSION[SESSION_USERDATA][SESSION_USER_UID]
+                    );
+                    if($DB->_is_failed($res)){
+                        return server_error;
+                    }
+                    break;
+                case 'email':
+
+                    break;
+                case 'password':
+                    $origin_user_data = $DB->GetRowFromList(
+                        MYSQL_USER_LIST,
+                        [mysql_key_uid => $_SESSION[SESSION_USERDATA][SESSION_USER_UID]],
+                        'or'
+                    );
+                    if($DB->_is_failed($origin_user_data))
+                        return server_error;
+                    $password_handled_origin = \NFG\encryptPassword($origin);
+                    if($password_handled_origin != $origin_user_data[mysql_key_password])
+                        return user_action_password_wrong;
+                    $password_handled_modified = \NFG\encryptPassword($modified);
+                    if($password_handled_modified == $password_handled_origin)
+                        return user_action_same_password;
+                    $res = $DB->SetInList(
+                        MYSQL_USER_LIST,
+                        mysql_key_password,
+                        $password_handled_modified,
+                        mysql_key_uid,
+                        $_SESSION[SESSION_USERDATA][SESSION_USER_UID]
+                    );
+                    if($DB->_is_failed($res)){
+                        return server_error;
+                    }
+                    //clear token
+                    $res = $DB->SetInList(
+                        MYSQL_USER_LIST,
+                        mysql_key_jct,
+                        '',
+                        mysql_key_uid,
+                        $_SESSION[SESSION_USERDATA][SESSION_USER_UID]
+                    );
+                    if($DB->_is_failed($res)){
+                        return server_error;
+                    }
+                    //clear session
+                    unset($_SESSION[SESSION_USERDATA]);
+                    break;
+            }
             return true;
         }
     }

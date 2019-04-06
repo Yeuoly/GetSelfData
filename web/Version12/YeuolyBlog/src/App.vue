@@ -2,7 +2,14 @@
     <div id="app">
         <ConstDom/>
         <MessageBox />
-            <router-view></router-view>
+            <keep-alive>
+                <router-view v-if="$route.meta.keepAlive">
+                    <!-- 这里是需要缓存的组件 -->
+                </router-view>
+            </keep-alive>
+            <router-view v-if="!$route.meta.keepAlive">
+                <!-- 这里是不需要缓存的组件 -->
+            </router-view>
         <ConstFooter/>
     </div>
 </template>
@@ -15,7 +22,7 @@
     import qs from 'query-string'
 
     import {GlobalCommunication} from "./js/GlobalCommunication";
-    import {InfoModule} from "./js/module";
+    import {InfoModule} from "./js/module-alpha";
 
     export default {
         name: 'app',
@@ -28,6 +35,8 @@
         methods: {
 
             httpGet(url, params, success, error) {
+                axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+                axios.defaults.withCredentials = true;
                 axios.get(url, qs.stringify(params)).then((value) => {
                     success(value.data);
                 }).catch((reason) => {
@@ -36,6 +45,8 @@
             },
 
             httpPost(url, params, success, error) {
+                axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+                axios.defaults.withCredentials = true;
                 axios.post(url, qs.stringify(params)).then((value) => {
                     success(value.data);
                 }).catch((reason) => {
@@ -45,7 +56,7 @@
 
             refreshUserData() {
                 GlobalCommunication.$emit('httpPost',
-                    InfoModule.getUrlPath('User.php', InfoModule.dir_api),
+                    InfoModule.getUrlPath('account/v1/User.php', InfoModule.dir_api),
                     {},
                     (value) => {
                         if (value.data.res === InfoModule.response.requestSuccess) {
@@ -69,9 +80,10 @@
             GlobalCommunication.$on('httpGet', this.httpGet);
             GlobalCommunication.$on('refreshUserData', this.refreshUserData);
             this.refreshUserData();
-            axios.post(InfoModule.getUrlPath('extra/count/count.php',InfoModule.dir_api)).then(() => {}).catch(() => {});
-            axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-            axios.defaults.withCredentials = true;
+            this.httpGet(
+                InfoModule.getUrlPath('extra/count/count.php',InfoModule.dir_api),
+                {},()=>{},()=>{}
+            );
         }
     }
 

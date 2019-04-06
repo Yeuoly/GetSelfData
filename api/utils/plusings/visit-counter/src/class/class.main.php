@@ -53,7 +53,7 @@ class VisitCounter implements _VisitCounter{
         //get current time
         $time = time();
         //comput the section of currention
-        $begin_time = $time - $time % interval - 28800;
+        $begin_time = $this->getBeginTime($time);
         //connect to database
         $con = mysqli_connect($this->DBHost,$this->DBUser,$this->DBPswd,$this->DBName);
         if(!$con)
@@ -85,6 +85,10 @@ class VisitCounter implements _VisitCounter{
         return true;
     }
 
+    protected function getBeginTime($timstamp){
+        return $timstamp - $timstamp % interval - 28800;
+    }
+
     public function count()
     {
         return $this->increase();
@@ -106,7 +110,7 @@ class VisitCounter implements _VisitCounter{
         //sign current begin_time
         $l = -1;
         $time = time();
-        $current_time = $time - $time % interval - 28800;
+        $current_time = $this->getBeginTime($time);
         while ($row = mysqli_fetch_array($res)){
             while ($l++ < $count){
                 $buf = [
@@ -120,7 +124,6 @@ class VisitCounter implements _VisitCounter{
                 }
                 array_push($dist,$buf);
             }
-            $l++;
         }
         $n = count($dist) - 1;
         while ($n < $count)

@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class/class.user.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class/class.user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FindUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/v1/FindUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogOff.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/v1/LogOff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/v1/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Query.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/v1/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/v1/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAction/private/getMyRecent.php" beforeDir="false" afterPath="$PROJECT_DIR$/dataAction/private/getMyRecent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAction/private/getPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/dataAction/private/getPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAction/private/operate.php" beforeDir="false" afterPath="$PROJECT_DIR$/dataAction/private/operate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra/count/count.php" beforeDir="false" afterPath="$PROJECT_DIR$/extra/count/count.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/class/class.Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/class/class.Account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/static/static.response.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/static/static.response.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/dictionaries/Administrator.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/encodings.xml" beforeDir="false" />
@@ -28,10 +42,27 @@
       <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/vue/msg.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version11/js/msg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version11/js/msg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Charts/DetailChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Charts/XCategoryPolylineChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/CommonButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/CommonButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/PassportInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/TipInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstFooter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/PassportPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/PassportPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/installUtils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/installUtils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/GlobalUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/GlobalUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/module-alpha.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" afterDir="false" />
     </list>
@@ -61,37 +92,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extra/count/count.php">
+        <entry file="file://$PROJECT_DIR$/account/v2/SetUserMeta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            <state relative-caret-position="612">
+              <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extra/count/get.php">
+        <entry file="file://$PROJECT_DIR$/utils/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="378">
+              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/static/static.response.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="76" column="54" selection-start-line="76" selection-start-column="54" selection-end-line="76" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php">
+        <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/plusings/visit-counter/src/_config/_config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="264">
+              <caret line="316" column="26" lean-forward="true" selection-start-line="316" selection-start-column="26" selection-end-line="316" selection-end-column="26" />
+              <folding>
+                <element signature="n#__construct#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#__init#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#__setEmail#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#FindUser#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#VerifyFormat#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#Login#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#Register#0;n#AccountAction#0;n#!!top" />
+                <element signature="n#UpdateJct#0;n#AccountAction#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,12 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/passjct.php" />
-        <option value="$PROJECT_DIR$/utils/static/static.user.config.php" />
-        <option value="$PROJECT_DIR$/initDataBase_Mysql/initDataBase.php" />
-        <option value="$PROJECT_DIR$/utils/class/class.base.php" />
-        <option value="$PROJECT_DIR$/utils/class/class.db_controller.php" />
         <option value="$PROJECT_DIR$/utils/class/class.format.php" />
         <option value="$PROJECT_DIR$/initDataBase_Mysql/initHashList.php" />
         <option value="$PROJECT_DIR$/dataAction/private/newPost.php" />
@@ -135,8 +170,6 @@
         <option value="$PROJECT_DIR$/utils/class/class.postAction.php" />
         <option value="$PROJECT_DIR$/utils/class/class.HookFunc.php" />
         <option value="$PROJECT_DIR$/dataAction/private/rePost.php" />
-        <option value="$PROJECT_DIR$/dataAction/private/getPost.php" />
-        <option value="$PROJECT_DIR$/utils/static/static.response.php" />
         <option value="$PROJECT_DIR$/dataAction/private/delete.php" />
         <option value="$PROJECT_DIR$/utils/mailpack.php" />
         <option value="$PROJECT_DIR$/LogOff.php" />
@@ -145,17 +178,13 @@
         <option value="$PROJECT_DIR$/test/test.php" />
         <option value="$PROJECT_DIR$/utils/class/class.Verification.php" />
         <option value="$PROJECT_DIR$/Query.php" />
-        <option value="$PROJECT_DIR$/dataAction/private/getMyRecent.php" />
         <option value="$PROJECT_DIR$/Login.php" />
         <option value="$PROJECT_DIR$/Avatar.php" />
-        <option value="$PROJECT_DIR$/dataAction/private/operate.php" />
         <option value="$PROJECT_DIR$/utils/class/class.PostAction.php" />
         <option value="$PROJECT_DIR$/utils/class/class.DBController.php" />
         <option value="$PROJECT_DIR$/Config.php" />
-        <option value="$PROJECT_DIR$/utils/class/class.Account.php" />
         <option value="$PROJECT_DIR$/FindUser.php" />
         <option value="$PROJECT_DIR$/Register.php" />
-        <option value="$PROJECT_DIR$/utils/functions.php" />
         <option value="$PROJECT_DIR$/Captcha.php" />
         <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/autoInclude.php" />
         <option value="$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class.chat.php" />
@@ -166,10 +195,22 @@
         <option value="$PROJECT_DIR$/utils/plusings/visit-counter/src/interface/interface.main.php" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/extra/count/index.php" />
-        <option value="$PROJECT_DIR$/extra/count/count.php" />
         <option value="$PROJECT_DIR$/extra/count/get.php" />
         <option value="$PROJECT_DIR$/utils/plusings/visit-counter/src/_config/_config.php" />
         <option value="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" />
+        <option value="$PROJECT_DIR$/extra/count/count.php" />
+        <option value="$PROJECT_DIR$/account/v1/FindUser.php" />
+        <option value="$PROJECT_DIR$/account/v1/Register.php" />
+        <option value="$PROJECT_DIR$/account/v1/Login.php" />
+        <option value="$PROJECT_DIR$/account/v1/LogOff.php" />
+        <option value="$PROJECT_DIR$/account/v2/User.php" />
+        <option value="$PROJECT_DIR$/dataAction/private/getMyRecent.php" />
+        <option value="$PROJECT_DIR$/dataAction/private/getPost.php" />
+        <option value="$PROJECT_DIR$/dataAction/private/operate.php" />
+        <option value="$PROJECT_DIR$/utils/functions.php" />
+        <option value="$PROJECT_DIR$/account/v2/SetUserMeta.php" />
+        <option value="$PROJECT_DIR$/utils/static/static.response.php" />
+        <option value="$PROJECT_DIR$/utils/class/class.Account.php" />
       </list>
     </option>
   </component>
@@ -185,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,62 +236,53 @@
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="extra" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="extra" type="462c0819:PsiDirectoryNode" />
-              <item name="count" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="v2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="plusings" type="462c0819:PsiDirectoryNode" />
+              <item name="dataAction" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="plusings" type="462c0819:PsiDirectoryNode" />
-              <item name="visit-counter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="plusings" type="462c0819:PsiDirectoryNode" />
-              <item name="visit-counter" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dataAction" type="462c0819:PsiDirectoryNode" />
+              <item name="private" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="plusings" type="462c0819:PsiDirectoryNode" />
-              <item name="visit-counter" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api" type="b2602c69:ProjectViewProjectNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="plusings" type="462c0819:PsiDirectoryNode" />
-              <item name="visit-counter" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="class" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,11 +292,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\H\Shared\Web\website\pif_mana\api\account\v1" />
+      <recent name="I:\H\Shared\Web\website\pif_mana\api\account\v2" />
       <recent name="I:\H\Shared\Web\website\pif_mana\api\utils\plusings\yeuoly-chat\src\interface" />
       <recent name="I:\H\Shared\Web\website\pif_mana\api\utils\plusings" />
       <recent name="I:\H\Shared\Web\website\pif_mana\api\utils" />
-      <recent name="I:\H\Shared\Web\website\pif_mana\api" />
-      <recent name="I:\H\Shared\Web\website\pif_mana\api\utils\class" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -340,17 +371,18 @@
       <workItem from="1553248380897" duration="634000" />
       <workItem from="1554389529066" duration="5092000" />
       <workItem from="1554449500105" duration="19955000" />
+      <workItem from="1554522854247" duration="12946000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301665000" />
+    <option name="totallyTimeSpent" value="314611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19544846" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19812584" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -474,27 +506,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Operate.php" />
-    <entry file="file://$PROJECT_DIR$/LogOff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/static/static.response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/getMyRecent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="37" column="70" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -509,72 +520,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="46" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Query.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/class/class.PostAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/getPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#6#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
-          <folding>
-            <element signature="n#__construct#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#__init#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#__setEmail#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#VerifyFormat#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#Login#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#Register#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#UpdateJct#0;n#AccountAction#0;n#!!top" />
-            <element signature="n#CheckJct#0;n#AccountAction#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -624,24 +573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/plusings/yeuoly-chat/src/class/class.user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="678">
           <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FindUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -685,24 +620,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/functions.php">
+    <entry file="file://$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extra/count/count.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="228">
+          <caret line="80" column="33" lean-forward="true" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/extra/count/get.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -713,10 +641,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php">
+    <entry file="file://$PROJECT_DIR$/extra/count/count.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/v1/LogOff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/operate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/getPost.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAction/private/getMyRecent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="e#10#260#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/v1/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/v1/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/v1/Register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/v1/FindUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#6#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/v2/SetUserMeta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/static/static.response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="76" column="54" selection-start-line="76" selection-start-column="54" selection-end-line="76" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/class/class.Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="316" column="26" lean-forward="true" selection-start-line="316" selection-start-column="26" selection-end-line="316" selection-end-column="26" />
+          <folding>
+            <element signature="n#__construct#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#__init#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#__setEmail#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#FindUser#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#VerifyFormat#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#Login#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#Register#0;n#AccountAction#0;n#!!top" />
+            <element signature="n#UpdateJct#0;n#AccountAction#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

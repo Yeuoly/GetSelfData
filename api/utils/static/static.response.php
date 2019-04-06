@@ -69,3 +69,9 @@
     define("data_action_failedCreateUserList","用户数据表创建失败，请联系管理员手动修复");
 
     define("data_action_less_power","您无权执行这个操作");
+
+    define("user_action_password_wrong","密码不一致，修改失败");
+
+    define("user_action_wrong_format","参数错误");
+
+    define("user_action_same_password","新密码应与旧密码不同！");

@@ -15,7 +15,7 @@
      * 如果身份验证失败会直接返回failed，成功则继续执行本文件的步骤
      *
      * */
-    include_once (FILEPATH . "/User.php");
+    include_once(FILEPATH . "/account/v1/User.php");
 
     /**
      *

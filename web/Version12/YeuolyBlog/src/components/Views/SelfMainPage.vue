@@ -58,7 +58,7 @@
 
 <script>
 
-    import { InfoModule } from "../../js/module"
+    import { InfoModule } from "../../js/module-alpha"
     import { GlobalCommunication } from "../../js/GlobalCommunication"
     import CommonTextArea from "../Common/CommonTextArea"
     import CommonPictureHolder from "../Common/CommonPictureHolder"
@@ -242,7 +242,7 @@
     }
 
     hr{
-        border-color: #80808024;
+        border-color: #80808030;
     }
 
     .wrap{

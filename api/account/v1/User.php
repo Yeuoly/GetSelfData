@@ -1,7 +1,7 @@
 <?php
-    include_once (dirname(__FILE__) . "/Config.php");
+    include_once(dirname(__FILE__) . "/../../Config.php");
     include_once(FILEPATH . "/utils/class/class.ResponseAjax.php");
-    include_once (FILEPATH . "/utils/functions.php");
+    include_once(FILEPATH . "/utils/functions.php");
     include_once(FILEPATH . "/utils/class/class.Account.php");
     \NFG\InitCommunicate();
 
@@ -40,7 +40,7 @@
         return $php_self;
     }
 
-    /**粪山**/
+    /** 粪山 **/
     /*session_name("HTPP_S_V_NFG");
     session_start();
 

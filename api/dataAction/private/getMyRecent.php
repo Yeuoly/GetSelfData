@@ -13,7 +13,8 @@
 
     //先引入User.php验证身份，如果没通过检测都不会进入这个文件的主线程
     //已经默认开启了session
-    include_once (dirname(__FILE__) . "/../../User.php");
+    include_once(dirname(__FILE__) . "/../../Config.php");
+    include_once(FILEPATH . "/account/v1/User.php");
     include_once(FILEPATH . "/utils/class/class.Format.php");
 
     //获取页面

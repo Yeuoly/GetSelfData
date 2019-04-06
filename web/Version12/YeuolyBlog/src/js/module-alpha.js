@@ -36,7 +36,7 @@ let InfoModule = {
         }
     },
     others : {
-        copyright : "© 2019 - Yeuoly",
+        copyright : "© 2019 - Yeuoly芸璃",
     },
     url :
         document.location.origin + '/' === url.localhost['web'] ?

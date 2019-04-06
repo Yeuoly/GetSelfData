@@ -11,7 +11,7 @@
                        @keyup="handleKeyUp"
                 >
             </div>
-            <div id="tip-passport-account" class="tip">
+            <div id="tip-passport-account" :class="'tip' + (tipColor ? (' ' + tipColor) : '')">
                 <div v-html="tip"></div>
             </div>
         </label>
@@ -29,14 +29,10 @@
             ID : String,
             type : String,
             tip : String,
-            hostValue : String
+            hostValue : String,
+            tipColor : String
         },
         name: "PassportInput",
-        data () {
-            return {
-
-            }
-        },
         methods : {
             handleInput(e){
                 this.$emit('change',e.target.value);
@@ -53,7 +49,7 @@
 
 <style scoped>
     .item{
-        width: 80%;
+        width: 100%;
         min-height: 60px;
         margin: 0 auto;
         margin-bottom: 15px;
@@ -70,6 +66,7 @@
     }
 
     .holder{
+        margin: 0 auto;
         width: 95%;
         vertical-align: middle;
         background: white;
@@ -80,10 +77,22 @@
 
     .tip{
         height: 15px;
-        color: #ff5252 !important;
+        color: #ff5252;
     }
 
     input::placeholder{
         color: rgba(128,128,128,0.7);
+    }
+
+    .grey{
+        color: rgba(0, 0, 0, 0.42) !important;
+    }
+
+    .red{
+        color: #ff5252 !important;
+    }
+
+    .green{
+        color: #5EFF8F !important;
     }
 </style>

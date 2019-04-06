@@ -1,0 +1,23 @@
+<svg width="1600" height="1200" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="1202" width="1602" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_10">
+   <g transform="matrix(0.5483862380868672,0,0,0.4960587269377054,-78088.21165081274,-48016.16481144703) " fill="#7fb2e7" id="svg_5">
+    <path stroke="null" id="svg_7" d="m143753.533756,97973.287451c-137,-29 -268,-133 -319,-255c-22,-53 8,-46 32,7c27,61 122,154 187,183c110,51 230,56 339,15c69,-26 169,-115 210,-187c25,-45 48,-67 48,-48c0,17 -53,106 -85,143c-41,48 -150,115 -210,131c-62,16 -156,21 -202,11z"/>
+    <path stroke="null" id="svg_8" d="m143712.533756,97884.287451c-102,-38 -185,-119 -222,-219c-29,-76 -25,-212 9,-287c62,-140 215,-226 376,-211c91,9 159,41 222,105c184,186 130,491 -105,599c-78,35 -203,41 -280,13zm165,-159c32,-26 73,-92 73,-118c0,-12 4,-25 9,-28c11,-7 46,-214 37,-223c-3,-4 -18,-3 -32,3c-19,6 -32,23 -45,59c-10,28 -19,57 -19,65c0,8 -27,41 -61,72c-56,54 -90,70 -103,50c-8,-13 21,-136 40,-174c9,-18 21,-48 25,-66c6,-29 5,-33 -9,-27c-10,4 -24,8 -32,9c-16,3 -44,47 -54,86l-7,25l15,-25c9,-14 15,-19 16,-12c0,16 -29,75 -42,83c-15,10 -21,118 -7,135c24,29 158,4 159,-30c1,-13 80,-103 80,-90c0,23 -43,164 -50,164c-5,0 -20,-4 -34,-10c-23,-8 -26,-7 -32,15c-12,48 31,70 73,37z"/>
+    <path stroke="null" id="svg_9" d="m143446.533756,97331.287451c37,-72 77,-118 135,-157c210,-140 482,-93 617,108c23,34 42,67 42,72c0,22 -19,5 -55,-47c-50,-72 -129,-137 -203,-165c-82,-31 -216,-31 -292,0c-80,33 -145,85 -196,157c-49,68 -76,86 -48,32z"/>
+   </g>
+  </g>
+  <text font-style="normal" font-weight="normal" stroke="null" transform="matrix(4.677109241485594,0,0,5.074074268341063,-1977.9932088851926,-2625.407531738281) " xml:space="preserve" text-anchor="start" font-family="Arvo, sans-serif" font-size="24" id="svg_11" y="655.496351" x="525.309333" stroke-width="0" fill="#7fb2e7">YeuolyBlog</text>
+  <text font-weight="bold" stroke="null" transform="matrix(2.1958448087360862,0,0,2.051899808217836,-854.9143497274692,-806.0631230373632) " xml:space="preserve" text-anchor="start" font-family="Arvo, sans-serif" font-size="24" id="svg_12" y="778.47532" x="659.909253" stroke-width="0" fill="#7fb2e7">记录您的每一天~</text>
+ </g>
+</svg>

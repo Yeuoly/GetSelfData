@@ -6,11 +6,11 @@
      * */
 
     //初始化
-    include_once (dirname(__FILE__) . "/Config.php");
-    include_once (FILEPATH . "/utils/functions.php");
-    include_once (FILEPATH . "/utils/class/class.Account.php");
-    include_once (FILEPATH . "/utils/class/class.ResponseAjax.php");
-    include_once (FILEPATH . "/utils/class/class.Format.php");
+    include_once(dirname(__FILE__) . "/../../Config.php");
+    include_once(FILEPATH . "/utils/functions.php");
+    include_once(FILEPATH . "/utils/class/class.Account.php");
+    include_once(FILEPATH . "/utils/class/class.ResponseAjax.php");
+    include_once(FILEPATH . "/utils/class/class.Format.php");
 
     //初始化API
     \NFG\InitCommunicate();

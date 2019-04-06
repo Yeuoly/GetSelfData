@@ -38,18 +38,18 @@
 
 <script>
 
-    import PassportInput from '../Common/PassportInput';
+    import TipInput from '../Common/TipInput';
     import CommonButton from '../Common/CommonButton';
     import Title from '../Common/PassportTitle';
-    import { InfoModule } from "../../js/module";
+    import { InfoModule } from "../../js/module-alpha";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
     import { Pattern } from "../../js/GlobalUtils";
 
     export default {
         components : {
             Title : Title,
-            Account : PassportInput,
-            Password : PassportInput,
+            Account : TipInput,
+            Password : TipInput,
             LoginBtn : CommonButton,
             RegisterBtn : CommonButton
         },
@@ -122,7 +122,7 @@
             login () {
                 let vm = this;
                 GlobalCommunication.$emit('httpPost',
-                    InfoModule.getUrlPath('Login.php',InfoModule.dir_api),
+                    InfoModule.getUrlPath('account/v1/Login.php',InfoModule.dir_api),
                     {
                         act : vm.account,
                         pswd : vm.password

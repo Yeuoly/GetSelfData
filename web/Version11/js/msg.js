@@ -11,7 +11,7 @@
 */
 
 import {FunctionGroup} from "../../Version12/YeuolyBlog/src/js/GlobalUtils";
-import {InfoModule} from "../../Version12/YeuolyBlog/src/js/module";
+import {InfoModule} from "../../Version12/YeuolyBlog/src/js/module-alpha";
 
 window.onload = function () {
     let theUA = window.navigator.userAgent.toLowerCase();

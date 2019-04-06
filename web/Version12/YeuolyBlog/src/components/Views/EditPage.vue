@@ -13,7 +13,7 @@
                 <div class="post-introduction">
                     <NormalEditor
                             v-model="post.about"
-                            placeholder="简介"
+                            placeholder="输入简介"
                             class-name="post-introduction-text"
                     />
                 </div>
@@ -34,7 +34,7 @@
                             <NormalEditor
                                     v-model="bodyDep.src"
                                     :id-name="'focus-id-'+bodyDep.liID"
-                                    placeholder="输入"
+                                    placeholder="输入正文"
                             />
                         </div>
                         <table v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
@@ -73,7 +73,7 @@
 
 <script>
     import { GlobalCommunication } from "../../js/GlobalCommunication"
-    import { InfoModule } from "../../js/module"
+    import { InfoModule } from "../../js/module-alpha"
     import { router } from "../../router"
 
     import PictureEditor from '../Common/PictureInput'

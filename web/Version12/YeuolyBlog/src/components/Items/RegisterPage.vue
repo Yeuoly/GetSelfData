@@ -77,22 +77,22 @@
 <script>
 
     import CommonButton from '../Common/CommonButton';
-    import PassportInput from '../Common/PassportInput';
+    import TipInput from '../Common/TipInput';
     import Title from '../Common/PassportTitle';
     import { Pattern } from "../../js/GlobalUtils";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
-    import { InfoModule } from "../../js/module";
+    import { InfoModule } from "../../js/module-alpha";
 
     export default {
         name: "RegisterPage",
         components : {
             Title : Title,
-            Account : PassportInput,
-            Password : PassportInput,
-            repeatPassword : PassportInput,
-            Email : PassportInput,
-            NormalCaptcha : PassportInput,
-            EmailCaptcha : PassportInput,
+            Account : TipInput,
+            Password : TipInput,
+            repeatPassword : TipInput,
+            Email : TipInput,
+            NormalCaptcha : TipInput,
+            EmailCaptcha : TipInput,
             RegisterBtn : CommonButton,
             LoginBtn : CommonButton,
             NormalCaptchaBtn : CommonButton
@@ -163,7 +163,7 @@
                                 this.querying = true;
                                 setTimeout( () => {
                                     GlobalCommunication.$emit('httpPost',
-                                        InfoModule.getUrlPath('FindUser.php',InfoModule.dir_api),
+                                        InfoModule.getUrlPath('account/v1/FindUser.php',InfoModule.dir_api),
                                         {
                                             n : this.account
                                         },
@@ -240,7 +240,7 @@
             },
             register () {
                 GlobalCommunication.$emit('httpPost',
-                    InfoModule.getUrlPath('Register.php',InfoModule.dir_api),
+                    InfoModule.getUrlPath('account/v1/Register.php',InfoModule.dir_api),
                     {
                         act : this.account,
                         pswd : this.password,

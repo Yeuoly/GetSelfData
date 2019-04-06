@@ -42,9 +42,8 @@
 
 <script>
 
-    import { InfoModule } from '../../js/module';
+    import { InfoModule } from '../../js/module-alpha';
     import { GlobalCommunication } from "../../js/GlobalCommunication";
-    import { router } from "../../router";
 
     export default {
         data () {
@@ -78,10 +77,15 @@
                         func : 'aboutPage'
                     },
                     {
+                        name : '设置',
+                        about : '设置',
+                        func : 'setting'
+                    },
+                    {
                         name : '注销',
                         about : '嘤嘤嘤咱要溜了',
                         func : 'logOff'
-                    }
+                    },
                 ],
                 //用户数据
                 user : self.$store.getters.userInfo,
@@ -95,28 +99,28 @@
                 switch(key)
                 {
                     case 'index':
-                        router.replace('/');
+                        this.$router.push({ name : 'index' });
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'passport':
-                        router.replace('/passport');
+                        this.$router.push({ name : 'passport' });
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'myIndex':
-                        router.replace('/home');
+                        this.$router.push({ name : 'home' });
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'aboutPage':
-                        router.replace('/about');
+                        this.$router.push({ name : 'about' });
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
                     case 'logOff':
                         GlobalCommunication.$emit('httpGet',
-                            InfoModule.getUrlPath('LogOff.php',InfoModule.dir_api),
+                            InfoModule.getUrlPath('account/v1/LogOff.php',InfoModule.dir_api),
                             {},
                             (value) => {
                                 if(value.data['res'] === InfoModule.response.requestSuccess)
@@ -132,10 +136,14 @@
                         );
                         break;
                     case 'send':
-                        router.replace('/edit');
+                        this.$router.push({ name : 'edit' });
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                         break;
+                    case 'setting':
+                        this.$router.push({ name : 'setting' });
+                        GlobalCommunication.$emit('closeSideMenu');
+                        GlobalCommunication.$emit('closeBlackCover');
                 }
             },
             //打开侧边栏
@@ -279,14 +287,14 @@
     }
 
     .menu-func-li-btn-block-txt{
-        font-size: 18px;
+        font-size: 16px;
         margin: 0 auto;
         width: 90%;
         color: #ffffffeb;
     }
 
     .menu-func-li-btn-block-about{
-        font-size: 14px;
+        font-size: 12px;
         margin: 0 auto;
         width: 90%;
         color: #ffffffeb;
