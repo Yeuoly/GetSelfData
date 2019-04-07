@@ -29,12 +29,12 @@ input::-webkit-input-placeholder{
 
 @font-face {
     font-family: 'iconfont';  /* project id 1090944 */
-    src: url('//at.alicdn.com/t/font_1090944_4jz7mnx8etg.eot');
-    src: url('//at.alicdn.com/t/font_1090944_4jz7mnx8etg.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1090944_4jz7mnx8etg.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1090944_4jz7mnx8etg.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1090944_4jz7mnx8etg.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1090944_4jz7mnx8etg.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1090944_mhdligev3m.eot');
+    src: url('//at.alicdn.com/t/font_1090944_mhdligev3m.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1090944_mhdligev3m.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1090944_mhdligev3m.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1090944_mhdligev3m.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1090944_mhdligev3m.svg#iconfont') format('svg');
 }
 
 .yb-icon-font{

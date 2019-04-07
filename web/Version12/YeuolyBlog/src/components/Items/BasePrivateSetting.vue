@@ -3,16 +3,21 @@
         <div class="holder">
             <div class="editor">
                 <div class="label">
-                    <span>账号：</span>
+                    <span>昵称：</span>
                 </div>
                 <div class="input">
-                    <tip-input placeholder="账号" tip="" v-model="account"/>
+                    <tip-input
+                            placeholder="昵称"
+                            :tip="account_tip"
+                            v-model="account"
+                            @VKeyup="formatChecker('account')"
+                    />
                 </div>
                 <div class="btn-s">
                     <common-button
-                            @VClick="formatChecker"
+                            @VClick="modifyInfo('id',account)"
                             :enable="true"
-                            content="修改账号"
+                            content="修改昵称"
                     />
                 </div>
             </div>
@@ -27,7 +32,7 @@
                     <span>新密码：</span>
                 </div>
                 <div class="input">
-                    <tip-input placeholder="原密码" tip=""/>
+                    <tip-input placeholder="新密码" tip=""/>
                 </div>
                 <div class="label">
                     <span>重复新密码：</span>
@@ -38,8 +43,8 @@
                 <div class="btn-s">
                     <common-button
                             @VClick="formatChecker"
-                            :enable="true"
-                            content="修改密码"
+                            :enable="false"
+                            content="修改密码（暂不支持）"
                     />
                 </div>
             </div>
@@ -53,8 +58,8 @@
                 <div class="btn-s">
                     <common-button
                             @VClick="formatChecker"
-                            :enable="true"
-                            content="修改邮箱"
+                            :enable="false"
+                            content="修改邮箱（暂不支持）"
                     />
                 </div>
             </div>
@@ -68,7 +73,7 @@
 
     import { GlobalCommunication } from "../../js/GlobalCommunication"
     import { InfoModule } from "../../js/module-alpha"
-    import { Pattern } from "../../js/GlobalUtils"
+    import { AccountFormatChecker } from "../../mixins/AccountFormatChecker"
 
     export default {
         name: "BasePrivateSetting",
@@ -78,65 +83,41 @@
         },
         data(){
             return {
-                account : '',
-                email : '',
-                password : '',
-                repeatPassword: ''
+                origin_account : String,
+                origin_email : String,
             }
         },
         methods : {
-            formatChecker(){
-                if(this.account.length < 6)
-                {
-                    this.account_tip = '这么短小的嘛qwq';
-                    this.format_allowed_account = false;
-                }
-                else if(this.account.length > 16)
-                {
-                    this.account_tip = '好长啊。。要死啦';
-                    this.format_allowed_account = false;
-                }
-                else if(!Pattern.account.test(this.account))
-                {
-                    this.account_tip = '奇奇怪怪的名字是不可以的哦';
-                    this.format_allowed_account = false;
-                }
-                else
-                {
-                    if(!this.querying)
-                    {
-                        this.querying = true;
-                        setTimeout( () => {
-                            GlobalCommunication.$emit('httpPost',
-                                InfoModule.getUrlPath('account/v1/FindUser.php',InfoModule.dir_api),
-                                {
-                                    n : this.account
-                                },
-                                (data) => {
-                                    if(data.data['find'] === true)
-                                    {
-                                        this.account_tip = '这个名字已经被占用了哦~';
-                                        this.format_allowed_account = false;
-                                    }else{
-                                        this.account_tip = '';
-                                        this.format_allowed_account = true;
-                                    }
-                                },
-                                () => {
-                                    this.account_tip = '阿拉啦服务器好像坏掉惹';
-                                    this.format_allowed_account = false;
-                                }
-                            );
-                            this.querying = false;
-                        } ,1000);
-                    }
-                }
-            },
             loadInfo(){
                 let store = this.$store.getters.userInfo;
                 this.account = store['user_id'];
                 this.email = store['user_email'];
+                this.origin_account = this.account;
+                this.origin_email = this.email;
+            },
+            modifyInfo(dest,modified,origin){
+                GlobalCommunication.$emit('httpPost',
+                    InfoModule.getUrlPath('account/v2/SetUserMeta.php',InfoModule.dir_api),
+                    {
+                        dest : dest,
+                        ogv : origin,
+                        myv : modified
+                    },
+                    (data) => {
+                        if(data.data['res'] !== InfoModule.response.requestSuccess)
+                        {
+                            this.$utils.messageBox(data.data['error'],'warn');
+                        }else{
+                            this.$utils.messageBox('修改成功');
+                            GlobalCommunication.$emit('refreshUserData');
+                        }
+                    }
+                );
             }
+        },
+        mixins : [AccountFormatChecker],
+        created() {
+            this.loadInfo();
         }
     }
 </script>
@@ -172,5 +153,37 @@
 
     .btn-s{
         margin-top: -5px;
+    }
+    
+    @media (max-width: 1178px) {
+        .label{
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 1058px) {
+        .label{
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 994px) {
+        .label{
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 930px) {
+        .label{
+            text-align: left;
+            font-size: 16px;
+            float: none;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .input{
+            width: 100%;
+        }
     }
 </style>

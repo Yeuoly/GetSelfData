@@ -14,6 +14,7 @@ import {GlobalCommunication} from "../js/GlobalCommunication";
 import SettingPage from "../components/Views/SettingPage";
 import BasePrivateSetting from "../components/Items/BasePrivateSetting";
 import AdvancePrivateSetting from "../components/Items/AdvancePrivateSetting";
+import QA from '../components/Views/Q&APage';
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,16 @@ export const router = new VueRouter({
             path : '/about',
             component : AboutPage,
             meta : {
+                keepAlive : true,
+                login_required : false
+            }
+        },
+        {
+            name : 'qa',
+            path : '/qa',
+            component : QA,
+            meta : {
+                keepAlive : true,
                 login_required : false
             }
         },

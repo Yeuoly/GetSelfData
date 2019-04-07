@@ -299,7 +299,7 @@
 
         /**
          * This function is used to modify user's info
-         * If password was been modified , it will clear the session and the token in db
+         * It will clear the session and the token in db
          * @param string $dest which info you wanna to modify
          * @param string $origin the origin value , if the value given is not the same
          *                       as the data in database , this direction will be failed
@@ -316,6 +316,11 @@
                 case 'avatar':
                     break;
                 case 'id':
+                    $formater = new FormatChecker();
+                    if(!$formater->FromAccount($modified)){
+                        //账号格式不符合规范
+                        return user_action_format_wrong_account;
+                    }
                     $res = $DB->SetInList(
                         MYSQL_USER_LIST,
                         mysql_key_account,
@@ -331,6 +336,11 @@
 
                     break;
                 case 'password':
+                    $formater = new FormatChecker();
+                    if(!$formater->FromPassword($modified)){
+                        //密码格式不符合规范
+                        return user_action_format_wrong_password;
+                    }
                     $origin_user_data = $DB->GetRowFromList(
                         MYSQL_USER_LIST,
                         [mysql_key_uid => $_SESSION[SESSION_USERDATA][SESSION_USER_UID]],
@@ -366,9 +376,9 @@
                         return server_error;
                     }
                     //clear session
-                    unset($_SESSION[SESSION_USERDATA]);
                     break;
             }
+            unset($_SESSION[SESSION_USERDATA]);
             return true;
         }
     }

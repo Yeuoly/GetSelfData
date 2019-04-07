@@ -77,6 +77,11 @@
                         func : 'aboutPage'
                     },
                     {
+                        name : 'Q&A',
+                        about : '常见的问题这里都有',
+                        func : 'qa'
+                    },
+                    {
                         name : '设置',
                         about : '设置',
                         func : 'setting'
@@ -142,6 +147,11 @@
                         break;
                     case 'setting':
                         this.$router.push({ name : 'setting' });
+                        GlobalCommunication.$emit('closeSideMenu');
+                        GlobalCommunication.$emit('closeBlackCover');
+                        break;
+                    case 'qa':
+                        this.$router.push({ name : 'qa' });
                         GlobalCommunication.$emit('closeSideMenu');
                         GlobalCommunication.$emit('closeBlackCover');
                 }

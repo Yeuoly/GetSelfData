@@ -1,8 +1,8 @@
 <template>
     <div id="updates-log" class="card yb-icon-font">
-        <h3 id="log-title" class="card-title">
+        <common-title-h3 :id="'log-title'" class-name="card-title">
             {{title}}
-        </h3>
+        </common-title-h3>
         <div id="updates-log-list">
             <ul>
                 <li v-for="log in updateLog">
@@ -20,9 +20,11 @@
 
 <script>
     import { updateLog } from "../../js/module-beta";
+    import CommonTitleH3 from "../Common/CommonTitle";
 
     export default {
         name : 'IndexUpdateLog',
+        components: {CommonTitleH3},
         props : {
 
         },

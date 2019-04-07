@@ -2,54 +2,56 @@
     <div id="register-page">
         <Title title="&#xe71c; 注册" />
         <form class="input-group">
-            <Account
-                    placeholder="账号"
-                    type="text"
-                    @VKeyup="verifyFormat('account')"
-                    v-model.lazy="account"
-                    :tip="account_tip"
-                    ID="input-account"
-            />
-            <Password
-                    placeholder="密码"
-                    type="password"
-                    @VKeyup="verifyFormat('password')"
-                    v-model="password"
-                    :tip="password_tip"
-                    ID="input-password"
-            />
-            <repeatPassword
-                    placeholder="重复密码"
-                    type="password"
-                    @VKeyup="verifyFormat('repeatPassword')"
-                    v-model="repeat_password"
-                    :tip="repeat_password_tip"
-                    ID="input-RePassword"
-            />
-            <Email
-                    placeholder="邮箱"
-                    type="text"
-                    @VKeyup="verifyFormat('email')"
-                    v-model="email"
-                    :tip="email_tip"
-                    ID="input-Email"
-            />
-            <NormalCaptcha
-                    placeholder="验证码"
-                    type="text"
-                    @VKeyup="verifyFormat('normalCaptcha')"
-                    v-model="normal_captcha"
-                    :tip="getNormalCaptcha"
-                    ID="input-NormalCaptcha"
-            />
-            <EmailCaptcha
-                    placeholder="邮箱二次验证码"
-                    type="text"
-                    @VKeyup="verifyFormat('emailCaptcha')"
-                    v-model="email_captcha"
-                    :tip="email_captcha_tip"
-                    ID="input-EmailCaptcha"
-            />
+            <div style="width: 80%;margin: 0 auto">
+                <Account
+                        placeholder="账号"
+                        type="text"
+                        @VKeyup="formatChecker('account')"
+                        v-model.lazy="account"
+                        :tip="account_tip"
+                        ID="input-account"
+                />
+                <Password
+                        placeholder="密码"
+                        type="password"
+                        @VKeyup="formatChecker('password')"
+                        v-model="password"
+                        :tip="password_tip"
+                        ID="input-password"
+                />
+                <repeatPassword
+                        placeholder="重复密码"
+                        type="password"
+                        @VKeyup="formatChecker('repeatPassword')"
+                        v-model="repeat_password"
+                        :tip="repeat_password_tip"
+                        ID="input-RePassword"
+                />
+                <Email
+                        placeholder="邮箱"
+                        type="text"
+                        @VKeyup="formatChecker('email')"
+                        v-model="email"
+                        :tip="email_tip"
+                        ID="input-Email"
+                />
+                <NormalCaptcha
+                        placeholder="验证码"
+                        type="text"
+                        @VKeyup="formatChecker('normalCaptcha')"
+                        v-model="normal_captcha"
+                        :tip="getNormalCaptcha"
+                        ID="input-NormalCaptcha"
+                />
+                <EmailCaptcha
+                        placeholder="邮箱二次验证码"
+                        type="text"
+                        @VKeyup="formatChecker('emailCaptcha')"
+                        v-model="email_captcha"
+                        :tip="email_captcha_tip"
+                        ID="input-EmailCaptcha"
+                />
+            </div>
         </form>
         <div class="btn-group">
             <RegisterBtn
@@ -76,12 +78,12 @@
 
 <script>
 
-    import CommonButton from '../Common/CommonButton';
-    import TipInput from '../Common/TipInput';
-    import Title from '../Common/PassportTitle';
-    import { Pattern } from "../../js/GlobalUtils";
-    import { GlobalCommunication } from "../../js/GlobalCommunication";
-    import { InfoModule } from "../../js/module-alpha";
+    import CommonButton from '../Common/CommonButton'
+    import TipInput from '../Common/TipInput'
+    import Title from '../Common/PassportTitle'
+    import { GlobalCommunication } from "../../js/GlobalCommunication"
+    import { InfoModule } from "../../js/module-alpha"
+    import { AccountFormatChecker } from "../../mixins/AccountFormatChecker"
 
     export default {
         name: "RegisterPage",
@@ -99,22 +101,6 @@
         },
         data () {
             return {
-                account : '',
-                account_tip : '',
-                password : '',
-                password_tip : '',
-                repeat_password : '',
-                repeat_password_tip : '',
-                email : '',
-                email_tip : '',
-                normal_captcha : '',
-                normal_captcha_tip : '',
-                email_captcha : '',
-                email_captcha_tip : '',
-                format_allowed_account : false,
-                format_allowed_password : false,
-                format_allowed_repeat_password : false,
-                format_allowed_email : false,
                 querying : false
             }
         },
@@ -138,103 +124,6 @@
             },
         },
         methods : {
-            verifyFormat(method){
-                switch (method) {
-                    case 'account':
-                        if(this.account.length < 6)
-                        {
-                            this.account_tip = '这么短小的嘛qwq';
-                            this.format_allowed_account = false;
-                        }
-                        else if(this.account.length > 16)
-                        {
-                            this.account_tip = '好长啊。。要死啦';
-                            this.format_allowed_account = false;
-                        }
-                        else if(!Pattern.account.test(this.account))
-                        {
-                            this.account_tip = '奇奇怪怪的名字是不可以的哦';
-                            this.format_allowed_account = false;
-                        }
-                        else
-                        {
-                            if(!this.querying)
-                            {
-                                this.querying = true;
-                                setTimeout( () => {
-                                    GlobalCommunication.$emit('httpPost',
-                                        InfoModule.getUrlPath('account/v1/FindUser.php',InfoModule.dir_api),
-                                        {
-                                            n : this.account
-                                        },
-                                        (data) => {
-                                            if(data.data['find'] === true)
-                                            {
-                                                this.account_tip = '这个名字已经被占用了哦~';
-                                                this.format_allowed_account = false;
-                                            }else{
-                                                this.account_tip = '';
-                                                this.format_allowed_account = true;
-                                            }
-                                        },
-                                        () => {
-                                            this.account_tip = '阿拉啦服务器好像坏掉惹';
-                                            this.format_allowed_account = false;
-                                        }
-                                    );
-                                    this.querying = false;
-                                } ,1000);
-                            }
-                        }
-                        break;
-                    case 'password':
-                        if(this.password.length < 6)
-                        {
-                            this.password_tip = '这么短小的嘛qwq';
-                            this.format_allowed_password = false;
-                        }
-                        else if(this.password.length > 16)
-                        {
-                            this.password_tip = '好长啊。。要死啦';
-                            this.format_allowed_password = false;
-                        }
-                        else if(!Pattern.password.test(this.password))
-                        {
-                            this.password_tip = '密码也是不允许变得奇怪的哦';
-                            this.format_allowed_password = false;
-                        }
-                        else
-                        {
-                            this.password_tip = '';
-                            this.format_allowed_password = true;
-                        }
-                        break;
-                    case 'repeatPassword':
-                        if(this.repeat_password !== this.password)
-                        {
-                            this.repeat_password_tip = '主人的两次密码不一样哦~';
-                            this.format_allowed_repeat_password = false;
-                        }else{
-                            this.repeat_password_tip = '';
-                            this.format_allowed_repeat_password = true;
-                        }
-                        break;
-                    case 'email':
-                        if(!Pattern.email.test(this.email))
-                        {
-                            this.email_tip = '好奇怪的邮箱诶。。';
-                            this.format_allowed_email = false;
-                        }else{
-                            this.email_tip = '';
-                            this.format_allowed_email = true;
-                        }
-                        break;
-                    case 'normalCaptcha':
-                        break;
-                    case 'emailCaptcha':
-                        break;
-                }
-            },
             login () {
                 this.$router.push({ name : 'login' });
             },
@@ -280,7 +169,8 @@
                     }
                 );
             }
-        }
+        },
+        mixins : [AccountFormatChecker]
     }
 </script>
 

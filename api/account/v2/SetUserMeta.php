@@ -23,7 +23,7 @@ include_once (FILEPATH . "/account/v1/User.php");
  **/
 
 $dest = $_POST['dest'];
-$origin_value = $_POST['ogv'] ? $_POST['ogv'] : 'default';
+$origin_value = @$_POST['ogv'] ? $_POST['ogv'] : 'default';
 $modify_value = $_POST['myv'];
 
 include_once (FILEPATH . "/utils/class/class.Account.php");

@@ -8,9 +8,9 @@ let url = {
         "img" : "http://localhost:100/website/pif_mana/img/"
     },
     "remoteserver" : {
-        "api" : "http://localhost:100/website/pif_mana/api/",
-        "web" : "http:8080/",
-        "img" : "http://localhost:100/website/pif_mana/img/"
+        "api" : "https://api.ylday.srmxy.cn/",
+        "web" : "https://ylday.srmxy.cn/",
+        "img" : "https://img.srmxy.cn/ylday/"
     }
 };
 

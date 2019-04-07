@@ -75,3 +75,7 @@
     define("user_action_wrong_format","参数错误");
 
     define("user_action_same_password","新密码应与旧密码不同！");
+
+    define("user_action_format_wrong_account","账号格式不规范");
+
+    define("user_action_format_wrong_password","密码格式不规范");

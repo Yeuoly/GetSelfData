@@ -1,8 +1,8 @@
 <template>
     <div class="card yb-icon-font" id="about">
-        <h3 id="about-title" class="card-title">
+        <common-title-h3 :id="'about-title'" class-name="card-title">
             {{title}}
-        </h3>
+        </common-title-h3>
         <div id="about-content" class="card-content">
             <div id="head">
                 {{content}}
@@ -26,11 +26,14 @@
     </div>
 </template>
 <script>
-    import { techList } from "../../js/module-beta";
-    import { normalIntroduction } from "../../js/module-beta";
+    import { techList } from "../../js/module-beta"
+    import { normalIntroduction } from "../../js/module-beta"
+
+    import CommonTitleH3 from '../Common/CommonTitle'
 
     export default {
         name : 'AboutList',
+        components: {CommonTitleH3},
         data : () => {
             return {
                 title : '关于本站',

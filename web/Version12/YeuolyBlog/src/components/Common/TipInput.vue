@@ -1,20 +1,18 @@
 <template>
     <div class="item">
-        <label :for="ID">
-            <div class="holder">
-                <input :id="ID"
-                       class="font-normal-size passport-input"
-                       :type="type"
-                       :placeholder="placeholder"
-                       :value="hostValue"
-                       @input="handleInput"
-                       @keyup="handleKeyUp"
-                >
-            </div>
-            <div id="tip-passport-account" :class="'tip' + (tipColor ? (' ' + tipColor) : '')">
-                <div v-html="tip"></div>
-            </div>
-        </label>
+        <div class="holder">
+            <input :id="ID"
+                   class="font-normal-size passport-input"
+                   :type="type"
+                   :placeholder="placeholder"
+                   :value="hostValue"
+                   @input="handleInput"
+                   @keyup="handleKeyUp"
+            >
+        </div>
+        <div :class="'tip' + (tipColor ? (' ' + tipColor) : '')">
+            <div v-html="tip"></div>
+        </div>
     </div>
 </template>
 
@@ -76,6 +74,8 @@
     }
 
     .tip{
+        margin: 0 auto;
+        width: 95%;
         height: 15px;
         color: #ff5252;
     }

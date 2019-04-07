@@ -65,4 +65,14 @@
         margin-left: -1px;
     }
 
+    @media (max-width: 462px) {
+        .side-bar{
+            width: 100px;
+        }
+
+        .function{
+            width: calc(100% - 101px);
+        }
+    }
+
 </style>

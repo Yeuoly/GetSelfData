@@ -5,15 +5,15 @@
             <Account
                     placeholder="账号"
                     type="text"
-                    @VKeyup="verifyFormat('account')"
+                    @VKeyup="formatChecker('account')"
                     v-model="account"
-                    :tip="account_tip"
+                    :tip="(account_tip === '这个名字已经被占用了哦~' )? '' : (format_allowed_account ? '不存在这个账号' : account_tip) "
                     ID="input-account"
             />
             <Password
                     placeholder="密码"
                     type="password"
-                    @VKeyup="verifyFormat('password')"
+                    @VKeyup="formatChecker('password')"
                     v-model="password"
                     :tip="password_tip"
                     ID="input-password"
@@ -22,7 +22,7 @@
         <div class="btn-group">
             <LoginBtn
                     @VClick="login"
-                    :enable="format_allowed_account && format_allowed_password"
+                    :enable="((account_tip === '这个名字已经被占用了哦~' )? true : false)&& format_allowed_password"
                     content="&#xe600; 登录"
                     class-name="login-btn yb-icon-font"
             />
@@ -44,6 +44,7 @@
     import { InfoModule } from "../../js/module-alpha";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
     import { Pattern } from "../../js/GlobalUtils";
+    import { AccountFormatChecker } from "../../mixins/AccountFormatChecker";
 
     export default {
         components : {
@@ -54,71 +55,7 @@
             RegisterBtn : CommonButton
         },
         name : 'LoginPage',
-        data () {
-            return {
-                account : '',
-                password : '',
-                account_tip : '',
-                password_tip : '',
-                format_allowed_password : false,
-                format_allowed_account : false,
-            }
-        },
         methods : {
-            setAccountTip(tip){
-                this.$refs.Account.setTip(tip);
-            },
-            setPswdTip(tip){
-                this.$refs.Password.setTip(tip);
-            },
-            verifyFormat (method) {
-                if(method === 'account')
-                {
-                    if(this.account.length < 6)
-                    {
-                        this.account_tip = '这么短小的嘛qwq';
-                        this.format_allowed_account = false;
-                    }
-                    else if(this.account.length > 16)
-                    {
-                        this.account_tip = '好长啊。。要死啦';
-                        this.format_allowed_account = false;
-                    }
-                    else if(!Pattern.account.test(this.account))
-                    {
-                        this.account_tip = '奇奇怪怪的名字是不可以的哦';
-                        this.format_allowed_account = false;
-                    }
-                    else
-                    {
-                        this.account_tip = '';
-                        this.format_allowed_account = true;
-                    }
-                }
-                else if(method === 'password')
-                {
-                    if(!Pattern.length6To16.test(this.password))
-                    {
-                        this.password_tip = '这么短小的嘛qwq';
-                        this.format_allowed_password = false;
-                    }
-                    else if(this.password.length > 16)
-                    {
-                        this.password_tip = '好长啊。。要死啦';
-                        this.format_allowed_password = false;
-                    }
-                    else if(!Pattern.password.test(this.password))
-                    {
-                        this.password_tip = '密码也是不允许变得奇怪的哦';
-                        this.format_allowed_password = false;
-                    }
-                    else
-                    {
-                        this.password_tip = '';
-                        this.format_allowed_password = true;
-                    }
-                }
-            },
             login () {
                 let vm = this;
                 GlobalCommunication.$emit('httpPost',
@@ -146,6 +83,7 @@
                 this.$router.push({ name : 'register' });
             }
         },
+        mixins : [AccountFormatChecker],
         created() {
 
         }

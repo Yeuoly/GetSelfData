@@ -3,6 +3,12 @@
  */
 export let updateLog = [
     {
+        title   : '新功能及美化 Version: 1.2.1.0-alpha',
+        content : '大量修改了样式，布局风格修改，性能优化，修改了编辑器编码格式，添加修改用户个人信息' +
+            '，增添Q&A界面和setting界面，添加了logo，终于有主页了，添加了访问量统计',
+        date    : '2019/4/7'
+    },
+    {
         title   : '修复及优化 Version: 1.2.0.1-alpha',
         content : '修复标题会和操作栏以及正文重叠的bug，性能优化，编辑框升级添加工具栏，支持图片上传',
         date    : '2019/3/30'

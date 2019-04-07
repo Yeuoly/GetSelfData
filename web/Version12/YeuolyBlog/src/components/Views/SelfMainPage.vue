@@ -45,14 +45,21 @@
                             </ul>
                         </div>
                         <div class="extra-function">
-                            <top-tool-bar
-                                    list=""
-                            />
+                            <top-tool-bar>
+                                <!--  -->
+                            </top-tool-bar>
                         </div>
                     </div>
                 <hr>
             </li>
         </ul>
+        <div class="load-more yb-icon-font" style="width: 50%;margin: 0 auto">
+            <common-btn
+                    content="&#xe601; 再多一点。。拜托了"
+                    :enable="!isEnd && !isLoading"
+                    @VClick="loadMore"
+            />
+        </div>
     </div>
 </template>
 
@@ -64,11 +71,13 @@
     import CommonPictureHolder from "../Common/CommonPictureHolder"
     import CommonTable from "../Common/CommonTable"
     import CommonUrlLink from "../Common/CommonUrlLink"
-    import CommonDropDownList from "../Common/CommonDropDownList";
-    import TopToolBar from '../Common/TopToolBar';
+    import CommonDropDownList from "../Common/CommonDropDownList"
+    import TopToolBar from '../Common/TopToolBar'
+    import CommonBtn from '../Common/CommonButton'
 
     export default {
         components: {
+            CommonBtn,
             CommonDropDownList,
             CommonUrlLink,
             CommonTable,
@@ -80,10 +89,9 @@
             return {
                 postDepartment : [],
                 page : 1,
-                isLoading : false,
-                flag : false,
                 isEnd : false,
                 firstMounted : false,
+                isLoading : false,
                 extraPostFunction : {
 
                 }
@@ -187,44 +195,24 @@
                     );
                 }
             },
-            onscroll() {
-                function myTry() {
-                    let documentTop = this.$getDocumentTop();
-                    let scrollHeight = this.$getScrollHeight();
-                    let windowHeight = this.$getWindowHeight();
-                    if(scrollHeight === windowHeight + documentTop)
-                    {
-                        //进入加载状态
-                        this.isLoading = true;
-                        this.getRecentPost(this.page + 1 , (data) => {
-                            this.loadNewMsg(data);
-                            //翻面
-                            this.page++;
-                            //加载完成
-                            this.isLoading = false;
+            loadMore() {
+                //进入加载状态
+                this.isLoading = true;
+                this.getRecentPost(this.page + 1 , (data) => {
+                    this.loadNewMsg(data);
+                    //翻面
+                    this.page++;
+                    //加载完成
+                    this.isLoading = false;
 
-                        },() => {
-                            //加载完成
-                            this.isLoading = false;
-                        });
-                    }
-                }
-                //防止频繁调用 ， 当第一次调用完之后将flag改为true，为了避免在第一次调用的执行期间有新的事件
-                //触发而没有调用，则在第一次调用的最后再手动调用一次
-                if(this.flag && !this.isLoading && !this.isEnd)
-                {
-                    this.flag = false;
-                    myTry();
-                    setTimeout(() => {
-                        this.flag = true;
-                        myTry();
-                    } , 1000);
-                }
+                },() => {
+                    //加载完成
+                    this.isLoading = false;
+                });
             }
         },
         //挂载时检测是否是第一次挂载，第一次挂载时加载数据
         mounted() {
-            window.onscroll = this.onscroll();
             if(!this.firstMounted)
             {
                 this.firstMounted = true;
