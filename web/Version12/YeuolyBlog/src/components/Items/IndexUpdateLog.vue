@@ -7,9 +7,12 @@
             <ul>
                 <li v-for="log in updateLog">
                     <div class="updateLog">
-                        <span class="updateLog-title">{{log.date}} &#xe648; {{log.title}}</span>
-                        <span class="updateLog-blank-block"></span>
-                        <span class="updateLog-content"> &#xe648; {{log.content}}</span>
+                        <div class="controller-1">
+                            <span class="title">{{log.title}}</span>
+                            <span class="version font--small">ver-{{log.version}}</span>
+                        </div>
+                        <p class="date">{{log.date}}</p>
+                        <span class="content font--small"> {{log.content}}</span>
                     </div>
                     <div class="vertical-blank-block"></div>
                 </li>
@@ -52,14 +55,31 @@
         margin: 0 auto;
     }
 
-    .updateLog-title{
-        font-size: 16px;
-        width: 90%;
+    .title{
+        margin: 0;
+        font-size: 15px;
+        font-weight: 600;
     }
 
-    .updateLog-content{
+    .date{
+        margin: 0;
+        font-size: 13px
+    }
+
+    .version{
+        background-color: #616161!important;
+        color: white;
+        padding: 5px;
+        margin-left: 5px;
+        border-radius: 3px;
+    }
+
+    .controller-1{
+        overflow: hidden;
+    }
+
+    .content{
         float: left;
-        font-size: 14px;
         width: 90%;
     }
 

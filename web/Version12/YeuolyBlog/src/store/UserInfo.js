@@ -1,6 +1,6 @@
 export default {
     state : {
-        user_id: '未登录',
+        user_id: '游客',
         user_uid: -1,
         user_email: 'example@example.com',
         user_lv: -1,

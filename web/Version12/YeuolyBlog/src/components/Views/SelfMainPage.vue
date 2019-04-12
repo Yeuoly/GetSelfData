@@ -176,14 +176,13 @@
                 for(let i in data){
                     let post_data;
                     try{
-                        post_data = JSON.parse(data[i].post_data);
+                        let each_data = data[i].post_data.replace(/[\n\r]/g,'\\n');
+                        post_data = JSON.parse(each_data);
                     }catch (e) {
-                        post_data = [
-                            {
+                        post_data = [{
                                 html : 'blog',
                                 src : data[i].post_data
-                            }
-                        ]
+                            }]
                     }
                     this.addPostCard(
                         data[i].post_title,
@@ -220,6 +219,14 @@
                     this.getRecentPost(this.page,this.loadNewMsg);
                 }, 100);
             }
+        },
+        created() {
+            GlobalCommunication.$on('refreshHomePage',()=>{
+                this.firstLoad = false;
+                this.page = 1;
+                this.isEnd = false;
+                this.getRecentPost(this.page,this.reloadMsg);
+            });
         }
     }
 </script>

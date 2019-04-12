@@ -1,23 +1,17 @@
 <template>
     <div class="header" id="header">
-        <div class="user-block-open header-function-list-dep" id="user-block-open">
-            <div class="user-block-open-click" id="user-block-open-click" @click="openSideMenu">
+        <div style="padding: 3px;float: left;">
+            <div class="btn-click" @click="openSideMenu">
                 <i class="yb-icon-font" style="font-size: 25px">&#xe65c;</i>
             </div>
         </div>
-
-        <ul id="header-function-list" v-for="dep in headerFunctionList" :key="dep.className">
-            <li class="header-function-list">
-                <div class="header-function-list-dep">
-                    <div class="header-function-list-depInner">
-                        <div
-                             v-html="dep.innerHtml"
-                             :class="dep.className"
-                             @click="dep.click"
-                             :id="dep.id"
-                        >
-                        </div>
-                    </div>
+        <ul id="" v-for="dep in headerFunctionList" :key="dep.className">
+            <li class="btn-click">
+                <div v-html="dep.innerHtml"
+                     :class="dep.className"
+                     @click="dep.click"
+                     :id="dep.id"
+                >
                 </div>
             </li>
         </ul>
@@ -60,22 +54,24 @@
         background-color: #607d8b;
         background-attachment:fixed;
         margin-left: -5px;
+        vertical-align: middle;
     }
 
-    #user-block-open-click{
+    .btn-click{
         border-radius: 50%;
         background-color: transparent;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
+        width: 39px;
+        height: 39px;
+        line-height: 39px;
         font-size: 25px;
+        cursor: pointer;
+        color: white;
         text-align: center;
         vertical-align: middle;
-        color: white;
     }
 
-    #user-block-open-click:hover , .header-function-list-depInner:hover{
-        background-color: #597b8b;
+    .btn-click:hover{
+        background-color: #537383;
     }
 
 

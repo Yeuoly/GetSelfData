@@ -30,4 +30,10 @@
         padding: 10px;
         color: rgba(0,0,0,.8);
     }
+
+    @media (max-width: 580px) {
+        #about-website{
+            width: 90%;
+        }
+    }
 </style>

@@ -74,7 +74,6 @@
 <script>
     import { GlobalCommunication } from "../../js/GlobalCommunication"
     import { InfoModule } from "../../js/module-alpha"
-    import { router } from "../../router"
 
     import PictureEditor from '../Common/PictureInput'
     import UrlEditor from '../Common/UrlInput'
@@ -234,7 +233,8 @@
                         if (value.data['res'] === InfoModule.response.requestSuccess)
                         {
                             this.clearPostData();
-                            router.replace('/home');
+                            this.$router.push({name : 'home'});
+                            GlobalCommunication.$emit('refreshHomePage');
                         }else{
                             this.$utils.messageBox(value.data['error']);
                         }

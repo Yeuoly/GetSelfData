@@ -1,37 +1,20 @@
 <template>
-    <div class="user-menu"
-         id="user-menu"
-    >
-        <div class="menu-user-block"
-             id="menu-user-block"
-        >
-            <div class="menu-user-block-avatar"
-                 id="menu-user-block-avatar"
-            >
-                <img id="menu-user-block-avatar-img"
-                     class="menu-user-block-avatar-img"
-                     :src="user.avatar"
-                     alt=""
-                >
+    <div :class="'user-menu' + (display ? ' user-menu-enter' : ' user-menu-leave')">
+        <div class="user">
+            <div class="avatar">
+                <img :src="avatar ? avatar :'https://t1.picb.cc/uploads/2019/04/12/VLVfbv.png'" alt="" @error="setDefaultAvatar">
             </div>
-            <div class="menu-user-block-uid" id="menu-user-block-uid">
-                <div class="menu-user-block-uid-txt" id="menu-user-block-uid-txt">
-                    |uid : {{user.user_uid}}
-                </div>
-            </div>
-            <div class="menu-user-block-id" id="menu-user-block-id">
-                <div class="menu-user-block-id-txt" id="menu-user-block-id-txt">
-                    |id : {{user.user_id}}
-                </div>
+            <div class="id font--large text--white">
+                <span>{{user.user_id}}</span>
             </div>
         </div>
-        <hr class="menu-user-block-div-line">
-        <div class="menu-func" id="menu-func">
-            <ul class="menu-func-ul" id="menu-func-ul">
-                <li v-for="dep in func" :key='dep.func'>
-                    <div class="menu-func-li-btn-block" @click="functionSwitch(dep.func)">
-                        <div class="menu-func-li-btn-block-txt">{{dep.name}}</div>
-                        <div class="menu-func-li-btn-block-about">{{dep.about}}</div>
+        <hr>
+        <div class="menu-func">
+            <ul>
+                <li v-for="dep in func" :key='dep.func' class="item font--small">
+                    <div @click="functionSwitch(dep.func)">
+                        <i class="yb-icon-font font--big-ex" v-html="dep.haircut"></i>
+                        <span style="padding-left: 10px">{{dep.name}}</span>
                     </div>
                 </li>
             </ul>
@@ -43,50 +26,61 @@
 <script>
 
     import { InfoModule } from '../../js/module-alpha';
+    import { BaseUrl } from "../../js/module-alpha";
     import { GlobalCommunication } from "../../js/GlobalCommunication";
 
     export default {
         data () {
             let self = this;
             return {
+                //侧边栏状态
+                display : false,
                 //侧边功能栏
                 func: [
                     {
+                        haircut : '&#xe60e;',
                         name : '回到网站主页',
                         about : '回到那个梦想开始的地方~',
                         func : 'index'
                     },
                     {
+                        haircut : '&#xe600;',
                         name : '登录or注册',
                         about : '登录or注册',
                         func : 'passport'
                     },
                     {
+                        haircut : '&#xe62f;',
                         name : '我的主页',
                         about : '回家咯~',
                         func : 'myIndex'
                     },
                     {
+                        haircut : '&#xe6ed;',
                         name : '发送博客',
                         about : '也该干正事了',
                         func : 'send'
                     },
                     {
+                        haircut : '&#xe629;',
                         name : '关于',
                         about : '估计你对这个没啥兴趣',
                         func : 'aboutPage'
                     },
                     {
-                        name : 'Q&A',
+                        haircut : '&#xe62a;',
+                        name : 'FQ♂A',
                         about : '常见的问题这里都有',
                         func : 'qa'
                     },
                     {
+                        haircut : '&#xe60d;',
                         name : '设置',
                         about : '设置',
                         func : 'setting'
                     },
                     {
+                        haircut : '&#xe68e;',
                         name : '注销',
                         about : '嘤嘤嘤咱要溜了',
                         func : 'logOff'
@@ -94,13 +88,13 @@
                 ],
                 //用户数据
                 user : self.$store.getters.userInfo,
-                //侧边菜单栏的css参数
+                //头像
+                avatar : ''
             }
         },
         methods : {
             //点击这个dom的时候的函数处理事件，使用一个function和多个key来判断不同情况下执行什么任务
-            functionSwitch : function(key)
-            {
+            functionSwitch (key) {
                 switch(key)
                 {
                     case 'index':
@@ -157,184 +151,94 @@
                 }
             },
             //打开侧边栏
-            openSideMenu : function () {
-                //获取右侧边栏dom
-                let menu = document.getElementById('user-menu');
-                menu.style.setProperty('transform','translateX(300px)');
-                setTimeout(function () {
-                    menu.style.setProperty('box-shadow','2px 0px 1px rgb(173, 150, 150)');
-                });
+            openSideMenu () {
+                this.display = true;
             },
             //关掉侧边栏
-            closeSideMenu : function () {
-                let menu = document.getElementById('user-menu');
-                menu.style.setProperty('transform','translateX(0px)');
-                setTimeout(function () {
-                    menu.style.setProperty("box-shadow","0px 0px 0px rgb(173, 150, 150)");
-                } , 500);
+            closeSideMenu () {
+                this.display = false;
             },
             //添加监听事件
             initEvent() {
                 GlobalCommunication.$on('openSideMenu',this.openSideMenu);
                 GlobalCommunication.$on('closeSideMenu',this.closeSideMenu);
             },
-            //返回用户数据
+            //设置头像
+            setAvatar(){
+                this.$utils.onFirstLoadUserInfo(() => {
+                    this.avatar = InfoModule.getUrlPath('avatar/'+this.user.user_uid+'.jpg',InfoModule.dir_img);
+                });
+            },
+            //设置默认头像
+            setDefaultAvatar(){
+                this.avatar = BaseUrl.defaultAvatar.get();
+            }
         },
         created() {
             this.initEvent();
+            this.setAvatar();
         }
     }
 
 </script>
 
 <style>
-    #menu-user-block-avatar-img{
-        width: 60px;
-        height: 60px;
-    }
 
-    #user-menu{
+    .user-menu{
         width: 300px;
         height: 100%;
         position: fixed;
         top: 0;
         left: -300px;
-        background-color: transparent;;
         z-index: 2;
-        /* Transition left */
         transition: .2s;
-        -moz-transition: .2s; /* Firefox 4 */
-        -webkit-transition: .2s; /* Safari and Chrome */
-        -o-transition: 0.2s; /* Opera */
-    }
-
-    #menu-user-block{
-        overflow: auto;
-        padding-left: 5%;
-        padding-top: 5%;
-        width: 90%;
-        margin: 0 auto;
-        height: 10vh;
-    }
-
-    #menu-user-block-avatar{
-        float: left;
-        border-radius: 50%;
+        background-color: white;
         overflow: hidden;
-        width: 15%;
-        min-width: 45px;
     }
 
-    #menu-user-block-avatar-img{
+    .user-menu-enter{
+        transform: translateX(300px);
+        box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+    }
+
+    .user-menu .user{
+        padding: 10px;
+        height: 80px;
         width: 100%;
-    }
-
-    #menu-user-block-id{
         margin: 0 auto;
-        float: right;
-        width: 75%;
-        height: 20%;
+        background-color: #03a9f499;
     }
 
-    #menu-user-block-uid{
-        margin: 0 auto;
-        float: right;
-        width: 75%;
-        height: 20%;
-        padding-bottom: 20px;
-    }
-
-    #menu-user-block-id-txt{
-        text-align: left;
-        height: 100%;
-        vertical-align: middle;
-        font-size: 18px;
-        color: #ffffffeb;
-    }
-
-    #menu-user-block-uid-txt{
-        text-align: left;
-        height: 100%;
-        vertical-align: middle;
-        font-size: 18px;
-        color: #ffffffeb;
-    }
-
-    .menu-user-block-div-line{
-        color: white;
-        display: block;
-        -webkit-box-flex: 1;
-        -ms-flex: 1 1 0px;
-        flex: 1 1 0px;
-        max-width: 100%;
-        height: 0;
-        max-height: 0;
-        border: solid;
-        border-width: thin 0 0 0;
-        -webkit-transition: inherit;
-        transition: inherit;
-    }
-
-    .menu-func-ul{
-        margin: 0;
-        padding: 0;
-    }
-
-    .menu-func-ul li{
-        list-style: none;
-    }
-
-    .menu-func-li-btn-block{
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    .menu-func-li-btn-block:hover{
-        background-color: #ffa0a047;
-    }
-
-    .menu-func-li-btn-block-txt{
-        font-size: 16px;
-        margin: 0 auto;
-        width: 90%;
-        color: #ffffffeb;
-    }
-
-    .menu-func-li-btn-block-about{
-        font-size: 12px;
-        margin: 0 auto;
-        width: 90%;
-        color: #ffffffeb;
-    }
-
-    .header-function-list-dep {
-        border-radius: 50%;
-        padding: 5px;
-        margin: auto;
+    .user-menu .avatar{
+        height: 70px;
         float: left;
-        height: 35px;
-        width: 35px;
-        background-color: transparent;
-        cursor: pointer;
-        font-size: 25px;
-        text-align: center;
-        vertical-align: middle;
-        color: white;
+        margin-right: 30px;
+        overflow: hidden;
+        border-radius: 35px;
     }
 
-    .header-function-list-depInner{
-        border-radius: 50%;
-        background-color: transparent;
-        width: 100%;
-        height: 100%;
+    .user-menu .avatar img{
+        width: 70px;
+    }
+
+    .user-menu hr{
+        margin: 0;
+        border-color: #03a9f487;
+    }
+
+    .user-menu .item{
         cursor: pointer;
-        font-size: 25px;
-        text-align: center;
-        vertical-align: middle;
-        color: white;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 10px;
+        padding-left: 30px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        color: #616161 !important;
+    }
+
+    .user-menu .item:hover{
+        background-color: #e4e4e4;
     }
 
 </style>

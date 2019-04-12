@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import {GlobalCommunication} from "../js/GlobalCommunication";
+import {GlobalCommunication} from "../js/GlobalCommunication"
 import echarts from 'echarts'
+import store from '../store'
 
 let utils = {
 
@@ -89,9 +90,15 @@ let utils = {
             return n;
         }
         return false;
+    },
+
+    onFirstLoadUserInfo(func){
+        if(store.getters.userInfo.firstLoad)
+            func();
+        else
+            GlobalCommunication.$on('firstLoadOver',func);
     }
 };
 
 Vue.prototype.$utils = utils;
 Vue.prototype.$echarts = echarts;
-

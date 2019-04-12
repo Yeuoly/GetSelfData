@@ -3,61 +3,79 @@
  */
 export let updateLog = [
     {
-        title   : '新功能及美化 Version: 1.2.1.0-alpha',
+        title   : '修复bug，美化',
+        version : '1.2.1.0.1-alpha',
+        content : '修复了换行会json字符串转化错误的bug，about界面的换行bug已修复，美化了侧边用户栏，' +
+            '添加了默认用户头像',
+        date    : '2019/4/12',
+    },
+    {
+        title   : '新功能及美化',
+        version : '1.2.1.0-alpha',
         content : '大量修改了样式，布局风格修改，性能优化，修改了编辑器编码格式，添加修改用户个人信息' +
             '，增添Q&A界面和setting界面，添加了logo，终于有主页了，添加了访问量统计',
         date    : '2019/4/7'
     },
     {
-        title   : '修复及优化 Version: 1.2.0.1-alpha',
+        title   : '修复及优化',
+        version : '1.2.0.1-alpha',
         content : '修复标题会和操作栏以及正文重叠的bug，性能优化，编辑框升级添加工具栏，支持图片上传',
         date    : '2019/3/30'
     },
     {
-        title   : '单页应用重构完成 Version: 1.2-release',
+        title   : '单页应用重构完成',
+        version : '1.2-release',
         content : '经过一段时间的重构，正式以单页应用的形式上线，为了更佳的体验，修改了大量样式',
         date    : '2019/3/23'
     },
     {
-        title   : '开始大规模重构 Version: 1.2-alpha',
+        title   : '开始大规模重构',
+        version : '1.2-alpha',
         content : '考虑到网站的兼容性、可管理性、可扩展性等因素，对网站前端进行了大规模重构' +
             '，改为单页应用，正式使用webpack和vue-cli',
         date    : '2019/2/30'
     },
     {
-        title   : '基本功能完工 Version: 1.1-release',
+        title   : '基本功能完工',
+        version : '1.1-release',
         content : '基本的功能已完成，并对之前的功能进行了一定的优化，可以第一次上线测试',
         date    : '2019/2/16'
     },
     {
-        title   : '前端index完工 Version: 1.0.21-alpha',
+        title   : '前端index完工',
+        version : '1.0.21-alpha',
         content : '前端index.html index.css index.js基本完成，侧边顶部固定栏完成，整体框架' +
             '升级为Vue.js，完善了代码结构，更容易看懂我在写什么辣鸡代码了',
         date    : '2019/2/1'
     },
     {
-        title   : '整体大更新，项目改名YeuolyBlog Version: 1.0.2-alpha',
+        title   : '整体大更新，项目改名YeuolyBlog',
+        version : '1.0.2-alpha',
         content : '整体重构，后端改为面向对象编程，开始向github更新，去除页面壁纸，改为白色背景简约布局',
         date    : '2019/1/28'
     },
     {
-        title   : '整体大更新 Version: 1.0.1-beta',
+        title   : '整体大更新',
+        version : '1.0.1-beta',
         content : '分离前后端，更改cookie结构，网站安全性增强，建立msg页面，实现动态更新msg页面，' +
             '更新jct获取方式，后端集成函数于function.php',
         date    : '2018/12/01'
     },
     {
-        title   : '项目改名NotForget Version: 1.0.1-alpha',
+        title   : '项目改名NotForget',
+        version : '1.0.1-alpha',
         content : '项目改名，旨在建立一个帮助用户记录信息，爬取信息，以及周期性规律性地进行数据更新',
         date    : '2018/11/10'
     },
     {
-        title   : '项目UserInfo初步完成 Version: 1.0.0-release',
+        title   : '项目UserInfo初步完成',
+        version : '1.0.0-release',
         content : '完成部分预期功能，初步上线测试，一共四个内测用户，预期功能正常运作',
         date    : '2018/10/07'
     },
     {
-        title   : '项目UserInfo启动 Version：0.0.0-alpha',
+        title   : '项目UserInfo启动',
+        version : '0.0.0-alpha',
         content : '启动项目，建立基础数据库，建立初步用户数据库结构，旨在建立一个帮助用户保存信息的网站，' +
             '用于储存用户的私人信息，如账号密码等',
         date    : '2018/10/01'
@@ -129,4 +147,51 @@ export let techList = [
         name : '&#xe615;',
         content : 'PHPMailer https://github.com/PHPMailer/PHPMailer'
     }
+];
+
+/**
+ *  FQA界面
+ * */
+
+export let FQACollection = [
+    {
+        q : 'YeuolyBlog是干啥的？',
+        a : '其实就是个记事本，虽说是博客，但暂时还没完成该有的主页自定义等功能。'
+    },
+    {
+        q : 'YeuolyBlog是谁做的？',
+        a : '是Yeuoly做哒！'
+    },
+    {
+        q : 'YeuolyBlog怎么用？',
+        a : 'Yeuoly将所有主要功能都放到了左边的菜单栏，左上角有个按钮能打开菜单，' +
+            '然后看字面意思应该就能知道了。'
+    },
+    {
+        q : '为什么要做这个破东西？',
+        a : '一方面，这是Yeuoly的第一个web应用（练手），然后Yeuoly一直都想做' +
+            '这么一个东西来写日记，然后一不小心就做这么大了orz。'
+    },
+    {
+        q : '为啥我改了名之后我以前发的博客的作者名字没改？',
+        a : '每一个脚印都是自己踩下的，也许您不喜欢自己的过去，但那终究是一段回忆。'
+    },
+    {
+        q : '关于里提到的DataConnection是个啥？',
+        a : 'YeuolyBlog终究是一个初级阶段，而DataConnection将会是它的第二形态' +
+            '，但那大概是很多年以后的事情了，毕竟Yeuoly才高中呐。'
+    },
+    {
+        q : 'Yeuoly高中怎么还有时间做这个？',
+        a : '对不同的人来说有不同的爱好，一昧的学习效率并不高，有的人通过运动来放松自己，' +
+            '而Yeuoly就通过写代码来放松自己。'
+    },
+    {
+        q : '为啥我的头像一直在变？',
+        a : '啊，咱这里的默认头像有五个哒hhh，在用户没有设置头像的时候会采用默认头像中的第一个哒！'
+    },
+    {
+        q : '怎么联系Yeuoly？',
+        a : '微博搜索Yeuoly芸璃，推特搜索@Yeuoly1，发送邮件到admin@srmxy.cn'
+    },
 ];

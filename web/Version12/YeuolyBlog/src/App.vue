@@ -72,13 +72,14 @@
                         this.$utils.messageBox('用户数据刷新失败','warn');
                     }
                 )
-            }
+            },
         },
 
         mounted() {
             GlobalCommunication.$on('httpPost', this.httpPost);
             GlobalCommunication.$on('httpGet', this.httpGet);
             GlobalCommunication.$on('refreshUserData', this.refreshUserData);
+
             this.refreshUserData();
             this.httpGet(
                 InfoModule.getUrlPath('extra/count/count.php',InfoModule.dir_api),

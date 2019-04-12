@@ -48,6 +48,7 @@
 
     .card{
         -webkit-text-stroke-width: 0;
+        word-break: break-word;
     }
 
     .techAbout{
