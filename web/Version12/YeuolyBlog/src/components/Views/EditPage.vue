@@ -35,6 +35,8 @@
                                     v-model="bodyDep.src"
                                     :id-name="'focus-id-'+bodyDep.liID"
                                     placeholder="输入正文"
+                                    @focus="onInputFocusIn"
+                                    @blur="onInputFocusOut"
                             />
                         </div>
                         <table v-else-if="bodyDep.html === 'table'" class="post-card-body-table">
@@ -93,13 +95,6 @@
         data () {
             let self = this;
             return {
-                /***
-                    topTools is for the tools bar
-                 ***/
-                /***
-                 $post is a list about the post ,
-                 it includes all the information of current post
-                 ***/
                 post : {
                     currentLine : 1,
                     maxLine : 1,
@@ -121,6 +116,17 @@
             }
         },
         methods : {
+            onInputFocusIn(){
+                if(!this.$utils.isPC())
+                {
+                    let _body = document.getElementsByTagName('body')[0];
+                    _body.style.height = '30000px';
+                }
+            },
+            onInputFocusOut(){
+                let _body = document.getElementsByTagName('body')[0];
+                _body.style.height = '100%';
+            },
             uploadPicture: function () {
                 window.open(
                     'https://www.picb.cc/upload',
@@ -137,11 +143,11 @@
                         {
                             this.status.postID = postID;
                             this.status.mode = 're';
-                            let post = JSON.parse(data.data.data['post_data'])
+                            let _data = data.data.data['post_data'].replace(/[\n\r]/g,'\\n');
+                            let post = JSON.parse(_data);
                             let maxLineID = 1;
-                            for (let i in post)
-                            {
-                                maxLineID = post[i].liID > maxLineID ? maxLineID : maxLineID;
+                            for (let i in post){
+                                maxLineID = post[i].liID > maxLineID ? post[i].liID : maxLineID;
                             }
                             this.post.maxLine = maxLineID;
                             this.post.title = data.data.data['post_title'];
@@ -253,6 +259,7 @@
                     this.loadPost(postID);
                 }
             } , 500);
+            //安卓虚拟键盘存在的输入框bug
         }
     }
 </script>
@@ -268,6 +275,18 @@
         margin: 0 auto;
         border-radius:5px;
         position: relative;
+    }
+
+    @media (max-width: 700px) {
+        .post-card{
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .post-card{
+            width: 100%;
+        }
     }
 
     .post-card-inner{

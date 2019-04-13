@@ -9,13 +9,16 @@
                  :placeholder="placeholder"
                  @keyup="handleInput"
                  @keydown.enter="handleEnter"
-            >
-            </div>
+                 v-on="inputListeners"
+                 ref="editor"
+            ></div>
         </div>
     </div>
 </template>
 
 <script>
+    let loaded = false;
+
     export default {
         name: "NormalInput",
         model : {
@@ -38,6 +41,24 @@
                 if(this.disableBreakWord === true)
                 {
                     e.preventDefault();
+                }
+            }
+        },
+        computed : {
+            inputListeners(){
+                let vm = this;
+                return Object.assign({},
+                    vm.$listeners,
+                );
+            }
+        },
+        watch : {
+            hostValue(){
+                if(!loaded) {
+                    setTimeout(() => {
+                        this.$refs.editor.innerHTML = this.hostValue;
+                        loaded = true;
+                    },0);
                 }
             }
         }

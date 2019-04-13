@@ -45,8 +45,19 @@
                             </ul>
                         </div>
                         <div class="extra-function">
-                            <top-tool-bar>
-                                <!--  -->
+                            <top-tool-bar class-name="dep">
+                                <common-btn :enable="true" class-name="dep-btn">
+                                    <i class="yb-icon-font dep-icon">&#xe6c4;</i>
+                                    <span class="dep-text font--small">转发</span>
+                                </common-btn>
+                                <common-btn :enable="true" class-name="dep-btn">
+                                    <i class="yb-icon-font dep-icon">&#xe60f;</i>
+                                    <span class="dep-text font--small">评论</span>
+                                </common-btn>
+                                <common-btn :enable="true" class-name="dep-btn">
+                                    <i class="yb-icon-font dep-icon">&#xe6f1;</i>
+                                    <span class="dep-text font--small">点赞</span>
+                                </common-btn>
                             </top-tool-bar>
                         </div>
                     </div>
@@ -56,7 +67,7 @@
         <div class="load-more yb-icon-font" style="width: 50%;margin: 0 auto">
             <common-btn
                     content="&#xe601; 再多一点。。拜托了"
-                    :enable="!isEnd && !isLoading"
+                    :enable="loadMoreFlag"
                     @VClick="loadMore"
             />
         </div>
@@ -95,6 +106,11 @@
                 extraPostFunction : {
 
                 }
+            }
+        },
+        computed : {
+            loadMoreFlag(){
+                return !this.isEnd && !this.isLoading;
             }
         },
         methods : {
@@ -354,6 +370,28 @@
         word-break: break-all;
     }
 
+    .extra-function{
+        height: 50px;
+    }
+
+    .extra-function .dep{
+        height: 35px;
+        border: 0;
+    }
+
+    .extra-function div{
+        box-shadow: none;
+    }
+
+    .dep-icon{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .dep-text{
+
+    }
+
     @media (max-width: 768px) {
         .post-card{
             position: relative;
@@ -387,6 +425,12 @@
     @media (max-width: 600px) {
         .post-card{
             width: 100%;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .dep-text{
+            display: none;
         }
     }
 </style>

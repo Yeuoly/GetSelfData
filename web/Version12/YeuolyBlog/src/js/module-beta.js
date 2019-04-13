@@ -3,22 +3,35 @@
  */
 export let updateLog = [
     {
+        title   : '修复bug，新功能',
+        version : '1.2.1.0.1-γ',
+        content : '修复了编辑界面无法加载博客信息的bug，添加了评论等功能的界面，暂不可用，修复了common-button' +
+            '的css的bug，优化了common-button',
+        date    : '2019/4/13',
+    },
+    {
+        title   : '修复bug',
+        version : '1.2.1.0.1-β',
+        content : '修复了手机端输入时输入框会被虚拟键盘挡住的bug',
+        date    : '2019/4/13',
+    },
+    {
         title   : '修复bug，美化',
-        version : '1.2.1.0.1-alpha',
+        version : '1.2.1.0.1-α',
         content : '修复了换行会json字符串转化错误的bug，about界面的换行bug已修复，美化了侧边用户栏，' +
             '添加了默认用户头像',
         date    : '2019/4/12',
     },
     {
         title   : '新功能及美化',
-        version : '1.2.1.0-alpha',
+        version : '1.2.1.0-α',
         content : '大量修改了样式，布局风格修改，性能优化，修改了编辑器编码格式，添加修改用户个人信息' +
             '，增添Q&A界面和setting界面，添加了logo，终于有主页了，添加了访问量统计',
         date    : '2019/4/7'
     },
     {
         title   : '修复及优化',
-        version : '1.2.0.1-alpha',
+        version : '1.2.0.1-α',
         content : '修复标题会和操作栏以及正文重叠的bug，性能优化，编辑框升级添加工具栏，支持图片上传',
         date    : '2019/3/30'
     },
@@ -30,7 +43,7 @@ export let updateLog = [
     },
     {
         title   : '开始大规模重构',
-        version : '1.2-alpha',
+        version : '1.2-α',
         content : '考虑到网站的兼容性、可管理性、可扩展性等因素，对网站前端进行了大规模重构' +
             '，改为单页应用，正式使用webpack和vue-cli',
         date    : '2019/2/30'
@@ -43,27 +56,27 @@ export let updateLog = [
     },
     {
         title   : '前端index完工',
-        version : '1.0.21-alpha',
+        version : '1.0.21-α',
         content : '前端index.html index.css index.js基本完成，侧边顶部固定栏完成，整体框架' +
             '升级为Vue.js，完善了代码结构，更容易看懂我在写什么辣鸡代码了',
         date    : '2019/2/1'
     },
     {
         title   : '整体大更新，项目改名YeuolyBlog',
-        version : '1.0.2-alpha',
+        version : '1.0.2-α',
         content : '整体重构，后端改为面向对象编程，开始向github更新，去除页面壁纸，改为白色背景简约布局',
         date    : '2019/1/28'
     },
     {
         title   : '整体大更新',
-        version : '1.0.1-beta',
+        version : '1.0.1-β',
         content : '分离前后端，更改cookie结构，网站安全性增强，建立msg页面，实现动态更新msg页面，' +
             '更新jct获取方式，后端集成函数于function.php',
         date    : '2018/12/01'
     },
     {
         title   : '项目改名NotForget',
-        version : '1.0.1-alpha',
+        version : '1.0.1-α',
         content : '项目改名，旨在建立一个帮助用户记录信息，爬取信息，以及周期性规律性地进行数据更新',
         date    : '2018/11/10'
     },
@@ -75,7 +88,7 @@ export let updateLog = [
     },
     {
         title   : '项目UserInfo启动',
-        version : '0.0.0-alpha',
+        version : '0.0.0-α',
         content : '启动项目，建立基础数据库，建立初步用户数据库结构，旨在建立一个帮助用户保存信息的网站，' +
             '用于储存用户的私人信息，如账号密码等',
         date    : '2018/10/01'

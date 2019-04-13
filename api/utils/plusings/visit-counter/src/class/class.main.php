@@ -13,6 +13,7 @@ class VisitCounter implements _VisitCounter{
     public function __construct($host,$DBName,$name,$pswd)
     {
         $this->DBHost = $host;
+
         $this->DBName = $DBName;
         $this->DBUser = $name;
         $this->DBPswd = $pswd;

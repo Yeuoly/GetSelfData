@@ -42,44 +42,37 @@
                         name : '回到网站主页',
                         about : '回到那个梦想开始的地方~',
                         func : 'index'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe600;',
                         name : '登录or注册',
                         about : '登录or注册',
                         func : 'passport'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe62f;',
                         name : '我的主页',
                         about : '回家咯~',
                         func : 'myIndex'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe6ed;',
                         name : '发送博客',
                         about : '也该干正事了',
                         func : 'send'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe629;',
                         name : '关于',
                         about : '估计你对这个没啥兴趣',
                         func : 'aboutPage'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe62a;',
                         name : 'FQ♂A',
                         about : '常见的问题这里都有',
                         func : 'qa'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe60d;',
                         name : '设置',
                         about : '设置',
                         func : 'setting'
-                    },
-                    {
+                    }, {
                         haircut : '&#xe68e;',
                         name : '注销',
                         about : '嘤嘤嘤咱要溜了',

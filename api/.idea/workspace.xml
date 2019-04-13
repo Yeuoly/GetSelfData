@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4dd5802-8606-4a40-a1a8-3007843a259d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/dictionaries/Administrator.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/encodings.xml" beforeDir="false" />
@@ -27,23 +27,6 @@
       <change beforePath="$PROJECT_DIR$/../web-release/operate/js/editor-post.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/vue/msg.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/AboutList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Items/IndexUpdateLog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/AboutPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/AboutPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/EditPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/Q&amp;APage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/Q&amp;APage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/installUtils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/installUtils/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/module-alpha.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/module-alpha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/module-beta.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/js/module-beta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/store/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/store/UserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../web/Version12/YeuolyBlog/src/style/main.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="414">
+              <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -203,7 +186,6 @@
         <option value="$PROJECT_DIR$/extra/count/index.php" />
         <option value="$PROJECT_DIR$/extra/count/get.php" />
         <option value="$PROJECT_DIR$/utils/plusings/visit-counter/src/_config/_config.php" />
-        <option value="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" />
         <option value="$PROJECT_DIR$/extra/count/count.php" />
         <option value="$PROJECT_DIR$/account/v1/FindUser.php" />
         <option value="$PROJECT_DIR$/account/v1/Register.php" />
@@ -218,10 +200,11 @@
         <option value="$PROJECT_DIR$/utils/static/static.response.php" />
         <option value="$PROJECT_DIR$/utils/class/class.Account.php" />
         <option value="$PROJECT_DIR$/extra/count/_createList_yl_counter_ebase.php" />
+        <option value="$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1554" />
@@ -431,17 +414,19 @@
       <workItem from="1554522854247" duration="12946000" />
       <workItem from="1554610606265" duration="5028000" />
       <workItem from="1555062683732" duration="832000" />
+      <workItem from="1555130367007" duration="636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320471000" />
+    <option name="totallyTimeSpent" value="321107000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
+    <frame x="-8" y="-8" width="1554" height="916" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20348059" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20615797" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -752,6 +737,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/extra/count/_createList_yl_counter_ebase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/account/v2/SetUserMeta.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -805,17 +797,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extra/count/_createList_yl_counter_ebase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/plusings/visit-counter/src/class/class.main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="414">
+          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
         </state>
       </provider>
     </entry>

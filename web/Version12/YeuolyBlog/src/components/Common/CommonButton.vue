@@ -1,8 +1,8 @@
 <template>
-    <div :class="className ? className : ''">
-        <div :class="(enable ? 'btn-enable' : 'btn-disable') + ' btn-holder'" @click="handleClick">
-            <div class="content">
-                <div v-html="content"></div>
+    <div :class="(enable ? 'btn-enable' : 'btn-disable') + ' btn-holder ' + (className ? className : '')" @click="handleClick">
+        <div class="content" v-on="listener">
+            <slot></slot>
+            <div v-if="content !== ''" v-html="content">
             </div>
         </div>
     </div>
@@ -19,6 +19,11 @@
         methods : {
             handleClick () {
                 this.$emit('VClick');
+            }
+        },
+        computed : {
+            listener(){
+                return this.$listeners;
             }
         }
     }
@@ -40,9 +45,8 @@
 
     .content{
         width: 100%;
-        height: 25px;
-        position: absolute;
-        top: calc((100% - 25px)/2);
+        height: 35px;
+        line-height: 35px;
         font-size: 15px;
         color: rgba(0,0,0,.72);
     }
@@ -55,7 +59,7 @@
     }
 
     .btn-enable:hover{
-        background-color: rgba(0,0,0,.1);
+        background-color: rgba(0,0,0,.1)!important;
     }
 
     .btn-disable{
