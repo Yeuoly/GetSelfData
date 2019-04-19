@@ -15,6 +15,8 @@ import SettingPage from "../components/Views/SettingPage";
 import BasePrivateSetting from "../components/Items/BasePrivateSetting";
 import AdvancePrivateSetting from "../components/Items/AdvancePrivateSetting";
 import QA from '../components/Views/Q&APage';
+import PrivacyPrivateSetting from "../components/Items/PrivacyPrivateSetting";
+import AvatarPrivateSetting from "../components/Items/AvatarPrivateSetting";
 
 Vue.use(VueRouter);
 
@@ -115,6 +117,22 @@ export const router = new VueRouter({
                     name : 'setting-user-advance',
                     path : '/setting/user-advance',
                     component : AdvancePrivateSetting,
+                    meta : {
+                        login_required : true
+                    }
+                },
+                {
+                    name : 'setting-user-privacy',
+                    path : '/setting/user-privacy',
+                    component : PrivacyPrivateSetting,
+                    meta : {
+                        login_required : true
+                    }
+                },
+                {
+                    name : 'setting-user-avatar',
+                    path : '/setting/user-avatar',
+                    component : AvatarPrivateSetting,
                     meta : {
                         login_required : true
                     }

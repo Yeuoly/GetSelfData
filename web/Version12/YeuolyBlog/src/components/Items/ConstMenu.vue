@@ -2,7 +2,10 @@
     <div :class="'user-menu' + (display ? ' user-menu-enter' : ' user-menu-leave')">
         <div class="user">
             <div class="avatar">
-                <img :src="avatar ? avatar :'https://t1.picb.cc/uploads/2019/04/12/VLVfbv.png'" alt="" @error="setDefaultAvatar">
+                <img :src="avatar ? avatar :'https://t1.picb.cc/uploads/2019/04/12/VLVfbv.png'"
+                     alt=""
+                     @error="setDefaultAvatar"
+                >
             </div>
             <div class="id font--large text--white">
                 <span>{{user.user_id}}</span>
@@ -151,10 +154,15 @@
             closeSideMenu () {
                 this.display = false;
             },
+            //获取头像的url
+            getAvatarUrl(hook){
+                hook(this.avatar);
+            },
             //添加监听事件
             initEvent() {
                 GlobalCommunication.$on('openSideMenu',this.openSideMenu);
                 GlobalCommunication.$on('closeSideMenu',this.closeSideMenu);
+                GlobalCommunication.$on('getAvatarUrl',this.getAvatarUrl);
             },
             //设置头像
             setAvatar(){

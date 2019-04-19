@@ -84,25 +84,25 @@
      * SESSION/COOKIE参数
      *
      * */
-    define("SESSION_USERDATA","user_data");           //session用户数据组
+    define("GLOBAL_USERDATA","user_data");           //session用户数据组
 
-    define("SESSION_SRM_JCT","srm_jct");              //用户登陆的jct在session中的id
+    define("GLOBAL_SRM_JCT","srm_jct");              //用户登陆的jct在session中的id
 
     define("COOKIE_SRM_JCT","srm_jct");               //用户cookie的jct
 
-    define("SESSION_LOGIN_TIME","login_time");        //用户登录时间的session id
+    define("GLOBAL_LOGIN_TIME","login_time");        //用户登录时间的session id
 
-    define("SESSION_USER_ID","user_id");              //用户名
+    define("GLOBAL_USER_ID","user_id");              //用户名
 
-    define("SESSION_USER_CLASS","user_class");        //用户类别
+    define("GLOBAL_USER_CLASS","user_class");        //用户类别
 
-    define("SESSION_USER_EMAIL","user_email");        //用户邮箱
+    define("GLOBAL_USER_EMAIL","user_email");        //用户邮箱
 
-    define("SESSION_USER_LV","user_lv");              //用户等级
+    define("GLOBAL_USER_LV","user_lv");              //用户等级
 
-    define("SESSION_USER_EXP","user_exp");            //用户经验
+    define("GLOBAL_USER_EXP","user_exp");            //用户经验
 
-    define("SESSION_USER_UID","user_uid");            //用户uid
+    define("GLOBAL_USER_UID","user_uid");            //用户uid
 
 //--------------------------------------------------------------------------//
     /*

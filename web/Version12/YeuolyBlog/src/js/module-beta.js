@@ -1,7 +1,20 @@
 /**
  * 更新日志
+ * αβγδεζηθικλμνξοπρστυφχψω
  */
 export let updateLog = [
+    {
+        title   : '修复bug，新功能，美化',
+        version : '1.2.1.0.2-α',
+        content : '修复消息盒在手机端文字会卡出窗体外的bug，添加用户隐私设置',
+        date    : '2019/4/19',
+    },
+    {
+        title   : '修复bug',
+        version : '1.2.1.0.1-δ',
+        content : '修复home界面没有默认头像的bug',
+        date    : '2019/4/14',
+    },
     {
         title   : '修复bug，新功能',
         version : '1.2.1.0.1-γ',
@@ -70,8 +83,7 @@ export let updateLog = [
     {
         title   : '整体大更新',
         version : '1.0.1-β',
-        content : '分离前后端，更改cookie结构，网站安全性增强，建立msg页面，实现动态更新msg页面，' +
-            '更新jct获取方式，后端集成函数于function.php',
+        content : '分离前后端，从石器时代进入共产主义时代（大雾',
         date    : '2018/12/01'
     },
     {

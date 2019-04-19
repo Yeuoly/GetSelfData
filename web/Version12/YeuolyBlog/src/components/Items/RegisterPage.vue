@@ -118,7 +118,7 @@
             getNormalCaptcha () {
                 return '<img ' +
                     'alt="error" ' +
-                    'src="'+ InfoModule.getUrlPath('Captcha.php?method=register',InfoModule.dir_api) +'"' +
+                    'src="'+ InfoModule.getUrlPath('extra/verification/Captcha.php?method=register',InfoModule.dir_api) +'"' +
                     'style="height: 25px;padding-bottom: 5px"' +
                     '>';
             },
@@ -150,7 +150,7 @@
             },
             getEmailCaptcha () {
                 GlobalCommunication.$emit('httpPost',
-                    InfoModule.getUrlPath('Verification.php',InfoModule.dir_api),
+                    InfoModule.getUrlPath('extra/verification/Verification.php',InfoModule.dir_api),
                     {
                         email : this.email,
                         method : 'register',

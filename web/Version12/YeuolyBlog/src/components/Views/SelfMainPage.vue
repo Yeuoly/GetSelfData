@@ -15,7 +15,7 @@
                             </h3>
                             <div class="post-card-userblock">
                                 <div class="post-card-userblock-avatar"
-                                     :style="{ backgroundImage : 'url(' + ev.avatarUrl + ')'}"
+                                     :style="{ backgroundImage : 'url(' + avatar + ')'}"
                                 >
                                 </div>
                                 <div class="post-card-userblock-id">
@@ -105,7 +105,8 @@
                 isLoading : false,
                 extraPostFunction : {
 
-                }
+                },
+                avatar : ''
             }
         },
         computed : {
@@ -224,6 +225,11 @@
                     //加载完成
                     this.isLoading = false;
                 });
+            },
+            setAvatar() {
+                GlobalCommunication.$emit('getAvatarUrl', (avatar) => {
+                    this.avatar = avatar;
+                });
             }
         },
         //挂载时检测是否是第一次挂载，第一次挂载时加载数据
@@ -233,6 +239,7 @@
                 this.firstMounted = true;
                 setTimeout(() => {
                     this.getRecentPost(this.page,this.loadNewMsg);
+                    this.setAvatar();
                 }, 100);
             }
         },

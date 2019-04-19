@@ -24,13 +24,13 @@
         $res->set('res',FAILED);
         $res->set('error',wrong_params,true);
     }
-    if(!isset($_SESSION[SESSION_USERDATA])){
+    if(!isset($GLOBALS[GLOBAL_USERDATA])){
         $res->set('res',FAILED);
         $res->set('error',passport_jct_offline,true);
     }
-    $user_data = $_SESSION[SESSION_USERDATA];
-    $post_par_user_id = $user_data[SESSION_USER_ID];
-    $post_par_user_uid = $user_data[SESSION_USER_UID];
+    $user_data = $GLOBALS[GLOBAL_USERDATA];
+    $post_par_user_id = $user_data[GLOBAL_USER_ID];
+    $post_par_user_uid = $user_data[GLOBAL_USER_UID];
 
     //创建post对象
     include_once(FILEPATH . "/utils/class/class.PostAction.php");

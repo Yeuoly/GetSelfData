@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de9e15ad-0f4c-465b-9353-08acab83a038" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../api/utils/plusings/visit-counter/src/class/class.main.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/plusings/visit-counter/src/class/class.main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/Captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/extra/verification/Captcha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/Verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/extra/verification/Verification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/account/v1/LogOff.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/account/v1/LogOff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/dataAction/private/getMyRecent.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/dataAction/private/getMyRecent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/dataAction/private/getPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/dataAction/private/getPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/dataAction/private/operate.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/dataAction/private/operate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/extra/count/get.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/extra/count/get.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/utils/class/class.Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/class/class.Account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/utils/class/class.Format.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/class/class.Format.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/utils/class/class.PostAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/../api/utils/class/class.PostAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api文档.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/dictionaries/Administrator.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/.idea/encodings.xml" beforeDir="false" />
@@ -27,13 +39,14 @@
       <change beforePath="$PROJECT_DIR$/../web-release/operate/js/editor-post.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/passport.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-release/vue/msg.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/MessageBox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/MessageBox.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/installUtils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/installUtils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SettingPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SettingPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-beta.js" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-beta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Version12/YeuolyBlog/src/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Version12/YeuolyBlog/src/style/main.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -47,7 +60,42 @@
     <favorites_list name="web" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16">
+              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-beta.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1360">
+              <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -110,10 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonPictureHolder.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTable.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonUrlLink.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TableInput.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonDropDownList.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TopToolBar.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/plugins/ECharts.js" />
@@ -131,18 +175,14 @@
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/js/GlobalUtils.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/PassportPage.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/TipInput.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SettingPage.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/mixins/AccountFormatChecker.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/Q&amp;A.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/Q&amp;APage.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/router/index.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/Q&amp;A.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTitleH3.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTitle.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/QA.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/LoginPage.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/BasePrivateSetting.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTextArea.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/AboutList.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/AboutPage.vue" />
@@ -153,13 +193,21 @@
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/Q&amp;APage.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/store/UserInfo.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-alpha.js" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonButton.vue" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/style/main.css" />
-        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/installUtils/index.js" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/EditPage.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/router/index.js" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/BasePrivateSetting.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/SwitchButton.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/style/main.css" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SettingPage.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/MessageBox.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/PrivacyPrivateSetting.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/AvatarPrivateSetting.vue" />
+        <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue" />
         <option value="$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-beta.js" />
       </list>
     </option>
@@ -188,7 +236,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,74 +259,7 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="Version12" type="462c0819:PsiDirectoryNode" />
               <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Charts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Items" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="installUtils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -289,35 +269,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="Version12" type="462c0819:PsiDirectoryNode" />
-              <item name="YeuolyBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,7 +282,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554621676520" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555690379633" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -423,11 +380,13 @@
       <workItem from="1554607649055" duration="12537000" />
       <workItem from="1555062795646" duration="19675000" />
       <workItem from="1555130531772" duration="15988000" />
+      <workItem from="1555217343439" duration="2278000" />
+      <workItem from="1555666267661" duration="15645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="701445000" />
+    <option name="totallyTimeSpent" value="719368000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,7 +400,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1554" height="916" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872124" visible="true" weight="0.20682731" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49872124" visible="true" weight="0.21218206" />
       <window_info id="Structure" order="1" sideWeight="0.50127876" side_tool="true" weight="0.19865067" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -509,36 +468,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Version11/operate/js/editor-post.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="167" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="167" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonPictureHolder.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/UrlInput.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/PictureInput.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -683,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SettingPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonTitle.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -714,33 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/BasePrivateSetting.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/PassportPage.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
@@ -755,13 +650,6 @@
           <folding>
             <element signature="e#950#997#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/MessageBox.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="115" column="8" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -823,17 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#927#978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/AboutPage.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -879,31 +756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-beta.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/style/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/CommonButton.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -914,13 +770,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="72" lean-forward="true" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/NormalInput.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/style/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/SwitchButton.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/BasePrivateSetting.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/PrivacyPrivateSetting.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/ConstMenu.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="194" column="24" lean-forward="true" selection-start-line="194" selection-start-column="24" selection-end-line="194" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/AvatarPrivateSetting.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Common/MessageBox.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SettingPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Views/SelfMainPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="194" column="83" lean-forward="true" selection-start-line="194" selection-start-column="24" selection-end-line="194" selection-end-column="83" />
+        <state relative-caret-position="16">
+          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/components/Items/RegisterPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version12/YeuolyBlog/src/js/module-beta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>

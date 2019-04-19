@@ -18,8 +18,6 @@
     \NFG\HeaderSetting::SetAllowCredentials();
     \NFG\HeaderSetting::SetTextJson();
 
-    if(isset($_SESSION[SESSION_USERDATA]))
-        unset($_SESSION[SESSION_USERDATA]);
     if(isset($_COOKIE[COOKIE_SRM_JCT]))
         setcookie(COOKIE_SRM_JCT,"",time()-3600,"/");
     if(isset($next))

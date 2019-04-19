@@ -12,7 +12,6 @@
 
     class FormatChecker
     {
-
         public function FromMethod($src)
         {
             if($src == "" || !is_string($src))
@@ -87,5 +86,12 @@
                 return true;
             }
             return false;
+        }
+
+        public function FromUserSetting($src){
+            $dst = ['visitAble','followAble','commentAble','likeAble','reportAble','chatAble'];
+            foreach ($dst as $i)
+                if(!array_key_exists($i,$src) && is_bool($src[$i]))return false;
+            return true;
         }
     }

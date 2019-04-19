@@ -33,6 +33,11 @@
     define("mysql_key_postID","postID");
     define("mysql_key_postOrder","post_order");
 
+    define("setting_key_user_setting","settings");
+    define("setting_key_user_uid","uid");
+
+    define("user_setting_list_head","user_setting_list_");
+
     class AccountAction extends Base
     {
         private $account = "";
@@ -229,8 +234,6 @@
          * @param string $jct the token of login
          */
         static protected function UpdateJct($jct){
-            $_SESSION[SESSION_USERDATA][SESSION_LOGIN_TIME] = time();
-            $_SESSION[SESSION_USERDATA][SESSION_SRM_JCT] = $jct;
             setcookie(COOKIE_SRM_JCT,$jct,time() + COOKIE_SAVING_TIME , "/");
         }
 
@@ -240,7 +243,7 @@
          * @return bool|string
          */
         static public function CheckJct($jct,&$user_data = null){
-            //短期频繁登录用户直接用SESSION操作
+/*            //短期频繁登录用户直接用SESSION操作
             if(isset($_SESSION[SESSION_USERDATA][SESSION_SRM_JCT]) &&
                 isset($_COOKIE[COOKIE_SRM_JCT]) &&
                 isset($_SESSION[SESSION_USERDATA][SESSION_LOGIN_TIME]))
@@ -254,9 +257,9 @@
                 }else{
                     return passport_jct_offline;
                 }
-            }
+            }*/
 
-            //长期没登录（十天之内），使用数据库登录
+            //取消短期登录令牌，前端已经更换路由，并不会那么频繁向后端发送请求，这样也间接修复了一个弱智bug
             $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
             if($DB->_is_failed($DB->Start()))
             {
@@ -281,18 +284,19 @@
             }
 
             self::UpdateJct($jct);
-            //将用户登录信息存入session并返回给user_data
+            /*//将用户登录信息存入session并返回给user_data*/
+            //不存session了，改为存往Globals全局变量
             $login_data = [
-                SESSION_SRM_JCT    => $db_result[mysql_key_jct],
-                SESSION_LOGIN_TIME => time(),
-                SESSION_USER_CLASS => $db_result[mysql_key_class],
-                SESSION_USER_ID    => $db_result[mysql_key_account],
-                SESSION_USER_EMAIL => $db_result[mysql_key_email],
-                SESSION_USER_LV    => $db_result[mysql_key_lv],
-                SESSION_USER_EXP   => $db_result[mysql_key_exp],
-                SESSION_USER_UID   => $db_result[mysql_key_uid]
+                GLOBAL_SRM_JCT    => $db_result[mysql_key_jct],
+                GLOBAL_LOGIN_TIME => time(),
+                GLOBAL_USER_CLASS => $db_result[mysql_key_class],
+                GLOBAL_USER_ID    => $db_result[mysql_key_account],
+                GLOBAL_USER_EMAIL => $db_result[mysql_key_email],
+                GLOBAL_USER_LV    => $db_result[mysql_key_lv],
+                GLOBAL_USER_EXP   => $db_result[mysql_key_exp],
+                GLOBAL_USER_UID   => $db_result[mysql_key_uid]
             ];
-            $_SESSION[SESSION_USERDATA] = $login_data;
+            $GLOBALS[GLOBAL_USERDATA] = $login_data;
             $user_data = $login_data;
             return true;
         }
@@ -326,7 +330,7 @@
                         mysql_key_account,
                         $modified,
                         mysql_key_uid,
-                        $_SESSION[SESSION_USERDATA][SESSION_USER_UID]
+                        $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID]
                     );
                     if($DB->_is_failed($res)){
                         return server_error;
@@ -343,7 +347,7 @@
                     }
                     $origin_user_data = $DB->GetRowFromList(
                         MYSQL_USER_LIST,
-                        [mysql_key_uid => $_SESSION[SESSION_USERDATA][SESSION_USER_UID]],
+                        [mysql_key_uid => $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID]],
                         'or'
                     );
                     if($DB->_is_failed($origin_user_data))
@@ -359,7 +363,7 @@
                         mysql_key_password,
                         $password_handled_modified,
                         mysql_key_uid,
-                        $_SESSION[SESSION_USERDATA][SESSION_USER_UID]
+                        $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID]
                     );
                     if($DB->_is_failed($res)){
                         return server_error;
@@ -370,7 +374,7 @@
                         mysql_key_jct,
                         '',
                         mysql_key_uid,
-                        $_SESSION[SESSION_USERDATA][SESSION_USER_UID]
+                        $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID]
                     );
                     if($DB->_is_failed($res)){
                         return server_error;
@@ -378,7 +382,28 @@
                     //clear session
                     break;
             }
-            unset($_SESSION[SESSION_USERDATA]);
+            unset($GLOBALS[GLOBAL_USERDATA]);
+            return true;
+        }
+
+
+        /**
+         * @param string $new_collection
+         * @return bool|string
+         */
+        public function modifyUserSetting($new_collection){
+            $DB = new DB_Controller(MYSQL_DB_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DBNAME);
+            if($this->_is_failed($DB))
+                return false;
+            $result = $DB->SetInList(
+                user_setting_list_head.intval($GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID] / 10),
+                setting_key_user_setting,
+                $new_collection,
+                setting_key_user_uid,
+                $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID]
+            );
+            if(!$DB->_is_failed($result))
+                return server_error;
             return true;
         }
     }

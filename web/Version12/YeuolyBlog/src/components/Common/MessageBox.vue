@@ -22,7 +22,7 @@
                 type : 'normal',
                 show : false,
                 over : false,
-                time : 2000,
+                time : 1700,
                 listEmpty : true,
                 list : []
             }
@@ -98,14 +98,27 @@
         border-radius: 7px;
         position: absolute;
         top: -50px;
-        width: 20vw;
-        left: calc((100% - 20vw) / 2);
+        width: 40vw;
+        left: calc((100% - 40vw) / 2);
         min-height: 40px;
 
     }
 
+    .srm-message-box-content{
+        width: 90%;
+        height: 95%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .srm-message-box-msg{
+        font-size: 15px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
     .srm-message-box-type-normal{
-        border: 1px solid rgba(103,194,58,0.7);
+        border: 1px solid rgb(172,235,141);
     }
 
     .srm-message-box-icon-type-normal{
@@ -113,13 +126,13 @@
     }
 
     .srm-message-box-msg-type-normal{
-        color: rgb(103,194,58);
+        color: rgb(139, 221, 98);
     }
 
     /******************************/
 
     .srm-message-box-type-warn{
-        border: 1px solid rgba(245,108,108,0.8);
+        border: 1px solid rgba(151, 225, 115, 0.7);
     }
 
     .srm-message-box-icon-type-warn{
@@ -132,20 +145,6 @@
 
     /******************************/
 
-    .srm-message-box-content{
-        width: 90%;
-        height: 95%;
-        margin: 0 auto;
-        position: relative;
-    }
 
-    .srm-message-box-msg{
-        font-size: 15px;
-        text-align: center;
-        vertical-align: middle;
-        position: absolute;
-        top: 50%;
-        transform: translate(0 , 50%);
-    }
 
 </style>

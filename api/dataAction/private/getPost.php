@@ -24,8 +24,8 @@
      *
      * */
     $postID = @$_POST['postID'];
-    $post_user = $_SESSION[SESSION_USERDATA][SESSION_USER_ID];
-    $post_user_uid = $_SESSION[SESSION_USERDATA][SESSION_USER_UID];
+    $post_user = $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_ID];
+    $post_user_uid = $GLOBALS[GLOBAL_USERDATA][GLOBAL_USER_UID];
     if(!$postID)
     {
         $res->set('res',FAILED);

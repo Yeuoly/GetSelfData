@@ -18,7 +18,7 @@
 
     $res = new ResponseAjax();
 
-    $data = (new VisitCounter(MYSQL_DB_HOST,MYSQL_DBNAME,MYSQL_USER,MYSQL_PASSWORD))->get(10);
+    $data = (new VisitCounter(MYSQL_DB_HOST,MYSQL_DBNAME,MYSQL_USER,MYSQL_PASSWORD))->get(30);
 
     if(!$data)
         $res->set('res',FAILED , true);
