@@ -1,15 +1,17 @@
 <template>
-    <div class="QA-page yb-icon-font">
-        <div class="title-h">
-            <common-title class-name="title" size="h2">
-                <i>&#xe62a;</i>这里是对常见问题的解答
-            </common-title>
-        </div>
-        <div class="qa-h">
-            <QA v-for="t in collection">
-                <span slot="Q">{{t.q}}</span>
-                <span slot="A">{{t.a}}</span>
-            </QA>
+    <div style="width: 100%">
+        <div class="QA-page yb-icon-font">
+            <div class="title-h">
+                <common-title class-name="title" size="h2">
+                    <i>&#xe62a;</i>这里是对常见问题的解答
+                </common-title>
+            </div>
+            <div class="qa-h">
+                <QA v-for="t in collection">
+                    <span slot="Q">{{t.q}}</span>
+                    <span slot="A">{{t.a}}</span>
+                </QA>
+            </div>
         </div>
     </div>
 </template>

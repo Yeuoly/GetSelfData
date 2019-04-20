@@ -4,33 +4,39 @@
  */
 export let updateLog = [
     {
+        title   : '美化，优化',
+        version : '1.2.1.02-β',
+        content : '添加前端界面平滑切换动画，优化路由判断逻辑',
+        date    : '2019/4/20',
+    },
+    {
         title   : '修复bug，新功能，美化',
-        version : '1.2.1.0.2-α',
+        version : '1.2.1.02-α',
         content : '修复消息盒在手机端文字会卡出窗体外的bug，添加用户隐私设置',
         date    : '2019/4/19',
     },
     {
         title   : '修复bug',
-        version : '1.2.1.0.1-δ',
+        version : '1.2.1.01-δ',
         content : '修复home界面没有默认头像的bug',
         date    : '2019/4/14',
     },
     {
         title   : '修复bug，新功能',
-        version : '1.2.1.0.1-γ',
+        version : '1.2.1.01-γ',
         content : '修复了编辑界面无法加载博客信息的bug，添加了评论等功能的界面，暂不可用，修复了common-button' +
             '的css的bug，优化了common-button',
         date    : '2019/4/13',
     },
     {
         title   : '修复bug',
-        version : '1.2.1.0.1-β',
+        version : '1.2.1.01-β',
         content : '修复了手机端输入时输入框会被虚拟键盘挡住的bug',
         date    : '2019/4/13',
     },
     {
         title   : '修复bug，美化',
-        version : '1.2.1.0.1-α',
+        version : '1.2.1.01-α',
         content : '修复了换行会json字符串转化错误的bug，about界面的换行bug已修复，美化了侧边用户栏，' +
             '添加了默认用户头像',
         date    : '2019/4/12',
@@ -219,4 +225,8 @@ export let FQACollection = [
         q : '怎么联系Yeuoly？',
         a : '微博搜索Yeuoly芸璃，推特搜索@Yeuoly1，发送邮件到admin@srmxy.cn'
     },
+    {
+        q : '为啥有些功能用不了？？',
+        a : '那大概是没完成叭，等一段时间大概就能用了。'
+    }
 ];

@@ -2,15 +2,12 @@
     <div id="app">
         <ConstDom/>
         <MessageBox />
-            <keep-alive>
-                <router-view v-if="$route.meta.keepAlive">
-                    <!-- 这里是需要缓存的组件 -->
-                </router-view>
+        <transition :name="transition">
+            <keep-alive v-if="$route.meta.keepAlive">
+                <router-view class="transition-body"></router-view>
             </keep-alive>
-            <router-view v-if="!$route.meta.keepAlive">
-                <!-- 这里是不需要缓存的组件 -->
-            </router-view>
-        <ConstFooter/>
+            <router-view v-else class="transition-body"></router-view>
+        </transition>
     </div>
 </template>
 
@@ -24,12 +21,21 @@
     import {GlobalCommunication} from "./js/GlobalCommunication";
     import {InfoModule} from "./js/module-alpha";
 
+    //路由
+    let routes = [];
+
     export default {
         name: 'app',
         components: {
             ConstDom,
             ConstFooter,
             MessageBox
+        },
+
+        data(){
+            return{
+                transition : 'transition-left'
+            }
         },
 
         methods: {
@@ -81,10 +87,23 @@
             GlobalCommunication.$on('refreshUserData', this.refreshUserData);
 
             this.refreshUserData();
-            this.httpGet(
-                InfoModule.getUrlPath('extra/count/count.php',InfoModule.dir_api),
-                {},()=>{},()=>{}
-            );
+            this.httpGet(InfoModule.getUrlPath('extra/count/count.php',InfoModule.dir_api), {},()=>{},()=>{});
+        },
+
+        created(){
+            //初始化路由数据
+            for(let i in this.$router.options.routes){
+                routes.splice(routes.length,0,this.$router.options.routes[i].name);
+            }
+        },
+
+        watch : {
+            //监听路由，界面切换动画
+            $route(to , from){
+                //判断向左滑还是向右滑
+                const compare = routes.indexOf(to.name) > routes.indexOf (from.name);
+                this.transition = compare ? 'transition-left' : 'transition-right';
+            }
         }
     }
 
@@ -124,5 +143,21 @@
         margin: 0 auto;
         font-size: 15px;
         line-height: 20px;
+    }
+
+    .transition-body{
+        transition: all 0.3s ease;
+        position: absolute;
+        width: 100%;
+    }
+
+    .transition-left-enter,
+    .transition-right-leave-active {
+        transform: translate(100%, 0);
+    }
+
+    .transition-left-leave-active,
+    .transition-right-enter {
+        transform: translate(-100%, 0);
     }
 </style>
